@@ -45,7 +45,7 @@ if ($table && rex::getUser() && (rex::getUser()->isAdmin() || rex::getUser()->ge
             }
             # Header rauswerfen
             if ($p !== false) {
-                $page = '</header>'.substr($page, $p);
+                $page = ''.substr($page, $p);
             }
             # ausgabe
             echo $page;
