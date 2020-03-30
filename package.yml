@@ -1,0 +1,54 @@
+package: events
+version: '1.0.0'
+author: 'Alexander Walther'
+supportpage: www.github.com/alexplusde/events
+load: late
+
+requires:
+    php:
+        version: '^7.3'
+    redaxo: ^5.10
+    packages:
+        yform: ^3.3
+        yform_geo_osm: ^1.2.1
+
+
+page:
+    title: 'Events'
+    prio: 100
+    icon: rex-icon fa-gear
+
+pages:
+    events:
+        title: Veranstaltungen
+        main: true
+        block: system
+        prio: 15
+        icon: rex-icon fa-calendar
+        subpages: 
+            date:
+                title: Termine
+                icon: rex-icon fa-calendar-o
+                subPath: pages/data_edit.php
+                yformTable: rex_event_date
+                yformClass: rex_event_date
+                yformTitle: false
+            category:
+                title: Kategorien
+                icon: rex-icon fa-folder
+                subPath: pages/data_edit.php
+                yformTable: rex_event_category
+                yformClass: rex_event_category
+                yformTitle: false
+            location:
+                title: Location
+                icon: rex-icon fa-map-marker
+                subPath: pages/data_edit.php
+                yformTable: rex_event_location
+                yformClass: rex_event_location
+                yformTitle: false
+            docs:
+                title: Docs
+                subPath: README.md
+                icon: rex-icon fa-info-circle
+                itemclass: pull-right
