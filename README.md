@@ -108,16 +108,21 @@ Zunächst das REST-Plugin von YForm installieren und einen Token einrichten. Den
 
 **Auslesen:** GET `example.org/rest/v0.dev/event/date/?token=###TOKEN###`
 
+**Auslesen einzelner Termin**  GET `example.org/rest/v0.dev/event/date/7/?token=###TOKEN###` Termin  der `id=7`
+
 
 ### Endpunkt `category`
 
-**Auslesen:** GET `example.org/rest/v0.dev/event/date/?token=###TOKEN###`
+**Auslesen:** GET `example.org/rest/v0.dev/event/category/?token=###TOKEN###`
+
+**Auslesen einzelne Kategorie**  GET `example.org/rest/v0.dev/event/category/7/?token=###TOKEN###` Termin  der `id=7`
 
 
 ### Endpunkt `location`
 
-**Auslesen:** GET `example.org/rest/v0.dev/event/date/?token=###TOKEN###`
+**Auslesen:** GET `example.org/rest/v0.dev/event/location/?token=###TOKEN###`
 
+**Auslesen einzelner Standort**  GET `example.org/rest/v0.dev/event/location/7/?token=###TOKEN###` Termin  der `id=7`
 
 ## Lizenz
 
