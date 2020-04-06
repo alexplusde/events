@@ -13,7 +13,7 @@ Mit diesem Addon können Termine anhand von YForm und YOrm im Backend verwaltet 
 
 > **Tipp:** Events arbeitet hervorragend zusammen mit den Addons [`yform_usability`](https://github.com/FriendsOfREDAXO/yform_usability/) und [`yform_geo_osm`](https://github.com/FriendsOfREDAXO/yform_geo_osm)
 
-> **Unterstütze dieses Addon:** Mit einer Spende oder Beauftragung unterstützt du die Weiterentwicklung dieses AddOns: 
+> **Unterstütze dieses Addon:** Mit einer Spende oder Beauftragung unterstützt du die Weiterentwicklung dieses AddOns: https://github.com/sponsors/alexplusde
 
 ## Installation
 
