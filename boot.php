@@ -1,5 +1,20 @@
 <?php
 
+if (rex::isBackend() && rex_be_controller::getCurrentPage() == 'events/calendar') {
+    rex_view::addJsFile($this->getAssetsUrl('fullcalendar/packages/core/main.js'));
+    rex_view::addCssFile($this->getAssetsUrl('fullcalendar/packages/core/main.css'));
+    rex_view::addJsFile($this->getAssetsUrl('fullcalendar/packages/daygrid/main.js'));
+    rex_view::addCssFile($this->getAssetsUrl('fullcalendar/packages/daygrid/main.css'));
+    rex_view::addJsFile($this->getAssetsUrl('fullcalendar/packages/bootstrap/main.js'));
+    rex_view::addCssFile($this->getAssetsUrl('fullcalendar/packages/bootstrap/main.css'));
+    rex_view::addJsFile($this->getAssetsUrl('fullcalendar/packages/timegrid/main.js'));
+    rex_view::addCssFile($this->getAssetsUrl('fullcalendar/packages/timegrid/main.css'));
+    rex_view::addJsFile($this->getAssetsUrl('fullcalendar/packages/list/main.js'));
+    rex_view::addCssFile($this->getAssetsUrl('fullcalendar/packages/list/main.css'));
+    rex_view::addJsFile($this->getAssetsUrl('fullcalendar/packages/core/locales/de.js'));
+    rex_view::addJsFile($this->getAssetsUrl('backend.js'));
+}
+
 rex_yform_manager_dataset::setModelClass(
     'rex_event_date',
     event_date::class
