@@ -67,3 +67,6 @@ pages:
                 icon: rex-icon fa-info-circle
                 itemclass: pull-right
                 perm: events[docs]
+
+default_config:
+    currency: EUR
