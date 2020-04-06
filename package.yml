@@ -27,6 +27,14 @@ pages:
         icon: rex-icon fa-calendar
         perm: events[]
         subpages: 
+            date_lang:
+                title: translate:events_lang
+                perm: events[date_lang]
+                icon: rex-icon fa-flag
+                subPath: pages/data_edit.php
+                yformTable: rex_event_date_lang
+                yformClass: rex_event_date_lang
+                yformTitle: false
             date:
                 title: Termine
                 icon: rex-icon fa-calendar-o
