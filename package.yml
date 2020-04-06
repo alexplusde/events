@@ -14,13 +14,13 @@ requires:
 
 
 page:
-    title: 'Events'
+    title: translate:events
     prio: 100
     icon: rex-icon fa-gear
 
 pages:
     events:
-        title: Veranstaltungen
+        title: translate:events
         main: true
         block: system
         prio: 15
