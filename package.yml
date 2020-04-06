@@ -1,8 +1,7 @@
-package: events
-version: '1.1-dev'
+package: events/lang
+version: '0.1'
 author: 'Alexander Walther'
 supportpage: https://alexplusde.github.io/events/
-load: late
 
 requires:
     php:
@@ -11,49 +10,14 @@ requires:
     packages:
         yform: ^3.3
         yform_geo_osm: ^1.2.1
-
-
-page:
-    title: translate:events
-    prio: 100
-    icon: rex-icon fa-gear
+        yrewrite: ^2.6
 
 pages:
-    events:
-        title: translate:events
-        main: true
-        block: system
-        prio: 15
-        icon: rex-icon fa-calendar
-        perm: events[]
-        subpages: 
-            date:
-                title: Termine
-                icon: rex-icon fa-calendar-o
-                subPath: pages/data_edit.php
-                yformTable: rex_event_date
-                yformClass: rex_event_date
-                yformTitle: false
-                perm: events[date]
-            category:
-                title: Kategorien
-                icon: rex-icon fa-folder
-                subPath: pages/data_edit.php
-                yformTable: rex_event_category
-                yformClass: rex_event_category
-                yformTitle: false
-                perm: events[category]
-            location:
-                title: Location
-                icon: rex-icon fa-map-marker
-                subPath: pages/data_edit.php
-                yformTable: rex_event_location
-                yformClass: rex_event_location
-                yformTitle: false
-                perm: events[location]
-            docs:
-                title: Docs
-                subPath: README.md
-                icon: rex-icon fa-info-circle
-                itemclass: pull-right
-                perm: events[docs]
+    events/lang:
+        title: translate:events_lang
+        perm: events[lang]
+        icon: rex-icon fa-calendar-o
+        subPath: ../../pages/data_edit.php
+        yformTable: rex_event_lang
+        yformClass: rex_event_lang
+        yformTitle: false
