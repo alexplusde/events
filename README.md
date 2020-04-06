@@ -90,6 +90,35 @@ Typ `rex_yform_manager_dataset`. Greift auf die Tabelle `rex_event_category` zu.
 
 Typ `rex_yform_manager_dataset`. Greift auf die Tabelle `rex_event_location_` zu.
 
+## RESTful API (dev)
+
+Die [Rest-API](https://github.com/yakamara/redaxo_yform/blob/master/docs/plugins.md#restful-api-einf%C3%BChrung) ist über das REST-Plugin von YForm umgesetzt.
+
+### Einrichtung
+
+Zunächst das REST-Plugin von YForm installieren und einen Token einrichten. Den Token auf die jeweiligen Endpunkte legen:
+
+```php
+    /v0.dev/event/date
+    /v0.dev/event/category
+    /v0.dev/event/location
+```
+
+### Endpunkt `date`
+
+**Auslesen:** GET `example.org/rest/v0.dev/event/date/?token=###TOKEN###`
+
+
+### Endpunkt `category`
+
+**Auslesen:** GET `example.org/rest/v0.dev/event/date/?token=###TOKEN###`
+
+
+### Endpunkt `location`
+
+**Auslesen:** GET `example.org/rest/v0.dev/event/date/?token=###TOKEN###`
+
+
 ## Lizenz
 
 MIT Lizenz, siehe [LICENSE.md](https://github.com/alexplusde/events/blob/master/LICENSE.md)  
