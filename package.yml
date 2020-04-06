@@ -51,6 +51,11 @@ pages:
                 yformClass: rex_event_location
                 yformTitle: false
                 perm: events[location]
+            dev:
+                title: Dev
+                icon: rex-icon fa-gear
+                itemclass: pull-right
+                perm: admin
             docs:
                 title: Docs
                 subPath: README.md

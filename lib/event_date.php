@@ -7,7 +7,8 @@ class event_date extends \rex_yform_manager_dataset
 
     public function getCategory()
     {
-        return $this->getRelatedDataset('event_category_id');
+        $this->category = $this->getRelatedDataset('event_category_id');
+        return $this->category;
     }
 
     public function getIcs()
@@ -26,7 +27,7 @@ class event_date extends \rex_yform_manager_dataset
     public function getIcsLocation()
     {
         $this->location = $this->getRelatedDataset('location');
-        return $this->location->getValue('street') .", ". $this->location->getValue('zip') .", ".$this->location->getValue('locality');
+        return $this->location->getValue('street') .", ". $this->location->getValue('zip') .", ".$this->location->getValue('locality').", ".$this->location->getValue('countryCode');
     }
 
     public function getImage()
