@@ -13,6 +13,10 @@ rex_yform_manager_dataset::setModelClass(
     event_category::class
 );
 
+if (rex_addon::get('cronjob')->isAvailable() && !rex::isSafeMode()) {
+    rex_cronjob_manager::registerType('rex_cronjob_events_ics_import');
+}
+
 /* YForm Rest API */
 $rex_event_date_route = new \rex_yform_rest_route(
     [
