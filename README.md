@@ -21,25 +21,25 @@ Im REDAXO-Installer das Addon `events` herunterladen und installieren. Anschlie�
 
 In der Termin-Tabelle werden einzelne Daten festgehalten. Nach der Installation von `events` stehen folgende Felder zur Verfügung:
 
-| Typ      	| Typname             	| Name                	| Bezeichnung       	|
-|----------	|---------------------	|---------------------	|-------------------	|
-| value    	| text                	| name                	| Name              	|
-| validate 	| empty               	| name                	|                   	|
-| value    	| textarea            	| description         	| Beschreibung      	|
-| value    	| be_manager_relation 	| event_category_id   	| Kategorie         	|
-| value    	| be_manager_relation 	| location            	| Veranstaltungsort 	|
-| value    	| be_media            	| image               	| Bild              	|
-| value    	| text                	| url                 	| URL               	|
-| value    	| datetime            	| startDate           	| Beginn            	|
-| validate 	| compare_value       	| startDate           	|                   	|
-| value    	| time                	| doorTime            	| Einlass           	|
-| value    	| datetime            	| endDate             	| Ende              	|
-| value    	| select              	| eventStatus         	| Status            	|
-| value    	| text                	| offers_url          	| Tickets-URL       	|
-| value    	| text                	| offers_price        	| Preis             	|
-| validate 	| type                	| offers_price        	|                   	|
-| value    	| select              	| offers_availability 	| Verfügbarkeit     	|
-| validate 	| type                	| url                 	|                   	|
+| Typ      | Typname             | Name                | Bezeichnung       |
+|----------|---------------------|---------------------|-------------------|
+| value    | text                | name                | Name              |
+| validate | empty               | name                |                   |
+| value    | textarea            | description         | Beschreibung      |
+| value    | be_manager_relation | event_category_id   | Kategorie         |
+| value    | be_manager_relation | location            | Veranstaltungsort |
+| value    | be_media            | image               | Bild              |
+| value    | text                | url                 | URL               |
+| value    | datetime            | startDate           | Beginn            |
+| validate | compare_value       | startDate           |                   |
+| value    | time                | doorTime            | Einlass           |
+| value    | datetime            | endDate             | Ende              |
+| value    | select              | eventStatus         | Status            |
+| value    | text                | offers_url          | Tickets-URL       |
+| value    | text                | offers_price        | Preis             |
+| validate | type                | offers_price        |                   |
+| value    | select              | offers_availability | Verfügbarkeit     |
+| validate | type                | url                 |                   |
 
 Die Felder und Feldnamen orientieren sich dabei am [JSON+LD-Standard für Veranstaltungen](https://jsonld.com/event/), die wichtigsten Validierungen wurden bereits eingefügt.
 
@@ -47,28 +47,28 @@ Die Felder und Feldnamen orientieren sich dabei am [JSON+LD-Standard für Verans
 
 Die Tabelle Kategorien kann frei verändert werden, um Termine zu gruppieren (bspw. Veranstaltungsreihen) oder zu Verschlagworten (als Tags).
 
-| Typ      	| Typname             	| Name    	| Bezeichnung 	|
-|----------	|---------------------	|---------	|-------------	|
-| value    	| text                	| name    	| Titel       	|
-| validate 	| unique              	| name    	|             	|
-| validate 	| empty               	| name    	|             	|
-| value    	| be_media            	| image   	| Bildmotiv   	|
-| value    	| choice              	| status  	| Status      	|
-| value    	| be_manager_relation 	| date_id 	| Termine     	|
+| Typ      | Typname             | Name    | Bezeichnung |
+|----------|---------------------|---------|-------------|
+| value    | text                | name    | Titel       |
+| validate | unique              | name    |             |
+| validate | empty               | name    |             |
+| value    | be_media            | image   | Bildmotiv   |
+| value    | choice              | status  | Status      |
+| value    | be_manager_relation | date_id | Termine     |
 
 ### Die Tabelle "LOCATION"
 
 Die Tabelle Location enthält die passenden Veranstaltungsorte zu den Veranstaltungen. Sie wurde im Hinblick auf leichte Geocodierung erstellt, lässt sich aber beliebig um zusätzliche Informationen erweitern.
 
-| Typname 	| Name        	| Bezeichnung 	| Funktion           	|
-|---------	|-------------	|-------------	|--------------------	|
-| value   	| text        	| name        	| Name               	|
-| value   	| text        	| street      	| Straße, Hausnummer 	|
-| value   	| text        	| zip         	| PLZ                	|
-| value   	| text        	| locality    	| Stadt              	|
-| value   	| osm_geocode 	| lat_lng     	| Geoposition        	|
-| value   	| text        	| lat         	| Latitude           	|
-| value   	| text        	| lng         	| Lng                	|
+| Typname | Name        | Bezeichnung | Funktion           |
+|---------|-------------|-------------|--------------------|
+| value   | text        | name        | Name               |
+| value   | text        | street      | Straße, Hausnummer |
+| value   | text        | zip         | PLZ                |
+| value   | text        | locality    | Stadt              |
+| value   | osm_geocode | lat_lng     | Geoposition        |
+| value   | text        | lat         | Latitude           |
+| value   | text        | lng         | Lng                |
 
 Die Felder und Feldnamen orientieren sich dabei am [JSON+LD-Standard für Veranstaltungen](https://jsonld.com/event/), die wichtigsten Validierungen wurden bereits eingefügt.
 
