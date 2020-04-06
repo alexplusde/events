@@ -1,5 +1,5 @@
 package: events
-version: '1.0.2'
+version: '1.0.3'
 author: 'Alexander Walther'
 supportpage: www.github.com/alexplusde/events
 load: late
@@ -25,6 +25,7 @@ pages:
         block: system
         prio: 15
         icon: rex-icon fa-calendar
+        perm: events[]
         subpages: 
             date:
                 title: Termine
@@ -33,6 +34,7 @@ pages:
                 yformTable: rex_event_date
                 yformClass: rex_event_date
                 yformTitle: false
+                perm: events[date]
             category:
                 title: Kategorien
                 icon: rex-icon fa-folder
@@ -40,6 +42,7 @@ pages:
                 yformTable: rex_event_category
                 yformClass: rex_event_category
                 yformTitle: false
+                perm: events[category]
             location:
                 title: Location
                 icon: rex-icon fa-map-marker
@@ -47,8 +50,10 @@ pages:
                 yformTable: rex_event_location
                 yformClass: rex_event_location
                 yformTitle: false
+                perm: events[location]
             docs:
                 title: Docs
                 subPath: README.md
                 icon: rex-icon fa-info-circle
                 itemclass: pull-right
+                perm: events[docs]
