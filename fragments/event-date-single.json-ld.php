@@ -1,40 +1,42 @@
+<?php 
+?>
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Event",
-    "name": "<?= $this->name ?>",
-    "startDate": "<?= $this->startDate ?> ",
-    "endDate": "<?= $this->endDate ?>",
+    "name": "<?= $this->event_date->getValue('name')  ?>",
+    "startDate": "<?= $this->event_date->getValue('startDate')  ?> ",
+    "endDate": "<?= $this->event_date->getValue('endDate')  ?>",
     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
     "eventStatus": "https://schema.org/EventScheduled",
     "location": {
       "@type": "Place",
-      "name": "<?= $this->getLocation()->name ?>",
+      "name": "<?= $this->event_date->getLocation()->getValue('name') ?>",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "<?= $this->getLocation()->street ?>",
-        "addressLocality": "<?= $this->getLocation()->locality ?>",
-        "postalCode": "<?= $this->getLocation()->zip ?>"
+        "streetAddress": "<?= $this->event_date->getLocation()->getValue('street') ?>",
+        "addressLocality": "<?= $this->event_date->getLocation()->getValue('locality') ?>",
+        "postalCode": "<?= $this->event_date->getLocation()->getValue('zip')  ?>"
         /*,
                "addressRegion": "PA",
                "addressCountry": "US" */
       }
     },
     "image": [
-      "<?= $this->getImage() ?>"
+      "<?= $this->event_date->getImage() ?>"
     ],
-    "description": <?= $this->getDescriptionAsPlainText() ?> ,
+    "description": <?= $this->event_date->getDescriptionAsPlainText() ?> ,
     "offers": {
       "@type": "Offer",
-      "url": "<?= $this->offer_url ?>",
-      "price": "<?= $this->offer_price ?>",
+      "url": "<?= $this->event_date->getValue('offers_url')  ?>",
+      "price": "<?= $this->event_date->getValue('offers_price')  ?>",
       "priceCurrency": "EUR",
       "availability": "https://schema.org/InStock",
-      "validFrom": "<?= $this->updatedate ?>"
+      "validFrom": "<?= $this->event_date->getValue('updatedate')  ?>"
     },
     "performer": {
       "@type": "PerformingGroup",
-      "name": "<?= $this->performer ?>"
+      "name": "<?= $this->event_date->getValue('performer')  ?>"
     }
   }
 </script>
