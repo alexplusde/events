@@ -12,6 +12,8 @@ Mit diesem Addon können Termine anhand von YForm und YOrm im Backend verwaltet 
 
 > **Tipp:** Events arbeitet hervorragend zusammen mit den Addons [`yform_usability`](https://github.com/FriendsOfREDAXO/yform_usability/) und [`yform_geo_osm`](https://github.com/FriendsOfREDAXO/yform_geo_osm)
 
+> **Unterstütze dieses Addon:** Mit einer Spende oder Beauftragung unterstützt du die Weiterentwicklung dieses AddOns: 
+
 ## Installation
 
 Im REDAXO-Installer das Addon `events` herunterladen und installieren. Anschließend erscheint ein neuer Menüpunkt `Veranstaltungen` sichtbar.
