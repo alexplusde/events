@@ -1,6 +1,6 @@
 # Terminverwaltung für REDAXO 5.10 & YForm 3.3
 
-Mit diesem Addon können Termine anhand von YForm und YOrm im Backend verwaltet und im Frontend ausgegeben werden.
+Mit diesem Addon können Termine anhand von YForm und YOrm im Backend verwaltet und im Frontend ausgegeben werden. Auf Wunsch auch mehrsprachig.
 
 ## Features
 
@@ -8,8 +8,8 @@ Mit diesem Addon können Termine anhand von YForm und YOrm im Backend verwaltet 
 * Einfach: Die Ausgabe erfolgt über [`rex_sql`](https://redaxo.org/doku/master/datenbank-queries) oder objektorientiert über [YOrm](https://github.com/yakamara/redaxo_yform_docs/blob/master/de_de/yorm.md)
 * Flexibel: **Zugriff** über die [YForm Rest-API](https://github.com/yakamara/redaxo_yform/blob/master/docs/plugins.md#restful-api-einf%C3%BChrung)
 * Sinnvoll: Nur ausgewählte **Rollen**/Redakteure haben Zugriff
+* Bereit für **mehrsprachige** Websites: Reiter für Sprachen auf Wunsch anzeigen oder ausblenden
 * Bereit für mehr: Vorbereitet für das [JSON+LD-Format](https://jsonld.com/event/), ICS-Format
-
 
 > **Tipp:** Events arbeitet hervorragend zusammen mit den Addons [`yform_usability`](https://github.com/FriendsOfREDAXO/yform_usability/) und [`yform_geo_osm`](https://github.com/FriendsOfREDAXO/yform_geo_osm)
 
@@ -20,6 +20,12 @@ Mit diesem Addon können Termine anhand von YForm und YOrm im Backend verwaltet 
 Im REDAXO-Installer das Addon `events` herunterladen und installieren. Anschließend erscheint ein neuer Menüpunkt `Veranstaltungen` sichtbar.
 
 ## Nutzung im Backend: Die Terminverwaltung
+
+### Die Tabelle "SPRACHEN"
+
+Die Tabelle "TERMINE" mit Flaggen-Symbol ist eine Tabelle, in der zunächst Sprachen verwaltet werden können und im Anschluss die eigentliche Termin-Tabelle gefiltert nach dieser Sprache angezeigt wird.
+
+Wer keine mehrsprachigen Termine benötigt, kann diesen Menüpunkt problemlos für Redakteure über die Benutzer-Rollen ausblenden. Wichtig ist jedoch, dass mind. eine Sprache angelegt wurde.
 
 ### Die Tabelle "TERMINE"
 
@@ -75,6 +81,7 @@ Die Tabelle Location enthält die passenden Veranstaltungsorte zu den Veranstalt
 | value   | text        | lng         | Lng                |
 
 Die Felder und Feldnamen orientieren sich dabei am [JSON+LD-Standard für Veranstaltungen](https://jsonld.com/event/), die wichtigsten Validierungen wurden bereits eingefügt.
+
 
 ## Nutzung im Frontend
 
