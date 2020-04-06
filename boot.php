@@ -13,7 +13,6 @@ rex_yform_manager_dataset::setModelClass(
     event_category::class
 );
 
-
 /* YForm Rest API */
 $rex_event_date_route = new \rex_yform_rest_route(
     [
