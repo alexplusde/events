@@ -19,6 +19,46 @@ Mit diesem Addon können Termine anhand von YForm und YOrm im Backend verwaltet 
 
 Im REDAXO-Installer das Addon `events` herunterladen und installieren. Anschließend erscheint ein neuer Menüpunkt `Veranstaltungen` sichtbar.
 
+## Nutzung im Frontend
+
+### Die Klasse `event_date`
+
+Typ `rex_yform_manager_dataset`. Greift auf die Tabelle `rex_event_date` zu.
+
+#### Beispiel-Ausgabe eines Termins
+
+```php
+dump(event_date::get(3)); // Termin mit der id=3
+```
+
+#### Zusätzliche Methoden
+
+`getCategory()` holt die passende Kategorie als `event_category`-Objekt.
+
+```php
+dump(event_date::get(3)->getCategory()); // Termin mit der id=3
+```
+
+### Die Klasse `event_category`
+
+Typ `rex_yform_manager_dataset`. Greift auf die Tabelle `rex_event_category` zu.
+
+#### Beispiel-Ausgabe einer Kategorie
+
+```php
+dump(event_category::get(3)); // Termin mit der id=3
+```
+
+### Die Klasse `event_location`
+
+Typ `rex_yform_manager_dataset`. Greift auf die Tabelle `rex_event_location_` zu.
+
+#### Beispiel-Ausgabe einer Location
+
+```php
+dump(event_location::get(3)); // Termin mit der id=3
+```
+
 ## Nutzung im Backend: Die Terminverwaltung
 
 ### Die Tabelle "SPRACHEN"
@@ -82,25 +122,6 @@ Die Tabelle Location enthält die passenden Veranstaltungsorte zu den Veranstalt
 
 Die Felder und Feldnamen orientieren sich dabei am [JSON+LD-Standard für Veranstaltungen](https://jsonld.com/event/), die wichtigsten Validierungen wurden bereits eingefügt.
 
-
-## Nutzung im Frontend
-
-### Die Klasse `event_date`
-
-Typ `rex_yform_manager_dataset`. Greift auf die Tabelle `rex_event_date` zu.
-
-#### Zusätzliche Methoden
-
-`getCategory()` holt die passende Kategorie als `event_category`-Objekt.
-
-### Die Klasse `event_category`
-
-Typ `rex_yform_manager_dataset`. Greift auf die Tabelle `rex_event_category` zu.
-
-### Die Klasse `event_location`
-
-Typ `rex_yform_manager_dataset`. Greift auf die Tabelle `rex_event_location_` zu.
-
 ## RESTful API (dev)
 
 Die [Rest-API](https://github.com/yakamara/redaxo_yform/blob/master/docs/plugins.md#restful-api-einf%C3%BChrung) ist über das REST-Plugin von YForm umgesetzt.
@@ -121,13 +142,11 @@ Zunächst das REST-Plugin von YForm installieren und einen Token einrichten. Den
 
 **Auslesen einzelner Termin**  GET `example.org/rest/v0.dev/event/date/7/?token=###TOKEN###` Termin  der `id=7`
 
-
 ### Endpunkt `category`
 
 **Auslesen:** GET `example.org/rest/v0.dev/event/category/?token=###TOKEN###`
 
 **Auslesen einzelne Kategorie**  GET `example.org/rest/v0.dev/event/category/7/?token=###TOKEN###` Termin  der `id=7`
-
 
 ### Endpunkt `location`
 
