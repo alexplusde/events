@@ -1,0 +1,23 @@
+package: events/lang
+version: '0.1'
+author: 'Alexander Walther'
+supportpage: https://alexplusde.github.io/events/
+
+requires:
+    php:
+        version: '^7.3'
+    redaxo: ^5.10
+    packages:
+        yform: ^3.3
+        yform_geo_osm: ^1.2.1
+        yrewrite: ^2.6
+
+pages:
+    events/lang:
+        title: translate:events_lang
+        perm: events[lang]
+        icon: rex-icon fa-calendar-o
+        subPath: ../../pages/data_edit.php
+        yformTable: rex_event_lang
+        yformClass: rex_event_lang
+        yformTitle: false
