@@ -1,7 +1,6 @@
 <?php
 class event_date extends \rex_yform_manager_dataset
 {
-
     private $location = null;
     private $category = null;
 

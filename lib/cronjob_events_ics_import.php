@@ -238,7 +238,7 @@ class rex_cronjob_events_ics_import extends rex_cronjob
         }
 
         // Benutzerdefinierte Standard-Kategorie auswählen
-        $sql_categories = rex_sql::factory()->setDebug(0)->getArray('SELECT id, name_'.rex_clang::getCurrentId().' AS name FROM `rex_event_category`');
+        $sql_categories = rex_sql::factory()->setDebug(0)->getArray('SELECT id, name AS name FROM `rex_event_category`');
 
         $events_category_ids = [];
         $events_category_ids[0] = rex_i18n::msg('events_ics_import_cronjob_choose');
@@ -248,7 +248,7 @@ class rex_cronjob_events_ics_import extends rex_cronjob
         }
         
         // Benutzerdefinierte Standard-Location auswählen
-        $sql_locations = rex_sql::factory()->setDebug(0)->getArray('SELECT id, name_'.rex_clang::getCurrentId().' AS name FROM `rex_event_location`');
+        $sql_locations = rex_sql::factory()->setDebug(0)->getArray('SELECT id, name AS name FROM `rex_event_location`');
         $events_location_ids = [];
         $events_location_ids[0] = rex_i18n::msg('events_ics_import_cronjob_choose_none');
 
@@ -264,13 +264,6 @@ class rex_cronjob_events_ics_import extends rex_cronjob
                 'type' => 'text',
                 'default' => $default_url,
                 'notice' => rex_i18n::msg('events_ics_import_cronjob_url_notice'),
-            ],
-            [
-                'label' => rex_i18n::msg('events_ics_import_cronjob_media_label'),
-                'name' => 'media',
-                'type' => 'media',
-                'types' => "ics", // TODO: Einschränkung funktioniert nicht
-                'notice' => rex_i18n::msg('events_ics_import_cronjob_media_notice'),
             ],
             [
                 'name' => 'category_sync',
