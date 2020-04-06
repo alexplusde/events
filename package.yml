@@ -56,6 +56,11 @@ pages:
                 icon: rex-icon fa-gear
                 itemclass: pull-right
                 perm: admin
+            settings:
+                title: Settings
+                icon: rex-icon fa-gear
+                itemclass: pull-right
+                perm: admin
             docs:
                 title: Docs
                 subPath: README.md
