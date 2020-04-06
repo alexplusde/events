@@ -1,5 +1,5 @@
 package: events
-version: '1.0.5'
+version: '1.0.5-dev'
 author: 'Alexander Walther'
 supportpage: www.github.com/alexplusde/events
 load: late
