@@ -1,7 +1,7 @@
 package: events
 version: '1.1-dev'
 author: 'Alexander Walther'
-supportpage: www.github.com/alexplusde/events
+supportpage: https://alexplusde.github.io/events/
 load: late
 
 requires:
