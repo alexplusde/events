@@ -4,6 +4,12 @@ class event_date extends \rex_yform_manager_dataset
     private $location = null;
     private $category = null;
 
+    public function generateUid()
+    {
+        $uuid = uuid_make($context, UUID_MAKE_V3, rex::getServer(), $this->id);
+        return trim($uuid);
+    }
+
     public function getCategory()
     {
         $this->category = $this->getRelatedDataset('event_category_id');
@@ -23,18 +29,16 @@ class event_date extends \rex_yform_manager_dataset
         return $this->location;
     }
 
-    public function getIcsLocation()
-    {
-        $this->location = $this->getRelatedDataset('location');
-        return $this->location->getValue('street') .", ". $this->location->getValue('zip') .", ".$this->location->getValue('locality').", ".$this->location->getValue('countryCode');
-    }
-
-    public function getImage()
+    public function getImage() :string
     {
         return $this->image;
     }
+    public function getMedia()
+    {
+        return rex_media::get($this->image);
+    }
 
-    public function getIcsDescription()
+    public function getDescriptionAsPlaintext() :string
     {
         return strip_tags($this->description);
     }
@@ -42,14 +46,9 @@ class event_date extends \rex_yform_manager_dataset
     {
         return strip_tags($this->eventStatus);
     }
-    public function getIcsUid()
+    public function getUid()
     {
-        return strip_tags($this->id);
-    }
-
-    public function getDescriptionAsPlainText()
-    {
-        return strip_tags($this->description);
+        return $this->uid;
     }
 
     public function getJsonLd()
