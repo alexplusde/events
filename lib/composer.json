@@ -1,5 +1,7 @@
 {
     "require": {
-        "ramsey/uuid": "^4.0"
+        "ramsey/uuid": "^4.0",
+        "eluceo/ical": "^0.16.0",
+        "johngrogg/ics-parser": "^2.1"
     }
 }
