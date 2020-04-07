@@ -1,5 +1,22 @@
 <?php
 
+<<<<<<< Updated upstream
+=======
+if (rex::isBackend() && rex_be_controller::getCurrentPage() == 'events/calendar') {
+    rex_view::addJsFile($this->getAssetsUrl('fullcalendar/packages/core/main.js'));
+    rex_view::addCssFile($this->getAssetsUrl('fullcalendar/packages/core/main.css'));
+    rex_view::addJsFile($this->getAssetsUrl('fullcalendar/packages/daygrid/main.js'));
+    rex_view::addCssFile($this->getAssetsUrl('fullcalendar/packages/daygrid/main.css'));
+    rex_view::addJsFile($this->getAssetsUrl('fullcalendar/packages/bootstrap/main.js'));
+    rex_view::addCssFile($this->getAssetsUrl('fullcalendar/packages/bootstrap/main.css'));
+    rex_view::addJsFile($this->getAssetsUrl('fullcalendar/packages/timegrid/main.js'));
+    rex_view::addCssFile($this->getAssetsUrl('fullcalendar/packages/timegrid/main.css'));
+    rex_view::addJsFile($this->getAssetsUrl('fullcalendar/packages/list/main.js'));
+    rex_view::addCssFile($this->getAssetsUrl('fullcalendar/packages/list/main.css'));
+    rex_view::addJsFile($this->getAssetsUrl('fullcalendar/packages/core/locales/de.js'));
+    rex_view::addJsFile($this->getAssetsUrl('backend.js'));
+}
+>>>>>>> Stashed changes
 rex_yform_manager_dataset::setModelClass(
     'rex_event_date',
     event_date::class
@@ -12,6 +29,7 @@ rex_yform_manager_dataset::setModelClass(
     'rex_event_category',
     event_category::class
 );
+dump(event_date::get(1)->generateUid());
 
 if (rex_addon::get('cronjob')->isAvailable() && !rex::isSafeMode()) {
     rex_cronjob_manager::registerType('rex_cronjob_events_ics_import');
