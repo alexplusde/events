@@ -1,7 +1,5 @@
 <?php
 
-<<<<<<< Updated upstream
-=======
 if (rex::isBackend() && rex_be_controller::getCurrentPage() == 'events/calendar') {
     rex_view::addJsFile($this->getAssetsUrl('fullcalendar/packages/core/main.js'));
     rex_view::addCssFile($this->getAssetsUrl('fullcalendar/packages/core/main.css'));
@@ -16,7 +14,7 @@ if (rex::isBackend() && rex_be_controller::getCurrentPage() == 'events/calendar'
     rex_view::addJsFile($this->getAssetsUrl('fullcalendar/packages/core/locales/de.js'));
     rex_view::addJsFile($this->getAssetsUrl('backend.js'));
 }
->>>>>>> Stashed changes
+
 rex_yform_manager_dataset::setModelClass(
     'rex_event_date',
     event_date::class
