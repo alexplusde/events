@@ -1,13 +1,16 @@
 <?php
+
+use Ramsey\uuid\uuid;
+
 class event_date extends \rex_yform_manager_dataset
 {
     private $location = null;
     private $category = null;
+    private $offer = null;
 
-    public function generateUid()
+    public static function generateuuid($id = null) :string
     {
-        $uuid = uuid_make($context, UUID_MAKE_V3, rex::getServer(), $this->id);
-        return trim($uuid);
+        return uuid::uuid3(uuid::NAMESPACE_URL, $id);
     }
 
     public function getCategory()
@@ -29,6 +32,11 @@ class event_date extends \rex_yform_manager_dataset
         return $this->location;
     }
 
+    public function getOfferAll()
+    {
+        return $this->getRelatedCollection('offer'); // Fehlerhaft. Yform Issue #  
+    }
+
     public function getImage() :string
     {
         return $this->image;
@@ -48,15 +56,26 @@ class event_date extends \rex_yform_manager_dataset
     }
     public function getUid()
     {
+        if($this->uid === "") {
+            $this->uid = self::generateUuid($this->id);
+        }
         return $this->uid;
     }
 
     public function getJsonLd()
     {
         $fragment = new rex_fragment();
-
-        dump($this);
         $fragment->setVar("event_date", $this);
         return $fragment->parse('event-date-single.json-ld.php');
     }
+
+    private function getDateTime($date = null, $time = "00:00") {
+
+        $dateTime = new DateTime($date);
+        $dateTime->sub($dateTime->format("H:i"));
+        $dateTime->add($time);
+
+        return $dateTime; 
+    }
+
 }

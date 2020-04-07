@@ -1,16 +1,22 @@
+<?php 
+$date = $this->event_date;
+$location = $date->getLocation();
+?>
 BEGIN:VCALENDAR 
 VERSION:2.0 
 CALSCALE:GREGORIAN 
 BEGIN:VEVENT
-CREATED:<?= date('Ymd\THis', strtotime($this->event_date->getValue('createdate'))) ?> 
-SUMMARY:<?= $this->event_date->getValue('name') ?>
-DTSTART:<?= date('Ymd\THis', strtotime($this->event_date->getValue('startDate'))) ?> 
-DTEND:<?= date('Ymd\THis', strtotime($this->event_date->getValue('endDate'))) ?> 
-LAST-MODIFIED:<?= date('Ymd\THis', strtotime($this->event_date->getValue('updatedate'))) ?> 
-LOCATION:<?= $this->event_date->getIcsLocation() ?> 
-DESCRIPTION: <?= $this->event_date->getIcsDescription() ?> 
+CREATED:<?= date('Ymd\THis', strtotime($date->getValue('createdate'))) ?> 
+SUMMARY:<?= $date->getValue('teaser') ?>
+DTSTART:<?= date('Ymd\THis', strtotime($date->getValue('startDate'))) ?> 
+DTEND:<?= date('Ymd\THis', strtotime($date->getValue('endDate'))) ?> 
+LAST-MODIFIED:<?= date('Ymd\THis', strtotime($date->getValue('updatedate'))) ?> 
+<?php if($location) { ?>
+LOCATION:<?= $location->getLocationAsString() ?>
+<?php } ?> 
+DESCRIPTION: <?= $date->getDescriptionAsPlaintext() ?> 
 SEQUENCE:0 
-STATUS:<?= $this->event_date->getIcsStatus() ?> 
-UID:<?= $this->event_date->getIcsUid() ?> 
+STATUS:<?= $date->getIcsStatus() ?> 
+UID:<?= $date->getUid() ?> 
 END:VEVENT 
 END:VCALENDAR 

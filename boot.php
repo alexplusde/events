@@ -27,7 +27,10 @@ rex_yform_manager_dataset::setModelClass(
     'rex_event_category',
     event_category::class
 );
-dump(event_date::get(1)->generateUid());
+rex_yform_manager_dataset::setModelClass(
+    'rex_event_date_offer',
+    event_date_offer::class
+);
 
 if (rex_addon::get('cronjob')->isAvailable() && !rex::isSafeMode()) {
     rex_cronjob_manager::registerType('rex_cronjob_events_ics_import');
