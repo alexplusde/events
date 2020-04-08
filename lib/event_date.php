@@ -34,7 +34,7 @@ class event_date extends \rex_yform_manager_dataset
 
     public function getOfferAll()
     {
-        return $this->getRelatedCollection('offer'); // Fehlerhaft. Yform Issue #  
+        return $this->getRelatedCollection('offer'); // Fehlerhaft. Yform Issue #
     }
 
     public function getImage() :string
@@ -56,7 +56,7 @@ class event_date extends \rex_yform_manager_dataset
     }
     public function getUid()
     {
-        if($this->uid === "") {
+        if ($this->uid === "") {
             $this->uid = self::generateUuid($this->id);
         }
         return $this->uid;
@@ -69,13 +69,12 @@ class event_date extends \rex_yform_manager_dataset
         return $fragment->parse('event-date-single.json-ld.php');
     }
 
-    private function getDateTime($date = null, $time = "00:00") {
-
+    private function getDateTime($date = null, $time = "00:00")
+    {
         $dateTime = new DateTime($date);
         $dateTime->sub($dateTime->format("H:i"));
         $dateTime->add($time);
 
-        return $dateTime; 
+        return $dateTime;
     }
-
 }

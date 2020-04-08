@@ -1,4 +1,4 @@
-<?php 
+<?php
 $date = $this->event_date;
 $offers = $date->getOfferAll();
 $location = $date->getLocation();
@@ -12,7 +12,7 @@ $location = $date->getLocation();
     "endDate": "<?= $date->getValue('endDate')  ?>",
     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
     "eventStatus": "https://schema.org/EventScheduled",
-<?php if($location) { ?>
+<?php if ($location) { ?>
     "location": {
       "@type": "Place",
       "name": "<?= $location->getValue('name') ?>",
@@ -29,7 +29,7 @@ $location = $date->getLocation();
       "<?= $date->getImage() ?>"
     ],
     "description": <?= $date->getDescriptionAsPlainText() ?> ,
-<?php if($offers) { ?>
+<?php if ($offers) { ?>
   "offers":
 <?php foreach ($offers as $offer) { ?>
   {

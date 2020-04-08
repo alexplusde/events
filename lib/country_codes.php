@@ -1,9 +1,9 @@
 <?php
-class event_country_codes {
-    
-    public static function get() {
- 
-return array(
+class event_country_codes
+{
+    public static function get()
+    {
+        return array(
 "AF" => "Afghanistan",
 "AL" => "Albania",
 "DZ" => "Algeria",
@@ -244,6 +244,5 @@ return array(
 "ZM" => "Zambia",
 "ZW" => "Zimbabwe"
 );
+    }
 }
-}
-?>
