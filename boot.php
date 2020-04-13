@@ -193,8 +193,9 @@ if (rex_plugin::get('yform', 'rest')->isAvailable() && !rex::isSafeMode()) {
 
 rex_extension::register('REX_YFORM_SAVED', function (rex_extension_point $ep) {
 
-    $id = $ep->getParam('id');
-    $dataset = event_date::get($ep->getParam('id'));
-    rex_sql::factory()->setQuery("UPDATE rex_event_date SET uid = :uid WHERE id = :id", [":uid"=>$dataset->getUid(), ":id" => $id]);
+    // darf nur bei passender Tabelle passieren.
+//    $id = $ep->getParam('id');
+//    $dataset = event_date::get($ep->getParam('id'));
+//    rex_sql::factory()->setQuery("UPDATE rex_event_date SET uid = :uid WHERE id = :id", [":uid"=>$dataset->getUid(), ":id" => $id]);
 
 });

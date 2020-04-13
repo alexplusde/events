@@ -58,7 +58,7 @@ class event_date extends \rex_yform_manager_dataset
     }
     public function getUid()
     {
-        if ($this->uid === "") {
+        if ($this->uid === "" && $this->getValue("uid") === "") {
             $this->uid = self::generateUuid($this->id);
 
             rex_sql::factory()->setQuery("UPDATE rex_event_date SET uid = :uid WHERE id = :id", [":uid"=>$this->uid, ":id" => $this->getId()]);

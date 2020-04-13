@@ -48,7 +48,7 @@ class rex_yform_value_event_media extends rex_yform_value_abstract
 
         $return = [];
         if(rex_media::get($files[0])) {
-            $return[] = '<img style="max-height: 20px; width: auto;" src="'. rex_url::frontend().rex_media_manager::getUrl("rex_mediabutton_preview",$files[0]) .'">';
+            $return[] = '<img src="'. rex_url::frontend().rex_media_manager::getUrl("events_list_preview",$files[0]) .'">';
         }
 
         return implode('<br />', $return);
