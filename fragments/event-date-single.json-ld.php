@@ -8,8 +8,8 @@ $location = $date->getLocation();
     "@context": "https://schema.org",
     "@type": "Event",
     "name": "<?= $date->getValue('name')  ?>",
-    "startDate": "<?= $date->getValue('startDate')  ?> ",
-    "endDate": "<?= $date->getValue('endDate')  ?>",
+    "startDate": "<?= $date->getStartDate()->format(DateTimeInterface::ATOM) ?> ",
+    "endDate": "<?= $date->getEndDate()->format(DateTimeInterface::ATOM)  ?>",
     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
     "eventStatus": "https://schema.org/EventScheduled",
 <?php if ($location) { ?>

@@ -4,6 +4,8 @@ use Ramsey\uuid\uuid;
 
 class event_date extends \rex_yform_manager_dataset
 {
+    private $startDate = null;
+    private $endDate = null;
     private $location = null;
     private $category = null;
     private $offer = null;
@@ -58,6 +60,9 @@ class event_date extends \rex_yform_manager_dataset
     {
         if ($this->uid === "") {
             $this->uid = self::generateUuid($this->id);
+
+            rex_sql::factory()->setQuery("UPDATE rex_event_date SET uid = :uid WHERE id = :id", [":uid"=>$this->uid, ":id" => $this->getId()]);
+
         }
         return $this->uid;
     }
@@ -71,10 +76,23 @@ class event_date extends \rex_yform_manager_dataset
 
     private function getDateTime($date = null, $time = "00:00")
     {
+        $time = explode(":",$time);
         $dateTime = new DateTime($date);
-        $dateTime->sub($dateTime->format("H:i"));
-        $dateTime->add($time);
+        $dateTime->setTime($time[0],$time[1]);
 
         return $dateTime;
     }
+
+    public function getStartDate() {
+
+        $this->startDate = $this->getDateTime($this->getValue("startDate"), $this->getValue("startTime"));
+        return $this->startDate;
+    }
+    public function getEndDate() {
+
+        $this->endDate = $this->getDateTime($this->getValue("endDate"), $this->getValue("endTime"));
+        return $this->endDate;
+
+    }
+
 }
