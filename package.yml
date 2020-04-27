@@ -31,6 +31,10 @@ pages:
                 title: Übersicht
                 icon: rex-icon fa-calendar
                 perm: events[calendar]
+            dev:
+                title: Test
+                icon: rex-icon fa-calendar
+                perm: events[calendar]
             date_lang:
                 title: translate:events_lang
                 perm: events[date_lang]

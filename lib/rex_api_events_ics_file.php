@@ -8,7 +8,7 @@ class rex_api_events_ics_file extends rex_api_function
     {
         $event_id = rex_request('id', 'int', 0);
         if (!$event_id) {
-            $result = [ 'errorcode' => 1, rex_i18n::msg('rex_api_sked_ics_file_no_id') ];
+            $result = [ 'errorcode' => 1, rex_i18n::msg('rex_api_events_ics_file_no_id') ];
             self::httpError($result);
         } else {
             header('Content-Type: text/calendar; charset=utf-8');

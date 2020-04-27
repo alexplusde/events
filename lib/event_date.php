@@ -23,9 +23,24 @@ class event_date extends \rex_yform_manager_dataset
 
     public function getIcs()
     {
-        $fragment = new rex_fragment();
-        $fragment->setVar("event_date", $this);
-        return $fragment->parse('event-date-single.ics.php');
+        $vEvent = new \Eluceo\iCal\Component\Event();
+
+        $vEvent
+        ->setDtStart($this->getStartDate())
+        ->setDtEnd($this->getEndDate())
+        // ->setNoTime($is_fulltime) // Wenn Ganztag
+        ->setUseTimezone(true)
+        // ->setCategories(explode(",", $sked['entry']->category_name))
+        ->setSummary($this->getDescriptionAsPlaintext());
+
+        // TODO: Hier gibt es noch viele Eigenschaften, die synchronisiert werden können: uid, usw.
+
+        
+        header('Content-Type: text/calendar; charset=utf-8');
+        header('Content-Disposition: attachment; filename=invite.ics'); // Todo: Dateinamen generieren
+
+        ob_clean();
+        exit($vEvent);
     }
 
     public function getLocation()
@@ -36,7 +51,7 @@ class event_date extends \rex_yform_manager_dataset
 
     public function getOfferAll()
     {
-        return $this->getRelatedCollection('offer'); // Fehlerhaft. Yform Issue #
+        // return $this->getRelatedCollection('offer'); // Fehlerhaft. Yform Issue #
     }
 
     public function getImage() :string
@@ -62,7 +77,6 @@ class event_date extends \rex_yform_manager_dataset
             $this->uid = self::generateUuid($this->id);
 
             rex_sql::factory()->setQuery("UPDATE rex_event_date SET uid = :uid WHERE id = :id", [":uid"=>$this->uid, ":id" => $this->getId()]);
-
         }
         return $this->uid;
     }
@@ -76,23 +90,21 @@ class event_date extends \rex_yform_manager_dataset
 
     private function getDateTime($date = null, $time = "00:00")
     {
-        $time = explode(":",$time);
+        $time = explode(":", $time);
         $dateTime = new DateTime($date);
-        $dateTime->setTime($time[0],$time[1]);
+        $dateTime->setTime($time[0], $time[1]);
 
         return $dateTime;
     }
 
-    public function getStartDate() {
-
+    public function getStartDate()
+    {
         $this->startDate = $this->getDateTime($this->getValue("startDate"), $this->getValue("startTime"));
         return $this->startDate;
     }
-    public function getEndDate() {
-
+    public function getEndDate()
+    {
         $this->endDate = $this->getDateTime($this->getValue("endDate"), $this->getValue("endTime"));
         return $this->endDate;
-
     }
-
 }
