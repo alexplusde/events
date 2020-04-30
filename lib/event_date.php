@@ -23,27 +23,34 @@ class event_date extends \rex_yform_manager_dataset
 
     public function getIcs()
     {
-        $vCalendar = new \Eluceo\iCal\Component\Calendar('www.example.com');
+        $locationICS = $this->getLocation();
+        $vCalendar = new \Eluceo\iCal\Component\Calendar('-//' . date("Y") . '//#' . rex::getServerName() . '//DE');
+        date_default_timezone_set(rex::getProperty('timezone'));
+        
         $vEvent = new \Eluceo\iCal\Component\Event();
         
-
         $vEvent
+        // date/time
         ->setDtStart($this->getStartDate())
         ->setDtEnd($this->getEndDate())
-        // ->setNoTime($is_fulltime) // Wenn Ganztag
-        ->setUseTimezone(true)
+        ->setCreated(new \DateTime($this->getCreateDate()))
         // ->setCategories(explode(",", $sked['entry']->category_name))
-        ->setSummary($this->getDescriptionAsPlaintext());
-        ->setDTSTAMP(date('Ymd\THis', strtotime($this->getValue('createdate'))));
-
+        ->setSummary($this->getEventName())
+        ->setDescription($this->getDescriptionAsPlaintext())
+        // ->setNoTime($is_fulltime) // Wenn Ganztag
+        ->setUseTimezone(true);
+        
+        // location
+        if (isset($locationICS)){
+            $vEvent->setLocation($locationICS->getLocationAsString(), $locationICS->getLocationName(), $locationICS->getLocationLat() != '' ? $locationICS->getLocationLat() . ',' . $locationICS->getLocationLng() : '');
+        }
         
         
-        // TODO: Hier gibt es noch viele Eigenschaften, die synchronisiert werden können: uid, usw.
-
+        // 
         $vCalendar->addComponent($vEvent);
         
         header('Content-Type: text/calendar; charset=utf-8');
-        header('Content-Disposition: attachment; filename="cal.ics"'); // Todo: Dateinamen generieren
+        header('Content-Disposition: attachment; filename="' . $this->getEventName() . '.ics"'); // Todo: Dateinamen generieren
 
         return $vCalendar->render();
         // ob_clean();
@@ -114,5 +121,15 @@ class event_date extends \rex_yform_manager_dataset
     {
         $this->endDate = $this->getDateTime($this->getValue("endDate"), $this->getValue("endTime"));
         return $this->endDate;
+    }
+    public function getCreateDate()
+    {
+        $this->createDate = $this->getValue("createdate");
+        return $this->createDate;
+    }
+    public function getEventName()
+    {
+        $this->eventName = $this->getValue("name");
+        return $this->eventName;
     }
 }
