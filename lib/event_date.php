@@ -23,7 +23,9 @@ class event_date extends \rex_yform_manager_dataset
 
     public function getIcs()
     {
+        $vCalendar = new \Eluceo\iCal\Component\Calendar('www.example.com');
         $vEvent = new \Eluceo\iCal\Component\Event();
+        
 
         $vEvent
         ->setDtStart($this->getStartDate())
@@ -32,15 +34,21 @@ class event_date extends \rex_yform_manager_dataset
         ->setUseTimezone(true)
         // ->setCategories(explode(",", $sked['entry']->category_name))
         ->setSummary($this->getDescriptionAsPlaintext());
-
-        // TODO: Hier gibt es noch viele Eigenschaften, die synchronisiert werden können: uid, usw.
+        ->setDTSTAMP(date('Ymd\THis', strtotime($this->getValue('createdate'))));
 
         
-        header('Content-Type: text/calendar; charset=utf-8');
-        header('Content-Disposition: attachment; filename=invite.ics'); // Todo: Dateinamen generieren
+        
+        // TODO: Hier gibt es noch viele Eigenschaften, die synchronisiert werden können: uid, usw.
 
-        ob_clean();
-        exit($vEvent);
+        $vCalendar->addComponent($vEvent);
+        
+        header('Content-Type: text/calendar; charset=utf-8');
+        header('Content-Disposition: attachment; filename="cal.ics"'); // Todo: Dateinamen generieren
+
+        return $vCalendar->render();
+        // ob_clean();
+        
+        // exit($vEvent);
     }
 
     public function getLocation()
