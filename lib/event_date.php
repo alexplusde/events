@@ -23,16 +23,18 @@ class event_date extends \rex_yform_manager_dataset
 
     public function getIcs()
     {
-        $locationICS = $this->getLocation();
-        $vCalendar = new \Eluceo\iCal\Component\Calendar('-//' . date("Y") . '//#' . rex::getServerName() . '//DE');
+        $UID = $this->getUid();
+        $vCalendar = new \Eluceo\iCal\Component\Calendar('-//' . date("Y") . '//#' . rex::getServerName() . '//' . strtoupper((rex_clang::getCurrent())->getCode()));
+        
         date_default_timezone_set(rex::getProperty('timezone'));
         
-        $vEvent = new \Eluceo\iCal\Component\Event();
+        $vEvent = new \Eluceo\iCal\Component\Event($UID);
         
-        $vEvent
         // date/time
+        $vEvent
         ->setDtStart($this->getStartDate())
         ->setDtEnd($this->getEndDate())
+        ->setCreated(new \DateTime($this->getCreateDate()))
         ->setCreated(new \DateTime($this->getCreateDate()))
         // ->setCategories(explode(",", $sked['entry']->category_name))
         ->setSummary($this->getEventName())
@@ -41,8 +43,9 @@ class event_date extends \rex_yform_manager_dataset
         ->setUseTimezone(true);
         
         // location
+        $locationICS = $this->getLocation();
         if (isset($locationICS)){
-            $vEvent->setLocation($locationICS->getLocationAsString(), $locationICS->getLocationName(), $locationICS->getLocationLat() != '' ? $locationICS->getLocationLat() . ',' . $locationICS->getLocationLng() : '');
+            $vEvent->setLocation($locationICS->getLocationAsString(), $locationICS->getValue('name'), $locationICS->getValue('lat') != '' ? $locationICS->getValue('lat') . ',' . $locationICS->getValue('lng') : '');
         }
         
         
