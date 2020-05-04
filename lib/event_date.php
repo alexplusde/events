@@ -24,37 +24,37 @@ class event_date extends \rex_yform_manager_dataset
     public function getIcs()
     {
         $UID = $this->getUid();
-        $vCalendar = new \Eluceo\iCal\Component\Calendar('-//' . date("Y") . '//#' . rex::getServerName() . '//' . strtoupper((rex_clang::getCurrent())->getCode()));
         
+        $vCalendar = new \Eluceo\iCal\Component\Calendar('-//' . date("Y") . '//#' . rex::getServerName() . '//' . strtoupper((rex_clang::getCurrent())->getCode()));
         date_default_timezone_set(rex::getProperty('timezone'));
         
         $vEvent = new \Eluceo\iCal\Component\Event($UID);
         
         // date/time
         $vEvent
+        ->setUseTimezone(true)
         ->setDtStart($this->getStartDate())
         ->setDtEnd($this->getEndDate())
-        ->setCreated(new \DateTime($this->getCreateDate()))
-        ->setCreated(new \DateTime($this->getCreateDate()))
+        ->setCreated(new \DateTime($this->getValue("createdate")))
+        ->setModified(new \DateTime($this->getValue("updatedate")))
+        ->setNoTime($this->getValue("all_day"))
+        // ->setNoTime($is_fulltime) // Wenn Ganztag
         // ->setCategories(explode(",", $sked['entry']->category_name))
         ->setSummary($this->getEventName())
-        ->setDescription($this->getDescriptionAsPlaintext())
-        // ->setNoTime($is_fulltime) // Wenn Ganztag
-        ->setUseTimezone(true);
+        ->setDescription($this->getDescriptionAsPlaintext());
         
-        // location
+        // add location
         $locationICS = $this->getLocation();
         if (isset($locationICS)){
-            $vEvent->setLocation($locationICS->getLocationAsString(), $locationICS->getValue('name'), $locationICS->getValue('lat') != '' ? $locationICS->getValue('lat') . ',' . $locationICS->getValue('lng') : '');
+            $ics_lat = $locationICS->getValue('lat');
+            $ics_lng = $locationICS->getValue('lng');
+            $vEvent->setLocation($locationICS->getLocationAsString(), $locationICS->getValue('name'), $ics_lat != '' ? $ics_lat . ',' . $ics_lng : '');
+            // fehlt: set timezone of location
         }
         
-        
-        // 
+        //  add event to calendar
         $vCalendar->addComponent($vEvent);
         
-        header('Content-Type: text/calendar; charset=utf-8');
-        header('Content-Disposition: attachment; filename="' . $this->getEventName() . '.ics"'); // Todo: Dateinamen generieren
-
         return $vCalendar->render();
         // ob_clean();
         
@@ -65,6 +65,12 @@ class event_date extends \rex_yform_manager_dataset
     {
         $this->location = $this->getRelatedDataset('location');
         return $this->location;
+    }
+    
+    public function getTimezone($lat, $lng){
+        $event_timezone = "https://maps.googleapis.com/maps/api/timezone/json?location=" . $lat . "," . $lng . "&timestamp=" . time() . "&sensor=false";
+        $event_location_time_json = file_get_contents($event_timezone);
+        return $event_location_time_json;
     }
 
     public function getOfferAll()
@@ -125,11 +131,7 @@ class event_date extends \rex_yform_manager_dataset
         $this->endDate = $this->getDateTime($this->getValue("endDate"), $this->getValue("endTime"));
         return $this->endDate;
     }
-    public function getCreateDate()
-    {
-        $this->createDate = $this->getValue("createdate");
-        return $this->createDate;
-    }
+    
     public function getEventName()
     {
         $this->eventName = $this->getValue("name");
