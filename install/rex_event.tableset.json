@@ -2104,7 +2104,7 @@
       "notice": "Geben Sie das voraussichtliche Ende der Veranstaltung an. (optional)",
       "regex": "",
       "pattern": "",
-      "format": "DD.MM.YYYY",
+      "format": "YYYY-MM-DD",
       "current_date": "0",
       "widget": "input:text",
       "attributes": "{\"type\":\"date\"}",
