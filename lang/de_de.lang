@@ -2,6 +2,8 @@ events = Termine
 events_settings = Einstellungen
 events_currency = Währung
 events_lang = Sprachen
+events_timezone = Google Timezone API
+events_timezone_notice = API-Schlüssel zur Ermittlung der Zeitzone einer Location.
 
 events_ics_import_cronjob_name = .ics-Datei in Events importieren
 
