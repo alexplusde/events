@@ -136,7 +136,6 @@ class event_date extends \rex_yform_manager_dataset
     
     public function getEventName()
     {
-        $this->eventName = $this->getValue("name");
-        return $this->eventName;
+        return $this->getValue("name");
     }
 }
