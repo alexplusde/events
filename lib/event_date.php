@@ -63,7 +63,9 @@ class event_date extends \rex_yform_manager_dataset
 
     public function getLocation()
     {
-        $this->location = $this->getRelatedDataset('location');
+        if($this->location === null) {
+               $this->location = $this->getRelatedDataset('location');
+        }
         return $this->location;
     }
     
