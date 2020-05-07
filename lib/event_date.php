@@ -40,7 +40,7 @@ class event_date extends \rex_yform_manager_dataset
         ->setNoTime($this->getValue("all_day"))
         // ->setNoTime($is_fulltime) // Wenn Ganztag
         // ->setCategories(explode(",", $sked['entry']->category_name))
-        ->setSummary($this->getEventName())
+        ->setSummary($this->getName())
         ->setDescription($this->getDescriptionAsPlaintext());
         
         // add location
@@ -134,7 +134,7 @@ class event_date extends \rex_yform_manager_dataset
         return $this->endDate;
     }
     
-    public function getEventName()
+    public function getName()
     {
         return $this->getValue("name");
     }
