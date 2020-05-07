@@ -2,7 +2,7 @@
 
 Mit diesem Addon können Termine anhand von YForm und YOrm im Backend verwaltet und im Frontend ausgegeben werden. Auf Wunsch auch mehrsprachig.
 
-**Vorschau auf events Version 2.0 im Branch `ics_import`**
+**Vorschau auf events Version 2.0 im Branch `ics-import`**
 
 ![Dateneingabe](https://raw.githubusercontent.com/alexplusde/events/master/docs/events_date_edit.png)
 
