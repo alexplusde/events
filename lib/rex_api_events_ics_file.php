@@ -15,9 +15,7 @@ class rex_api_events_ics_file extends rex_api_function
             header('Content-Type: text/calendar; charset=utf-8');
             header('Content-Disposition: attachment; filename="' . $ics_filename . '.ics"');
 
-            echo(event_date::get($event_id)->getIcs());
-            
-            exit();
+            exit(event_date::get($event_id)->getIcs());
         }
     }
 
