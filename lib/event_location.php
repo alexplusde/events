@@ -5,6 +5,11 @@ class event_location extends \rex_yform_manager_dataset
     {
         return $this->getValue('street') .", ". $this->getValue('zip') .", ".$this->getValue('locality').", ".$this->getValue('countrycode');
     }
+    public function getLocationName() :string
+    {
+        return $this->getValue('name');
+    }
+    
     public function getLocationStreet() :string
     {
         return $this->getValue('street');
@@ -23,4 +28,17 @@ class event_location extends \rex_yform_manager_dataset
     {
         return $this->getValue('countrycode');
     }
+    public function getLocationLatLng() :string
+    {
+        return $this->getValue('lat_lng');
+    }
+    public function getLocationLat() :string
+    {
+        return $this->getValue('lat');
+    }
+    public function getLocationLng() :string
+    {
+        return $this->getValue('lng');
+    }
+    
 }

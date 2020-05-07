@@ -11,12 +11,11 @@ class rex_api_events_ics_file extends rex_api_function
             $result = [ 'errorcode' => 1, rex_i18n::msg('rex_api_events_ics_file_no_id') ];
             self::httpError($result);
         } else {
+            $ics_filename = event_date::get($event_id)->getName();
             header('Content-Type: text/calendar; charset=utf-8');
-            header('Content-Disposition: attachment; filename=invite.ics'); // Todo: Dateinamen generieren
+            header('Content-Disposition: attachment; filename="' . $ics_filename . '.ics"');
 
-            echo(event_date::get($event_id)->getIcs());
-            
-            exit();
+            exit(event_date::get($event_id)->getIcs());
         }
     }
 
