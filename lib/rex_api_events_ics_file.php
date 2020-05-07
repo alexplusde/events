@@ -11,7 +11,7 @@ class rex_api_events_ics_file extends rex_api_function
             $result = [ 'errorcode' => 1, rex_i18n::msg('rex_api_events_ics_file_no_id') ];
             self::httpError($result);
         } else {
-            $ics_filename = event_date::get($event_id)->getEventName() !== '' ? event_date::get($event_id)->getEventName() : 'event_'.$event_id;
+            $ics_filename = event_date::get($event_id)->getEventName();
             header('Content-Type: text/calendar; charset=utf-8');
             header('Content-Disposition: attachment; filename="' . $ics_filename . '.ics"');
 
