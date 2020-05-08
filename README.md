@@ -184,11 +184,15 @@ Events kommt mit einer eigenen rex_api-Schnittstelle für den Export von einzeln
 
 MIT Lizenz, siehe [LICENSE.md](https://github.com/alexplusde/events/blob/master/LICENSE.md)  
 
-## Autor
+## Autoren
 
 **Alexander Walther**  
 http://www.alexplus.de  
 https://github.com/alexplusde  
+
+**Michael Schuler**
+https://github.com/191977 
+
 
 **Projekt-Lead**  
 [Alexander Walther](https://github.com/alexplusde)
