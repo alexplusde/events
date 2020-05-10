@@ -1,42 +1,50 @@
-<?php 
+<?php
+$date = $this->event_date;
+$offers = $date->getOfferAll();
+$location = $date->getLocation();
 ?>
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Event",
-    "name": "<?= $this->event_date->getValue('name')  ?>",
-    "startDate": "<?= $this->event_date->getValue('startDate')  ?> ",
-    "endDate": "<?= $this->event_date->getValue('endDate')  ?>",
+    "name": "<?= $date->getValue('name')  ?>",
+    "startDate": "<?= $date->getStartDate()->format(DateTimeInterface::ATOM) ?> ",
+    "endDate": "<?= $date->getEndDate()->format(DateTimeInterface::ATOM)  ?>",
     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
     "eventStatus": "https://schema.org/EventScheduled",
+<?php if ($location) { ?>
     "location": {
       "@type": "Place",
-      "name": "<?= $this->event_date->getLocation()->getValue('name') ?>",
+      "name": "<?= $location->getValue('name') ?>",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "<?= $this->event_date->getLocation()->getValue('street') ?>",
-        "addressLocality": "<?= $this->event_date->getLocation()->getValue('locality') ?>",
-        "postalCode": "<?= $this->event_date->getLocation()->getValue('zip')  ?>"
-        /*,
-               "addressRegion": "PA",
-               "addressCountry": "US" */
+        "streetAddress": "<?= $location->getValue('street') ?>",
+        "addressLocality": "<?= $location->getValue('locality') ?>",
+        "postalCode": "<?= $location->getValue('zip') ?>",
+        "addressCountry": "<?= $location->getValue('countrycode') ?>"
       }
     },
+    <?php } ?>
     "image": [
-      "<?= $this->event_date->getImage() ?>"
+      "<?= $date->getImage() ?>"
     ],
-    "description": <?= $this->event_date->getDescriptionAsPlainText() ?> ,
-    "offers": {
+    "description": <?= $date->getDescriptionAsPlainText() ?> ,
+<?php if ($offers) { ?>
+  "offers":
+<?php foreach ($offers as $offer) { ?>
+  {
       "@type": "Offer",
-      "url": "<?= $this->event_date->getValue('offers_url')  ?>",
-      "price": "<?= $this->event_date->getValue('offers_price')  ?>",
-      "priceCurrency": "EUR",
-      "availability": "https://schema.org/InStock",
-      "validFrom": "<?= $this->event_date->getValue('updatedate')  ?>"
-    },
+      "url": "<?= $offer->getValue('url')  ?>",
+      "price": "<?= $offer->getValue('price')  ?>",
+      "priceCurrency": "<?= rex_config::get("events", "currency") ?>",
+      "availability": "<?= $offer->getValue('availability') ?>",
+      "validFrom": "<?= $date->getValue('createdate')  ?>"
+  },
+    <?php } ?>
+<?php } ?>
     "performer": {
       "@type": "PerformingGroup",
-      "name": "<?= $this->event_date->getValue('performer')  ?>"
+      "name": "<?= $date->getValue('name')  ?>"
     }
   }
 </script>

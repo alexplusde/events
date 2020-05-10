@@ -2,3 +2,32 @@ events = Termine
 events_settings = Einstellungen
 events_currency = Währung
 events_lang = Sprachen
+events_timezone = Google Timezone API
+events_timezone_notice = API-Schlüssel zur Ermittlung der Zeitzone einer Location.
+
+events_ics_import_cronjob_name = .ics-Datei in Events importieren
+
+events_ics_import_cronjob_url_label          = URL der .ics-Datei
+events_ics_import_cronjob_url_notice         = im Format <code>https://www.redaxo.org/ical.ics</code>
+
+events_ics_import_cronjob_media_label        = Medienpool-Datei
+events_ics_import_cronjob_media_notice       = für einen manuellen Import. Diese Funktion benötigt deine Unterstützung auf Github!
+
+events_ics_import_cronjob_choose             = Bitte wählen...
+events_ics_import_cronjob_choose_none        = Keine Auswahl
+
+events_ics_import_cronjob_geocoding          = Sollen die Locations gleich geocodiert werden? [Nicht verfügbar]
+events_ics_import_cronjob_geocoding_notice   = Diese Funktion benötigt deine Unterstützung auf Github!
+
+events_ics_import_cronjob_debug              = Debug-Modus aktivieren?
+events_ics_import_cronjob_debug_notice       = Wenn aktiv, werden zusätzliche Informationen beim Ausführen des Cronjobs im Backend angezeigt.
+
+events_ics_import_cronjob_category_remove         = Unbekannte Kategorien anlegen, alle überzähligen Kategorien in Events löschen. Achtung! Löscht ggf. auch manuell angelegte Kategorien oder Kategorien weiterer Cronjobs.  
+events_ics_import_cronjob_category_default_id     = Kategorien in Events beibehalten, alle Termine einer vorhandenen Kategorie zuordnen 
+events_ics_import_cronjob_category_keep           = Unbekannte Kategorien anlegen, überzählige Kategorien in Events beibehalten
+events_ics_import_cronjob_category_sync           = Wie werden Termine in Events den Kategorien zugeordnet?
+
+events_ics_import_cronjob_default_category_sync_id_notice     = (optional) Kategorie, der die Termine in Events standardmäßig zugeordnet werden.
+events_ics_import_cronjob_default_location_sync_id_notice     = (optional) Location, der die Termine in Events standardmäßig zugeordnet wird, wenn <code>LOCATION</code> nicht in der <code>.ics</code>-Datei angegeben wurde. 
+
+events_ics_import_cronjob_clang_id_notice = REDAXO-Sprache, der Termin-Details (bspw. Titel, Beschreibung) zugeordnet werden
