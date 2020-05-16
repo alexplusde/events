@@ -44,7 +44,7 @@ dump(event_date::get(3)); // Termin mit der id=3
 | Methode                       | Beschreibung                                                                                                                         |
 |-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | `getCategory()`               | holt die passende Kategorie als `event_category`-Dataset.                                                                            |
-| `getIcs()`                    |  gibt eine ICS-Datei zur Veranstaltung zurück                                                                                        |
+| `getIcs()`                    | gibt eine ICS-Datei zur Veranstaltung zurück                                                                                         |
 | `getLocation()`               | holt den passenden Veranstaltungsort als `event_location`-Dataset.                                                                   |
 | `getOfferAll()`               | holt die passenden Angebote / Preise als `event_offer`-Dataset                                                                       |
 | `getImage()`                  | gibt den Bild-Dateinamen aus dem Medienpool zurück                                                                                   |
@@ -58,7 +58,7 @@ dump(event_date::get(3)); // Termin mit der id=3
 |                               |                                                                                                                                      |
 |                               |                                                                                                                                      |
 ```php
-dump(event_date::get(3)->getCategory()); // Termin mit der id=3
+dump(event_date::get(3)->getCategory()); // Kategorie des Termins mit der id=3
 ```
 
 ### Die Klasse `event_category`
@@ -68,7 +68,7 @@ Typ `rex_yform_manager_dataset`. Greift auf die Tabelle `rex_event_category` zu.
 #### Beispiel-Ausgabe einer Kategorie
 
 ```php
-dump(event_category::get(3)); // Termin mit der id=3
+dump(event_category::get(3)); // Kategorie mit der id=3
 ```
 
 ### Die Klasse `event_location`
@@ -78,9 +78,26 @@ Typ `rex_yform_manager_dataset`. Greift auf die Tabelle `rex_event_location_` zu
 #### Beispiel-Ausgabe einer Location
 
 ```php
-dump(event_location::get(3)); // Termin mit der id=3
+dump(event_location::get(3)); // Location mit der id=3
 ```
 
+#### Zusätzliche Methoden
+| Methode                       | Beschreibung                                                                                                                         |
+|-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| `getLocationAsString()`               | holt die passende Adresse als string in der Form Straße, PLZ, Ort,  Land                                                                          |
+| `getLocationName()`                    | gibt den Namen der Location zurück                                                                                         |
+| `getLocationStreet()`               | gibt die Straße der Location zurück                                                                  |
+| `getLocationZip()`               | gibt die Postleitzahl der Location zurück                                                                       |
+| `getLocationLocality()`                  | gibt den Ortsnamen der Location zurück                                                                                  |
+| `getLocationCountrycode()`                  | gibt den Ländercode der Location zurück                                                                                       |
+| `getLocationLatLng()` | gibt die Geo-Koordinaten der Location in der Form 'lat,lang' zurück (noch nicht implementiert)                                                                          |
+| `getLocationLat()`              | gibt die Geo-Koordinate latitude der Location zurück.                                                                          |
+| `getLocationLng()`                | gibt die Geo-Koordinate longitude der Location zurück. |
+|                               |                                                                                                                                      |
+|                               |                                                                                                                                      |
+```php
+dump(event_location::get(3)->getLocationName()); // Name der Location mit der id=3
+```
 ## Nutzung im Backend: Die Terminverwaltung
 
 ### Die Tabelle "SPRACHEN"
