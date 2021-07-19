@@ -83,19 +83,19 @@ dump(event_location::get(3)); // Location mit der id=3
 #### Zusätzliche Methoden
 | Methode                       | Beschreibung                                                                                                                         |
 |-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| `getLocationAsString()`               | holt die passende Adresse als string in der Form Straße, PLZ, Ort,  Land                                                                          |
-| `getLocationName()`                    | gibt den Namen der Location zurück                                                                                         |
-| `getLocationStreet()`               | gibt die Straße der Location zurück                                                                  |
-| `getLocationZip()`               | gibt die Postleitzahl der Location zurück                                                                       |
-| `getLocationLocality()`                  | gibt den Ortsnamen der Location zurück                                                                                  |
-| `getLocationCountrycode()`                  | gibt den Ländercode der Location zurück                                                                                       |
-| `getLocationLatLng()` | gibt die Geo-Koordinaten der Location in der Form 'lat,lang' zurück (noch nicht implementiert)                                                                          |
-| `getLocationLat()`              | gibt die Geo-Koordinate latitude der Location zurück.                                                                          |
-| `getLocationLng()`                | gibt die Geo-Koordinate longitude der Location zurück. |
+| `getAsString()`               | holt die passende Adresse als string in der Form Straße, PLZ, Ort,  Land                                                                          |
+| `getName()`                    | gibt den Namen der Location zurück                                                                                         |
+| `getStreet()`               | gibt die Straße der Location zurück                                                                  |
+| `getZip()`               | gibt die Postleitzahl der Location zurück                                                                       |
+| `getLocality()`                  | gibt den Ortsnamen der Location zurück                                                                                  |
+| `getCountrycode()`                  | gibt den Ländercode der Location zurück                                                                                       |
+| `getLatLng()` | gibt die Geo-Koordinaten der Location in der Form 'lat,lang' zurück (noch nicht implementiert)                                                                          |
+| `getLat()`              | gibt die Geo-Koordinate latitude der Location zurück.                                                                          |
+| `getLng()`                | gibt die Geo-Koordinate longitude der Location zurück. |
 |                               |                                                                                                                                      |
 |                               |                                                                                                                                      |
 ```php
-dump(event_location::get(3)->getLocationName()); // Name der Location mit der id=3
+dump(event_location::get(3)->getName()); // Name der Location mit der id=3
 ```
 ## Nutzung im Backend: Die Terminverwaltung
 
@@ -144,6 +144,17 @@ Die Tabelle Kategorien kann frei verändert werden, um Termine zu gruppieren (bs
 | value    | choice              | status  | Status      |
 | value    | be_manager_relation | date_id | Termine     |
 
+### Die Tabelle "ANGEBOTE"
+
+Die Tabelle Angebote enthält optional Ticket-URL und Preise für Veranstaltungen.
+
+| Typ      | Typname             | Name    | Bezeichnung   |
+|----------|---------------------|---------|---------------|
+| value    | text                | name    | Titel         |
+| value    | text                | price   | Preis         |
+| value    | choice              | status  | Verfügbarkeit |
+| value    | be_manager_relation | date_id | Termin        |
+
 ### Die Tabelle "LOCATION"
 
 Die Tabelle Location enthält die passenden Veranstaltungsorte zu den Veranstaltungen. Sie wurde im Hinblick auf leichte Geocodierung erstellt, lässt sich aber beliebig um zusätzliche Informationen erweitern.
@@ -169,26 +180,26 @@ Die [Rest-API](https://github.com/yakamara/redaxo_yform/blob/master/docs/plugins
 Zunächst das REST-Plugin von YForm installieren und einen Token einrichten. Den Token auf die jeweiligen Endpunkte legen:
 
 ```php
-    /v0.dev/event/date
-    /v0.dev/event/category
-    /v0.dev/event/location
+    /v2.0/event/date
+    /v2.0/event/category
+    /v2.0/event/location
 ```
 
 ### Endpunkt `date`
 
-**Auslesen:** GET `example.org/rest/v0.dev/event/date/?token=###TOKEN###`
+**Auslesen:** GET `example.org/rest/v2.0/event/date/?token=###TOKEN###`
 
 **Auslesen einzelner Termin**  GET `example.org/rest/v0.dev/event/date/7/?token=###TOKEN###` Termin  der `id=7`
 
 ### Endpunkt `category`
 
-**Auslesen:** GET `example.org/rest/v0.dev/event/category/?token=###TOKEN###`
+**Auslesen:** GET `example.org/rest/v2.0/event/category/?token=###TOKEN###`
 
 **Auslesen einzelne Kategorie**  GET `example.org/rest/v0.dev/event/category/7/?token=###TOKEN###` Termin  der `id=7`
 
 ### Endpunkt `location`
 
-**Auslesen:** GET `example.org/rest/v0.dev/event/location/?token=###TOKEN###`
+**Auslesen:** GET `example.org/rest/v2.0/event/location/?token=###TOKEN###`
 
 **Auslesen einzelner Standort**  GET `example.org/rest/v0.dev/event/location/7/?token=###TOKEN###` Termin  der `id=7`
 
@@ -225,3 +236,4 @@ https://github.com/191977
 
 events basiert auf: [YForm](https://github.com/yakamara/redaxo_yform)  
 Danke an [Gregor Harlan](https://github.com/gharlan) für die Unterstützung
+Danke an den Kulturkeller e.V. für die Beauftragung für die Weiterentwicklung
