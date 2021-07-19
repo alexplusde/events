@@ -26,7 +26,7 @@ class rex_yform_value_event_media extends rex_yform_value_abstract
     {
         return [
             'type' => 'value',
-            'name' => 'be_media',
+            'name' => 'event_media',
             'values' => [
                 'name' => ['type' => 'name',   'label' => rex_i18n::msg('yform_values_defaults_name')],
                 'label' => ['type' => 'text',    'label' => rex_i18n::msg('yform_values_defaults_label')],
@@ -47,8 +47,8 @@ class rex_yform_value_event_media extends rex_yform_value_abstract
         $files = explode(',', $params['subject']);
 
         $return = [];
-        if(rex_media::get($files[0])) {
-            $return[] = '<img src="'. rex_url::frontend().rex_media_manager::getUrl("events_list_preview",$files[0]) .'">';
+        if (rex_media::get($files[0])) {
+            $return[] = '<img style="width: 40px;" src="'. rex_url::frontend().rex_media_manager::getUrl("events_list_preview", $files[0]) .'">';
         }
 
         return implode('<br />', $return);
