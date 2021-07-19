@@ -1,5 +1,5 @@
 package: events
-version: '2.0.0-dev'
+version: '2.0.0-beta1'
 author: 'Alexander Walther'
 supportpage: https://alexplusde.github.io/events/
 load: late
@@ -9,7 +9,7 @@ requires:
         version: '^7.2'
     redaxo: ^5.8
     packages:
-        yform: ^3.3
+        yform: ">=3.3"
         yform_geo_osm: ^1.2.1
 
 
@@ -29,10 +29,6 @@ pages:
         subpages: 
             calendar:
                 title: Übersicht
-                icon: rex-icon fa-calendar
-                perm: events[calendar]
-            dev:
-                title: Test
                 icon: rex-icon fa-calendar
                 perm: events[calendar]
             date_lang:

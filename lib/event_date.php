@@ -20,6 +20,11 @@ class event_date extends \rex_yform_manager_dataset
         $this->category = $this->getRelatedDataset('event_category_id');
         return $this->category;
     }
+    public function getCategories()
+    {
+        $this->categories = $this->getRelatedCollection('event_category_id');
+        return $this->categories;
+    }
 
     public function getIcs()
     {
@@ -45,7 +50,7 @@ class event_date extends \rex_yform_manager_dataset
         
         // add location
         $locationICS = $this->getLocation();
-        if (isset($locationICS)){
+        if (isset($locationICS)) {
             $ics_lat = $locationICS->getValue('lat');
             $ics_lng = $locationICS->getValue('lng');
             $vEvent->setLocation($locationICS->getLocationAsString(), $locationICS->getValue('name'), $ics_lat != '' ? $ics_lat . ',' . $ics_lng : '');
@@ -63,13 +68,14 @@ class event_date extends \rex_yform_manager_dataset
 
     public function getLocation()
     {
-        if($this->location === null) {
-               $this->location = $this->getRelatedDataset('location');
+        if ($this->location === null) {
+            $this->location = $this->getRelatedDataset('location');
         }
         return $this->location;
     }
     
-    public function getTimezone($lat, $lng){
+    public function getTimezone($lat, $lng)
+    {
         $event_timezone = "https://maps.googleapis.com/maps/api/timezone/json?location=" . $lat . "," . $lng . "&timestamp=" . time() . "&sensor=false";
         $event_location_time_json = file_get_contents($event_timezone);
         return $event_location_time_json;
@@ -77,7 +83,7 @@ class event_date extends \rex_yform_manager_dataset
 
     public function getOfferAll()
     {
-        // return $this->getRelatedCollection('offer'); // Fehlerhaft. Yform Issue #
+        return $this->getRelatedCollection('offer');
     }
 
     public function getImage() :string
@@ -91,7 +97,7 @@ class event_date extends \rex_yform_manager_dataset
 
     public function getDescriptionAsPlaintext() :string
     {
-        return strip_tags($this->description);
+        return strip_tags(html_entity_decode($this->description));
     }
     public function getIcsStatus()
     {

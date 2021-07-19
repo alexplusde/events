@@ -12,7 +12,7 @@ $location = $date->getLocation();
     "endDate": "<?= $date->getEndDate()->format(DateTimeInterface::ATOM)  ?>",
     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
     "eventStatus": "https://schema.org/EventScheduled",
-<?php if ($location) { ?>
+    <?php if ($location) { ?>
     "location": {
       "@type": "Place",
       "name": "<?= $location->getValue('name') ?>",
@@ -26,25 +26,30 @@ $location = $date->getLocation();
     },
     <?php } ?>
     "image": [
-      "<?= $date->getImage() ?>"
+      "/media/<?= $date->getImage() ?>"
     ],
-    "description": <?= $date->getDescriptionAsPlainText() ?> ,
-<?php if ($offers) { ?>
-  "offers":
-<?php foreach ($offers as $offer) { ?>
-  {
+    "description": "<?= $date->getDescriptionAsPlainText() ?>",
+    <?php if ($offers) { ?>
+    "offers":
+    <?php foreach ($offers as $offer) { ?>
+    {
       "@type": "Offer",
       "url": "<?= $offer->getValue('url')  ?>",
       "price": "<?= $offer->getValue('price')  ?>",
       "priceCurrency": "<?= rex_config::get("events", "currency") ?>",
       "availability": "<?= $offer->getValue('availability') ?>",
       "validFrom": "<?= $date->getValue('createdate')  ?>"
-  },
+    },
     <?php } ?>
-<?php } ?>
+    <?php } ?>
     "performer": {
       "@type": "PerformingGroup",
       "name": "<?= $date->getValue('name')  ?>"
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "Kulturkeller e.V.",
+      "url": "https://www.kulturkeller.de"
     }
   }
 </script>
