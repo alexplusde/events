@@ -11,6 +11,11 @@ $field = $form->addInputField('text', 'timezone_api_code', null, ["class" => "fo
 $field->setLabel(rex_i18n::msg('events_timezone'));
 $field->setNotice(rex_i18n::msg('events_timezone_notice'). '<a href="https://developers.google.com/maps/documentation/timezone/intro?hl=de">https://developers.google.com/maps/documentation/timezone/intro?hl=de</a>');
 
+
+$field = $form->addInputField('text', 'default_organizer_name', null, ["class" => "form-control"]);
+$field->setLabel(rex_i18n::msg('events_default_organizer_name'));
+$field->setNotice(rex_i18n::msg('events_default_organizer_name_notice'));
+
 $fragment = new rex_fragment();
 $fragment->setVar('class', 'edit', false);
 $fragment->setVar('title', $addon->i18n('events_settings'), false);

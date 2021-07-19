@@ -48,8 +48,8 @@ $location = $date->getLocation();
     },
     "organizer": {
       "@type": "Organization",
-      "name": "Kulturkeller e.V.",
-      "url": "https://www.kulturkeller.de"
+      "name": "<?= rex_config::get("events/default_organizer_name") ?>",
+      "url": "<?= rex_yrewrite::getCurrentDomain()->getName() ?>"
     }
   }
 </script>
