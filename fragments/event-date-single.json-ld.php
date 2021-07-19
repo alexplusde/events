@@ -48,7 +48,7 @@ $location = $date->getLocation();
     },
     "organizer": {
       "@type": "Organization",
-      "name": "<?= rex_config::get("events/default_organizer_name") ?>",
+      "name": "<?= rex_config::get("events", "default_organizer_name") ?>",
       "url": "<?= rex_yrewrite::getCurrentDomain()->getName() ?>"
     }
   }
