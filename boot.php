@@ -57,9 +57,6 @@ if (rex_plugin::get('yform', 'rest')->isAvailable() && !rex::isSafeMode()) {
                     'doorTime',
                     'endDate',
                     'eventStatus',
-                    'offers_url',
-                    'offers_price',
-                    'offers_availability',
                     'url'
                  ],
                  'rex_event_category' => [
@@ -89,10 +86,6 @@ if (rex_plugin::get('yform', 'rest')->isAvailable() && !rex::isSafeMode()) {
                     'doorTime',
                     'endDate',
                     'eventStatus',
-                    'offers_url',
-                    'offers_price',
-                    'offers_availability',
-                    'url'
                 ]
             ]
         ],
@@ -197,5 +190,4 @@ rex_extension::register('REX_YFORM_SAVED', function (rex_extension_point $ep) {
 //    $id = $ep->getParam('id');
 //    $dataset = event_date::get($ep->getParam('id'));
 //    rex_sql::factory()->setQuery("UPDATE rex_event_date SET uid = :uid WHERE id = :id", [":uid"=>$dataset->getUid(), ":id" => $id]);
-
 });
