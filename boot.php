@@ -41,7 +41,7 @@ if (rex_plugin::get('yform', 'rest')->isAvailable() && !rex::isSafeMode()) {
 /* YForm Rest API */
     $rex_event_date_route = new \rex_yform_rest_route(
         [
-        'path' => '/v0.dev/event/date/',
+        'path' => '/v2.0/event/date/',
         'auth' => '\rex_yform_rest_auth_token::checkToken',
         'type' => \event_date::class,
         'query' => \event_date::query(),
@@ -105,7 +105,7 @@ if (rex_plugin::get('yform', 'rest')->isAvailable() && !rex::isSafeMode()) {
     /* YForm Rest API */
     $rex_event_category_route = new \rex_yform_rest_route(
         [
-        'path' => '/v0.dev/event/category/',
+        'path' => '/v2.0/event/category/',
         'auth' => '\rex_yform_rest_auth_token::checkToken',
         'type' => \event_category::class,
         'query' => \event_category::query(),
@@ -141,7 +141,7 @@ if (rex_plugin::get('yform', 'rest')->isAvailable() && !rex::isSafeMode()) {
     /* YForm Rest API */
     $rex_event_location_route = new \rex_yform_rest_route(
         [
-        'path' => '/v0.dev/event/location/',
+        'path' => '/v2.0/event/location/',
         'auth' => '\rex_yform_rest_auth_token::checkToken',
         'type' => \event_location::class,
         'query' => \event_location::query(),
