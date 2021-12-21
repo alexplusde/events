@@ -9,7 +9,7 @@ requires:
         version: '^7.3'
     redaxo: ^5.10
     packages:
-        yform: "^=3.4"
+        yform: ">=3.4"
         yform_geo_osm: ^1.2.1
 
 
