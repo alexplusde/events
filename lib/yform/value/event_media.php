@@ -1,12 +1,5 @@
 <?php
 
-/**
- * yform.
- *
- * @author jan.kristinus[at]redaxo[dot]org Jan Kristinus
- * @author <a href="http://www.yakamara.de">www.yakamara.de</a>
- */
-
 class rex_yform_value_event_media extends rex_yform_value_abstract
 {
     public function enterObject()
@@ -22,7 +15,7 @@ class rex_yform_value_event_media extends rex_yform_value_abstract
         $this->params['value_pool']['sql'][$this->getElement(1)] = $this->getValue();
     }
 
-    public function getDefinitions()
+    public function getDefinitions() :array
     {
         return [
             'type' => 'value',
