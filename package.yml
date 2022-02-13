@@ -1,5 +1,5 @@
 package: events
-version: '2.0.0-beta4'
+version: '2.0.0'
 author: 'Alexander Walther'
 supportpage: https://alexplusde.github.io/events/
 load: late
@@ -7,7 +7,7 @@ load: late
 requires:
     php:
         version: '>7.3'
-    redaxo: ^5.1
+    redaxo: ^5.12
     packages:
         yform: ">=4"
         yform_geo_osm: ^1.2.1
