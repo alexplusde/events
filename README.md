@@ -1,4 +1,4 @@
-# Terminverwaltung für REDAXO 5.10 & YForm 4
+# Terminverwaltung für REDAXO 5.13 & YForm 4
 
 Mit diesem Addon können Termine anhand von YForm und YOrm im Backend verwaltet und im Frontend ausgegeben werden. Auf Wunsch auch mehrsprachig.
 
@@ -13,6 +13,7 @@ Mit diesem Addon können Termine anhand von YForm und YOrm im Backend verwaltet 
 * Bereit für **mehrsprachige** Websites: Reiter für Sprachen auf Wunsch anzeigen oder ausblenden
 * Bereit für mehr: Vorbereitet für das [JSON+LD-Format](https://jsonld.com/event/), ICS-Format
 * Bereit für viel mehr: Kompatibel zum [URL2-Addon](https://github.com/tbaddade/redaxo_url)
+* Mächtig: Datenbank-Struktur für **Anmeldeformulare** und einfache Teilnehmerlisten vorbereitet
 
 > **Tipp:** Events arbeitet hervorragend zusammen mit den Addons [`yform_usability`](https://github.com/FriendsOfREDAXO/yform_usability/) und [`yform_geo_osm`](https://github.com/FriendsOfREDAXO/yform_geo_osm)
 
