@@ -11,6 +11,7 @@ requires:
     packages:
         yform: ">=4"
         yform_geo_osm: ^1.2.1
+        yform_field: >2
 
 
 page:
