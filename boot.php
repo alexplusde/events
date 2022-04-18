@@ -191,3 +191,70 @@ rex_extension::register('REX_YFORM_SAVED', function (rex_extension_point $ep) {
 //    $dataset = event_date::get($ep->getParam('id'));
 //    rex_sql::factory()->setQuery("UPDATE rex_event_date SET uid = :uid WHERE id = :id", [":uid"=>$dataset->getUid(), ":id" => $id]);
 });
+
+rex_extension::register('YFORM_DATA_LIST', function ($ep) {
+    if ($ep->getParam('table')->getTableName()=="rex_event_date") {
+        $list = $ep->getSubject();
+
+        $list->setColumnFormat(
+            'name',
+            'custom',
+            function ($a) {
+                $_csrf_key = rex_yform_manager_table::get('rex_event_date')->getCSRFKey();
+                $token = rex_csrf_token::factory($_csrf_key)->getUrlParams();
+
+                $params = array();
+                $params['table_name'] = 'rex_event_date';
+                $params['rex_yform_manager_popup'] = '0';
+                $params['_csrf_token'] = $token['_csrf_token'];
+                $params['data_id'] = $a['list']->getValue('id');
+                $params['func'] = 'edit';
+    
+                return '<a href="'.rex_url::backendPage('events/date', $params) .'">'. $a['value'].'</a>';
+            }
+        );
+        $list->setColumnFormat(
+            'event_category_id',
+            'custom',
+            function ($a) {
+                $_csrf_key = rex_yform_manager_table::get('rex_event_category')->getCSRFKey();
+                $token = rex_csrf_token::factory($_csrf_key)->getUrlParams();
+
+                $params = array();
+                $params['table_name'] = 'rex_event_category';
+                $params['rex_yform_manager_popup'] = '0';
+                $params['_csrf_token'] = $token['_csrf_token'];
+                $params['data_id'] = $a['list']->getValue('id');
+                $params['func'] = 'edit';
+    
+                $category_ids = explode(",", $a['value']);
+                foreach ($category_ids as $category_id) {
+                    $event = event_category::get($category_id);
+                    if ($event) {
+                        $return[] = '<a href="'.rex_url::backendPage('events/category', $params) .'">'. $event->getName().'</a>';
+                    }
+                }
+                return implode("<br>", $return);
+            }
+        );
+        $list->setColumnFormat(
+            'location',
+            'custom',
+            function ($a) {
+                $_csrf_key = rex_yform_manager_table::get('rex_event_location')->getCSRFKey();
+                $token = rex_csrf_token::factory($_csrf_key)->getUrlParams();
+
+                $params = array();
+                $params['table_name'] = 'rex_event_location';
+                $params['rex_yform_manager_popup'] = '0';
+                $params['_csrf_token'] = $token['_csrf_token'];
+                $params['data_id'] = $a['list']->getValue('id');
+                $params['func'] = 'edit';
+    
+                if (event_category::get($a['value'])) {
+                    return '<a href="'.rex_url::backendPage('events/location', $params) .'">'. event_location::get($a['value'])->getLocationName().'</a>';
+                }
+            }
+        );
+    }
+});

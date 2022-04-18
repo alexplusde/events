@@ -1,5 +1,4 @@
 <?php
-
 class rex_yform_value_event_media extends rex_yform_value_abstract
 {
     public function enterObject()

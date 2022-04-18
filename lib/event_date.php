@@ -4,8 +4,6 @@ use Ramsey\uuid\uuid;
 
 class event_date extends \rex_yform_manager_dataset
 {
-    private $startDate = null;
-    private $endDate = null;
     private $location = null;
     private $category = null;
     private $offer = null;
@@ -120,7 +118,12 @@ class event_date extends \rex_yform_manager_dataset
         return $fragment->parse('event-date-single.json-ld.php');
     }
 
-    private function getDateTime($date = null, $time = "00:00")
+    public static function formatDate($format_date = IntlDateFormatter::FULL, $format_time = IntlDateFormatter::SHORT, $lang = "de")
+    {
+        return datefmt_create($lang, $format_date, $format_time, null, IntlDateFormatter::GREGORIAN);
+    }
+
+    private function getDateTime($date, $time = "00:00")
     {
         $time = explode(":", $time);
         $dateTime = new DateTime($date);
@@ -129,15 +132,15 @@ class event_date extends \rex_yform_manager_dataset
         return $dateTime;
     }
 
-    public function getStartDate()
+    public function getFormattedStartDate($format_date = IntlDateFormatter::FULL, $format_time = IntlDateFormatter::SHORT)
     {
-        $this->startDate = $this->getDateTime($this->getValue("startDate"), $this->getValue("startTime"));
-        return $this->startDate;
+        return self::formatDate($format_date, $format_time)->format($this->getDateTime($this->getValue("startDate"), $this->getValue("startTime")));
     }
-    public function getEndDate()
+
+
+    public function getFormattedEndDate($format_date = IntlDateFormatter::FULL, $format_time = IntlDateFormatter::SHORT)
     {
-        $this->endDate = $this->getDateTime($this->getValue("endDate"), $this->getValue("endTime"));
-        return $this->endDate;
+        return self::formatDate($format_date, $format_time)->format($this->getDateTime($this->getValue("endDate"), $this->getValue("endTime")));
     }
     
     public function getName()

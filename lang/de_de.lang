@@ -1,9 +1,29 @@
 events = Termine
+
+# Tabellennamen
+
+event_date = Termine
+event_date_lang = Sprache
+event_category = Kategorien / Tags
+event_location = Veranstaltungsorte
+event_category_request = Anfragen
+event_date_register = Buchungen
+
+# Einstellungen
+
 events_settings = Einstellungen
 events_currency = Währung
 events_lang = Sprachen
 events_timezone = Google Timezone API
-events_timezone_notice = API-Schlüssel zur Ermittlung der Zeitzone einer Location.
+events_timezone_notice = API-Schlüssel zur Ermittlung der Zeitzone einer Location. 
+
+events_default_organizer_name = Standard Veransalter-Name
+events_editor = WYSIWYG-Editor
+events_empty = Meldung, wenn keine Termine verfügbar sind
+events_privacy_policy_id =  Datenschutz-Artikel
+events_agb_id =  AGB-Artikel
+
+# ICS-Cronjob
 
 events_ics_import_cronjob_name = .ics-Datei in Events importieren
 

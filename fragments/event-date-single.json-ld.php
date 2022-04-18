@@ -25,9 +25,7 @@ $location = $date->getLocation();
       }
     },
     <?php } ?>
-    "image": [
-      "/media/<?= $date->getImage() ?>"
-    ],
+    "image": "/media/<?= $date->getImage() ?>",
     "description": "<?= $date->getDescriptionAsPlainText() ?>",
     <?php if ($offers) { ?>
     "offers":

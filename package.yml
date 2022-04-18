@@ -1,5 +1,5 @@
 package: events
-version: '3.0.0-dev'
+version: '3.0.0-alpha1'
 author: 'Alexander Walther'
 supportpage: https://alexplusde.github.io/events/
 load: late
@@ -64,6 +64,22 @@ pages:
                 yformClass: rex_event_location
                 yformTitle: false
                 perm: events[location]
+            register:
+                title: Anmeldungen
+                icon: rex-icon fa-person
+                subPath: pages/data_edit.php
+                yformTable: rex_event_date_registration
+                yformClass: rex_event_date_registration
+                yformTitle: false
+                perm: events[register]
+            request:
+                title: Anfragen
+                icon: rex-icon fa-person
+                subPath: pages/data_edit.php
+                yformTable: rex_event_category_request
+                yformClass: rex_event_category_request
+                yformTitle: false
+                perm: events[request]
             settings:
                 title: Settings
                 icon: rex-icon fa-gear
