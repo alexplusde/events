@@ -33,22 +33,9 @@ dump(event_date::get(3)); // Termin mit der id=3
 ```
 
 #### Zusätzliche Methoden
-| Methode                       | Beschreibung                                                                                                                         |
-|-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| `getCategory()`               | holt die passende Kategorie als `event_category`-Dataset.                                                                            |
-| `getIcs()`                    |  gibt eine ICS-Datei zur Veranstaltung zurück                                                                                        |
-| `getLocation()`               | holt den passenden Veranstaltungsort als `event_location`-Dataset.                                                                   |
-| `getOfferAll()`               | holt die passenden Angebote / Preise als `event_offer`-Dataset                                                                       |
-| `getImage()`                  | gibt den Bild-Dateinamen aus dem Medienpool zurück                                                                                   |
-| `getMedia()`                  | gibt ein REDAXO-Medienobjekt des Bildes zurück                                                                                       |
-| `getDescriptionAsPlaintext()` | gibt die Veranstaltungsbeschreibung als Plaintext zurück                                                                             |
-| `getIcsStatus()`              | gibt den Status zurück, wie er im ICS-Format erwartet wird.                                                                          |
-| `getUid()`                    | gibt eine UID zurück, wie sie im ICS-Format erwartet wird. Wenn es die UID noch nicht gibt, wird sie automatisch erzeugt.            |
-| `getJsonLd()`                 | gibt den JSON-LD-Code zur Veranstaltung zurück                                                                                       |
-| `getStartDate()`              | gibt ein DateTime-Objekt zurück mit dem korrekten Startdatum in Abhängigkeit von den gewählten Optionen (ganztägig)                  |
-| `getEndDate()`                | gibt ein DateTime-Objekt zurück mit dem korrekten Enddatum, sofern vorhanden, in Abhängigkeit von den gewählten Optionen (ganztägig) |
-|                               |                                                                                                                                      |
-|                               |                                                                                                                                      |
+
+`getCategory()` holt die passende Kategorie als `event_category`-Objekt.
+
 ```php
 dump(event_date::get(3)->getCategory()); // Termin mit der id=3
 ```
@@ -168,31 +155,15 @@ Zunächst das REST-Plugin von YForm installieren und einen Token einrichten. Den
 
 **Auslesen einzelner Standort**  GET `example.org/rest/v0.dev/event/location/7/?token=###TOKEN###` Termin  der `id=7`
 
-## Import
-
-### Import von ICS-Kalendern (dev)
-
-Events kommt mit einem eigenen Cronjob zum importieren von ics-Kalendern aus dem Internet. Das Cronjob-Addon aufrufen, einen neuen Cronjob anlegen und den Instruktionen folgen.
-
-## Export
-
-## Export eines einzelnen Termins als ics-Datei (dev)
-
-Events kommt mit einer eigenen rex_api-Schnittstelle für den Export von einzelnen Terminen. `?rex-api-call=events_ics_file&id=2` aufrufen, um eine ICS-Datei anhand des Termins mit der `id=2` zu erzeugen.
-
 ## Lizenz
 
 MIT Lizenz, siehe [LICENSE.md](https://github.com/alexplusde/events/blob/master/LICENSE.md)  
 
-## Autoren
+## Autor
 
 **Alexander Walther**  
 http://www.alexplus.de  
 https://github.com/alexplusde  
-
-**Michael Schuler**
-https://github.com/191977 
-
 
 **Projekt-Lead**  
 [Alexander Walther](https://github.com/alexplusde)

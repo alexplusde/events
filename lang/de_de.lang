@@ -20,6 +20,7 @@ events_timezone_notice = API-Schlüssel zur Ermittlung der Zeitzone einer Locati
 events_default_organizer_name = Standard Veransalter-Name
 events_editor = WYSIWYG-Editor
 events_empty = Meldung, wenn keine Termine verfügbar sind
+events_withdrawal =  Angaben zum Widerufsrecht
 events_privacy_policy_id =  Datenschutz-Artikel
 events_agb_id =  AGB-Artikel
 
@@ -51,3 +52,6 @@ events_ics_import_cronjob_default_category_sync_id_notice     = (optional) Kateg
 events_ics_import_cronjob_default_location_sync_id_notice     = (optional) Location, der die Termine in Events standardmäßig zugeordnet wird, wenn <code>LOCATION</code> nicht in der <code>.ics</code>-Datei angegeben wurde. 
 
 events_ics_import_cronjob_clang_id_notice = REDAXO-Sprache, der Termin-Details (bspw. Titel, Beschreibung) zugeordnet werden
+
+events_info_donate = Anders als die meisten Addons aus der REDAXO-Community ist die Entstehung und Weiterentwicklung dieses Addons nicht durch eigene Projekte gedeckt. Mit einer Spende oder einer Beauftragung sicherst du zusätzliche Features, die Stabilität, Funktionsumfang und Weiterentwicklung weiter verbessern können, sowie eine bessere Anleitung. 
+events_donate = Weiterentwicklung unterstützen 
