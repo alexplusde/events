@@ -1,5 +1,6 @@
-name: publish to redaxo.org
+# Instructions: https://github.com/FriendsOfREDAXO/installer-action/
 
+name: Publish to REDAXO.org
 on:
   release:
     types:
@@ -15,3 +16,4 @@ jobs:
         myredaxo-username: ${{ secrets.MYREDAXO_USERNAME }}
         myredaxo-api-key: ${{ secrets.MYREDAXO_API_KEY }}
         description: ${{ github.event.release.body }}
+        
