@@ -227,7 +227,10 @@ rex_extension::register('YFORM_DATA_LIST', function ($ep) {
                 $params['data_id'] = $a['list']->getValue('id');
                 $params['func'] = 'edit';
     
-                $category_ids = explode(",", $a['value']);
+                $return = [];
+
+                $category_ids = array_filter(explode(",", $a['value']));
+
                 foreach ($category_ids as $category_id) {
                     $event = event_category::get($category_id);
                     if ($event) {
@@ -250,10 +253,16 @@ rex_extension::register('YFORM_DATA_LIST', function ($ep) {
                 $params['_csrf_token'] = $token['_csrf_token'];
                 $params['data_id'] = $a['list']->getValue('id');
                 $params['func'] = 'edit';
-    
-                if (event_category::get($a['value'])) {
-                    return '<a href="'.rex_url::backendPage('events/location', $params) .'">'. event_location::get($a['value'])->getLocationName().'</a>';
+
+                $location_ids = array_filter(explode(",", $a['value']));
+
+                foreach ($location_ids as $location_id) {
+                    $location = event_location::get($location_id);
+                    if ($location) {
+                        $return[] = '<a href="'.rex_url::backendPage('events/location', $params) .'">'. $location->getValue('name').'</a>';
+                    }
                 }
+                return implode("<br>", $return);
             }
         );
     }
