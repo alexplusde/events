@@ -256,6 +256,8 @@ rex_extension::register('YFORM_DATA_LIST', function ($ep) {
 
                 $location_ids = array_filter(explode(",", $a['value']));
 
+                $return = [];
+                
                 foreach ($location_ids as $location_id) {
                     $location = event_location::get($location_id);
                     if ($location) {
