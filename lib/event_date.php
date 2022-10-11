@@ -51,7 +51,7 @@ class event_date extends \rex_yform_manager_dataset
         if (isset($locationICS)) {
             $ics_lat = $locationICS->getValue('lat');
             $ics_lng = $locationICS->getValue('lng');
-            $vEvent->setLocation($locationICS->getLocationAsString(), $locationICS->getValue('name'), $ics_lat != '' ? $ics_lat . ',' . $ics_lng : '');
+            $vEvent->setLocation($locationICS->getAsString(), $locationICS->getValue('name'), $ics_lat != '' ? $ics_lat . ',' . $ics_lng : '');
             // fehlt: set timezone of location
         }
         
@@ -146,5 +146,18 @@ class event_date extends \rex_yform_manager_dataset
     public function getName()
     {
         return $this->getValue("name");
+    }
+    public function getPrice()
+    {
+        $offer = rex_yform_manager_table::get('rex_event_date_offer')->query()->where("date_id", $this->getValue('id'))->find();
+
+        if (count($offer) > 0) {
+            return $offer[0]->getPrice();
+        }
+        return $this->getCategories()[0]->getPrice();
+    }
+    public function getPriceFormatted()
+    {
+        return $this->getPrice() . " EUR";
     }
 }
