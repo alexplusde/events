@@ -1,4 +1,4 @@
-# Veranstaltungskalender, Terminbuchung und Terminanfragen für REDAXO 5 & YForm 4
+# Veranstaltungskalender, Terminbuchung, Terminanfragen, Anmeldungen und Teilnehmerlisten für REDAXO 5 auf YForm-Basis
 
 Mit diesem Addon können Termine anhand von YForm und YOrm im Backend verwaltet und im Frontend ausgegeben werden. Auf Wunsch auch mehrsprachig.
 
