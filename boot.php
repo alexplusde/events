@@ -31,14 +31,22 @@ rex_yform_manager_dataset::setModelClass(
     'rex_event_date_offer',
     event_date_offer::class
 );
+rex_yform_manager_dataset::setModelClass(
+    'rex_event_date_registration',
+    event_registration::class
+);
+
+rex_yform_manager_dataset::setModelClass(
+    'rex_event_date_registration_person',
+    event_registration_person::class
+);
 
 if (rex_addon::get('cronjob')->isAvailable() && !rex::isSafeMode()) {
     rex_cronjob_manager::registerType('rex_cronjob_events_ics_import');
 }
 
 if (rex_plugin::get('yform', 'rest')->isAvailable() && !rex::isSafeMode()) {
-
-/* YForm Rest API */
+    /* YForm Rest API */
     $rex_event_date_route = new \rex_yform_rest_route(
         [
         'path' => '/v2.0/event/date/',
@@ -185,7 +193,6 @@ if (rex_plugin::get('yform', 'rest')->isAvailable() && !rex::isSafeMode()) {
 }
 
 rex_extension::register('REX_YFORM_SAVED', function (rex_extension_point $ep) {
-
     // darf nur bei passender Tabelle passieren.
 //    $id = $ep->getParam('id');
 //    $dataset = event_date::get($ep->getParam('id'));

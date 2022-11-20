@@ -71,6 +71,10 @@ class event_date extends \rex_yform_manager_dataset
         }
         return $this->location;
     }
+    public function getLocationId()
+    {
+        return $this->getValue('location');
+    }
     
     public function getTimezone($lat, $lng)
     {
@@ -134,15 +138,32 @@ class event_date extends \rex_yform_manager_dataset
 
     public function getFormattedStartDate($format_date = IntlDateFormatter::FULL, $format_time = IntlDateFormatter::SHORT)
     {
-        return self::formatDate($format_date, $format_time)->format($this->getDateTime($this->getValue("startDate"), $this->getValue("startTime")));
+        return self::formatDate($format_date, $format_time)->format($this->getDateTime($this->getValue("startDate"), $this->getStartTime()));
     }
 
 
     public function getFormattedEndDate($format_date = IntlDateFormatter::FULL, $format_time = IntlDateFormatter::SHORT)
     {
-        return self::formatDate($format_date, $format_time)->format($this->getDateTime($this->getValue("endDate"), $this->getValue("endTime")));
+        return self::formatDate($format_date, $format_time)->format($this->getDateTime($this->getValue("endDate"), $this->getEndTime()));
     }
     
+    public function getFormattedStartTime()
+    {
+        return $this->getStartTime();
+    }
+    public function getFormattedEndTime()
+    {
+        return $this->getEndTime();
+    }
+    public function getStartTime()
+    {
+        return $this->getValue('startTime');
+    }
+    public function getEndTime()
+    {
+        return $this->getValue('endTime');
+    }
+
     public function getName()
     {
         return $this->getValue("name");
@@ -159,5 +180,39 @@ class event_date extends \rex_yform_manager_dataset
     public function getPriceFormatted()
     {
         return $this->getPrice() . " EUR";
+    }
+    
+    /* Informationen zur Registrierung und Anmeldung */
+
+    public function getSpaceCount() :int
+    {
+        return (int) $this->getTotalCount() - $this->getRegisterCount();
+    }
+    public function getTotalCount() :int
+    {
+        return (int) $this->getValue('space');
+    }
+    public function getRegisterCount() :int
+    {
+        $registrations = event_registration::getTotalRegistrationsByDate($this->getId());
+        $count = 0;
+        if ($registrations) {
+            $count += array_sum(event_registration::getTotalRegistrationsByDate($this->getId())->getValues('person_count'));
+        }
+        return (int) $count;
+    }
+    public function getRegisterCountPercentage() :int
+    {
+        if ($this->getTotalCount() > 0) {
+            return (int) (100 / $this->getTotalCount() * $this->getRegisterCount());
+        }
+        return 0;
+    }
+    public function isFull() :bool
+    {
+        if ($this->getSpaceCount() <= 0) {
+            return true;
+        }
+        return false;
     }
 }

@@ -28,7 +28,11 @@ class event_location extends \rex_yform_manager_dataset
     {
         return $this->getValue('locality');
     }
-    public function getCountrycode() :string
+    public function getCity() :string
+    {
+        return $this->getLocality();
+    }
+    public function getCountryCode() :string
     {
         return $this->getValue('countrycode');
     }

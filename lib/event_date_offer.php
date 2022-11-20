@@ -15,7 +15,7 @@ class event_date_offer extends \rex_yform_manager_dataset
     }
     public function getCurrency() :string
     {
-        return $this->getValue('currency');
+        return $this->getValue('currency') ?? rex_config::get('events', 'currency');
     }
     public function getAvialability() :string
     {

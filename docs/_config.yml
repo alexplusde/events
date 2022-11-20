@@ -1,5 +1,5 @@
-remote_theme: jeffreytse/jekyll-theme-yat
-title: Events Addon für REDAXO 5 
-description: Terminverwaltung und Anmeldung für REDAXO 5 auf YForm-Basis 
+theme: jekyll-theme-minimal
+title: REDAXO 5 Events
+description: Terminverwaltung für REDAXO 5 auf YForm-Basis 
 logo: https://raw.githubusercontent.com/alexplusde/events/master/docs/screenshot.png
 show_downloads: true

@@ -1,5 +1,5 @@
 package: events
-version: '3.0.0-dev4'
+version: '3.0.0-dev5'
 author: 'Alexander Walther'
 supportpage: https://alexplusde.github.io/events/
 load: late
@@ -11,7 +11,7 @@ requires:
     packages:
         yform: ">=4"
         yform_geo_osm: ^1.2.1
-        yform_field: >2
+        yform_field: '>1'
 
 
 page:
@@ -64,7 +64,7 @@ pages:
                 yformClass: rex_event_location
                 yformTitle: false
                 perm: events[location]
-            register:
+            registration:
                 title: Anmeldungen
                 icon: rex-icon rex-icon-user
                 subPath: pages/data_edit.php
@@ -72,6 +72,14 @@ pages:
                 yformClass: rex_event_date_registration
                 yformTitle: false
                 perm: events[register]
+            registration_person:
+                title: Teilnehmende
+                icon: rex-icon rex-icon-user
+                subPath: pages/data_edit.php
+                yformTable: rex_event_date_registration_person
+                yformClass: rex_event_date_registration_person
+                yformTitle: false
+                perm: events[registration_person]
             request:
                 title: Anfragen
                 icon: rex-icon rex-icon-user
