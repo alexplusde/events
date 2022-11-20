@@ -15,7 +15,7 @@ class event_date extends \rex_yform_manager_dataset
 
     public function getCategory()
     {
-        $this->category = $this->getRelatedDataset('event_category_id');
+        $this->category = event_category::get((int)$this->getValue('event_category_id'));
         return $this->category;
     }
     public function getCategories()
@@ -136,7 +136,7 @@ class event_date extends \rex_yform_manager_dataset
         return $dateTime;
     }
 
-    public function getFormattedStartDate($format_date = IntlDateFormatter::FULL, $format_time = IntlDateFormatter::SHORT)
+    public function getFormattedStartDate($format_date = IntlDateFormatter::FULL, $format_time = IntlDateFormatter::NONE)
     {
         return self::formatDate($format_date, $format_time)->format($this->getDateTime($this->getValue("startDate"), $this->getStartTime()));
     }
@@ -182,6 +182,7 @@ class event_date extends \rex_yform_manager_dataset
         return $this->getPrice() . " EUR";
     }
     
+
     /* Informationen zur Registrierung und Anmeldung */
 
     public function getSpaceCount() :int
@@ -214,5 +215,56 @@ class event_date extends \rex_yform_manager_dataset
             return true;
         }
         return false;
+    }
+    /* Register-URL-Addon */
+    
+    public static function combineCidDid($cid, $did)
+    {
+        return $cid . str_pad($did, 3, '0', STR_PAD_LEFT);
+    }
+
+    public function getRegisterUrl($category_id = null) :string
+    {
+        if ($category_id) {
+            return rex_getUrl('', '', ['event-date-id' => self::combineCidDid($category_id, $this->getId())]);
+        }
+        return rex_getUrl('', '', ['event-date-id' => $this->getId()]);
+    }
+
+    public function getRegisterButton($category_id = null) :string
+    {
+        if ($this->isFull()) {
+            return '<a class="btn disabled d-block">ausgebucht</a>';
+        }
+        return '<a class="btn btn-primary d-block"
+        href="'.$this->getRegisterUrl($category_id).'">Jetzt anmelden</a>';
+    }
+
+    public function getRegisterBar() :string
+    {
+        if ($this->isFull()) {
+            return '
+            <div class="progress-bar bg-danger" role="progressbar"
+            style="width: '. $this->getRegisterCountPercentage() .'%;"
+            aria-valuenow="'. $this->getRegisterCount() .'"
+            aria-valuemin="0"
+            aria-valuemax="'. $this->getTotalCount() .'">
+            '.$this->getRegisterCount()."/".$this->getTotalCount().'
+            </div>';
+        }
+        return '
+        <div class="progress-bar bg-success" role="progressbar"
+        style="width: '. $this->getRegisterCountPercentage() .'%;"
+        aria-valuenow="'. $this->getRegisterCount() .'"
+        aria-valuemin="0"
+        aria-valuemax="'. $this->getTotalCount() .'">
+        '.$this->getRegisterCount()."/".$this->getTotalCount().'
+        </div>';
+    }
+    public function getIcon()
+    {
+        if ($category = $this->getCategory()) {
+            return $category->getIcon();
+        }
     }
 }

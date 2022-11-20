@@ -59,15 +59,21 @@ class event_registration_person extends \rex_yform_manager_dataset
         return $this->getValue('registration_id');
     }
 
-    public function getCategoryId()
+    public function getRegistration()
     {
-        return $this->getValue('category_id');
+        return $this->getRelatedDataset('registration_id');
     }
 
-    public function getFormUrl()
+    public function getCategoryId()
     {
-        return rex_article::get(rex_config::get('event', 'event_date_registration_person_article_id')->getUrl(["person" => $this->getValue('hash')], "&"));
+        return $this->getRegistration()->getCategory()->getId();
     }
+
+    public function getHash()
+    {
+        return $this->getValue('hash');
+    }
+    
     public static function getByUuid($uuid = null)
     {
         if (!$uuid) {

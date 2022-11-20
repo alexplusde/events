@@ -24,6 +24,10 @@ class event_registration extends \rex_yform_manager_dataset
     {
         return $this->getValue('category_id');
     }
+    public function getCategory()
+    {
+        return $this->getRelatedDataset('category_id');
+    }
     public function getDateId()
     {
         return $this->getValue('date_id');
@@ -147,6 +151,10 @@ class event_registration extends \rex_yform_manager_dataset
             return;
         }
         return self::query()->where('uuid', $uuid)->findOne();
+    }
+    public function getHash()
+    {
+        return $this->getValue('hash');
     }
     public static function getByHash($hash = null)
     {
