@@ -1,5 +1,5 @@
 package: events
-version: '4.0.0'
+version: '4.0.1-dev'
 author: 'Alexander Walther'
 supportpage: https://alexplusde.github.io/events/
 load: late
@@ -7,10 +7,10 @@ load: late
 requires:
     php:
         version: '>7.3'
-    redaxo: ^5.12
+    redaxo: '^5.12'
     packages:
-        yform: ">=4"
-        yform_geo_osm: ^1.2.1
+        yform: '^4'
+        yform_geo_osm: '^1'
         yform_field: ">=2"
 
 
@@ -24,7 +24,7 @@ pages:
         title: translate:events
         main: true
         block: system
-        prio: 15
+        prio: 13
         icon: rex-icon fa-calendar
         perm: events[]
         subpages: 
