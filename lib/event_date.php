@@ -179,7 +179,7 @@ class event_date extends \rex_yform_manager_dataset
     }
     public function getPriceFormatted()
     {
-        return $this->getPrice() . rex_config::get('events', 'currency');
+        return $this->getPrice() . " " . rex_config::get('events', 'currency');
     }
     
 
