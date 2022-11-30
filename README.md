@@ -1,5 +1,7 @@
 # Veranstaltungskalender, Terminbuchung, Terminanfragen, Anmeldungen und Teilnehmerlisten für REDAXO 5 auf YForm-Basis
 
+![web_banner_redaxo_addon_events](https://user-images.githubusercontent.com/3855487/204768716-fa9f5a97-c1de-421a-aea0-2a0ce8658813.png)
+
 Mit diesem Addon können Termine anhand von YForm und YOrm im Backend verwaltet und im Frontend ausgegeben werden. Auf Wunsch auch mehrsprachig.
 
 **Beispiele**
