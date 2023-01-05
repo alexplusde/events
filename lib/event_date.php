@@ -187,7 +187,7 @@ class event_date extends \rex_yform_manager_dataset
 
     public function getSpaceCount() :int
     {
-        return (int) $this->getTotalCount() - $this->getRegisterCount();
+        return (int) $this->getTotalCount() - $this->countRegistrationPerson();
     }
     public function getTotalCount() :int
     {
@@ -205,7 +205,7 @@ class event_date extends \rex_yform_manager_dataset
     public function getRegisterCountPercentage() :int
     {
         if ($this->getTotalCount() > 0) {
-            return (int) (100 / $this->getTotalCount() * $this->getRegisterCount());
+            return (int) (100 / $this->getTotalCount() * $this->countRegistrationPerson());
         }
         return 0;
     }
@@ -226,7 +226,7 @@ class event_date extends \rex_yform_manager_dataset
     public function getRegisterUrl($category_id = null) :string
     {
         if ($category_id) {
-            return rex_getUrl('', '', ['event-date-id' => self::combineCidDid($category_id, $this->getId())]);
+            return rex_getUrl('', '', ['register-id' => self::combineCidDid($category_id, $this->getId())]);
         }
         return rex_getUrl('', '', ['event-date-id' => $this->getId()]);
     }
@@ -246,19 +246,19 @@ class event_date extends \rex_yform_manager_dataset
             return '
             <div class="progress-bar bg-danger" role="progressbar"
             style="width: '. $this->getRegisterCountPercentage() .'%;"
-            aria-valuenow="'. $this->getRegisterCount() .'"
+            aria-valuenow="'. $this->countRegistrationPerson() .'"
             aria-valuemin="0"
             aria-valuemax="'. $this->getTotalCount() .'">
-            '.$this->getRegisterCount()."/".$this->getTotalCount().'
+            '.$this->countRegistrationPerson()."/".$this->getTotalCount().'
             </div>';
         }
         return '
         <div class="progress-bar bg-success" role="progressbar"
         style="width: '. $this->getRegisterCountPercentage() .'%;"
-        aria-valuenow="'. $this->getRegisterCount() .'"
+        aria-valuenow="'. $this->countRegistrationPerson() .'"
         aria-valuemin="0"
         aria-valuemax="'. $this->getTotalCount() .'">
-        '.$this->getRegisterCount()."/".$this->getTotalCount().'
+        '.$this->countRegistrationPerson()."/".$this->getTotalCount().'
         </div>';
     }
     public function getIcon()
@@ -266,5 +266,12 @@ class event_date extends \rex_yform_manager_dataset
         if ($category = $this->getCategory()) {
             return $category->getIcon();
         }
+    }
+    
+    public function getRegistrationPerson($status = 0, $operator = ">=") {
+        return event_registration_person::query()->where('status', $status, $operator)->where('event_date_id', self::getId())->find();
+    }
+    public function countRegistrationPerson($status = 0, $operator = ">=") {
+        return count($this->getRegistrationPerson($status, $operator));
     }
 }

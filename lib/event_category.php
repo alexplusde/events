@@ -24,7 +24,7 @@ class event_category extends \rex_yform_manager_dataset
     }
     public function getUrl()
     {
-        return rex_getUrl('', '', ['category-id' => $this->getId()]);
+        return rex_getUrl('', '', ['event-category-id' => $this->getId()]);
     }
 
     public function getDateWhere($whereRaw = '')

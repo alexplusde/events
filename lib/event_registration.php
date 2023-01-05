@@ -4,7 +4,14 @@ class event_registration extends \rex_yform_manager_dataset
 {
     public static function getTotalRegistrationsByDate($date_id)
     {
-        return self::query()->where('date_id', $date_id)->where('status', '0', '>')->find();
+        return self::query()->where('date_id', $date_id)->where('status', '0', '>=')->find();
+    }
+
+    public function getRegistrationPerson($status = 0, $operator = ">=") {
+        return event_registration_person::query()->where('status', $status, $operator)->where('event_date_id', self::getDateId())->find();
+    }
+    public function countRegistrationPerson($status = 0, $operator = ">=") {
+        return count($this->getRegistrationPerson($status, $operator));
     }
 
     public function getPersonTotal()
@@ -139,7 +146,7 @@ class event_registration extends \rex_yform_manager_dataset
     }
     public function hasAcceptedAgb()
     {
-        return $this->getValue('newsletter');
+        return $this->getValue('agb');
     }
     public function hasAcceptedPrivacyPolicy()
     {

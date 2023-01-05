@@ -1,5 +1,5 @@
 package: events
-version: '4.0.1-dev'
+version: '4.0.1'
 author: 'Alexander Walther'
 supportpage: https://alexplusde.github.io/events/
 load: late
@@ -9,8 +9,8 @@ requires:
         version: '>7.3'
     redaxo: '^5.12'
     packages:
-        yform: '^4'
-        yform_geo_osm: '^1'
+        yform: ">=4"
+        yform_geo_osm: ^1
         yform_field: ">=2"
 
 
@@ -24,7 +24,7 @@ pages:
         title: translate:events
         main: true
         block: system
-        prio: 13
+        prio: 15
         icon: rex-icon fa-calendar
         perm: events[]
         subpages: 
@@ -37,56 +37,63 @@ pages:
                 perm: events[date_lang]
                 icon: rex-icon fa-flag
                 subPath: pages/data_edit.php
-                yformTable: rex_event_date_lang
-                yformClass: rex_event_date_lang
-                yformTitle: false
+                yform:
+                    table_name: rex_event_date_lang
+                    wrapper_class: rex_event_date_lang
+                    show_title: false
             date:
                 title: Termine
                 icon: rex-icon fa-calendar-o
                 subPath: pages/data_edit.php
-                yformTable: rex_event_date
-                yformClass: rex_event_date
-                yformTitle: false
+                yform:
+                    table_name: rex_event_date
+                    wrapper_class: rex_event_date
+                    show_title: false
                 perm: events[date]
             category:
                 title: Kategorien
                 icon: rex-icon fa-folder
                 subPath: pages/data_edit.php
-                yformTable: rex_event_category
-                yformClass: rex_event_category
-                yformTitle: false
+                yform:
+                    table_name: rex_event_category
+                    wrapper_class: rex_event_category
+                    show_title: false
                 perm: events[category]
             location:
                 title: Location
                 icon: rex-icon fa-map-marker
                 subPath: pages/data_edit.php
-                yformTable: rex_event_location
-                yformClass: rex_event_location
-                yformTitle: false
+                yform:
+                    table_name: rex_event_location
+                    wrapper_class: rex_event_location
+                    show_title: false
                 perm: events[location]
             registration:
                 title: Anmeldungen
                 icon: rex-icon rex-icon-user
                 subPath: pages/data_edit.php
-                yformTable: rex_event_date_registration
-                yformClass: rex_event_date_registration
-                yformTitle: false
+                yform:
+                    table_name: rex_event_date_registration
+                    wrapper_class: rex_event_date_registration
+                    show_title: false
                 perm: events[register]
             registration_person:
                 title: Teilnehmende
                 icon: rex-icon rex-icon-user
                 subPath: pages/data_edit.php
-                yformTable: rex_event_date_registration_person
-                yformClass: rex_event_date_registration_person
-                yformTitle: false
+                yform:
+                    table_name: rex_event_date_registration_person
+                    wrapper_class: rex_event_date_registration_person
+                    show_title: false
                 perm: events[registration_person]
             request:
                 title: Anfragen
                 icon: rex-icon rex-icon-user
                 subPath: pages/data_edit.php
-                yformTable: rex_event_category_request
-                yformClass: rex_event_category_request
-                yformTitle: false
+                yform:
+                    table_name: rex_event_category_request
+                    wrapper_class: rex_event_category_request
+                    show_title: false
                 perm: events[request]
             settings:
                 title: Settings
