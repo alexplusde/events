@@ -178,6 +178,18 @@ Die Tabelle Location enthält die passenden Veranstaltungsorte zu den Veranstalt
 
 Die Felder und Feldnamen orientieren sich dabei am [JSON+LD-Standard für Veranstaltungen](https://jsonld.com/event/), die wichtigsten Validierungen wurden bereits eingefügt.
 
+## Formulare
+
+### Die YForm-Action `event_date_registration_person_fill`
+
+Nutze diese Action, wenn in einer Anmeldung sogleich Teilnehmende in einer Tabelle "Teilnehmende" erfolgen soll:
+
+```php
+		$yform->setActionField('event_date_registration_person_fill', array(""));
+``` 
+
+Dabei wird die Tabelle `rex_event_date_registration_person` automatisch mit der Anzahl der anzumeldenden Teilnehmenden befüllt.
+
 ## RESTful API (dev)
 
 Die [Rest-API](https://github.com/yakamara/redaxo_yform/blob/master/docs/plugins.md#restful-api-einf%C3%BChrung) ist über das REST-Plugin von YForm umgesetzt.
