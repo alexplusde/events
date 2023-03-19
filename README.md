@@ -48,20 +48,21 @@ dump(event_date::get(3)); // Termin mit der id=3
 #### Zusätzliche Methoden
 | Methode                       | Beschreibung                                                                                                                         |
 |-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| `getName()`                   | Titel der Veranstaltung                                                                                                              |
+| `getDescription()`            | Beschreibungstext                                                                                                                    |
+| `getTeaser()`                 | Unformatierter Teaser-Text                                                                                                           |
 | `getCategory()`               | holt die passende Kategorie als `event_category`-Dataset.                                                                            |
-| `getIcs()`                    | gibt eine ICS-Datei zur Veranstaltung zurück                                                                                         |
 | `getLocation()`               | holt den passenden Veranstaltungsort als `event_location`-Dataset.                                                                   |
 | `getOfferAll()`               | holt die passenden Angebote / Preise als `event_offer`-Dataset                                                                       |
 | `getImage()`                  | gibt den Bild-Dateinamen aus dem Medienpool zurück                                                                                   |
 | `getMedia()`                  | gibt ein REDAXO-Medienobjekt des Bildes zurück                                                                                       |
+| `getIcs()`                    | gibt eine ICS-Datei zur Veranstaltung zurück                                                                                         |
 | `getDescriptionAsPlaintext()` | gibt die Veranstaltungsbeschreibung als Plaintext zurück                                                                             |
 | `getIcsStatus()`              | gibt den Status zurück, wie er im ICS-Format erwartet wird.                                                                          |
 | `getUid()`                    | gibt eine UID zurück, wie sie im ICS-Format erwartet wird. Wenn es die UID noch nicht gibt, wird sie automatisch erzeugt.            |
 | `getJsonLd()`                 | gibt den JSON-LD-Code zur Veranstaltung zurück                                                                                       |
 | `getStartDate()`              | gibt ein DateTime-Objekt zurück mit dem korrekten Startdatum in Abhängigkeit von den gewählten Optionen (ganztägig)                  |
 | `getEndDate()`                | gibt ein DateTime-Objekt zurück mit dem korrekten Enddatum, sofern vorhanden, in Abhängigkeit von den gewählten Optionen (ganztägig) |
-|                               |                                                                                                                                      |
-|                               |                                                                                                                                      |
 
 ```php
 dump(event_date::get(3)->getCategory()); // Kategorie des Termins mit der id=3
@@ -90,17 +91,16 @@ dump(event_location::get(3)); // Location mit der id=3
 #### Zusätzliche Methoden
 | Methode                       | Beschreibung                                                                                                                         |
 |-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| `getAsString()`               | holt die passende Adresse als string in der Form Straße, PLZ, Ort,  Land                                                                          |
-| `getName()`                    | gibt den Namen der Location zurück                                                                                         |
-| `getStreet()`               | gibt die Straße der Location zurück                                                                  |
-| `getZip()`               | gibt die Postleitzahl der Location zurück                                                                       |
-| `getLocality()`                  | gibt den Ortsnamen der Location zurück                                                                                  |
-| `getCountrycode()`                  | gibt den Ländercode der Location zurück                                                                                       |
-| `getLatLng()` | gibt die Geo-Koordinaten der Location in der Form 'lat,lang' zurück (noch nicht implementiert)                                                                          |
-| `getLat()`              | gibt die Geo-Koordinate latitude der Location zurück.                                                                          |
-| `getLng()`                | gibt die Geo-Koordinate longitude der Location zurück. |
-|                               |                                                                                                                                      |
-|                               |                                                                                                                                      |
+| `getAsString()`               | holt die passende Adresse als string in der Form Straße, PLZ, Ort,  Land                                                             |
+| `getName()`                   | gibt den Namen der Location zurück                                                                                                   |
+| `getStreet()`                 | gibt die Straße der Location zurück                                                                                                  |
+| `getZip()`                    | gibt die Postleitzahl der Location zurück                                                                                            |
+| `getLocality()`               | gibt den Ortsnamen der Location zurück                                                                                               |
+| `getCountrycode()`            | gibt den Ländercode der Location zurück                                                                                              |
+| `getLatLng()`                 | gibt die Geo-Koordinaten der Location in der Form 'lat,lang' zurück (noch nicht implementiert)                                       |
+| `getLat()`                    | gibt die Geo-Koordinate latitude der Location zurück.                                                                                |
+| `getLng()`                    | gibt die Geo-Koordinate longitude der Location zurück.                                                                               |
+
 ```php
 dump(event_location::get(3)->getName()); // Name der Location mit der id=3
 ```
