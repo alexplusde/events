@@ -88,7 +88,7 @@ class event_date extends \rex_yform_manager_dataset
         return $this->getRelatedCollection('offer');
     }
 
-    public function getImage() :string
+    public function getImage() : ?string
     {
         return $this->image;
     }
@@ -97,7 +97,7 @@ class event_date extends \rex_yform_manager_dataset
         return rex_media::get($this->image);
     }
 
-    public function getDescriptionAsPlaintext() :string
+    public function getDescriptionAsPlaintext() : ?string
     {
         return strip_tags(html_entity_decode($this->description));
     }
@@ -155,19 +155,30 @@ class event_date extends \rex_yform_manager_dataset
     {
         return $this->getEndTime();
     }
-    public function getStartTime()
+    public function getStartTime() : ?string
     {
         return $this->getValue('startTime');
     }
-    public function getEndTime()
+    public function getEndTime() : ?string
     {
         return $this->getValue('endTime');
     }
 
-    public function getName()
+    public function getName() : ?string
     {
         return $this->getValue("name");
     }
+
+    public function getDescription() : ?string
+    {
+        return $this->getValue("description");
+    }
+
+    public function geTeaser() : ?string
+    {
+        return $this->getValue("teaser");
+    }
+    
     public function getPrice()
     {
         $offer = rex_yform_manager_table::get('rex_event_date_offer')->query()->where("date_id", $this->getValue('id'))->find();
@@ -268,10 +279,12 @@ class event_date extends \rex_yform_manager_dataset
         }
     }
     
-    public function getRegistrationPerson($status = 0, $operator = ">=") {
+    public function getRegistrationPerson($status = 0, $operator = ">=")
+    {
         return event_registration_person::query()->where('status', $status, $operator)->where('event_date_id', self::getId())->find();
     }
-    public function countRegistrationPerson($status = 0, $operator = ">=") {
+    public function countRegistrationPerson($status = 0, $operator = ">=")
+    {
         return count($this->getRegistrationPerson($status, $operator));
     }
 }
