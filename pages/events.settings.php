@@ -2,7 +2,7 @@
 
 $addon = rex_addon::get('events');
 
-$form = rex_config_form::factory($addon->name);
+$form = rex_config_form::factory($addon->getName());
 
 $field = $form->addInputField('text', 'currency', null, ["class" => "form-control"]);
 $field->setLabel(rex_i18n::msg('events_currency'));
