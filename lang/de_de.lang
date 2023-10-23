@@ -53,5 +53,5 @@ events_ics_import_cronjob_default_location_sync_id_notice     = (optional) Locat
 
 events_ics_import_cronjob_clang_id_notice = REDAXO-Sprache, der Termin-Details (bspw. Titel, Beschreibung) zugeordnet werden
 
-events_info_donate = Anders als die meisten Addons aus der REDAXO-Community ist die Entstehung und Weiterentwicklung dieses Addons nicht durch eigene Projekte gedeckt. Mit einer Spende oder einer Beauftragung sicherst du zusätzliche Features, die Stabilität, Funktionsumfang und Weiterentwicklung weiter verbessern können, sowie eine bessere Anleitung. 
+events_info_donate = Anders als die meisten Addons aus der REDAXO-Community ist die Entstehung und Weiterentwicklung dieses Addons nicht durch eigene Projekte gedeckt. mit einer einer Beauftragung sicherst du zusätzliche Features, die Stabilität, Funktionsumfang und Weiterentwicklung weiter verbessern können, sowie eine bessere Anleitung. 
 events_donate = Weiterentwicklung unterstützen 
