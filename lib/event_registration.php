@@ -69,7 +69,20 @@ class event_registration extends \rex_yform_manager_dataset
 
     public function getName(bool $reverse = false): string
     {
-        // ...
+        $name = [];
+        if ($this->getSalutation() !== "") {
+            $name[] = $this->getSalutation();
+        }
+        if ($reverse) {
+            $name[] = $this->getLastName() . ",";
+            $name[] = $this->getFirstName();
+            return implode(",", $name);
+        }
+        if (!$reverse) {
+            $name[] = $this->getFirstName();
+            $name[] = $this->getLastName();
+            return implode(" ", $name);
+        }
     }
 
     public function getEmail(): string
