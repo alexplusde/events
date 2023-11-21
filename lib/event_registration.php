@@ -2,24 +2,25 @@
 
 class event_registration extends \rex_yform_manager_dataset
 {
-    public static function getTotalRegistrationsByDate($date_id)
+    public static function getTotalRegistrationsByDate(int $date_id): object
     {
         return self::query()->where('date_id', $date_id)->where('status', '0', '>=')->find();
     }
 
-    public function getRegistrationPerson($status = 0, $operator = ">=") {
+    public function getRegistrationPerson(int $status = 0, string $operator = ">="): object {
         return event_registration_person::query()->where('status', $status, $operator)->where('event_date_id', self::getDateId())->find();
     }
-    public function countRegistrationPerson($status = 0, $operator = ">=") {
+
+    public function countRegistrationPerson(int $status = 0, string $operator = ">="): int {
         return count($this->getRegistrationPerson($status, $operator));
     }
 
-    public function getPersonTotal()
+    public function getPersonTotal(): int
     {
         return $this->getValue('person_count');
     }
 
-    public static function ep_saved($ep)
+    public static function ep_saved($ep): bool
     {
         $lastId = $ep->getSubject()->getLastId();
         $table  = $ep->getParam('table');
@@ -27,81 +28,81 @@ class event_registration extends \rex_yform_manager_dataset
         return true;
     }
     
-    public function getCategoryId()
+    public function getCategoryId(): int
     {
         return $this->getValue('category_id');
     }
-    public function getCategory()
+    public function getCategory(): object
     {
         return $this->getRelatedDataset('category_id');
     }
-    public function getDateId()
+
+    public function getDateId(): int
     {
         return $this->getValue('date_id');
     }
-    public function getDate()
+
+    public function getDate(): object
     {
         return $this->getRelatedDataset('date_id');
     }
-    public function getLocationId()
+
+    public function getLocationId(): int
     {
         return $this->getValue('event_location_id');
     }
-    public function getSalutation()
+
+    public function getSalutation(): string
     {
         return $this->getValue('salutation');
     }
-    public function getFirstName()
+
+    public function getFirstName(): string
     {
         return $this->getValue('firstname');
     }
-    public function getLastName()
+
+    public function getLastName(): string
     {
         return $this->getValue('lastname');
     }
-    public function getName($reverse = false)
+
+    public function getName(bool $reverse = false): string
     {
-        $name = [];
-        if ($this->getSalutation() !== "") {
-            $name[] = $this->getSalutation();
-        }
-        if ($reverse) {
-            $name[] = $this->getLastName() . ",";
-            $name[] = $this->getFirstName();
-            return implode(",", $name);
-        }
-        if (!$reverse) {
-            $name[] = $this->getFirstName();
-            $name[] = $this->getLastName();
-            return implode(" ", $name);
-        }
+        // ...
     }
-    
-    public function getEmail()
+
+    public function getEmail(): string
     {
         return $this->getValue('email');
     }
-    public function getStreet()
+
+    public function getStreet(): string
     {
         return $this->getValue('street');
     }
-    public function getPostalCode()
+
+    public function getPostalCode(): string
     {
         return $this->getValue('zip');
     }
-    public function getZip()
+
+    public function getZip(): string
     {
         return $this->getValue('zip');
     }
-    public function getCity()
+
+    public function getCity(): string
     {
         return $this->getValue('city');
     }
-    public function getPhone()
+
+    public function getPhone(): string
     {
         return $this->getValue('phone');
     }
-    public function getBirthday() :string
+
+    public function getBirthday(): string
     {
         return $this->getValue('birthday');
     }
@@ -116,57 +117,68 @@ class event_registration extends \rex_yform_manager_dataset
         }
     }
     
-    public function getPayment()
+    public function getPayment(): string
     {
         return $this->getValue('payment');
     }
-    public function getMessage()
+
+    public function getMessage(): string
     {
         return $this->getValue('message');
     }
-    public function getChannel()
+
+    public function getChannel(): string
     {
         return $this->getValue('channel');
     }
-    public function getStatus()
+
+    public function getStatus(): int
     {
         return $this->getValue('status');
     }
-    public function getPrice()
+
+    public function getPrice(): float
     {
         return $this->getValue('price');
     }
-    public function getUuid()
+
+    public function getUuid(): string
     {
         return $this->getValue('uuid');
     }
-    public function hasAcceptedNewsletter()
+
+    public function hasAcceptedNewsletter(): bool
     {
         return $this->getValue('newsletter');
     }
-    public function hasAcceptedAgb()
+
+    public function hasAcceptedAgb(): bool
     {
         return $this->getValue('agb');
     }
-    public function hasAcceptedPrivacyPolicy()
+
+    public function hasAcceptedPrivacyPolicy(): bool
     {
         return $this->getValue('dsgvo');
     }
-    public static function getByUuid($uuid = null)
+
+    public static function getByUuid(string $uuid = null): ?object
     {
         if (!$uuid) {
-            return;
+            return null;
         }
         return self::query()->where('uuid', $uuid)->findOne();
     }
-    public function getHash()
+
+    public function getHash(): string
     {
         return $this->getValue('hash');
     }
-    public static function getByHash($hash = null)
+
+    public static function getByHash(string $hash = null): ?object
     {
         if (!$hash) {
-            return;
+            return null;
         }
         return self::query()->where('hash', $hash)->findOne();
     }
