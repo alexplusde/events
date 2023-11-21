@@ -13,18 +13,19 @@ class event_date extends \rex_yform_manager_dataset
         return uuid::uuid3(uuid::NAMESPACE_URL, $id);
     }
 
-    public function getCategory()
+    public function getCategory(): object
     {
         $this->category = event_category::get((int)$this->getValue('event_category_id'));
         return $this->category;
     }
-    public function getCategories()
+
+    public function getCategories(): array
     {
         $this->categories = $this->getRelatedCollection('event_category_id');
         return $this->categories;
     }
 
-    public function getIcs()
+    public function getIcs(): string
     {
         $UID = $this->getUid();
         
@@ -64,35 +65,35 @@ class event_date extends \rex_yform_manager_dataset
         // exit($vEvent);
     }
 
-    public function getLocation()
+    public function getLocation(): string
     {
         if ($this->location === null) {
             $this->location = $this->getRelatedDataset('location');
         }
         return $this->location;
     }
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->getValue('location');
     }
     
-    public function getTimezone($lat, $lng)
+    public function getTimezone(float $lat, float $lng): string
     {
         $event_timezone = "https://maps.googleapis.com/maps/api/timezone/json?location=" . $lat . "," . $lng . "&timestamp=" . time() . "&sensor=false";
         $event_location_time_json = file_get_contents($event_timezone);
         return $event_location_time_json;
     }
 
-    public function getOfferAll()
+    public function getOfferAll(): array
     {
         return $this->getRelatedCollection('offer');
     }
 
-    public function getImage() : ?string
+    public function getImage(): ?string
     {
         return $this->image;
     }
-    public function getMedia()
+    public function getMedia(): rex_media
     {
         return rex_media::get($this->image);
     }
@@ -101,11 +102,11 @@ class event_date extends \rex_yform_manager_dataset
     {
         return strip_tags(html_entity_decode($this->description));
     }
-    public function getIcsStatus()
+    public function getIcsStatus(): int
     {
         return strip_tags($this->eventStatus);
     }
-    public function getUid()
+    public function getUid(): string
     {
         if ($this->uid === "" && $this->getValue("uid") === "") {
             $this->uid = self::generateUuid($this->id);
@@ -115,19 +116,19 @@ class event_date extends \rex_yform_manager_dataset
         return $this->uid;
     }
 
-    public function getJsonLd()
+    public function getJsonLd(): string
     {
         $fragment = new rex_fragment();
         $fragment->setVar("event_date", $this);
         return $fragment->parse('event-date-single.json-ld.php');
     }
 
-    public static function formatDate($format_date = IntlDateFormatter::FULL, $format_time = IntlDateFormatter::SHORT, $lang = "de")
+    public static function formatDate(int $format_date = IntlDateFormatter::FULL, int $format_time = IntlDateFormatter::SHORT, string $lang = "de"): IntlDateFormatter
     {
         return datefmt_create($lang, $format_date, $format_time, null, IntlDateFormatter::GREGORIAN);
     }
 
-    private function getDateTime($date, $time = "00:00")
+    private function getDateTime(string $date, string $time = "00:00"): DateTime
     {
         $time = explode(":", $time);
         $dateTime = new DateTime($date);
@@ -136,22 +137,21 @@ class event_date extends \rex_yform_manager_dataset
         return $dateTime;
     }
 
-    public function getFormattedStartDate($format_date = IntlDateFormatter::FULL, $format_time = IntlDateFormatter::NONE)
+    public function getFormattedStartDate(int $format_date = IntlDateFormatter::FULL, int $format_time = IntlDateFormatter::NONE): string
     {
         return self::formatDate($format_date, $format_time)->format($this->getDateTime($this->getValue("startDate"), $this->getStartTime()));
     }
 
-
-    public function getFormattedEndDate($format_date = IntlDateFormatter::FULL, $format_time = IntlDateFormatter::SHORT)
+    public function getFormattedEndDate(int $format_date = IntlDateFormatter::FULL, int $format_time = IntlDateFormatter::SHORT): string
     {
         return self::formatDate($format_date, $format_time)->format($this->getDateTime($this->getValue("endDate"), $this->getEndTime()));
     }
     
-    public function getFormattedStartTime()
+    public function getFormattedStartTime(): string
     {
         return $this->getStartTime();
     }
-    public function getFormattedEndTime()
+    public function getFormattedEndTime(): string
     {
         return $this->getEndTime();
     }
@@ -179,7 +179,7 @@ class event_date extends \rex_yform_manager_dataset
         return $this->getValue("teaser");
     }
     
-    public function getPrice()
+    public function getPrice(): string
     {
         $offer = rex_yform_manager_table::get('rex_event_date_offer')->query()->where("date_id", $this->getValue('id'))->find();
 
@@ -188,7 +188,7 @@ class event_date extends \rex_yform_manager_dataset
         }
         return $this->getCategories()[0]->getPrice();
     }
-    public function getPriceFormatted()
+    public function getPriceFormatted(): string
     {
         return $this->getPrice() . " " . rex_config::get('events', 'currency');
     }
@@ -229,7 +229,7 @@ class event_date extends \rex_yform_manager_dataset
     }
     /* Register-URL-Addon */
     
-    public static function combineCidDid($cid, $did)
+    public static function combineCidDid($cid, $did): string
     {
         return $cid . str_pad($did, 3, '0', STR_PAD_LEFT);
     }
@@ -272,18 +272,18 @@ class event_date extends \rex_yform_manager_dataset
         '.$this->countRegistrationPerson()."/".$this->getTotalCount().'
         </div>';
     }
-    public function getIcon()
+    public function getIcon(): string
     {
         if ($category = $this->getCategory()) {
             return $category->getIcon();
         }
     }
     
-    public function getRegistrationPerson($status = 0, $operator = ">=")
+    public function getRegistrationPerson($status = 0, $operator = ">="): object
     {
         return event_registration_person::query()->where('status', $status, $operator)->where('event_date_id', self::getId())->find();
     }
-    public function countRegistrationPerson($status = 0, $operator = ">=")
+    public function countRegistrationPerson($status = 0, $operator = ">="): int
     {
         return count($this->getRegistrationPerson($status, $operator));
     }
