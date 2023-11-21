@@ -4,7 +4,7 @@ class rex_api_events_ics_file extends rex_api_function
 {
     protected $published = true;  // Aufruf aus dem Frontend erlaubt
 
-    public function execute()
+    public function execute(): void
     {
         $event_id = rex_request('id', 'int', 0);
         if (!$event_id) {
@@ -19,7 +19,7 @@ class rex_api_events_ics_file extends rex_api_function
         }
     }
 
-    public static function httpError($result)
+    public static function httpError($result): void
     {
         header('HTTP/1.1 500 Internal Server Error');
         header('Content-Type: application/json; charset=UTF-8');
