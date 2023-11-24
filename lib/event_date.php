@@ -13,7 +13,7 @@ class event_date extends \rex_yform_manager_dataset
         return uuid::uuid3(uuid::NAMESPACE_URL, $id);
     }
 
-    public function getCategory(): object
+    public function getCategory(): ?rex_yform_manager_collection
     {
         $this->category = event_category::get((int)$this->getValue('event_category_id'));
         return $this->category;
@@ -279,7 +279,7 @@ class event_date extends \rex_yform_manager_dataset
         }
     }
     
-    public function getRegistrationPerson($status = 0, $operator = ">="): object
+    public function getRegistrationPerson($status = 0, $operator = ">="): ?rex_yform_manager_collection
     {
         return event_registration_person::query()->where('status', $status, $operator)->where('event_date_id', self::getId())->find();
     }
