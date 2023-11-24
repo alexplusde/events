@@ -27,7 +27,7 @@ class event_category extends \rex_yform_manager_dataset
         return rex_getUrl('', '', ['event-category-id' => $this->getId()]);
     }
 
-    public function getDateWhere($whereRaw = ''): object
+    public function getDateWhere($whereRaw = ''): ?rex_yform_manager_collection
     {
         return event_date::query()->joinRelation('event_category_id', 'c')->where('c.id', $this->getId())->whereRaw($whereRaw)->orderBy('startDate`, `startTime', 'DESC')->find();
     }
