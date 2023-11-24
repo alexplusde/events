@@ -59,7 +59,7 @@ class event_registration_person extends \rex_yform_manager_dataset
         return $this->getValue('registration_id');
     }
 
-    public function getRegistration(): object
+    public function getRegistration(): ?rex_yform_manager_collection
     {
         return $this->getRelatedDataset('registration_id');
     }
@@ -74,14 +74,14 @@ class event_registration_person extends \rex_yform_manager_dataset
         return $this->getValue('hash');
     }
     
-    public static function getByUuid($uuid = null): object
+    public static function getByUuid($uuid = null): ?rex_yform_manager_collection
     {
         if (!$uuid) {
             return;
         }
         return self::query()->where('uuid', $uuid)->findOne();
     }
-    public static function getByHash($hash = null): object
+    public static function getByHash($hash = null): ?rex_yform_manager_collection
     {
         if (!$hash) {
             return;
