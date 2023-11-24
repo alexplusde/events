@@ -4,7 +4,7 @@ class rex_api_fullcalendar extends rex_api_function
 {
     protected $published = true;
 
-    public function execute()
+    public function execute(): void
     {
         $events = event_date::query()->find();
         foreach ($events as $event) {
@@ -16,7 +16,7 @@ class rex_api_fullcalendar extends rex_api_function
         exit(json_encode($result));
     }
 
-    public static function httpError($result)
+    public static function httpError($result): void
     {
         header('HTTP/1.1 500 Internal Server Error');
         header('Content-Type: application/json; charset=UTF-8');

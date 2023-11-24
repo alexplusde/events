@@ -3,7 +3,7 @@ use ICal\ICal;
 
 class rex_cronjob_events_ics_import extends rex_cronjob
 {
-    public function execute()
+    public function execute(): void
     {
         $debug_dump = []; // Debug-Array, das bei enstprechender Option ausgegeben wird
 
@@ -220,12 +220,12 @@ class rex_cronjob_events_ics_import extends rex_cronjob
         }
     }
 
-    public function getTypeName()
+    public function getTypeName(): string
     {
         return rex_i18n::msg('events_ics_import_cronjob_name');
     }
 
-    public function getParamFields()
+    public function getParamFields(): array
     {
         // ICS-Datei als Demo vorschlagen
         $default_url = 'https://www.schulferien.org/deutschland/ical/download/?lid=81&j='.date("Y").'&t=2';

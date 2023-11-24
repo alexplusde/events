@@ -1,7 +1,7 @@
 <?php
 class event_country_codes
 {
-    public static function get()
+    public static function get(): array
     {
         return array(
 "AF" => "Afghanistan",
