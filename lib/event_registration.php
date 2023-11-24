@@ -2,12 +2,13 @@
 
 class event_registration extends \rex_yform_manager_dataset
 {
-    public static function getTotalRegistrationsByDate(int $date_id): object
+    public static function getTotalRegistrationsByDate(int $date_id): ?rex_yform_manager_collection
     {
         return self::query()->where('date_id', $date_id)->where('status', '0', '>=')->find();
     }
 
-    public function getRegistrationPerson(int $status = 0, string $operator = ">="): object {
+    public function getRegistrationPerson(int $status = 0, string $operator = ">="): ?rex_yform_manager_collection
+    {
         return event_registration_person::query()->where('status', $status, $operator)->where('event_date_id', self::getDateId())->find();
     }
 
@@ -32,7 +33,7 @@ class event_registration extends \rex_yform_manager_dataset
     {
         return $this->getValue('category_id');
     }
-    public function getCategory(): object
+    public function getCategory(): ?rex_yform_manager_collection
     {
         return $this->getRelatedDataset('category_id');
     }
@@ -42,7 +43,7 @@ class event_registration extends \rex_yform_manager_dataset
         return $this->getValue('date_id');
     }
 
-    public function getDate(): object
+    public function getDate(): ?rex_yform_manager_collection
     {
         return $this->getRelatedDataset('date_id');
     }
@@ -175,7 +176,7 @@ class event_registration extends \rex_yform_manager_dataset
         return $this->getValue('dsgvo');
     }
 
-    public static function getByUuid(string $uuid = null): ?object
+    public static function getByUuid(string $uuid = null): ?rex_yform_manager_collection
     {
         if (!$uuid) {
             return null;
@@ -188,7 +189,7 @@ class event_registration extends \rex_yform_manager_dataset
         return $this->getValue('hash');
     }
 
-    public static function getByHash(string $hash = null): ?object
+    public static function getByHash(string $hash = null): ?rex_yform_manager_collection
     {
         if (!$hash) {
             return null;
