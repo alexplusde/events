@@ -1,5 +1,5 @@
 package: events
-version: '4.0.1'
+version: '4.0.2'
 author: 'Alexander Walther'
 supportpage: https://alexplusde.github.io/events/
 load: late
@@ -102,10 +102,10 @@ pages:
                 perm: admin
             docs:
                 title: Docs
-                subPath: README.md
                 icon: rex-icon fa-info-circle
                 itemclass: pull-right
                 perm: events[docs]
+                pjax: false
 
 default_config:
     currency: EUR
