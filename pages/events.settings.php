@@ -1,5 +1,7 @@
 <?php
 
+echo rex_view::title($this->getProperty('page')['title']);
+
 $addon = rex_addon::get('events');
 
 $form = rex_config_form::factory($addon->getName());

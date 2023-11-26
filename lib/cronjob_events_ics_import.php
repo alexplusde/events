@@ -3,7 +3,7 @@ use ICal\ICal;
 
 class rex_cronjob_events_ics_import extends rex_cronjob
 {
-    public function execute(): void
+    public function execute(): bool
     {
         $debug_dump = []; // Debug-Array, das bei enstprechender Option ausgegeben wird
 
@@ -195,8 +195,8 @@ class rex_cronjob_events_ics_import extends rex_cronjob
                     $values[':end_repeat_date'] = date("Y-m-d", strtotime($rrules['UNTIL']));
                     // $debug_dump['$rrules'.$i] = $rrules;
                 }
-                
-
+                $error_counter = 0;
+                $success_counter = 0;
                 try {
                     $debug_dump['inserts'][$vEvent['UID']] = rex_sql::factory()->setDebug(0)->setQuery($query, $values);
                     $success_counter++;

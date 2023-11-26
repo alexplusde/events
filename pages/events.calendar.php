@@ -1,5 +1,7 @@
 <?php
 
+echo rex_view::title($this->getProperty('page')['title']);
+
 $body = '<div id="fullcalendar"></div>';
 
 $fragment = new rex_fragment();

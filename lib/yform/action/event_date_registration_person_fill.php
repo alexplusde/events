@@ -1,5 +1,32 @@
 <?php
-
+/**
+ * Die `rex_yform_action_event_date_registration_person_fill` Klasse erweitert YForm um eine Aktion,
+ * die es erleichtert, Teilnehmerlisten und Anmeldungen mit mehreren Personen zu erfassen,
+ * wenn eine Registrierung mehr als eine Person beinhaltet.
+ *
+ * Sie erbt von der `rex_yform_action_abstract` Klasse und bietet zusätzliche Methoden
+ * zur Interaktion mit den Anmeldungen eines Event-Datums.
+ *
+ * Beispiel:
+ *
+ * ```php
+ * $yform->setActionField('event_date_registration_person_fill', []);
+ * ```
+ *
+ * ---
+ *
+ * The `rex_yform_action_event_date_registration_person_fill` class extends YForm with an action,
+ * that makes it easier to capture participant lists and registrations with multiple people,
+ * when a registration includes more than one person.
+ *
+ * It inherits from the `rex_yform_action_abstract` class and provides additional methods
+ * for interacting with the registrations of an event date.
+ *
+ * Example:
+ * ```php
+ * $yform->setActionField('event_date_registration_person_fill', []);
+ * ```
+ */
 class rex_yform_action_event_date_registration_person_fill extends rex_yform_action_abstract
 {
     public function executeAction(): void

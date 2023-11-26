@@ -2,43 +2,156 @@
 
 use Ramsey\uuid\uuid;
 
+/**
+* Die `event_date` Klasse repräsentiert ein Event-Datum.
+* Diese Klasse erweitert die `rex_yform_manager_dataset` Klasse und bietet spezifische Funktionen und Eigenschaften, die für die Verwaltung von Event-Daten notwendig sind.
+*
+* Beispiel:
+* ```php
+* $eventDate = new event_date();
+* $eventDate->setValue('startDate', '2022-12-31');
+* $eventDate->setValue('endDate', '2023-01-01');
+* $eventDate->save();
+* ```
+*
+* ---
+*
+* The `event_date` class represents an event date.
+* This class extends the `rex_yform_manager_dataset` class and provides specific functions and properties necessary for managing event dates.
+*
+* Example:
+* ```php
+* $eventDate = new event_date();
+* $eventDate->setValue('startDate', '2022-12-31');
+* $eventDate->setValue('endDate', '2023-01-01');
+* $eventDate->save();
+* ```
+*/
 class event_date extends \rex_yform_manager_dataset
 {
-    private $location = null;
-    private $category = null;
-    private $offer = null;
-
+    private ?event_location $location = null;
+    private ?event_category $category = null;
+    private ?event_date_offer $offer = null;
+    /**
+    * Generiert eine UUID basierend auf der gegebenen ID.
+    *
+    * @param mixed $id Die ID, auf der die UUID basieren soll.
+    * @return string Die generierte UUID.
+    *
+    * Beispiel:
+    * ```php
+    * $uuid = event_date::generateuuid(123);
+    * ```
+    *
+    * ---
+    *
+    * Generates a UUID based on the given ID.
+    *
+    * @param mixed $id The ID that the UUID should be based on.
+    * @return string The generated UUID.
+    *
+    * Example:
+    * ```php
+    * $uuid = event_date::generateuuid(123);
+    * ```
+    */
     public static function generateuuid($id = null) :string
     {
         return uuid::uuid3(uuid::NAMESPACE_URL, $id);
     }
 
-    public function getCategory(): ?rex_yform_manager_collection
+    /**
+    * Gibt die Kategorie des Events zurück.
+    *
+    * @return event_category|null Die Kategorie des Events oder null.
+    *
+    * Beispiel:
+    * ```php
+    * $category = $eventDate->getCategory();
+    * ```
+    *
+    * ---
+    *
+    * Returns the category of the event.
+    *
+    * @return event_category|null The category of the event or null.
+    *
+    * Example:
+    * ```php
+    * $category = $eventDate->getCategory();
+    * ```
+    */
+    public function getCategory(): ?event_category
     {
         $this->category = event_category::get((int)$this->getValue('event_category_id'));
         return $this->category;
     }
 
-    public function getCategories(): array
+    /**
+    * Gibt eine Sammlung von Kategorien zurück, die mit dem Event verbunden sind.
+    *
+    * @return rex_yform_manager_collection Eine Sammlung von Kategorien.
+    *
+    * Beispiel:
+    * ```php
+    * $categories = $eventDate->getCategories();
+    * ```
+    *
+    * ---
+    *
+    * Returns a collection of categories associated with the event.
+    *
+    * @return rex_yform_manager_collection A collection of categories.
+    *
+    * Example:
+    * ```php
+    * $categories = $eventDate->getCategories();
+    * ```
+    */
+    public function getCategories(): rex_yform_manager_collection
     {
         $this->categories = $this->getRelatedCollection('event_category_id');
         return $this->categories;
     }
-
+    /**
+    * Gibt eine iCalendar-Repräsentation des Events zurück.
+    *
+    * Diese Methode erstellt eine iCalendar-Repräsentation des Events, die dann zum Beispiel in Kalenderanwendungen importiert werden kann.
+    *
+    * @return string Die iCalendar-Repräsentation des Events.
+    *
+    * Beispiel:
+    * ```php
+    * $ics = $eventDate->getIcs();
+    * ```
+    *
+    * ---
+    *
+    * Returns an iCalendar representation of the event.
+    *
+    * This method creates an iCalendar representation of the event, which can then be imported into calendar applications, for example.
+    *
+    * @return string The iCalendar representation of the event.
+    *
+    * Example:
+    * ```php
+    * $ics = $eventDate->getIcs();
+    * ```
+    */
     public function getIcs(): string
     {
         $UID = $this->getUid();
-        
+
         $vCalendar = new \Eluceo\iCal\Component\Calendar('-//' . date("Y") . '//#' . rex::getServerName() . '//' . strtoupper((rex_clang::getCurrent())->getCode()));
         date_default_timezone_set(rex::getProperty('timezone'));
-        
+
         $vEvent = new \Eluceo\iCal\Component\Event($UID);
-        
+
         // date/time
         $vEvent
         ->setUseTimezone(true)
-        ->setDtStart($this->getStartDate())
-        ->setDtEnd($this->getEndDate())
+        ->setDtStart($this->getStartTime())
+        ->setDtEnd($this->getEndTime())
         ->setCreated(new \DateTime($this->getValue("createdate")))
         ->setModified(new \DateTime($this->getValue("updatedate")))
         ->setNoTime($this->getValue("all_day"))
@@ -46,66 +159,243 @@ class event_date extends \rex_yform_manager_dataset
         // ->setCategories(explode(",", $sked['entry']->category_name))
         ->setSummary($this->getName())
         ->setDescription($this->getDescriptionAsPlaintext());
-        
+
         // add location
-        $locationICS = $this->getLocation();
-        if (isset($locationICS)) {
-            $ics_lat = $locationICS->getValue('lat');
-            $ics_lng = $locationICS->getValue('lng');
-            $vEvent->setLocation($locationICS->getAsString(), $locationICS->getValue('name'), $ics_lat != '' ? $ics_lat . ',' . $ics_lng : '');
+        /* @var $locationICS event_location */
+        $location = $this->getLocation();
+        if (isset($location)) {
+            $ics_lat = $location->getValue('lat');
+            $ics_lng = $location->getValue('lng');
+            $vEvent->setLocation($location->getAsString(), $location->getValue('name'), $ics_lat != '' ? $ics_lat . ',' . $ics_lng : '');
             // fehlt: set timezone of location
         }
-        
+
         //  add event to calendar
         $vCalendar->addComponent($vEvent);
-        
+
         return $vCalendar->render();
         // ob_clean();
-        
+
         // exit($vEvent);
     }
-
-    public function getLocation(): string
+    /**
+    * Gibt den Standort des Events zurück.
+    *
+    * @return event_location|null Der Standort des Events oder null.
+    *
+    * Beispiel:
+    * ```php
+    * $location = $eventDate->getLocation();
+    * ```
+    *
+    * ---
+    *
+    * Returns the location of the event.
+    *
+    * @return event_location|null The location of the event or null.
+    *
+    * Example:
+    * ```php
+    * $location = $eventDate->getLocation();
+    * ```
+    */
+    public function getLocation(): ?event_location
     {
         if ($this->location === null) {
             $this->location = $this->getRelatedDataset('location');
         }
         return $this->location;
     }
+
+    /**
+    * Gibt die ID des Standorts zurück.
+    *
+    * @return int Die ID des Standorts.
+    *
+    * Beispiel:
+    * ```php
+    * $locationId = $eventDate->getLocationId();
+    * ```
+    *
+    * ---
+    *
+    * Returns the ID of the location.
+    *
+    * @return int The ID of the location.
+    *
+    * Example:
+    * ```php
+    * $locationId = $eventDate->getLocationId();
+    * ```
+    */
     public function getLocationId(): int
     {
         return $this->getValue('location');
     }
-    
+
+    /**
+    * Gibt die Zeitzone basierend auf den gegebenen Koordinaten zurück.
+    *
+    * Diese Methode verwendet die Google Maps Timezone API, um die Zeitzone zu ermitteln.
+    *
+    * @param float $lat Der Breitengrad.
+    * @param float $lng Der Längengrad.
+    * @return string Die Zeitzone im JSON-Format.
+    *
+    * Beispiel:
+    * ```php
+    * $timezone = $eventDate->getTimezone(52.5200, 13.4050);
+    * ```
+    *
+    * ---
+    *
+    * Returns the timezone based on the given coordinates.
+    *
+    * This method uses the Google Maps Timezone API to determine the timezone.
+    *
+    * @param float $lat The latitude.
+    * @param float $lng The longitude.
+    * @return string The timezone in JSON format.
+    *
+    * Example:
+    * ```php
+    * $timezone = $eventDate->getTimezone(52.5200, 13.4050);
+    * ```
+    */
     public function getTimezone(float $lat, float $lng): string
     {
         $event_timezone = "https://maps.googleapis.com/maps/api/timezone/json?location=" . $lat . "," . $lng . "&timestamp=" . time() . "&sensor=false";
         $event_location_time_json = file_get_contents($event_timezone);
         return $event_location_time_json;
     }
-
-    public function getOfferAll(): array
+    /**
+    * Gibt eine Sammlung von Angeboten zurück, die mit dem Event verbunden sind.
+    *
+    * @return rex_yform_manager_collection|null Eine Sammlung von Angeboten oder null.
+    *
+    * Beispiel:
+    * ```php
+    * $offers = $eventDate->getOfferAll();
+    * ```
+    *
+    * ---
+    *
+    * Returns a collection of offers associated with the event.
+    *
+    * @return rex_yform_manager_collection|null A collection of offers or null.
+    *
+    * Example:
+    * ```php
+    * $offers = $eventDate->getOfferAll();
+    * ```
+    */
+    public function getOfferAll(): ?rex_yform_manager_collection
     {
         return $this->getRelatedCollection('offer');
     }
 
+    /**
+    * Gibt das Bild des Events zurück.
+    *
+    * @return string|null Das Bild des Events oder null.
+    *
+    * Beispiel:
+    * ```php
+    * $image = $eventDate->getImage();
+    * ```
+    *
+    * ---
+    *
+    * Returns the image of the event.
+    *
+    * @return string|null The image of the event or null.
+    *
+    * Example:
+    * ```php
+    * $image = $eventDate->getImage();
+    * ```
+    */
     public function getImage(): ?string
     {
         return $this->image;
     }
+
+    /**
+    * Gibt das Medienobjekt des Bildes zurück.
+    *
+    * @return rex_media Das Medienobjekt des Bildes.
+    *
+    * Beispiel:
+    * ```php
+    * $media = $eventDate->getMedia();
+    * ```
+    *
+    * ---
+    *
+    * Returns the media object of the image.
+    *
+    * @return rex_media The media object of the image.
+    *
+    * Example:
+    * ```php
+    * $media = $eventDate->getMedia();
+    * ```
+    */
     public function getMedia(): rex_media
     {
         return rex_media::get($this->image);
     }
-
-    public function getDescriptionAsPlaintext() : ?string
-    {
-        return strip_tags(html_entity_decode($this->description));
-    }
+    /**
+    * Gibt den ICS-Status des Events zurück.
+    *
+    * @return int Der ICS-Status des Events.
+    *
+    * Beispiel:
+    * ```php
+    * $icsStatus = $eventDate->getIcsStatus();
+    * ```
+    *
+    * ---
+    *
+    * Returns the ICS status of the event.
+    *
+    * @return int The ICS status of the event.
+    *
+    * Example:
+    * ```php
+    * $icsStatus = $eventDate->getIcsStatus();
+    * ```
+    */
     public function getIcsStatus(): int
     {
-        return strip_tags($this->eventStatus);
+        return strip_tags($this->getValue('eventStatus'));
     }
+
+    /**
+    * Gibt die eindeutige ID (UID) des Events zurück.
+    *
+    * Wenn die UID noch nicht gesetzt wurde, wird sie generiert und in der Datenbank gespeichert.
+    *
+    * @return string Die UID des Events.
+    *
+    * Beispiel:
+    * ```php
+    * $uid = $eventDate->getUid();
+    * ```
+    *
+    * ---
+    *
+    * Returns the unique ID (UID) of the event.
+    *
+    * If the UID has not been set yet, it is generated and stored in the database.
+    *
+    * @return string The UID of the event.
+    *
+    * Example:
+    * ```php
+    * $uid = $eventDate->getUid();
+    * ```
+    */
     public function getUid(): string
     {
         if ($this->uid === "" && $this->getValue("uid") === "") {
@@ -116,18 +406,90 @@ class event_date extends \rex_yform_manager_dataset
         return $this->uid;
     }
 
+    /**
+    * Gibt die JSON-LD-Darstellung des Events zurück.
+    *
+    * @return string Die JSON-LD-Darstellung des Events.
+    *
+    * Beispiel:
+    * ```php
+    * $jsonLd = $eventDate->getJsonLd();
+    * ```
+    *
+    * ---
+    *
+    * Returns the JSON-LD representation of the event.
+    *
+    * @return string The JSON-LD representation of the event.
+    *
+    * Example:
+    * ```php
+    * $jsonLd = $eventDate->getJsonLd();
+    * ```
+    */
     public function getJsonLd(): string
     {
         $fragment = new rex_fragment();
         $fragment->setVar("event_date", $this);
         return $fragment->parse('event-date-single.json-ld.php');
     }
-
+    /**
+    * Erstellt einen IntlDateFormatter für das angegebene Format und die angegebene Sprache.
+    *
+    * @param int $format_date Das Datumsformat. Standardwert ist IntlDateFormatter::FULL.
+    * @param int $format_time Das Zeitformat. Standardwert ist IntlDateFormatter::SHORT.
+    * @param string $lang Die Sprache. Standardwert ist "de".
+    * @return IntlDateFormatter Der erstellte IntlDateFormatter.
+    *
+    * Beispiel:
+    * ```php
+    * $formatter = event_date::formatDate(IntlDateFormatter::FULL, IntlDateFormatter::SHORT, "de");
+    * ```
+    *
+    * ---
+    *
+    * Creates an IntlDateFormatter for the specified format and language.
+    *
+    * @param int $format_date The date format. Default is IntlDateFormatter::FULL.
+    * @param int $format_time The time format. Default is IntlDateFormatter::SHORT.
+    * @param string $lang The language. Default is "de".
+    * @return IntlDateFormatter The created IntlDateFormatter.
+    *
+    * Example:
+    * ```php
+    * $formatter = event_date::formatDate(IntlDateFormatter::FULL, IntlDateFormatter::SHORT, "de");
+    * ```
+    */
     public static function formatDate(int $format_date = IntlDateFormatter::FULL, int $format_time = IntlDateFormatter::SHORT, string $lang = "de"): IntlDateFormatter
     {
         return datefmt_create($lang, $format_date, $format_time, null, IntlDateFormatter::GREGORIAN);
     }
 
+    /**
+    * Erstellt ein DateTime-Objekt aus dem angegebenen Datum und der angegebenen Zeit.
+    *
+    * @param string $date Das Datum im Format "Y-m-d".
+    * @param string $time Die Zeit im Format "H:i". Standardwert ist "00:00".
+    * @return DateTime Das erstellte DateTime-Objekt.
+    *
+    * Beispiel:
+    * ```php
+    * $dateTime = $eventDate->getDateTime("2022-12-31", "23:59");
+    * ```
+    *
+    * ---
+    *
+    * Creates a DateTime object from the specified date and time.
+    *
+    * @param string $date The date in "Y-m-d" format.
+    * @param string $time The time in "H:i" format. Default is "00:00".
+    * @return DateTime The created DateTime object.
+    *
+    * Example:
+    * ```php
+    * $dateTime = $eventDate->getDateTime("2022-12-31", "23:59");
+    * ```
+    */
     private function getDateTime(string $date, string $time = "00:00"): DateTime
     {
         $time = explode(":", $time);
@@ -137,73 +499,407 @@ class event_date extends \rex_yform_manager_dataset
         return $dateTime;
     }
 
+    /**
+    * Gibt das formatierte Startdatum des Events zurück.
+    *
+    * @param int $format_date Das Datumsformat. Standardwert ist IntlDateFormatter::FULL.
+    * @param int $format_time Das Zeitformat. Standardwert ist IntlDateFormatter::NONE.
+    * @return string Das formatierte Startdatum des Events.
+    *
+    * Beispiel:
+    * ```php
+    * $formattedStartDate = $eventDate->getFormattedStartDate();
+    * ```
+    *
+    * ---
+    *
+    * Returns the formatted start date of the event.
+    *
+    * @param int $format_date The date format. Default is IntlDateFormatter::FULL.
+    * @param int $format_time The time format. Default is IntlDateFormatter::NONE.
+    * @return string The formatted start date of the event.
+    *
+    * Example:
+    * ```php
+    * $formattedStartDate = $eventDate->getFormattedStartDate();
+    * ```
+    */
     public function getFormattedStartDate(int $format_date = IntlDateFormatter::FULL, int $format_time = IntlDateFormatter::NONE): string
     {
         return self::formatDate($format_date, $format_time)->format($this->getDateTime($this->getValue("startDate"), $this->getStartTime()));
     }
 
+    /**
+    * Gibt das formatierte Enddatum des Events zurück.
+    *
+    * @param int $format_date Das Datumsformat. Standardwert ist IntlDateFormatter::FULL.
+    * @param int $format_time Das Zeitformat. Standardwert ist IntlDateFormatter::SHORT.
+    * @return string Das formatierte Enddatum des Events.
+    *
+    * Beispiel:
+    * ```php
+    * $formattedEndDate = $eventDate->getFormattedEndDate();
+    * ```
+    *
+    * ---
+    *
+    * Returns the formatted end date of the event.
+    *
+    * @param int $format_date The date format. Default is IntlDateFormatter::FULL.
+    * @param int $format_time The time format. Default is IntlDateFormatter::SHORT.
+    * @return string The formatted end date of the event.
+    *
+    * Example:
+    * ```php
+    * $formattedEndDate = $eventDate->getFormattedEndDate();
+    * ```
+    */
     public function getFormattedEndDate(int $format_date = IntlDateFormatter::FULL, int $format_time = IntlDateFormatter::SHORT): string
     {
         return self::formatDate($format_date, $format_time)->format($this->getDateTime($this->getValue("endDate"), $this->getEndTime()));
     }
-    
+
+    /**
+    * Gibt die formatierte Startzeit des Events zurück.
+    *
+    * @return string Die formatierte Startzeit des Events.
+    *
+    * Beispiel:
+    * ```php
+    * $formattedStartTime = $eventDate->getFormattedStartTime();
+    * ```
+    *
+    * ---
+    *
+    * Returns the formatted start time of the event.
+    *
+    * @return string The formatted start time of the event.
+    *
+    * Example:
+    * ```php
+    * $formattedStartTime = $eventDate->getFormattedStartTime();
+    * ```
+    */
     public function getFormattedStartTime(): string
     {
         return $this->getStartTime();
     }
+    /**
+    * Gibt die formatierte Endzeit des Events zurück.
+    *
+    * @return string Die formatierte Endzeit des Events.
+    *
+    * Beispiel:
+    * ```php
+    * $formattedEndTime = $eventDate->getFormattedEndTime();
+    * ```
+    *
+    * ---
+    *
+    * Returns the formatted end time of the event.
+    *
+    * @return string The formatted end time of the event.
+    *
+    * Example:
+    * ```php
+    * $formattedEndTime = $eventDate->getFormattedEndTime();
+    * ```
+    */
     public function getFormattedEndTime(): string
     {
         return $this->getEndTime();
     }
+
+    /**
+    * Gibt die Startzeit des Events zurück.
+    *
+    * @return string|null Die Startzeit des Events oder null, wenn keine Startzeit gesetzt ist.
+    *
+    * Beispiel:
+    * ```php
+    * $startTime = $eventDate->getStartTime();
+    * ```
+    *
+    * ---
+    *
+    * Returns the start time of the event.
+    *
+    * @return string|null The start time of the event, or null if no start time is set.
+    *
+    * Example:
+    * ```php
+    * $startTime = $eventDate->getStartTime();
+    * ```
+    */
     public function getStartTime() : ?string
     {
         return $this->getValue('startTime');
     }
+
+    /**
+    * Gibt die Endzeit des Events zurück.
+    *
+    * @return string|null Die Endzeit des Events oder null, wenn keine Endzeit gesetzt ist.
+    *
+    * Beispiel:
+    * ```php
+    * $endTime = $eventDate->getEndTime();
+    * ```
+    *
+    * ---
+    *
+    * Returns the end time of the event.
+    *
+    * @return string|null The end time of the event, or null if no end time is set.
+    *
+    * Example:
+    * ```php
+    * $endTime = $eventDate->getEndTime();
+    * ```
+    */
     public function getEndTime() : ?string
     {
         return $this->getValue('endTime');
     }
-
+    /**
+    * Gibt den Namen des Events zurück.
+    *
+    * @return string|null Der Name des Events oder null.
+    *
+    * Beispiel:
+    * ```php
+    * $name = $eventDate->getName();
+    * ```
+    *
+    * ---
+    *
+    * Returns the name of the event.
+    *
+    * @return string|null The name of the event or null.
+    *
+    * Example:
+    * ```php
+    * $name = $eventDate->getName();
+    * ```
+    */
     public function getName() : ?string
     {
         return $this->getValue("name");
     }
 
+    /**
+    * Gibt die Beschreibung des Events zurück.
+    *
+    * @return string|null Die Beschreibung des Events oder null.
+    *
+    * Beispiel:
+    * ```php
+    * $description = $eventDate->getDescription();
+    * ```
+    *
+    * ---
+    *
+    * Returns the description of the event.
+    *
+    * @return string|null The description of the event or null.
+    *
+    * Example:
+    * ```php
+    * $description = $eventDate->getDescription();
+    * ```
+    */
     public function getDescription() : ?string
     {
         return $this->getValue("description");
     }
+    /**
+    * Gibt die Beschreibung des Events als reinen Text zurück.
+    *
+    * @return string|null Die Beschreibung des Events als reiner Text oder null, wenn keine Beschreibung gesetzt ist.
+    *
+    * Beispiel:
+    * ```php
+    * $descriptionAsPlaintext = $eventDate->getDescriptionAsPlaintext();
+    * ```
+    */
+    public function getDescriptionAsPlaintext() : ?string
+    {
+        return strip_tags($this->getValue("description"));
+    }
 
-    public function geTeaser() : ?string
+    /**
+    * Gibt den Teaser des Events zurück.
+    *
+    * @return string|null Der Teaser des Events oder null.
+    *
+    * Beispiel:
+    * ```php
+    * $teaser = $eventDate->getTeaser();
+    * ```
+    *
+    * ---
+    *
+    * Returns the teaser of the event.
+    *
+    * @return string|null The teaser of the event or null.
+    *
+    * Example:
+    * ```php
+    * $teaser = $eventDate->getTeaser();
+    * ```
+    */
+    public function getTeaser() : ?string
     {
         return $this->getValue("teaser");
     }
-    
+
+    /**
+    * Gibt den Preis des Events zurück.
+    *
+    * Wenn das Event spezielle Angebote hat, wird der Preis des ersten Angebots zurückgegeben.
+    * Wenn es keine Angebote gibt, wird der Preis der ersten Kategorie des Events zurückgegeben.
+    *
+    * @return string Der Preis des Events.
+    *
+    * Beispiel:
+    * ```php
+    * $price = $eventDate->getPrice();
+    * ```
+    *
+    * ---
+    *
+    * Returns the price of the event.
+    *
+    * If the event has special offers, the price of the first offer is returned.
+    * If there are no offers, the price of the first category of the event is returned.
+    *
+    * @return string The price of the event.
+    *
+    * Example:
+    * ```php
+    * $price = $eventDate->getPrice();
+    * ```
+    */
     public function getPrice(): string
     {
-        $offer = rex_yform_manager_table::get('rex_event_date_offer')->query()->where("date_id", $this->getValue('id'))->find();
+        /** @var rex_yform_manager_collection $offers */
+        $offers = rex_yform_manager_table::get('rex_event_date_offer')->query()->where("date_id", $this->getValue('id'))->find();
 
-        if (count($offer) > 0) {
-            return $offer[0]->getPrice();
+        if (count($offers)) {
+            /** @var event_date_offer $offer */
+            $offer = $offers->first();
+            return $offer->getPrice();
         }
-        return $this->getCategories()[0]->getPrice();
+        $category = $this->getCategories()->first();
+        /** @var event_category $category */
+        return $category->getPrice();
     }
+
+    /**
+    * Gibt den formatierten Preis des Events zurück.
+    *
+    * Der Preis wird zusammen mit der Währung zurückgegeben, die in den Einstellungen festgelegt wurde.
+    *
+    * @return string Der formatierte Preis des Events.
+    *
+    * Beispiel:
+    * ```php
+    * $formattedPrice = $eventDate->getPriceFormatted();
+    * ```
+    *
+    * ---
+    *
+    * Returns the formatted price of the event.
+    *
+    * The price is returned along with the currency set in the settings.
+    *
+    * @return string The formatted price of the event.
+    *
+    * Example:
+    * ```php
+    * $formattedPrice = $eventDate->getPriceFormatted();
+    * ```
+    */
     public function getPriceFormatted(): string
     {
         return $this->getPrice() . " " . rex_config::get('events', 'currency');
     }
-    
+
 
     /* Informationen zur Registrierung und Anmeldung */
 
+    /**
+    * Gibt die Anzahl der verfügbaren Plätze für das Event zurück.
+    *
+    * @return int Die Anzahl der verfügbaren Plätze.
+    *
+    * Beispiel:
+    * ```php
+    * $spaceCount = $eventDate->getSpaceCount();
+    * ```
+    *
+    * ---
+    *
+    * Returns the number of available spaces for the event.
+    *
+    * @return int The number of available spaces.
+    *
+    * Example:
+    * ```php
+    * $spaceCount = $eventDate->getSpaceCount();
+    * ```
+    */
     public function getSpaceCount() :int
     {
         return (int) $this->getTotalCount() - $this->countRegistrationPerson();
     }
+
+    /**
+    * Gibt die Gesamtanzahl der Plätze für das Event zurück.
+    *
+    * @return int Die Gesamtanzahl der Plätze.
+    *
+    * Beispiel:
+    * ```php
+    * $totalCount = $eventDate->getTotalCount();
+    * ```
+    *
+    * ---
+    *
+    * Returns the total number of spaces for the event.
+    *
+    * @return int The total number of spaces.
+    *
+    * Example:
+    * ```php
+    * $totalCount = $eventDate->getTotalCount();
+    * ```
+    */
     public function getTotalCount() :int
     {
         return (int) $this->getValue('space');
     }
+    /**
+    * Gibt die Anzahl der registrierten Personen für das Event zurück.
+    *
+    * @return int Die Anzahl der registrierten Personen.
+    *
+    * Beispiel:
+    * ```php
+    * $registerCount = $eventDate->getRegisterCount();
+    * ```
+    *
+    * ---
+    *
+    * Returns the number of registered persons for the event.
+    *
+    * @return int The number of registered persons.
+    *
+    * Example:
+    * ```php
+    * $registerCount = $eventDate->getRegisterCount();
+    * ```
+    */
     public function getRegisterCount() :int
     {
         $registrations = event_registration::getTotalRegistrationsByDate($this->getId());
@@ -213,6 +909,28 @@ class event_date extends \rex_yform_manager_dataset
         }
         return (int) $count;
     }
+
+    /**
+    * Gibt den Prozentsatz der registrierten Personen im Verhältnis zur Gesamtanzahl der Plätze zurück.
+    *
+    * @return int Der Prozentsatz der registrierten Personen.
+    *
+    * Beispiel:
+    * ```php
+    * $registerPercentage = $eventDate->getRegisterCountPercentage();
+    * ```
+    *
+    * ---
+    *
+    * Returns the percentage of registered persons in relation to the total number of spaces.
+    *
+    * @return int The percentage of registered persons.
+    *
+    * Example:
+    * ```php
+    * $registerPercentage = $eventDate->getRegisterCountPercentage();
+    * ```
+    */
     public function getRegisterCountPercentage() :int
     {
         if ($this->getTotalCount() > 0) {
@@ -220,6 +938,28 @@ class event_date extends \rex_yform_manager_dataset
         }
         return 0;
     }
+
+    /**
+    * Überprüft, ob das Event voll ist.
+    *
+    * @return bool True, wenn das Event voll ist, sonst false.
+    *
+    * Beispiel:
+    * ```php
+    * $isFull = $eventDate->isFull();
+    * ```
+    *
+    * ---
+    *
+    * Checks whether the event is full.
+    *
+    * @return bool True if the event is full, otherwise false.
+    *
+    * Example:
+    * ```php
+    * $isFull = $eventDate->isFull();
+    * ```
+    */
     public function isFull() :bool
     {
         if ($this->getSpaceCount() <= 0) {
@@ -227,8 +967,9 @@ class event_date extends \rex_yform_manager_dataset
         }
         return false;
     }
+
     /* Register-URL-Addon */
-    
+
     public static function combineCidDid($cid, $did): string
     {
         return $cid . str_pad($did, 3, '0', STR_PAD_LEFT);
@@ -248,37 +989,38 @@ class event_date extends \rex_yform_manager_dataset
             return '<a class="btn disabled d-block">ausgebucht</a>';
         }
         return '<a class="btn btn-primary d-block"
-        href="'.$this->getRegisterUrl($category_id).'">Jetzt anmelden</a>';
+href="'.$this->getRegisterUrl($category_id).'">Jetzt anmelden</a>';
     }
 
     public function getRegisterBar() :string
     {
         if ($this->isFull()) {
             return '
-            <div class="progress-bar bg-danger" role="progressbar"
-            style="width: '. $this->getRegisterCountPercentage() .'%;"
-            aria-valuenow="'. $this->countRegistrationPerson() .'"
-            aria-valuemin="0"
-            aria-valuemax="'. $this->getTotalCount() .'">
-            '.$this->countRegistrationPerson()."/".$this->getTotalCount().'
-            </div>';
+<div class="progress-bar bg-danger" role="progressbar"
+style="width: '. $this->getRegisterCountPercentage() .'%;"
+aria-valuenow="'. $this->countRegistrationPerson() .'"
+aria-valuemin="0"
+aria-valuemax="'. $this->getTotalCount() .'">
+'.$this->countRegistrationPerson()."/".$this->getTotalCount().'
+</div>';
         }
         return '
-        <div class="progress-bar bg-success" role="progressbar"
-        style="width: '. $this->getRegisterCountPercentage() .'%;"
-        aria-valuenow="'. $this->countRegistrationPerson() .'"
-        aria-valuemin="0"
-        aria-valuemax="'. $this->getTotalCount() .'">
-        '.$this->countRegistrationPerson()."/".$this->getTotalCount().'
-        </div>';
+<div class="progress-bar bg-success" role="progressbar"
+style="width: '. $this->getRegisterCountPercentage() .'%;"
+aria-valuenow="'. $this->countRegistrationPerson() .'"
+aria-valuemin="0"
+aria-valuemax="'. $this->getTotalCount() .'">
+'.$this->countRegistrationPerson()."/".$this->getTotalCount().'
+</div>';
     }
     public function getIcon(): string
     {
         if ($category = $this->getCategory()) {
+            /* @var event_category $category */
             return $category->getIcon();
         }
     }
-    
+
     public function getRegistrationPerson($status = 0, $operator = ">="): ?rex_yform_manager_collection
     {
         return event_registration_person::query()->where('status', $status, $operator)->where('event_date_id', self::getId())->find();
