@@ -283,7 +283,7 @@ class event_category extends \rex_yform_manager_dataset
      * $hasAttribute = $eventCategory->hasAttribute('attributeName');
      * ```
      */
-    public function hasAttribute($needle): bool
+    public function hasAttribute(string $needle): bool
     {
         return in_array($needle, $this->getAttributes());
     }
