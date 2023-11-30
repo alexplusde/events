@@ -597,7 +597,7 @@ class event_registration extends \rex_yform_manager_dataset
      * $formattedBirthday = $eventRegistration->getBirthdayFormatted("d.m.Y");
      * ```
      */
-    public function getBirthdayFormatted($format = "Y-m-d H:i:s") :string
+    public function getBirthdayFormatted(string $format = "Y-m-d H:i:s") :string
     {
         if ($this->getBirthday() == "0000-00-00") {
             return "";
