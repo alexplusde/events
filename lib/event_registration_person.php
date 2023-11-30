@@ -50,7 +50,7 @@ class event_registration_person extends \rex_yform_manager_dataset
      * $name = $eventRegistrationPerson->getName();
      * ```
      */
-    public function getName($reverse = false): string
+    public function getName(bool $reverse = false): string
     {
         $name = [];
         if ($reverse) {
@@ -215,7 +215,7 @@ class event_registration_person extends \rex_yform_manager_dataset
      * $formattedBirthday = $eventRegistrationPerson->getBirthdayFormatted("m/d/Y");
      * ```
      */
-    public function getBirthdayFormatted($format = "Y-m-d H:i:s") :string
+    public function getBirthdayFormatted(string $format = "Y-m-d H:i:s") :string
     {
         if ($this->getBirthday() == "0000-00-00") {
             return "";
