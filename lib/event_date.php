@@ -206,6 +206,12 @@ class event_date extends \rex_yform_manager_dataset
         }
         return $this->location;
     }
+    public function setLocation(event_location $location): self
+    {
+        $this->location = $location;
+        $this->setValue('location', $location->getId());
+        return $this;
+    }
 
     /**
     * Gibt die ID des Standorts zurück.
@@ -232,7 +238,11 @@ class event_date extends \rex_yform_manager_dataset
     {
         return $this->getValue('location');
     }
-
+    public function setLocationId(int $locationId): self
+    {
+        $this->setValue('location', $locationId);
+        return $this;
+    }
     /**
     * Gibt die Zeitzone basierend auf den gegebenen Koordinaten zurück.
     *
@@ -268,6 +278,11 @@ class event_date extends \rex_yform_manager_dataset
         $event_location_time_json = file_get_contents($event_timezone);
         return $event_location_time_json;
     }
+    public function setTimezone(string $timezone): self
+    {
+        $this->setValue('timezone', $timezone);
+        return $this;
+    }
     /**
     * Gibt eine Sammlung von Angeboten zurück, die mit dem Event verbunden sind.
     *
@@ -292,6 +307,11 @@ class event_date extends \rex_yform_manager_dataset
     public function getOfferAll(): ?rex_yform_manager_collection
     {
         return $this->getRelatedCollection('offer');
+    }
+    public function setOfferAll(rex_yform_manager_collection $offers): self
+    {
+        $this->setValue('offer', $offers->getArrayCopy());
+        return $this;
     }
 
     /**
@@ -318,6 +338,11 @@ class event_date extends \rex_yform_manager_dataset
     public function getImage(): ?string
     {
         return $this->image;
+    }
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
+        return $this;
     }
 
     /**
@@ -370,6 +395,11 @@ class event_date extends \rex_yform_manager_dataset
     {
         return strip_tags($this->getValue('eventStatus'));
     }
+    public function setIcsStatus(int $icsStatus): self
+    {
+        $this->setValue('eventStatus', $icsStatus);
+        return $this;
+    }
 
     /**
     * Gibt die eindeutige ID (UID) des Events zurück.
@@ -405,6 +435,12 @@ class event_date extends \rex_yform_manager_dataset
         }
         return $this->uid;
     }
+    public function setUid(string $uid): self
+    {
+        $this->uid = $uid;
+        $this->setValue('uid', $uid);
+        return $this;
+    }
 
     /**
     * Gibt die JSON-LD-Darstellung des Events zurück.
@@ -432,6 +468,11 @@ class event_date extends \rex_yform_manager_dataset
         $fragment = new rex_fragment();
         $fragment->setVar("event_date", $this);
         return $fragment->parse('event-date-single.json-ld.php');
+    }
+    public function setJsonLd(string $jsonLd): self
+    {
+        $this->setValue('json_ld', $jsonLd);
+        return $this;
     }
     /**
     * Erstellt einen IntlDateFormatter für das angegebene Format und die angegebene Sprache.
@@ -495,7 +536,6 @@ class event_date extends \rex_yform_manager_dataset
         $time = explode(":", $time);
         $dateTime = new DateTime($date);
         $dateTime->setTime($time[0], $time[1]);
-
         return $dateTime;
     }
 
@@ -635,6 +675,11 @@ class event_date extends \rex_yform_manager_dataset
     {
         return $this->getValue('startTime');
     }
+    public function setStartTime(string $startTime): self
+    {
+        $this->setValue('startTime', $startTime);
+        return $this;
+    }
 
     /**
     * Gibt die Endzeit des Events zurück.
@@ -661,6 +706,11 @@ class event_date extends \rex_yform_manager_dataset
     {
         return $this->getValue('endTime');
     }
+    public function setEndTime(string $endTime): self
+    {
+        $this->setValue('endTime', $endTime);
+        return $this;
+    }
     /**
     * Gibt den Namen des Events zurück.
     *
@@ -685,6 +735,11 @@ class event_date extends \rex_yform_manager_dataset
     public function getName() : ?string
     {
         return $this->getValue("name");
+    }
+    public function setName(string $name): self
+    {
+        $this->setValue('name', $name);
+        return $this;
     }
 
     /**
@@ -712,6 +767,11 @@ class event_date extends \rex_yform_manager_dataset
     {
         return $this->getValue("description");
     }
+    public function setDescription(string $description): self
+    {
+        $this->setValue('description', $description);
+        return $this;
+    }
     /**
     * Gibt die Beschreibung des Events als reinen Text zurück.
     *
@@ -725,6 +785,11 @@ class event_date extends \rex_yform_manager_dataset
     public function getDescriptionAsPlaintext() : ?string
     {
         return strip_tags($this->getValue("description"));
+    }
+    public function setDescriptionAsPlaintext(string $descriptionAsPlaintext): self
+    {
+        $this->setValue('description', $descriptionAsPlaintext);
+        return $this;
     }
 
     /**
@@ -751,6 +816,11 @@ class event_date extends \rex_yform_manager_dataset
     public function getTeaser() : ?string
     {
         return $this->getValue("teaser");
+    }
+    public function setTeaser(string $teaser): self
+    {
+        $this->setValue('teaser', $teaser);
+        return $this;
     }
 
     /**
@@ -853,6 +923,11 @@ class event_date extends \rex_yform_manager_dataset
     {
         return (int) $this->getTotalCount() - $this->countRegistrationPerson();
     }
+    public function setSpaceCount(int $spaceCount): self
+    {
+        $this->setValue('space', $spaceCount);
+        return $this;
+    }
 
     /**
     * Gibt die Gesamtanzahl der Plätze für das Event zurück.
@@ -878,6 +953,11 @@ class event_date extends \rex_yform_manager_dataset
     public function getTotalCount() :int
     {
         return (int) $this->getValue('space');
+    }
+    public function setTotalCount(int $totalCount): self
+    {
+        $this->setValue('space', $totalCount);
+        return $this;
     }
     /**
     * Gibt die Anzahl der registrierten Personen für das Event zurück.
@@ -908,6 +988,11 @@ class event_date extends \rex_yform_manager_dataset
             $count += array_sum(event_registration::getTotalRegistrationsByDate($this->getId())->getValues('person_count'));
         }
         return (int) $count;
+    }
+    public function setRegisterCount(int $registerCount): self
+    {
+        $this->setValue('registerCount', $registerCount);
+        return $this;
     }
 
     /**
