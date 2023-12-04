@@ -57,6 +57,11 @@ class event_date_offer extends \rex_yform_manager_dataset
     {
         return $this->getValue('url');
     }
+    public function setUrl(string $url): self
+    {
+        $this->setValue('url', $url);
+        return $this;
+    }
 
     /**
      * Gibt den Status des Angebots zurück.
@@ -82,6 +87,11 @@ class event_date_offer extends \rex_yform_manager_dataset
     public function getStatus(): string
     {
         return $this->getValue('status');
+    }
+    public function setStatus(int $status): self
+    {
+        $this->setValue('status', $status);
+        return $this;
     }
 
     /**
@@ -109,6 +119,11 @@ class event_date_offer extends \rex_yform_manager_dataset
     {
         return $this->getValue('price');
     }
+    public function setPrice(string $price): self
+    {
+        $this->setValue('price', $price);
+        return $this;
+    }
     
     /**
      * Gibt die Währung des Angebots zurück.
@@ -134,6 +149,11 @@ class event_date_offer extends \rex_yform_manager_dataset
     public function getCurrency() :string
     {
         return $this->getValue('currency') ?? rex_config::get('events', 'currency');
+    }
+    public function setCurrency(string $currency): self
+    {
+        $this->setValue('currency', $currency);
+        return $this;
     }
 
     /**
@@ -185,5 +205,10 @@ class event_date_offer extends \rex_yform_manager_dataset
     public function getAvailability() :string
     {
         return "https://schema.org/" . $this->getValue('status');
+    }
+    public function setAvailability(string $availability): self
+    {
+        $this->setValue('status', $availability);
+        return $this;
     }
 }
