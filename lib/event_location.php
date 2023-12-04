@@ -55,6 +55,15 @@ class event_location extends \rex_yform_manager_dataset
     {
         return $this->getValue('street') .", ". $this->getValue('zip') .", ".$this->getValue('locality').", ".$this->getValue('countrycode');
     }
+    public function setAsString(string $addressString) :self
+    {
+        $address = explode(',', $addressString);
+        $this->setValue('street', $address[0]);
+        $this->setValue('zip', $address[1]);
+        $this->setValue('locality', $address[2]);
+        $this->setValue('countrycode', $address[3]);
+        return $this;
+    }
 
     /**
      * Gibt die formatierte Adresse zurück.
@@ -107,6 +116,11 @@ class event_location extends \rex_yform_manager_dataset
     {
         return $this->getValue('name');
     }
+    public function setName(string $name) :self
+    {
+        $this->setValue('name', $name);
+        return $this;
+    }
 
     /**
      * Gibt die Straße des Veranstaltungsorts zurück.
@@ -132,6 +146,11 @@ class event_location extends \rex_yform_manager_dataset
     public function getStreet() :string
     {
         return $this->getValue('street');
+    }
+    public function setStreet(string $street) :self
+    {
+        $this->setValue('street', $street);
+        return $this;
     }
     
     /**
@@ -159,6 +178,11 @@ class event_location extends \rex_yform_manager_dataset
     {
         return $this->getValue('zip');
     }
+    public function setZip(string $zip) :self
+    {
+        $this->setValue('zip', $zip);
+        return $this;
+    }
 
     /**
      * Gibt die Ortschaft des Veranstaltungsorts zurück.
@@ -184,6 +208,11 @@ class event_location extends \rex_yform_manager_dataset
     public function getLocality() :string
     {
         return $this->getValue('locality');
+    }
+    public function setLocality(string $locality) :self
+    {
+        $this->setValue('locality', $locality);
+        return $this;
     }
 
     /**
@@ -211,6 +240,11 @@ class event_location extends \rex_yform_manager_dataset
     {
         return $this->getLocality();
     }
+    public function setCity(string $city) :self
+    {
+        $this->setLocality($city);
+        return $this;
+    }
     /**
      * Gibt den Ländercode des Veranstaltungsorts zurück.
      *
@@ -235,6 +269,11 @@ class event_location extends \rex_yform_manager_dataset
     public function getCountryCode() :string
     {
         return $this->getValue('countrycode');
+    }
+    public function setCountryCode(string $countryCode) :self
+    {
+        $this->setValue('countrycode', $countryCode);
+        return $this;
     }
 
     /**
@@ -262,6 +301,11 @@ class event_location extends \rex_yform_manager_dataset
     {
         return $this->getValue('lat_lng');
     }
+    public function setLatLng(string $latLng) :self
+    {
+        $this->setValue('lat_lng', $latLng);
+        return $this;
+    }
     /**
      * Gibt den Breitengrad des Veranstaltungsorts zurück.
      *
@@ -286,6 +330,11 @@ class event_location extends \rex_yform_manager_dataset
     public function getLat() :string
     {
         return $this->getValue('lat');
+    }
+    public function setLat(string $lat) :self
+    {
+        $this->setValue('lat', $lat);
+        return $this;
     }
 
     /**
@@ -312,5 +361,10 @@ class event_location extends \rex_yform_manager_dataset
     public function getLng() :string
     {
         return $this->getValue('lng');
+    }
+    public function setLng(string $lng) :self
+    {
+        $this->setValue('lng', $lng);
+        return $this;
     }
 }
