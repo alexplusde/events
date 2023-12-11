@@ -114,6 +114,11 @@ class event_registration extends \rex_yform_manager_dataset
     {
         return $this->getValue('person_count');
     }
+    public function setPersonTotal(int $personTotal): self
+    {
+        $this->setValue('person_count', $personTotal);
+        return $this;
+    }
 
     /**
      * Wird aufgerufen, wenn ein rex_extension_point gespeichert wird.
@@ -170,6 +175,11 @@ class event_registration extends \rex_yform_manager_dataset
     {
         return $this->getValue('category_id');
     }
+    public function setCategoryId(int $categoryId): self
+    {
+        $this->setValue('category_id', $categoryId);
+        return $this;
+    }
 
     /**
      * Gibt die Kategorie der Registrierung zurück.
@@ -221,6 +231,11 @@ class event_registration extends \rex_yform_manager_dataset
     public function getDateId(): int
     {
         return $this->getValue('date_id');
+    }
+    public function setDateId(int $dateId): self
+    {
+        $this->setValue('date_id', $dateId);
+        return $this;
     }
 
     /**
@@ -274,6 +289,11 @@ class event_registration extends \rex_yform_manager_dataset
     {
         return $this->getValue('event_location_id');
     }
+    public function setLocationId(int $locationId): self
+    {
+        $this->setValue('event_location_id', $locationId);
+        return $this;
+    }
 
     /**
      * Gibt die Anrede der Registrierung zurück.
@@ -299,6 +319,11 @@ class event_registration extends \rex_yform_manager_dataset
     public function getSalutation(): string
     {
         return $this->getValue('salutation');
+    }
+    public function setSalutation(string $salutation): self
+    {
+        $this->setValue('salutation', $salutation);
+        return $this;
     }
 
     /**
@@ -326,6 +351,11 @@ class event_registration extends \rex_yform_manager_dataset
     {
         return $this->getValue('firstname');
     }
+    public function setFirstName(string $firstName): self
+    {
+        $this->setValue('firstname', $firstName);
+        return $this;
+    }
 
     /**
      * Gibt den Nachnamen der Registrierung zurück.
@@ -351,6 +381,11 @@ class event_registration extends \rex_yform_manager_dataset
     public function getLastName(): string
     {
         return $this->getValue('lastname');
+    }
+    public function setLastName(string $lastName): self
+    {
+        $this->setValue('lastname', $lastName);
+        return $this;
     }
 
     /**
@@ -419,6 +454,11 @@ class event_registration extends \rex_yform_manager_dataset
     {
         return $this->getValue('email');
     }
+    public function setEmail(string $email): self
+    {
+        $this->setValue('email', $email);
+        return $this;
+    }
 
     /**
      * Gibt die Straße der Registrierung zurück.
@@ -444,6 +484,11 @@ class event_registration extends \rex_yform_manager_dataset
     public function getStreet(): string
     {
         return $this->getValue('street');
+    }
+    public function setStreet(string $street): self
+    {
+        $this->setValue('street', $street);
+        return $this;
     }
 
     /**
@@ -471,6 +516,11 @@ class event_registration extends \rex_yform_manager_dataset
     {
         return $this->getValue('zip');
     }
+    public function setPostalCode(string $postalCode): self
+    {
+        $this->setValue('zip', $postalCode);
+        return $this;
+    }
 
     /**
      * Gibt die Postleitzahl der Registrierung zurück.
@@ -496,6 +546,11 @@ class event_registration extends \rex_yform_manager_dataset
     public function getZip(): string
     {
         return $this->getValue('zip');
+    }
+    public function setZip(string $zip): self
+    {
+        $this->setValue('zip', $zip);
+        return $this;
     }
 
     /**
@@ -523,6 +578,11 @@ class event_registration extends \rex_yform_manager_dataset
     {
         return $this->getValue('city');
     }
+    public function setCity(string $city): self
+    {
+        $this->setValue('city', $city);
+        return $this;
+    }
     /**
      * Gibt die Telefonnummer der Registrierung zurück.
      *
@@ -547,6 +607,11 @@ class event_registration extends \rex_yform_manager_dataset
     public function getPhone(): string
     {
         return $this->getValue('phone');
+    }
+    public function setPhone(string $phone): self
+    {
+        $this->setValue('phone', $phone);
+        return $this;
     }
 
     /**
@@ -574,6 +639,11 @@ class event_registration extends \rex_yform_manager_dataset
     {
         return $this->getValue('birthday');
     }
+    public function setBirthday(string $birthday): self
+    {
+        $this->setValue('birthday', $birthday);
+        return $this;
+    }
     /**
      * Gibt das formatierte Geburtsdatum der Registrierung zurück.
      *
@@ -597,7 +667,7 @@ class event_registration extends \rex_yform_manager_dataset
      * $formattedBirthday = $eventRegistration->getBirthdayFormatted("d.m.Y");
      * ```
      */
-    public function getBirthdayFormatted($format = "Y-m-d H:i:s") :string
+    public function getBirthdayFormatted(string $format = "Y-m-d H:i:s") :string
     {
         if ($this->getBirthday() == "0000-00-00") {
             return "";
@@ -632,6 +702,11 @@ class event_registration extends \rex_yform_manager_dataset
     {
         return $this->getValue('payment');
     }
+    public function setPayment(string $payment): self
+    {
+        $this->setValue('payment', $payment);
+        return $this;
+    }
     /**
      * Gibt die Nachricht der Registrierung zurück.
      *
@@ -656,6 +731,11 @@ class event_registration extends \rex_yform_manager_dataset
     public function getMessage(): string
     {
         return $this->getValue('message');
+    }
+    public function setMessage(string $message): self
+    {
+        $this->setValue('message', $message);
+        return $this;
     }
 
     /**
@@ -683,6 +763,11 @@ class event_registration extends \rex_yform_manager_dataset
     {
         return $this->getValue('channel');
     }
+    public function setChannel(string $channel): self
+    {
+        $this->setValue('channel', $channel);
+        return $this;
+    }
 
     /**
      * Gibt den Status der Registrierung zurück.
@@ -709,6 +794,11 @@ class event_registration extends \rex_yform_manager_dataset
     {
         return $this->getValue('status');
     }
+    public function setStatus(int $status): self
+    {
+        $this->setValue('status', $status);
+        return $this;
+    }
     /**
      * Gibt den Preis der Registrierung zurück.
      *
@@ -733,6 +823,11 @@ class event_registration extends \rex_yform_manager_dataset
     public function getPrice(): float
     {
         return $this->getValue('price');
+    }
+    public function setPrice(float $price): self
+    {
+        $this->setValue('price', $price);
+        return $this;
     }
 
     /**
@@ -759,6 +854,11 @@ class event_registration extends \rex_yform_manager_dataset
     public function getUuid(): string
     {
         return $this->getValue('uuid');
+    }
+    public function setUuid(string $uuid): self
+    {
+        $this->setValue('uuid', $uuid);
+        return $this;
     }
 
     /**

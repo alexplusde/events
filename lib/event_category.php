@@ -49,6 +49,11 @@ class event_category extends \rex_yform_manager_dataset
     {
         return $this->name;
     }
+    public function setName(string $name): self
+    {
+        $this->setValue('name', $name);
+        return $this;
+    }
 
     /**
      * Gibt das Bild der Kategorie zurück.
@@ -74,6 +79,11 @@ class event_category extends \rex_yform_manager_dataset
     public function getImage(): string
     {
         return $this->image;
+    }
+    public function setImage(string $image): self
+    {
+        $this->setValue('image', $image);
+        return $this;
     }
 
     /**
@@ -126,6 +136,11 @@ class event_category extends \rex_yform_manager_dataset
     {
         return $this->getValue('icon');
     }
+    public function setIcon(string $icon): self
+    {
+        $this->setValue('icon', $icon);
+        return $this;
+    }
 
     /**
      * Gibt den Preis der Kategorie zurück.
@@ -152,6 +167,11 @@ class event_category extends \rex_yform_manager_dataset
     {
         return $this->getValue('msg_price');
     }
+    public function setPrice(string $price): self
+    {
+        $this->setValue('msg_price', $price);
+        return $this;
+    }
 
     /**
      * Gibt die URL der Kategorie zurück.
@@ -177,6 +197,11 @@ class event_category extends \rex_yform_manager_dataset
     public function getUrl(): string
     {
         return rex_getUrl('', '', ['event-category-id' => $this->getId()]);
+    }
+    public function setUrl(string $url): self
+    {
+        $this->setValue('url', $url);
+        return $this;
     }
 
     /**
@@ -234,6 +259,11 @@ class event_category extends \rex_yform_manager_dataset
     {
         return $this->getDateWhere($whereRaw);
     }
+    public function setRelatedDates(rex_yform_manager_collection $relatedDates): self
+    {
+        $this->relatedDates = $relatedDates;
+        return $this;
+    }
     /**
      * Gibt ein Array von Attributen zurück.
      *
@@ -259,6 +289,11 @@ class event_category extends \rex_yform_manager_dataset
     {
         return explode(",", $this->getValue('msg_form_presets'));
     }
+    public function setAttributes(array $attributes): self
+    {
+        $this->setValue('msg_form_presets', implode(",", $attributes));
+        return $this;
+    }
 
     /**
      * Überprüft, ob ein bestimmtes Attribut vorhanden ist.
@@ -283,7 +318,7 @@ class event_category extends \rex_yform_manager_dataset
      * $hasAttribute = $eventCategory->hasAttribute('attributeName');
      * ```
      */
-    public function hasAttribute($needle): bool
+    public function hasAttribute(string $needle): bool
     {
         return in_array($needle, $this->getAttributes());
     }

@@ -50,7 +50,7 @@ class event_registration_person extends \rex_yform_manager_dataset
      * $name = $eventRegistrationPerson->getName();
      * ```
      */
-    public function getName($reverse = false): string
+    public function getName(bool $reverse = false): string
     {
         $name = [];
         if ($reverse) {
@@ -88,6 +88,11 @@ class event_registration_person extends \rex_yform_manager_dataset
     {
         return $this->getValue('firstname');
     }
+    public function setFirstName(string $firstName): self
+    {
+        $this->setValue('firstname', $firstName);
+        return $this;
+    }
 
     /**
      * Gibt den Nachnamen der registrierten Person zurück.
@@ -113,6 +118,11 @@ class event_registration_person extends \rex_yform_manager_dataset
     public function getLastName(): string
     {
         return $this->getValue('lastname');
+    }
+    public function setLastName(string $lastName): self
+    {
+        $this->setValue('lastname', $lastName);
+        return $this;
     }
 
     /**
@@ -140,6 +150,11 @@ class event_registration_person extends \rex_yform_manager_dataset
     {
         return $this->getValue('email');
     }
+    public function setMail(string $mail): self
+    {
+        $this->setValue('email', $mail);
+        return $this;
+    }
     /**
      * Gibt die Telefonnummer der registrierten Person zurück.
      *
@@ -164,6 +179,11 @@ class event_registration_person extends \rex_yform_manager_dataset
     public function getPhone(): string
     {
         return $this->getValue('phone');
+    }
+    public function setPhone(string $phone): self
+    {
+        $this->setValue('phone', $phone);
+        return $this;
     }
 
     /**
@@ -191,6 +211,11 @@ class event_registration_person extends \rex_yform_manager_dataset
     {
         return $this->getValue('birthday');
     }
+    public function setBirthday(string $birthday): self
+    {
+        $this->setValue('birthday', $birthday);
+        return $this;
+    }
 
     /**
      * Gibt das formatierte Geburtsdatum der registrierten Person zurück.
@@ -215,7 +240,7 @@ class event_registration_person extends \rex_yform_manager_dataset
      * $formattedBirthday = $eventRegistrationPerson->getBirthdayFormatted("m/d/Y");
      * ```
      */
-    public function getBirthdayFormatted($format = "Y-m-d H:i:s") :string
+    public function getBirthdayFormatted(string $format = "Y-m-d H:i:s") :string
     {
         if ($this->getBirthday() == "0000-00-00") {
             return "";
@@ -249,7 +274,11 @@ class event_registration_person extends \rex_yform_manager_dataset
     {
         return $this->getValue('status');
     }
-
+    public function setStatus(int $status): self
+    {
+        $this->setValue('status', $status);
+        return $this;
+    }
     /**
      * Gibt die ID des Event-Datums zurück, für das sich die Person registriert hat.
      *
@@ -274,6 +303,11 @@ class event_registration_person extends \rex_yform_manager_dataset
     public function getEventDateId(): int
     {
         return $this->getValue('event_date_id');
+    }
+    public function setEventDateId(int $eventDateId): self
+    {
+        $this->setValue('event_date_id', $eventDateId);
+        return $this;
     }
     /**
      * Gibt das Event-Datum zurück, für das sich die Person registriert hat.
@@ -324,6 +358,11 @@ class event_registration_person extends \rex_yform_manager_dataset
     public function getRegistrationId(): int
     {
         return $this->getValue('registration_id');
+    }
+    public function setRegistrationId(int $registrationId): self
+    {
+        $this->setValue('registration_id', $registrationId);
+        return $this;
     }
     /**
      * Gibt die Registrierung zurück, für die die Person registriert ist.
@@ -404,6 +443,11 @@ class event_registration_person extends \rex_yform_manager_dataset
     public function getHash(): string
     {
         return $this->getValue('hash');
+    }
+    public function setHash(string $hash): self
+    {
+        $this->setValue('hash', $hash);
+        return $this;
     }
 
     /**

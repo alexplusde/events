@@ -21,7 +21,7 @@ class rex_api_events_ics_file extends rex_api_function
         }
     }
 
-    public static function httpError($result): void
+    public static function httpError(string $result): void
     {
         header('HTTP/1.1 500 Internal Server Error');
         header('Content-Type: application/json; charset=UTF-8');

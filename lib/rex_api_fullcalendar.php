@@ -16,7 +16,7 @@ class rex_api_fullcalendar extends rex_api_function
         exit(json_encode($result));
     }
 
-    public static function httpError($result): void
+    public static function httpError(string $result): void
     {
         header('HTTP/1.1 500 Internal Server Error');
         header('Content-Type: application/json; charset=UTF-8');
