@@ -5,9 +5,6 @@ class rex_cronjob_events_ics_import extends rex_cronjob
 {
     public function execute(): bool
     {
-        $debug_dump = []; // Debug-Array, das bei enstprechender Option ausgegeben wird
-
-        // Das ICS-Objekt initialisieren und Datei abrufen
         try {
             $ical = new ICal('ICal.ics', array(
                 'defaultSpan'                 => 2,     // Default value
@@ -18,7 +15,6 @@ class rex_cronjob_events_ics_import extends rex_cronjob
                 'useTimeZoneWithRRules'       => false, // Default value
             ));
             $ical->initUrl($this->getParam('url'));
-            $debug_dump['$ical'] = $ical;
             $vEvents = $ical->cal['VEVENT'];
         } catch (\Exception $e) {
             $this->setMessage('ICS-Datei Konnte nicht importiert werden.');
@@ -53,20 +49,15 @@ class rex_cronjob_events_ics_import extends rex_cronjob
     
             // Neue Kategorien hinzufügen
             foreach ($add_categories as $category_name) {
-                $category_query = '
-            INSERT INTO rex_event_category
-                (name_'.$this->getParam('clang_id').', createdate, updatedate, createuser, updateuser)
-            VALUES
-                (:name, :createdate, :updatedate, :createuser, :updateuser)';
+                $category = event_category::create('rex_event_category');
 
-                $values = [];
-                $values[':name'] = $category_name;
-                $values[':createdate'] = date("Y-m-d H:i:s", strtotime($vEvent['DTSTAMP'])); // TODO: Ist es wirklich immer DTSTAMP? Ist die Uhrzeit korrekt?
-                $values[':updatedate'] = date("Y-m-d H:i:s", strtotime($vEvent['DTSTAMP']));
-                $values[':createuser'] = "Cronjob";
-                $values[':updateuser'] = "Cronjob";
+                $category->setValue('name', $category_name);
+                $category->setValue('createdate', date("Y-m-d H:i:s", strtotime($vEvent['DTSTAMP'])));
+                $category->setValue('updatedate', date("Y-m-d H:i:s", strtotime($vEvent['DTSTAMP'])));
+                $category->setValue('createuser', "Cronjob");
+                $category->setValue('updateuser', "Cronjob");
 
-                $debug_dump['insert_category'][] = rex_sql::factory()->setDebug(0)->setQuery($category_query, $values);
+                $category->save();
             }
         }
 
@@ -87,15 +78,11 @@ class rex_cronjob_events_ics_import extends rex_cronjob
         // aktuelle Locations herausfinden
         $existing_locations = rex_sql::factory()->getArray('SELECT id, name_'.$this->getParam('clang_id').' AS name FROM `rex_event_location`');
         $debug_dump['$existing_locations'] = $existing_locations;
-        // TODO: Gleiche Überprüfung der Locations wie mit Kategorien + Parsen der Adresse
 
-        // Termine einfügen und aktualisieren
+        // TODO: Gleiche Überprüfung der Locations wie mit Kategorien + Parsen der Adresse
         if (count($vEvents)) {
-            // $i = 0; // nur für debugging
             $debug_dump['$vEvents'] = $vEvents;
             foreach ($vEvents as $vEvent) {
-                // $i++;
-                // $debug_dump['Event_'.$i] = $vEvent;
                 $category_ids = [];
                 if ($this->getParam('category_sync') === 'default') {
                     $category_ids[] = $this->getParam('category_id');
@@ -116,69 +103,37 @@ class rex_cronjob_events_ics_import extends rex_cronjob
 
 
                 $category_ids = array_unique($category_ids);
-                $query = '
-                    INSERT INTO rex_event_date
-                        (start_date, end_date, is_fulltime, start_time, end_time, category, venue, status, name_'.$this->getParam('clang_id').', text_'.$this->getParam('clang_id').', type, `repeat`, repeat_year, repeat_week, repeat_month, end_repeat_date, createdate,updatedate, createuser, updateuser, uid, raw, source_url)
-                    VALUES
-                        (:start_date, :end_date, :is_fulltime, :start_time, :end_time, :category, :venue, :status, :name, :text, :type, :repeat, :repeat_year, :repeat_week, :repeat_month, :end_repeat_date, :createdate, :updatedate, :createuser, :updateuser, :uid, :raw, :source_url)
-                    ON DUPLICATE KEY UPDATE
-                        start_date  = :start_date,
-                        end_date    = :end_date,
-                        is_fulltime = :is_fulltime, 
-                        start_time  = :start_time,
-                        end_time    = :end_time, 
-                        category    = :category,
-                        venue       = :venue,
-                        status      = :status,
-                        name_'.$this->getParam('clang_id').' = :name,
-                        text_'.$this->getParam('clang_id').' = :text,
-                        type        = :type,
-                        `repeat`      = :repeat,
-                        repeat_year = :repeat_year,
-                        repeat_week = :repeat_week,
-                        repeat_month  = :repeat_month,
-                        end_repeat_date = :end_repeat_date,
-                        createdate  = :createdate,
-                        updatedate  = :updatedate,
-                        createuser  = :createuser,
-                        updateuser  = :updateuser,
-                        uid         = :uid,
-                        raw         = :raw,
-                        source_url  = :source_url
-                ';
 
-                $values = [];
-                $values[':is_fulltime'] = (int)!(bool)(strtotime($vEvent['DTEND']) - strtotime($vEvent['DTSTART'] ."+ 1 DAY")); // Dirty Hack - ganztägige Ereignisse sind von 00:00 bis 00:00 des Folgetages
-                $values[':start_date']  = date("Y-m-d", strtotime($vEvent['DTSTART']));
+                $event_date = event_date::create();
+
+                $event_date->setValue('start_date', date("Y-m-d", strtotime($vEvent['DTSTART'])));
+                $event_date->setValue('end_date', date("Y-m-d", strtotime($vEvent['DTEND'])));
                 // wenn fulltime Abkehr von ics-Konvention weil Events diese als mehrtägig darstellt.
-                if ($values[':is_fulltime']) {
-                    $values[':end_date'] = date("Y-m-d", strtotime($vEvent['DTEND']-1));
-                } else {
-                    $values[':end_date'] = date("Y-m-d", strtotime($vEvent['DTEND']));
-                }
-                $values[':start_time']  = date("H:i:s", strtotime($vEvent['DTSTART']));
-                $values[':end_time']    = date("H:i:s", strtotime($vEvent['DTEND']));
-                $values[':category']    = implode(",", $category_ids);
-                $values[':venue']       = $location_id;
-                $values[':status']      = 1; // TODO: Status zuordnen. CONFIRMED? Abgesagt?
-                $values[':name']        = $vEvent['SUMMARY'];
-                $values[':text']        = " ".$vEvent['DESCRIPTION']; // Dirty Hack - darf nicht NULL sein
-                $values[':createdate']  = date("Y-m-d H:i:s", strtotime($vEvent['DTSTAMP'])); // TODO: Ist es wirklich immer DTSTAMP? Ist die Uhrzeit korrekt?
-                $values[':updatedate']  = date("Y-m-d H:i:s", strtotime($vEvent['DTSTAMP']));
-                $values[':createuser']  = "Cronjob";
-                $values[':updateuser']  = "Cronjob";
-                $values[':uid']         = $vEvent['UID'];
-                $values[':raw']         = json_encode($vEvent);
-                $values[':source_url']   = $this->getParam('url');
+                $event_date->setValue('is_fulltime', (int)!(bool)(strtotime($vEvent['DTEND']) - strtotime($vEvent['DTSTART'] ."+ 1 DAY")));
+                $event_date->setValue('start_time', date("H:i:s", strtotime($vEvent['DTSTART'])));
+                $event_date->setValue('end_time', date("H:i:s", strtotime($vEvent['DTEND'])));
+                $event_date->setValue('category', implode(",", $category_ids));
+                $event_date->setValue('venue', $location_id);
+                $event_date->setValue('status', 1); // TODO: Status zuordnen. CONFIRMED? Abgesagt?
+                $event_date->setValue('name', $vEvent['SUMMARY']);
+                $event_date->setValue('text', $vEvent['DESCRIPTION'] ?? "");
+                $event_date->setValue('createdate', date("Y-m-d H:i:s", strtotime($vEvent['DTSTAMP']))); // TODO: Ist es wirklich immer DTSTAMP? Ist die Uhrzeit korrekt?
+                $event_date->setValue('updatedate', date("Y-m-d H:i:s", strtotime($vEvent['DTSTAMP'])));
+                $event_date->setValue('createuser', "Cronjob");
+                $event_date->setValue('updateuser', "Cronjob");
+                $event_date->setValue('uid', $vEvent['UID']);
+                $event_date->setValue('raw', json_encode($vEvent));
+                $event_date->setValue('source_url', $this->getParam('url'));
+
                 // Wenn wiederkehrender Termin die rrules auslesen
                 if (!array_key_exists('RRULE', $vEvent)) {
                     //default once
-                    $values[':type']            = 'one_time';
-                    $values[':repeat']          = null;
-                    $values[':repeat_year']     = null;
-                    $values[':repeat_week']     = null;
-                    $values[':repeat_month']    = null;
-                    $values[':end_repeat_date'] = null;
+                    $event_date->setValue('type', 'one_time');
+                    $event_date->setValue('repeat', null);
+                    $event_date->setValue('repeat_year', null);
+                    $event_date->setValue('repeat_week', null);
+                    $event_date->setValue('repeat_month', null);
+                    $event_date->setValue('end_repeat_date', null);
                 } else {
                     // repeating
                     $rrules = [];
@@ -187,32 +142,27 @@ class rex_cronjob_events_ics_import extends rex_cronjob
                         list($cKey, $cValue) = explode('=', $rrule_parm, 2);
                         $rrules[$cKey] = $cValue;
                     }
-                    $values[':type']            = 'repeat';
-                    $values[':repeat']          = strtolower($rrules['FREQ']);
-                    $values[':repeat_year']     = 1;
-                    $values[':repeat_week']     = 1;
-                    $values[':repeat_month']    = 1;
-                    $values[':end_repeat_date'] = date("Y-m-d", strtotime($rrules['UNTIL']));
-                    // $debug_dump['$rrules'.$i] = $rrules;
+                    $dataset->setValue('type', 'repeat');
+                    $dataset->setValue('repeat', strtolower($rrules['FREQ']));
+                    $dataset->setValue('repeat_year', 1);
+                    $dataset->setValue('repeat_week', 1);
+                    $dataset->setValue('repeat_month', 1);
+                    $dataset->setValue('end_repeat_date', date("Y-m-d", strtotime($rrules['UNTIL'])));
                 }
+
                 $error_counter = 0;
                 $success_counter = 0;
+
                 try {
-                    $debug_dump['inserts'][$vEvent['UID']] = rex_sql::factory()->setDebug(0)->setQuery($query, $values);
+                    $event_date->save();
                     $success_counter++;
                 } catch (rex_sql_exception $e) {
-                    $debug_dump['inserts_and_updates'][$vEvent['UID']] = $e->getMessage();
                     $error_counter++;
                 };
             }
         }
-        // Debug-Ausgabe
-        // if($this->getParamFields('debug') === 1) { dump($debug_dump); }
-        // BUG: setting debug wird nicht berücksichtigt. Deshalb im Moment...
-        dump($debug_dump);
         $this->setMessage((int)$success_counter.' Datensätze importiert / aktualisiert, '.(int)$error_counter.' Fehler.'); // TODO: Meldung übersetzen und Parameter als Platzhalter einfügen
 
-        // Richtigen Status zurückgeben und Meldung im Backend einfärben
         if ($error_counter) {
             return false;
         } else {
