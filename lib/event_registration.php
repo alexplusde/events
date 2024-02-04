@@ -241,7 +241,7 @@ class event_registration extends \rex_yform_manager_dataset
     /**
      * Gibt das Datum der Registrierung zurück.
      *
-     * @return rex_yform_manager_collection|null Eine Sammlung von Daten oder null, wenn keine gefunden wurden.
+     * @return rex_yform_manager_dataset|null Eine Sammlung von Daten oder null, wenn keine gefunden wurden.
      *
      * Beispiel:
      * ```php
@@ -252,14 +252,14 @@ class event_registration extends \rex_yform_manager_dataset
      *
      * Returns the date of the registration.
      *
-     * @return rex_yform_manager_collection|null A collection of dates or null if none were found.
+     * @return rex_yform_manager_dataset|null A collection of dates or null if none were found.
      *
      * Example:
      * ```php
      * $date = $eventRegistration->getDate();
      * ```
      */
-    public function getDate(): ?rex_yform_manager_collection
+    public function getDate(): ?rex_yform_manager_dataset
     {
         return $this->getRelatedDataset('date_id');
     }
