@@ -367,7 +367,7 @@ class event_registration_person extends \rex_yform_manager_dataset
     /**
      * Gibt die Registrierung zurück, für die die Person registriert ist.
      *
-     * @return rex_yform_manager_collection|null Die Registrierung oder null, wenn keine Registrierung gesetzt ist.
+     * @return rex_yform_manager_dataset|null Die Registrierung oder null, wenn keine Registrierung gesetzt ist.
      *
      * Beispiel:
      * ```php
@@ -378,14 +378,14 @@ class event_registration_person extends \rex_yform_manager_dataset
      *
      * Returns the registration for which the person is registered.
      *
-     * @return rex_yform_manager_collection|null The registration or null if no registration is set.
+     * @return rex_yform_manager_dataset|null The registration or null if no registration is set.
      *
      * Example:
      * ```php
      * $registration = $eventRegistrationPerson->getRegistration();
      * ```
      */
-    public function getRegistration(): ?rex_yform_manager_collection
+    public function getRegistration(): ?rex_yform_manager_dataset
     {
         return $this->getRelatedDataset('registration_id');
     }

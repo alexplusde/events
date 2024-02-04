@@ -184,7 +184,7 @@ class event_registration extends \rex_yform_manager_dataset
     /**
      * Gibt die Kategorie der Registrierung zurück.
      *
-     * @return rex_yform_manager_collection|null Eine Sammlung von Kategorien oder null, wenn keine gefunden wurden.
+     * @return rex_yform_manager_dataset|null Eine Sammlung von Kategorien oder null, wenn keine gefunden wurden.
      *
      * Beispiel:
      * ```php
@@ -195,14 +195,14 @@ class event_registration extends \rex_yform_manager_dataset
      *
      * Returns the category of the registration.
      *
-     * @return rex_yform_manager_collection|null A collection of categories or null if none were found.
+     * @return rex_yform_manager_dataset|null A collection of categories or null if none were found.
      *
      * Example:
      * ```php
      * $category = $eventRegistration->getCategory();
      * ```
      */
-    public function getCategory(): ?rex_yform_manager_collection
+    public function getCategory(): ?rex_yform_manager_dataset
     {
         return $this->getRelatedDataset('category_id');
     }
