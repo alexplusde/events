@@ -8,7 +8,7 @@ if (rex::isBackend() && rex_be_controller::getCurrentPage() == "events/date") {
     });
 }
 
-rex_extension::register('REX_YFORM_SAVED', ['event_registration', 'ep_saved'], rex_extension::LATE);
+// rex_extension::register('REX_YFORM_SAVED', ['event_registration', 'ep_saved'], rex_extension::LATE);
 
 if (rex::isBackend() && rex_be_controller::getCurrentPage() == 'events/calendar') {
     rex_view::addJsFile($this->getAssetsUrl('fullcalendar/packages/core/main.js'));
