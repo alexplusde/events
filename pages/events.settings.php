@@ -31,7 +31,7 @@ $field = $form->addLinkmapField('article_id');
 $field->setLabel(rex_i18n::msg('events_settings_article_id'));
 $field->setNotice(rex_i18n::msg('events_settings_article_id_notice'));
 
-$field = $form->addTextAreaField('empty', null, ['class' => 'form-control '. rex_config::get('events', 'editor')]);
+$field = $form->addTextAreaField('empty', null, ['class' => '###events-settings-editor###']);
 $field->setLabel(rex_i18n::msg('events_settings_empty'));
 $field->setNotice(rex_i18n::msg('events_settings_empty_notice'));
 
@@ -44,7 +44,7 @@ $form->addFieldset(rex_i18n::msg('events_settings_fieldset_registration'));
 
 /* Für Anmeldungen */
 
-$field = $form->addTextAreaField('withdrawal', null, ['class' => 'form-control '. rex_config::get('events', 'editor')]);
+$field = $form->addTextAreaField('withdrawal', null, ['class' => '###events-settings-editor###']);
 $field->setLabel($this->i18n('events_settings_withdrawal'));
 
 $field = $form->addLinkmapField('privacy_policy');
