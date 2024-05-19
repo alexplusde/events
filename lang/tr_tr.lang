@@ -1,279 +1,278 @@
-events = Termine
-events_title = Termine und Veranstaltungen
+events = Etkinlikler
+events_title = Etkinlikler ve Organizasyonlar
 
-# Tabellennamen
+# Tabellen
 
-event_tablename_date = 📅 Termine
-event_tablename_date_lang = 📅 Sprache
-event_tablename_category = 📅 Kategorien
-event_tablename_location = 📅 Veranstaltungsorte
-event_tablename_category_request = 📅 Anfragen
-event_tablename_date_registration = 📅 Buchungen
-event_tablename_date_offer = 📅 Angebote
-event_tablename_date_registration_person = 📅 Teilnehmer*innen
+event_tablename_date = 📅 Tarihler
+event_tablename_date_lang = 📅 Dil
+event_tablename_category = 📅 Kategoriler
+event_tablename_location = 📅 Mekanlar
+event_tablename_category_request = 📅 Talepler
+event_tablename_date_registration = 📅 Kayıtlar
+event_tablename_date_offer = 📅 Teklifler
+event_tablename_date_registration_person = 📅 Katılımcılar
 
-# Menüpunkte
+# Menü 
 
-event_calendar = Kalender
-event_lang = Sprachen
-event_date = Termine
-event_category = Kategorien
-event_location = Veranstaltungsorte
-event_category_request = Anfragen
-event_date_registration = Buchungen
-event_date_registration_person = Teilnehmer*innen
-event_settings = Einstellungen
+event_calendar = Takvim
+event_lang = Diller
+event_date = Tarihler
+event_category = Kategoriler
+event_location = Mekanlar
+event_category_request = Talepler
+event_date_registration = Kayıtlar
+event_date_registration_person = Katılımcılar
+event_settings = Ayarlar
 event_docs = Doku
 
 # Einstellungen
 
-events_settings = Einstellungen
+events_settings = Ayarlar
 
-events_settings_fieldset_general = Allgemein
-events_settings_default_organizer_name = Standard Veransalter-Name
-events_settings_default_organizer_name_notice =  Dieser wird bspw. in der ICS-Datei verwendet.
-events_settings_currency = Währung
-events_settings_currency_notice = Währung, die für die Preise verwendet wird, z.B. <code>EUR</code>.
+events_settings_fieldset_general = Genel
+events_settings_default_organizer_name = Varsayılan Organizatör Adı
+events_settings_default_organizer_name_notice =  Bu, örneğin ICS dosyasında kullanılır.
+events_settings_currency = Para Birimi
+events_settings_currency_notice = Fiyatlar için kullanılan para birimi, örneğin <code>EUR</code>.
 events_settings_timezone = Google Timezone API
-events_settings_timezone_notice = API-Schlüssel zur Ermittlung der Zeitzone einer Location. 
+events_settings_timezone_notice = Bir mekanın zaman dilimini belirlemek için API anahtarı. 
 events_settings_editor = WYSIWYG-Editor
 
-events_settings_fieldset_details = Übersicht und Detailansicht
-events_settings_article_id = Terminübersicht
-events_settings_article_id_notice = REDAXO-Artikel, in dem die Terminübersicht angezeigt wird.
-events_settings_empty = Meldung, wenn keine Termine verfügbar sind
-events_settings_empty_notice = Mitteilung, die ausgegeben werden soll, wenn keine Termine vorhanden sind.
-events_settings_fallback_image = Standard-Poster
-events_settings_fallback_image_notice = Fallback-Bild, das angezeigt wird, wenn kein Bild für einen Termin vorhanden ist.
+events_settings_fieldset_details = Genel Bakış ve Detay Görünümü
+events_settings_article_id = Etkinlik Genel Bakışı
+events_settings_article_id_notice = Etkinlik genel bakışının gösterildiği REDAXO makalesi.
+events_settings_empty = Etkinlik olmadığında gösterilecek mesaj
+events_settings_empty_notice = Etkinlik olmadığında gösterilecek mesaj.
+events_settings_fallback_image = Varsayılan Poster
+events_settings_fallback_image_notice = Bir etkinlik için resim olmadığında gösterilecek yedek resim.
 
-events_settings_fieldset_registration = Anmeldung
+events_settings_fieldset_registration = Kayıt
 
-events_settings_withdrawal =  Angaben zum Widerufsrecht
-events_settings_privacy_policy_id =  Datenschutz-Seite
-events_settings_agb_id =  AGB-Seite
+events_settings_withdrawal =  İptal Hakkı Bilgileri
+events_settings_privacy_policy_id =  Gizlilik Politikası Sayfası
+events_settings_agb_id =  Şartlar ve Koşullar Sayfası
 
-# Docs
+# Dokumentation
 
-events_docs_intro = Intro
-events_docs_settings = Einstellungen
-events_docs_event_date = Termine
-events_docs_event_category = Kategorien
-events_docs_event_location = Veranstaltungsorte
-events_docs_event_category_request = Anfragen
-events_docs_event_date_registration = Buchungen
-events_docs_event_date_registration_person = Teilnehmer*innen
-events_docs_yform_action_event_date_registration_person_fill = Actions
-events_docs_event_date_offer = Angebote
+events_docs_intro = Giriş
+events_docs_settings = Ayarlar
+events_docs_event_date = Tarihler
+events_docs_event_category = Kategoriler
+events_docs_event_location = Mekanlar
+events_docs_event_category_request = Talepler
+events_docs_event_date_registration = Kayıtlar
+events_docs_event_date_registration_person = Katılımcılar
+events_docs_yform_action_event_date_registration_person_fill = Eylemler
+events_docs_event_date_offer = Teklifler
 events_docs_cronjobs = Cronjobs
-events_docs_ics = ICS-Import
-events_docs_forcal_migration = Migration von forcal
-events_docs_yform_table_manager = Events erweitern
+events_docs_ics = ICS-İthalat
+events_docs_forcal_migration = forcal'dan Göç
+events_docs_yform_table_manager = Etkinlikleri Genişlet
 events_docs_restful_api = RESTful API
 
 # ICS-Cronjob
 
-event_ics_import_cronjob_name = .ics-Datei in Events importieren
+event_ics_import_cronjob_name = .ics dosyasını Etkinliklere aktar
 
-event_ics_import_cronjob_url_label          = URL der .ics-Datei
-event_ics_import_cronjob_url_notice         = im Format <code>https://www.redaxo.org/ical.ics</code>
+event_ics_import_cronjob_url_label          = .ics dosyasının URL'si
+event_ics_import_cronjob_url_notice         = <code>https://www.redaxo.org/ical.ics</code> formatında
 
-event_ics_import_cronjob_media_label        = Medienpool-Datei
-event_ics_import_cronjob_media_notice       = für einen manuellen Import. Diese Funktion benötigt deine Unterstützung auf Github!
+event_ics_import_cronjob_media_label        = Medya havuzu dosyası
+event_ics_import_cronjob_media_notice       = manuel aktarım için. Bu özellik Github'daki desteğinizi gerektirir!
 
-event_ics_import_cronjob_choose             = Bitte wählen...
-event_ics_import_cronjob_choose_none        = Keine Auswahl
+event_ics_import_cronjob_choose             = Lütfen seçin...
+event_ics_import_cronjob_choose_none        = Seçim yok
 
-event_ics_import_cronjob_geocoding          = Sollen die Locations gleich geocodiert werden? [Nicht verfügbar]
-event_ics_import_cronjob_geocoding_notice   = Diese Funktion benötigt deine Unterstützung auf Github!
+event_ics_import_cronjob_geocoding          = Konumlar hemen coğrafi kodlansın mı? [Mevcut değil]
+event_ics_import_cronjob_geocoding_notice   = Bu özellik Github'daki desteğinizi gerektirir!
 
-event_ics_import_cronjob_debug              = Debug-Modus aktivieren?
-event_ics_import_cronjob_debug_notice       = Wenn aktiv, werden zusätzliche Informationen beim Ausführen des Cronjobs im Backend angezeigt.
+event_ics_import_cronjob_debug              = Hata ayıklama modunu etkinleştir?
+event_ics_import_cronjob_debug_notice       = Etkinleştirildiğinde, Cronjob'ın yürütülmesi sırasında Backend'de ek bilgiler gösterilir.
 
-event_ics_import_cronjob_category_remove         = Unbekannte Kategorien anlegen, alle überzähligen Kategorien in Events löschen. Achtung! Löscht ggf. auch manuell angelegte Kategorien oder Kategorien weiterer Cronjobs.  
-event_ics_import_cronjob_category_default_id     = Kategorien in Events beibehalten, alle Termine einer vorhandenen Kategorie zuordnen 
-event_ics_import_cronjob_category_keep           = Unbekannte Kategorien anlegen, überzählige Kategorien in Events beibehalten
-event_ics_import_cronjob_category_sync           = Wie werden Termine in Events den Kategorien zugeordnet?
+event_ics_import_cronjob_category_remove         = Bilinmeyen kategorileri oluştur, Etkinliklerdeki tüm fazla kategorileri sil. Dikkat! Manüel oluşturulan kategorileri veya diğer Cronjob'ların kategorilerini de siler.  
+event_ics_import_cronjob_category_default_id     = Etkinliklerdeki kategorileri koru, tüm etkinlikleri mevcut bir kategoriye atayın 
+event_ics_import_cronjob_category_keep           = Bilinmeyen kategorileri oluştur, Etkinliklerdeki fazla kategorileri koru
+event_ics_import_cronjob_category_sync           = Etkinliklerdeki etkinlikler nasıl kategorilere atanır?
 
-event_ics_import_cronjob_default_category_sync_id_notice     = (optional) Kategorie, der die Termine in Events standardmäßig zugeordnet werden.
-event_ics_import_cronjob_default_location_sync_id_notice     = (optional) Location, der die Termine in Events standardmäßig zugeordnet wird, wenn <code>LOCATION</code> nicht in der <code>.ics</code>-Datei angegeben wurde. 
+event_ics_import_cronjob_default_category_sync_id_notice     = (isteğe bağlı) Etkinliklerdeki etkinliklere varsayılan olarak atanacak kategori.
+event_ics_import_cronjob_default_location_sync_id_notice     = (isteğe bağlı) <code>LOCATION</code> <code>.ics</code> dosyasında belirtilmediğinde, Etkinliklerdeki etkinliklere varsayılan olarak atanacak konum. 
 
-event_ics_import_cronjob_clang_id_notice = REDAXO-Sprache, der Termin-Details (bspw. Titel, Beschreibung) zugeordnet werden
+event_ics_import_cronjob_clang_id_notice = Etkinlik detaylarının (ör. başlık, açıklama) atanacağı REDAXO dil
 
-event_info_donate = Anders als die meisten Addons aus der REDAXO-Community ist die Entstehung und Weiterentwicklung dieses Addons nicht durch eigene Projekte gedeckt. mit einer einer Beauftragung sicherst du zusätzliche Features, die Stabilität, Funktionsumfang und Weiterentwicklung weiter verbessern können, sowie eine bessere Anleitung. 
-event_donate = Weiterentwicklung unterstützen 
+event_info_donate = REDAXO topluluğundaki çoğu eklentiye kıyasla, bu eklentinin oluşumu ve geliştirilmesi kendi projelerimizle kapsanmamaktadır. Bir görevlendirme ile ek özellikler, daha fazla stabilite, işlevsellik ve geliştirme, ayrıca daha iyi bir kullanım kılavuzu sağlayabilirsiniz. 
+event_donate = Geliştirmeyi destekle
 
 # Labels der YForm-Tabellenfelder und Formulare
 
-event_date_lang_name = Name
-event_date_lang_code = Code
-event_date_lang_event_date = Termine
+event_date_lang_name = İsim
+event_date_lang_code = Kod
+event_date_lang_event_date = Tarihler
 
+event_category_prio = Sıralama
+event_category_name = İsim
+event_category_icon = İkon
+event_category_teaser = Özet
+event_category_description = Açıklama
+event_category_name_short = Kısa İsim
+event_category_images = Resimler
+event_category_status = Durum
+event_category_date_id = Tarih(ler)
+event_category_createuser = Oluşturan...
+event_category_updateuser = Son Güncelleyen...
 
-event_category_prio = Reihenfolge
-event_category_name = Name
-event_category_icon = Icon
-event_category_teaser = Teaser
-event_category_description = Beschreibung
-event_category_name_short = Kurzname
-event_category_images = Bilder
-event_category_status = Status
-event_category_date_id = Termin(e)
-event_category_createuser = Erstellt von...
-event_category_updateuser = Zuletzt geändert von...
-
-event_date_name = Name
-event_date_teaser = Teaser
-event_date_description = Beschreibung
-event_date_lang_id = Sprach ID
-event_date_event_category_id = Kategorie(n)
-event_date_startdate = Beginn Datum 
-event_date_all_day = ganztägig?
-event_date_doortime = Einlass-Uhrzeit
-event_date_starttime = Beginn Uhrzeit
-event_date_endtime = End-Uhrzeit
-event_date_enddate = End-Datum
-event_date_location = Ort
-event_date_space = Freie Plätze
-event_date_image_poster = Titelbild
-event_date_images = Galerie
-event_date_url = Externe URL
-event_date_video_url = Video-URL
-event_date_eventstatus = Status
+event_date_name = İsim
+event_date_teaser = Özet
+event_date_description = Açıklama
+event_date_lang_id = Dil ID
+event_date_event_category_id = Kategori(ler)
+event_date_startdate = Başlangıç Tarihi
+event_date_all_day = tüm gün?
+event_date_doortime = Kapı Açılış Saati
+event_date_starttime = Başlangıç Saati
+event_date_endtime = Bitiş Saati
+event_date_enddate = Bitiş Tarihi
+event_date_location = Yer
+event_date_space = Boş Yerler
+event_date_image_poster = Başlık Resmi
+event_date_images = Galeri
+event_date_url = Dış URL
+event_date_video_url = Video URL
+event_date_eventstatus = Durum
 event_date_uid = UID
-event_date_updateuser = Zuletzt geändert von...
-event_date_createuser = Erstellt von...
-event_date_updatedate = Zuletzt geändert am...
-event_date_createdate = Erstellt am...
+event_date_updateuser = Son Güncelleyen...
+event_date_createuser = Oluşturan...
+event_date_updatedate = Son Güncelleme Tarihi...
+event_date_createdate = Oluşturma Tarihi...
 
-event_date_offer = Angebote / Preise
-event_date_startdatetime = Startdatum und -zeit
+event_date_offer = Teklifler / Fiyatlar
+event_date_startdatetime = Başlangıç Tarihi ve Saati
 
-event_location_google_places = Google Places
-event_location_location_category_id = Kategorie
-event_location_name = Name
-event_location_street = Straße
-event_location_zip = PLZ
-event_location_locality = Ort
-event_location_countrycode = Ländercode
-event_location_lat = Breitengrad
-event_location_lng = Längengrad
-event_location_updateuser = Aktualisierert von...
-event_location_createuser = Erstellt von...
-event_location_createdate = Erstellt am...
-event_location_updatedate = Aktualisiert am...
-event_location_lat_lng = Karte
+event_location_google_places = Google Yerler
+event_location_location_category_id = Kategori
+event_location_name = İsim
+event_location_street = Sokak
+event_location_zip = Posta Kodu
+event_location_locality = Yer
+event_location_countrycode = Ülke Kodu
+event_location_lat = Enlem
+event_location_lng = Boylam
+event_location_updateuser = Güncelleyen...
+event_location_createuser = Oluşturan...
+event_location_createdate = Oluşturma Tarihi...
+event_location_updatedate = Güncelleme Tarihi...
+event_location_lat_lng = Harita
 
-event_date_registration_category_id = Kategorie
-event_date_registration_date_id = Termin
-event_date_registration_event_location_id = Veranstaltungsort
-event_date_registration_date = Datum
-event_date_registration_category = Kategorie
-event_date_registration_salutation = Anrede
-event_date_registration_firstname = Vorname
-event_date_registration_lastname = Nachname
-event_date_registration_email = E-Mail
-event_date_registration_street = Straße
-event_date_registration_zip = PLZ
-event_date_registration_city = Stadt
+event_date_registration_category_id = Kategori
+event_date_registration_date_id = Tarih
+event_date_registration_event_location_id = Etkinlik Yeri
+event_date_registration_date = Tarih
+event_date_registration_category = Kategori
+event_date_registration_salutation = Selamlama
+event_date_registration_firstname = İsim
+event_date_registration_lastname = Soyisim
+event_date_registration_email = E-Posta
+event_date_registration_street = Sokak
+event_date_registration_zip = Posta Kodu
+event_date_registration_city = Şehir
 event_date_registration_phone = Telefon
-event_date_registration_birthday = Geburtstag
-event_date_registration_person_count = Anzahl der Teilnehmer*innen
-event_date_registration_message = Nachricht
-event_date_registration_newsletter = Newsletter
-event_date_registration_dsgvo = DSGVO Zustimmung
-event_date_registration_agb = AGB Zustimmung
-event_date_registration_channel = Empfehlung über...
-event_date_registration_createdate = Anmeldung erfolgt am...
-event_date_registration_deletedate = Wird gelöscht am...
-event_date_registration_price = Preis
-event_date_registration_status = Status
+event_date_registration_birthday = Doğum Günü
+event_date_registration_person_count = Katılımcı Sayısı
+event_date_registration_message = Mesaj
+event_date_registration_newsletter = Bülten
+event_date_registration_dsgvo = GDPR Onayı
+event_date_registration_agb = AGB Onayı
+event_date_registration_channel = Tavsiye üzerine...
+event_date_registration_createdate = Kayıt Tarihi...
+event_date_registration_deletedate = Silinecek Tarih...
+event_date_registration_price = Fiyat
+event_date_registration_status = Durum
 event_date_registration_uuid = UUID
 event_date_registration_hash = Hash
 
-event_date_registration_person_event_date_id = Termin
-event_date_registration_person_registration_id = Anmeldung
-event_date_registration_person_firstname = Vorname
-event_date_registration_person_lastname = Nachname
-event_date_registration_person_birthday = Geburtstag
-event_date_registration_person_email = E-Mail
+event_date_registration_person_event_date_id = Tarih
+event_date_registration_person_registration_id = Kayıt
+event_date_registration_person_firstname = İsim
+event_date_registration_person_lastname = Soyisim
+event_date_registration_person_birthday = Doğum Günü
+event_date_registration_person_email = E-Posta
 event_date_registration_person_phone = Telefon
-event_date_registration_person_status = Status
+event_date_registration_person_status = Durum
 event_date_registration_person_uuid = UUID
-event_date_registration_person_createdate = Angemeldet am...
-event_date_registration_person_updatedate = Aktualisiert am...
-event_date_registration_person_deletedate = Wird gelöscht am...
+event_date_registration_person_createdate = Kayıt Tarihi...
+event_date_registration_person_updatedate = Güncelleme Tarihi...
+event_date_registration_person_deletedate = Silinecek Tarih...
 event_date_registration_person_hash = Hash
 
-event_category_request_status = Status 
-event_category_request_category_id = Kategorie 
-event_category_request_date = Termin
-event_category_request_category = Kategorie-Name
-event_category_request_salutation = Anrede
-event_category_request_firstname = Vorname
-event_category_request_lastname = Nachname
-event_category_request_email = E-Mail
-event_category_request_street = Straße
-event_category_request_zip = PLZ
-event_category_request_city = Stadt
+event_category_request_status = Durum
+event_category_request_category_id = Kategori
+event_category_request_date = Tarih
+event_category_request_category = Kategori İsmi
+event_category_request_salutation = Selamlama
+event_category_request_firstname = İsim
+event_category_request_lastname = Soyisim
+event_category_request_email = E-Posta
+event_category_request_street = Sokak
+event_category_request_zip = Posta Kodu
+event_category_request_city = Şehir
 event_category_request_phone = Telefon
-event_category_request_birthday = Geburtstag
-event_category_request_person_count = Teilnehmeranzahl
-event_category_request_message = Nachricht
-event_category_request_newsletter = Newsletter-Einwilligung
-event_category_request_dsgvo = DSGVO-Einwilligung
-event_category_request_agb = AGB-Einwilligung
-event_category_request_channel = Empfehlung über...
-event_category_request_createdate = Anmeldung erfolgt am...
-event_category_request_deletedate = Wird gelöscht am...
+event_category_request_birthday = Doğum Günü
+event_category_request_person_count = Katılımcı Sayısı
+event_category_request_message = Mesaj
+event_category_request_newsletter = Bülten Onayı
+event_category_request_dsgvo = GDPR Onayı
+event_category_request_agb = AGB Onayı
+event_category_request_channel = Tavsiye üzerine...
+event_category_request_createdate = Kayıt Tarihi...
+event_category_request_deletedate = Silinecek Tarih...
 event_category_request_uuid = UUID
 
-event_date_offer_date_id = Termin
+event_date_offer_date_id = Tarih
 event_date_offer_url = URL
-event_date_offer_price = Preis
-event_date_offer_availability = Verfügbarkeit
+event_date_offer_price = Fiyat
+event_date_offer_availability = Uygunluk
 event_date_offer_uid = UID
 
 #  Notices der YForm-Tabellen
 
-event_date_lang_name_notice = Name der Sprache
-event_date_lang_code_notice = Zweistelliger Sprachcode gemäß ISO-Norm, z.B.<code>de</code>
-event_date_lang_event_date_notice = Verknüpfte Termine verwalten
-event_category_name_notice = Name der Kategorie, Schlagwort oder Name der Veranstaltungsreihe.
-event_category_icon_notice = z.B. <code><i class="bi bi-activity"></i></code>
-event_category_images_notice = Sofern nicht anders angegeben, im Format 16:9 (Full HD / 4K)
-event_category_status_notice = Gibt an, ob diese Kategorie aktuell im Frontend sichtbar sein soll.
-event_category_date_id_notice = Dieser Kategorie zugeordnete Termine
-event_date_name_notice = Titel der Veranstaltung
-event_date_teaser_notice = Ein kurzer Anreißer-Text oder eine Zusammenfassung, die in der Terminübersicht ausgegeben werden kann.
-event_date_description_notice = Geben Sie zusätzliche Informationen zur Veranstaltung an.
-event_date_startdate_notice = Geben Sie den Beginn der Veranstaltung ein – falls es eine separate Einlass-Zeit gibt, können Sie diese nachfolgend abweichend eintragen.
-event_date_all_day_notice = Wenn aktiviert, dann werden die angegeben Uhrzeiten ignoriert. 
-event_date_location_notice = Wählen Sie den passenden Veranstaltungsort aus.
-event_date_enddate_notice = Geben Sie das voraussichtliche Ende der Veranstaltung an. (optional)
-event_date_image_poster_notice = Titelbild / Poster
-event_date_images_notice = Galerie
-event_date_url_notice = Link zu mehr Infos
-event_date_video_url_notice = Link zu einem Video
-event_date_uid_notice = Einzigartige ID
-event_location_name_notice = Name des Veranstaltungsorts, z.B. <code>Zahlemann und Söhne GmbH & Co. KG</code>
-event_location_street_notice = Bitte Straßennamen und Hausnummer eingeben, z.B. <code>Alexanderplatz 1</code>
-event_location_zip_notice = Bitte gültige Postleitzahl eingeben, z.B. <code>10115</code>
-event_location_locality_notice = Bitte Namen der Stadt angeben, z.B: <code>Berlin</code>
-event_date_offer_url_notice = Wenn es einen separaten Ticketshop gibt, können Sie die Adresse hier eintragen. Bitte vollständig mit <code>https://</code> eingeben.
-event_date_offer_price_notice = Ticketkosten, Eintritt o.ä.
+event_date_lang_name_notice = Dil adı
+event_date_lang_code_notice = ISO standardına göre iki haneli dil kodu, örneğin <code>tr</code>
+event_date_lang_event_date_notice = İlişkili tarihleri yönetin
+event_category_name_notice = Kategori adı, anahtar kelime veya etkinlik serisi adı.
+event_category_icon_notice = Örneğin, <code><i class="bi bi-activity"></i></code>
+event_category_images_notice = Aksi belirtilmedikçe, 16:9 formatında (Full HD / 4K)
+event_category_status_notice = Bu kategorinin şu anda frontend'de görünür olup olmayacağını belirtir.
+event_category_date_id_notice = Bu kategoriye atanan tarihler
+event_date_name_notice = Etkinlik başlığı
+event_date_teaser_notice = Bir özet metin veya özet, tarih genel bakışında görüntülenebilir.
+event_date_description_notice = Etkinlik hakkında ek bilgi verin.
+event_date_startdate_notice = Etkinliğin başlangıcını girin - ayrı bir giriş saati varsa, bunu aşağıda farklı olarak girebilirsiniz.
+event_date_all_day_notice = Etkinleştirilirse, belirtilen saatler dikkate alınmaz.
+event_date_location_notice = Uygun etkinlik mekanını seçin.
+event_date_enddate_notice = Etkinliğin tahmini sonunu girin. (isteğe bağlı)
+event_date_image_poster_notice = Başlık resmi / Poster
+event_date_images_notice = Galeri
+event_date_url_notice = Daha fazla bilgi için link
+event_date_video_url_notice = Bir videoya link
+event_date_uid_notice = Benzersiz ID
+event_location_name_notice = Etkinlik mekanının adı, örneğin <code>Zahlemann ve Söhne GmbH & Co. KG</code>
+event_location_street_notice = Lütfen sokak adını ve ev numarasını girin, örneğin <code>Alexanderplatz 1</code>
+event_location_zip_notice = Lütfen geçerli posta kodunu girin, örneğin <code>10115</code>
+event_location_locality_notice = Lütfen şehir adını girin, örneğin: <code>Berlin</code>
+event_date_offer_url_notice = Ayrı bir bilet dükkanı varsa, adresi buraya girebilirsiniz. Lütfen tam olarak <code>https://</code> ile girin.
+event_date_offer_price_notice = Bilet maliyeti, giriş vb.
 
-# Choice-Werte
+# Seçim Değerleri
 
-event_date_registration_person_status_canceled = abgesagt 
-event_date_registration_person_status_unknown = unbekannt
-event_date_registration_person_status_registered = angemeldet
-event_date_registration_person_confirmed = bestätigt
+event_date_registration_person_status_canceled = iptal edildi
+event_date_registration_person_status_unknown = bilinmeyen
+event_date_registration_person_status_registered = kayıtlı
+event_date_registration_person_confirmed = onaylandı
 
-event_date_offer_availability_instock = Verfügbar
-event_date_offer_availability_preorder = Vorbestellen
-event_date_offer_availability_soldout = Ausverkauft
+event_date_offer_availability_instock = Mevcut
+event_date_offer_availability_preorder = Ön sipariş
+event_date_offer_availability_soldout = Tükendi
 
-event_category_request_status_select = Bitte wählen...
-event_category_request_status_rejected = abgelehnt
-event_category_request_status_todo = offen
-event_category_request_status_answered = beantwortet
+event_category_request_status_select = Lütfen seçin...
+event_category_request_status_rejected = reddedildi
+event_category_request_status_todo = açık
+event_category_request_status_answered = yanıtlandı

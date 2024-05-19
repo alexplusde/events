@@ -1,279 +1,277 @@
-events = Termine
-events_title = Termine und Veranstaltungen
+events = Événements
+events_title = Événements et manifestations
 
-# Tabellennamen
+# Noms de table
 
-event_tablename_date = 📅 Termine
-event_tablename_date_lang = 📅 Sprache
-event_tablename_category = 📅 Kategorien
-event_tablename_location = 📅 Veranstaltungsorte
-event_tablename_category_request = 📅 Anfragen
-event_tablename_date_registration = 📅 Buchungen
-event_tablename_date_offer = 📅 Angebote
-event_tablename_date_registration_person = 📅 Teilnehmer*innen
+event_tablename_date = 📅 Dates
+event_tablename_date_lang = 📅 Langue
+event_tablename_category = 📅 Catégories
+event_tablename_location = 📅 Lieux
+event_tablename_category_request = 📅 Demandes
+event_tablename_date_registration = 📅 Réservations
+event_tablename_date_offer = 📅 Offres
+event_tablename_date_registration_person = 📅 Participants
 
-# Menüpunkte
+# Éléments de menu
 
-event_calendar = Kalender
-event_lang = Sprachen
-event_date = Termine
-event_category = Kategorien
-event_location = Veranstaltungsorte
-event_category_request = Anfragen
-event_date_registration = Buchungen
-event_date_registration_person = Teilnehmer*innen
-event_settings = Einstellungen
-event_docs = Doku
+event_calendar = Calendrier
+event_lang = Langues
+event_date = Dates
+event_category = Catégories
+event_location = Lieux
+event_category_request = Demandes
+event_date_registration = Réservations
+event_date_registration_person = Participants
+event_settings = Paramètres
+event_docs = Docs
 
-# Einstellungen
+# Paramètres
 
-events_settings = Einstellungen
+events_settings = Paramètres
 
-events_settings_fieldset_general = Allgemein
-events_settings_default_organizer_name = Standard Veransalter-Name
-events_settings_default_organizer_name_notice =  Dieser wird bspw. in der ICS-Datei verwendet.
-events_settings_currency = Währung
-events_settings_currency_notice = Währung, die für die Preise verwendet wird, z.B. <code>EUR</code>.
+events_settings_fieldset_general = Général
+events_settings_default_organizer_name = Nom de l'organisateur par défaut
+events_settings_default_organizer_name_notice =  Ceci est utilisé, par exemple, dans le fichier ICS.
+events_settings_currency = Devise
+events_settings_currency_notice = Devise utilisée pour les prix, par exemple <code>EUR</code>.
 events_settings_timezone = Google Timezone API
-events_settings_timezone_notice = API-Schlüssel zur Ermittlung der Zeitzone einer Location. 
-events_settings_editor = WYSIWYG-Editor
+events_settings_timezone_notice = Clé API pour déterminer le fuseau horaire d'un lieu. 
+events_settings_editor = Éditeur WYSIWYG
 
-events_settings_fieldset_details = Übersicht und Detailansicht
-events_settings_article_id = Terminübersicht
-events_settings_article_id_notice = REDAXO-Artikel, in dem die Terminübersicht angezeigt wird.
-events_settings_empty = Meldung, wenn keine Termine verfügbar sind
-events_settings_empty_notice = Mitteilung, die ausgegeben werden soll, wenn keine Termine vorhanden sind.
-events_settings_fallback_image = Standard-Poster
-events_settings_fallback_image_notice = Fallback-Bild, das angezeigt wird, wenn kein Bild für einen Termin vorhanden ist.
+events_settings_fieldset_details = Vue d'ensemble et détails
+events_settings_article_id = Vue d'ensemble des événements
+events_settings_article_id_notice = Article REDAXO où la vue d'ensemble des événements est affichée.
+events_settings_empty = Message lorsqu'il n'y a pas d'événements disponibles
+events_settings_empty_notice = Message à afficher lorsqu'il n'y a pas d'événements.
+events_settings_fallback_image = Affiche par défaut
+events_settings_fallback_image_notice = Image de secours à afficher lorsqu'aucune image n'est disponible pour un événement.
 
-events_settings_fieldset_registration = Anmeldung
+events_settings_fieldset_registration = Inscription
 
-events_settings_withdrawal =  Angaben zum Widerufsrecht
-events_settings_privacy_policy_id =  Datenschutz-Seite
-events_settings_agb_id =  AGB-Seite
+events_settings_withdrawal =  Informations sur le droit de rétractation
+events_settings_privacy_policy_id =  Page de politique de confidentialité
+events_settings_agb_id =  Page des conditions générales
 
 # Docs
 
 events_docs_intro = Intro
-events_docs_settings = Einstellungen
-events_docs_event_date = Termine
-events_docs_event_category = Kategorien
-events_docs_event_location = Veranstaltungsorte
-events_docs_event_category_request = Anfragen
-events_docs_event_date_registration = Buchungen
-events_docs_event_date_registration_person = Teilnehmer*innen
+events_docs_settings = Paramètres
+events_docs_event_date = Dates
+events_docs_event_category = Catégories
+events_docs_event_location = Lieux
+events_docs_event_category_request = Demandes
+events_docs_event_date_registration = Réservations
+events_docs_event_date_registration_person = Participants
 events_docs_yform_action_event_date_registration_person_fill = Actions
-events_docs_event_date_offer = Angebote
-events_docs_cronjobs = Cronjobs
-events_docs_ics = ICS-Import
-events_docs_forcal_migration = Migration von forcal
-events_docs_yform_table_manager = Events erweitern
-events_docs_restful_api = RESTful API
+events_docs_event_date_offer = Offres
+events_docs_cronjobs = Tâches planifiées
+events_docs_ics = Importation ICS
+events_docs_forcal_migration = Migration depuis forcal
+events_docs_yform_table_manager = Extension des événements
+events_docs_restful_api = API RESTful
 
-# ICS-Cronjob
+# Tâche planifiée ICS
 
-event_ics_import_cronjob_name = .ics-Datei in Events importieren
+event_ics_import_cronjob_name = Importer un fichier .ics dans les événements
 
-event_ics_import_cronjob_url_label          = URL der .ics-Datei
-event_ics_import_cronjob_url_notice         = im Format <code>https://www.redaxo.org/ical.ics</code>
+event_ics_import_cronjob_url_label          = URL du fichier .ics
+event_ics_import_cronjob_url_notice         = au format <code>https://www.redaxo.org/ical.ics</code>
 
-event_ics_import_cronjob_media_label        = Medienpool-Datei
-event_ics_import_cronjob_media_notice       = für einen manuellen Import. Diese Funktion benötigt deine Unterstützung auf Github!
+event_ics_import_cronjob_media_label        = Fichier du médiathèque
+event_ics_import_cronjob_media_notice       = pour un import manuel. Cette fonction a besoin de votre soutien sur Github!
 
-event_ics_import_cronjob_choose             = Bitte wählen...
-event_ics_import_cronjob_choose_none        = Keine Auswahl
+event_ics_import_cronjob_choose             = Veuillez choisir...
+event_ics_import_cronjob_choose_none        = Aucun choix
 
-event_ics_import_cronjob_geocoding          = Sollen die Locations gleich geocodiert werden? [Nicht verfügbar]
-event_ics_import_cronjob_geocoding_notice   = Diese Funktion benötigt deine Unterstützung auf Github!
+event_ics_import_cronjob_geocoding          = Les lieux doivent-ils être géocodés en même temps? [Non disponible]
+event_ics_import_cronjob_geocoding_notice   = Cette fonction a besoin de votre soutien sur Github!
 
-event_ics_import_cronjob_debug              = Debug-Modus aktivieren?
-event_ics_import_cronjob_debug_notice       = Wenn aktiv, werden zusätzliche Informationen beim Ausführen des Cronjobs im Backend angezeigt.
+event_ics_import_cronjob_debug              = Activer le mode debug?
+event_ics_import_cronjob_debug_notice       = Si activé, des informations supplémentaires seront affichées lors de l'exécution de la tâche planifiée dans le backend.
 
-event_ics_import_cronjob_category_remove         = Unbekannte Kategorien anlegen, alle überzähligen Kategorien in Events löschen. Achtung! Löscht ggf. auch manuell angelegte Kategorien oder Kategorien weiterer Cronjobs.  
-event_ics_import_cronjob_category_default_id     = Kategorien in Events beibehalten, alle Termine einer vorhandenen Kategorie zuordnen 
-event_ics_import_cronjob_category_keep           = Unbekannte Kategorien anlegen, überzählige Kategorien in Events beibehalten
-event_ics_import_cronjob_category_sync           = Wie werden Termine in Events den Kategorien zugeordnet?
+event_ics_import_cronjob_category_remove         = Créer des catégories inconnues, supprimer toutes les catégories en excès dans les événements. Attention! Peut également supprimer les catégories créées manuellement ou les catégories d'autres tâches planifiées.  
+event_ics_import_cronjob_category_default_id     = Conserver les catégories dans les événements, attribuer tous les événements à une catégorie existante 
+event_ics_import_cronjob_category_keep           = Créer des catégories inconnues, conserver les catégories en excès dans les événements
+event_ics_import_cronjob_category_sync           = Comment les événements sont-ils attribués aux catégories dans les événements?
 
-event_ics_import_cronjob_default_category_sync_id_notice     = (optional) Kategorie, der die Termine in Events standardmäßig zugeordnet werden.
-event_ics_import_cronjob_default_location_sync_id_notice     = (optional) Location, der die Termine in Events standardmäßig zugeordnet wird, wenn <code>LOCATION</code> nicht in der <code>.ics</code>-Datei angegeben wurde. 
+event_ics_import_cronjob_default_category_sync_id_notice     = (optionnel) Catégorie à laquelle les événements sont attribués par défaut.
+event_ics_import_cronjob_default_location_sync_id_notice     = (optionnel) Lieu auquel les événements sont attribués par défaut si <code>LOCATION</code> n'est pas spécifié dans le fichier <code>.ics</code>. 
 
-event_ics_import_cronjob_clang_id_notice = REDAXO-Sprache, der Termin-Details (bspw. Titel, Beschreibung) zugeordnet werden
+event_ics_import_cronjob_clang_id_notice = Langue REDAXO à laquelle les détails de l'événement (par exemple, titre, description) sont attribués
 
-event_info_donate = Anders als die meisten Addons aus der REDAXO-Community ist die Entstehung und Weiterentwicklung dieses Addons nicht durch eigene Projekte gedeckt. mit einer einer Beauftragung sicherst du zusätzliche Features, die Stabilität, Funktionsumfang und Weiterentwicklung weiter verbessern können, sowie eine bessere Anleitung. 
-event_donate = Weiterentwicklung unterstützen 
+event_info_donate = Contrairement à la plupart des addons de la communauté REDAXO, le développement et l'amélioration de cet addon ne sont pas couverts par nos propres projets. Avec une commande, vous assurez des fonctionnalités supplémentaires, une meilleure stabilité, une portée fonctionnelle et une amélioration continue, ainsi qu'une meilleure documentation. 
+event_donate = Soutenir le développement
+# Labels des champs de table YForm et des formulaires
 
-# Labels der YForm-Tabellenfelder und Formulare
-
-event_date_lang_name = Name
+event_date_lang_name = Nom
 event_date_lang_code = Code
-event_date_lang_event_date = Termine
+event_date_lang_event_date = Dates
 
-
-event_category_prio = Reihenfolge
-event_category_name = Name
-event_category_icon = Icon
+event_category_prio = Ordre
+event_category_name = Nom
+event_category_icon = Icône
 event_category_teaser = Teaser
-event_category_description = Beschreibung
-event_category_name_short = Kurzname
-event_category_images = Bilder
-event_category_status = Status
-event_category_date_id = Termin(e)
-event_category_createuser = Erstellt von...
-event_category_updateuser = Zuletzt geändert von...
+event_category_description = Description
+event_category_name_short = Nom court
+event_category_images = Images
+event_category_status = Statut
+event_category_date_id = Date(s)
+event_category_createuser = Créé par...
+event_category_updateuser = Dernière modification par...
 
-event_date_name = Name
+event_date_name = Nom
 event_date_teaser = Teaser
-event_date_description = Beschreibung
-event_date_lang_id = Sprach ID
-event_date_event_category_id = Kategorie(n)
-event_date_startdate = Beginn Datum 
-event_date_all_day = ganztägig?
-event_date_doortime = Einlass-Uhrzeit
-event_date_starttime = Beginn Uhrzeit
-event_date_endtime = End-Uhrzeit
-event_date_enddate = End-Datum
-event_date_location = Ort
-event_date_space = Freie Plätze
-event_date_image_poster = Titelbild
+event_date_description = Description
+event_date_lang_id = ID de langue
+event_date_event_category_id = Catégorie(s)
+event_date_startdate = Date de début
+event_date_all_day = toute la journée?
+event_date_doortime = Heure d'ouverture
+event_date_starttime = Heure de début
+event_date_endtime = Heure de fin
+event_date_enddate = Date de fin
+event_date_location = Lieu
+event_date_space = Places disponibles
+event_date_image_poster = Image de titre
 event_date_images = Galerie
-event_date_url = Externe URL
-event_date_video_url = Video-URL
-event_date_eventstatus = Status
+event_date_url = URL externe
+event_date_video_url = URL de la vidéo
+event_date_eventstatus = Statut
 event_date_uid = UID
-event_date_updateuser = Zuletzt geändert von...
-event_date_createuser = Erstellt von...
-event_date_updatedate = Zuletzt geändert am...
-event_date_createdate = Erstellt am...
+event_date_updateuser = Dernière modification par...
+event_date_createuser = Créé par...
+event_date_updatedate = Dernière modification le...
+event_date_createdate = Créé le...
 
-event_date_offer = Angebote / Preise
-event_date_startdatetime = Startdatum und -zeit
+event_date_offer = Offres / Prix
+event_date_startdatetime = Date et heure de début
 
 event_location_google_places = Google Places
-event_location_location_category_id = Kategorie
-event_location_name = Name
-event_location_street = Straße
-event_location_zip = PLZ
-event_location_locality = Ort
-event_location_countrycode = Ländercode
-event_location_lat = Breitengrad
-event_location_lng = Längengrad
-event_location_updateuser = Aktualisierert von...
-event_location_createuser = Erstellt von...
-event_location_createdate = Erstellt am...
-event_location_updatedate = Aktualisiert am...
-event_location_lat_lng = Karte
+event_location_location_category_id = Catégorie
+event_location_name = Nom
+event_location_street = Rue
+event_location_zip = Code postal
+event_location_locality = Lieu
+event_location_countrycode = Code du pays
+event_location_lat = Latitude
+event_location_lng = Longitude
+event_location_updateuser = Mis à jour par...
+event_location_createuser = Créé par...
+event_location_createdate = Créé le...
+event_location_updatedate = Mis à jour le...
+event_location_lat_lng = Carte
 
-event_date_registration_category_id = Kategorie
-event_date_registration_date_id = Termin
-event_date_registration_event_location_id = Veranstaltungsort
-event_date_registration_date = Datum
-event_date_registration_category = Kategorie
-event_date_registration_salutation = Anrede
-event_date_registration_firstname = Vorname
-event_date_registration_lastname = Nachname
-event_date_registration_email = E-Mail
-event_date_registration_street = Straße
-event_date_registration_zip = PLZ
-event_date_registration_city = Stadt
-event_date_registration_phone = Telefon
-event_date_registration_birthday = Geburtstag
-event_date_registration_person_count = Anzahl der Teilnehmer*innen
-event_date_registration_message = Nachricht
+event_date_registration_category_id = Catégorie
+event_date_registration_date_id = Date
+event_date_registration_event_location_id = Lieu de l'événement
+event_date_registration_date = Date
+event_date_registration_category = Catégorie
+event_date_registration_salutation = Salutation
+event_date_registration_firstname = Prénom
+event_date_registration_lastname = Nom de famille
+event_date_registration_email = E-mail
+event_date_registration_street = Rue
+event_date_registration_zip = Code postal
+event_date_registration_city = Ville
+event_date_registration_phone = Téléphone
+event_date_registration_birthday = Date de naissance
+event_date_registration_person_count = Nombre de participants
+event_date_registration_message = Message
 event_date_registration_newsletter = Newsletter
-event_date_registration_dsgvo = DSGVO Zustimmung
-event_date_registration_agb = AGB Zustimmung
-event_date_registration_channel = Empfehlung über...
-event_date_registration_createdate = Anmeldung erfolgt am...
-event_date_registration_deletedate = Wird gelöscht am...
-event_date_registration_price = Preis
-event_date_registration_status = Status
+event_date_registration_dsgvo = Consentement DSGVO
+event_date_registration_agb = Consentement aux CGU
+event_date_registration_channel = Recommandé par...
+event_date_registration_createdate = Inscription effectuée le...
+event_date_registration_deletedate = Sera supprimé le...
+event_date_registration_price = Prix
+event_date_registration_status = Statut
 event_date_registration_uuid = UUID
 event_date_registration_hash = Hash
 
-event_date_registration_person_event_date_id = Termin
-event_date_registration_person_registration_id = Anmeldung
-event_date_registration_person_firstname = Vorname
-event_date_registration_person_lastname = Nachname
-event_date_registration_person_birthday = Geburtstag
-event_date_registration_person_email = E-Mail
-event_date_registration_person_phone = Telefon
-event_date_registration_person_status = Status
+event_date_registration_person_event_date_id = Date
+event_date_registration_person_registration_id = Inscription
+event_date_registration_person_firstname = Prénom
+event_date_registration_person_lastname = Nom de famille
+event_date_registration_person_birthday = Date de naissance
+event_date_registration_person_email = E-mail
+event_date_registration_person_phone = Téléphone
+event_date_registration_person_status = Statut
 event_date_registration_person_uuid = UUID
-event_date_registration_person_createdate = Angemeldet am...
-event_date_registration_person_updatedate = Aktualisiert am...
-event_date_registration_person_deletedate = Wird gelöscht am...
+event_date_registration_person_createdate = Inscrit le...
+event_date_registration_person_updatedate = Mis à jour le...
+event_date_registration_person_deletedate = Sera supprimé le...
 event_date_registration_person_hash = Hash
 
-event_category_request_status = Status 
-event_category_request_category_id = Kategorie 
-event_category_request_date = Termin
-event_category_request_category = Kategorie-Name
-event_category_request_salutation = Anrede
-event_category_request_firstname = Vorname
-event_category_request_lastname = Nachname
-event_category_request_email = E-Mail
-event_category_request_street = Straße
-event_category_request_zip = PLZ
-event_category_request_city = Stadt
-event_category_request_phone = Telefon
-event_category_request_birthday = Geburtstag
-event_category_request_person_count = Teilnehmeranzahl
-event_category_request_message = Nachricht
-event_category_request_newsletter = Newsletter-Einwilligung
-event_category_request_dsgvo = DSGVO-Einwilligung
-event_category_request_agb = AGB-Einwilligung
-event_category_request_channel = Empfehlung über...
-event_category_request_createdate = Anmeldung erfolgt am...
-event_category_request_deletedate = Wird gelöscht am...
+event_category_request_status = Statut
+event_category_request_category_id = Catégorie
+event_category_request_date = Date
+event_category_request_category = Nom de la catégorie
+event_category_request_salutation = Salutation
+event_category_request_firstname = Prénom
+event_category_request_lastname = Nom de famille
+event_category_request_email = E-mail
+event_category_request_street = Rue
+event_category_request_zip = Code postal
+event_category_request_city = Ville
+event_category_request_phone = Téléphone
+event_category_request_birthday = Date de naissance
+event_category_request_person_count = Nombre de participants
+event_category_request_message = Message
+event_category_request_newsletter = Consentement à la newsletter
+event_category_request_dsgvo = Consentement DSGVO
+event_category_request_agb = Consentement aux CGU
+event_category_request_channel = Recommandé par...
+event_category_request_createdate = Inscription effectuée le...
+event_category_request_deletedate = Sera supprimé le...
 event_category_request_uuid = UUID
 
-event_date_offer_date_id = Termin
+event_date_offer_date_id = Date
 event_date_offer_url = URL
-event_date_offer_price = Preis
-event_date_offer_availability = Verfügbarkeit
+event_date_offer_price = Prix
+event_date_offer_availability = Disponibilité
 event_date_offer_uid = UID
 
 #  Notices der YForm-Tabellen
 
-event_date_lang_name_notice = Name der Sprache
-event_date_lang_code_notice = Zweistelliger Sprachcode gemäß ISO-Norm, z.B.<code>de</code>
-event_date_lang_event_date_notice = Verknüpfte Termine verwalten
-event_category_name_notice = Name der Kategorie, Schlagwort oder Name der Veranstaltungsreihe.
-event_category_icon_notice = z.B. <code><i class="bi bi-activity"></i></code>
-event_category_images_notice = Sofern nicht anders angegeben, im Format 16:9 (Full HD / 4K)
-event_category_status_notice = Gibt an, ob diese Kategorie aktuell im Frontend sichtbar sein soll.
-event_category_date_id_notice = Dieser Kategorie zugeordnete Termine
-event_date_name_notice = Titel der Veranstaltung
-event_date_teaser_notice = Ein kurzer Anreißer-Text oder eine Zusammenfassung, die in der Terminübersicht ausgegeben werden kann.
-event_date_description_notice = Geben Sie zusätzliche Informationen zur Veranstaltung an.
-event_date_startdate_notice = Geben Sie den Beginn der Veranstaltung ein – falls es eine separate Einlass-Zeit gibt, können Sie diese nachfolgend abweichend eintragen.
-event_date_all_day_notice = Wenn aktiviert, dann werden die angegeben Uhrzeiten ignoriert. 
-event_date_location_notice = Wählen Sie den passenden Veranstaltungsort aus.
-event_date_enddate_notice = Geben Sie das voraussichtliche Ende der Veranstaltung an. (optional)
-event_date_image_poster_notice = Titelbild / Poster
+event_date_lang_name_notice = Nom de la langue
+event_date_lang_code_notice = Code de langue à deux lettres selon la norme ISO, par exemple <code>fr</code>
+event_date_lang_event_date_notice = Gérer les dates liées
+event_category_name_notice = Nom de la catégorie, mot-clé ou nom de la série d'événements.
+event_category_icon_notice = par exemple <code><i class="bi bi-activity"></i></code>
+event_category_images_notice = Sauf indication contraire, au format 16:9 (Full HD / 4K)
+event_category_status_notice = Indique si cette catégorie doit actuellement être visible sur le frontend.
+event_category_date_id_notice = Dates associées à cette catégorie
+event_date_name_notice = Titre de l'événement
+event_date_teaser_notice = Un court texte d'accroche ou un résumé qui peut être affiché dans l'aperçu des dates.
+event_date_description_notice = Fournir des informations supplémentaires sur l'événement.
+event_date_startdate_notice = Entrez le début de l'événement - si un horaire d'ouverture distinct est prévu, vous pouvez le saisir séparément ci-dessous.
+event_date_all_day_notice = Si activé, les heures indiquées seront ignorées.
+event_date_location_notice = Sélectionnez le lieu de l'événement approprié.
+event_date_enddate_notice = Indiquez la fin prévue de l'événement. (facultatif)
+event_date_image_poster_notice = Image de titre / Affiche
 event_date_images_notice = Galerie
-event_date_url_notice = Link zu mehr Infos
-event_date_video_url_notice = Link zu einem Video
-event_date_uid_notice = Einzigartige ID
-event_location_name_notice = Name des Veranstaltungsorts, z.B. <code>Zahlemann und Söhne GmbH & Co. KG</code>
-event_location_street_notice = Bitte Straßennamen und Hausnummer eingeben, z.B. <code>Alexanderplatz 1</code>
-event_location_zip_notice = Bitte gültige Postleitzahl eingeben, z.B. <code>10115</code>
-event_location_locality_notice = Bitte Namen der Stadt angeben, z.B: <code>Berlin</code>
-event_date_offer_url_notice = Wenn es einen separaten Ticketshop gibt, können Sie die Adresse hier eintragen. Bitte vollständig mit <code>https://</code> eingeben.
-event_date_offer_price_notice = Ticketkosten, Eintritt o.ä.
+event_date_url_notice = Lien vers plus d'informations
+event_date_video_url_notice = Lien vers une vidéo
+event_date_uid_notice = ID unique
+event_location_name_notice = Nom du lieu de l'événement, par exemple <code>Zahlemann et Söhne GmbH & Co. KG</code>
+event_location_street_notice = Veuillez entrer le nom de la rue et le numéro de la maison, par exemple <code>Place de la Concorde 1</code>
+event_location_zip_notice = Veuillez entrer un code postal valide, par exemple <code>75008</code>
+event_location_locality_notice = Veuillez entrer le nom de la ville, par exemple <code>Paris</code>
+event_date_offer_url_notice = Si un billetterie séparée est disponible, vous pouvez entrer l'adresse ici. Veuillez entrer complètement avec <code>https://</code>.
+event_date_offer_price_notice = Coût du billet, entrée, etc.
 
-# Choice-Werte
+# Valeurs de choix
 
-event_date_registration_person_status_canceled = abgesagt 
-event_date_registration_person_status_unknown = unbekannt
-event_date_registration_person_status_registered = angemeldet
-event_date_registration_person_confirmed = bestätigt
+event_date_registration_person_status_canceled = annulé
+event_date_registration_person_status_unknown = inconnu
+event_date_registration_person_status_registered = enregistré
+event_date_registration_person_confirmed = confirmé
 
-event_date_offer_availability_instock = Verfügbar
-event_date_offer_availability_preorder = Vorbestellen
-event_date_offer_availability_soldout = Ausverkauft
+event_date_offer_availability_instock = Disponible
+event_date_offer_availability_preorder = Précommander
+event_date_offer_availability_soldout = Épuisé
 
-event_category_request_status_select = Bitte wählen...
-event_category_request_status_rejected = abgelehnt
-event_category_request_status_todo = offen
-event_category_request_status_answered = beantwortet
+event_category_request_status_select = Veuillez choisir...
+event_category_request_status_rejected = rejeté
+event_category_request_status_todo = ouvert
+event_category_request_status_answered = répondu
