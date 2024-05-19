@@ -29,50 +29,6 @@ Mit diesem Addon können Termine anhand von YForm und YOrm im Backend verwaltet 
 
 > **Steuere eigene Verbesserungen** dem [GitHub-Repository von events](https://github.com/alexplusde/events) bei. Oder **unterstütze dieses Addon:** Mit einer [Spende oder Beauftragung unterstützt du die Weiterentwicklung dieses AddOns](https://github.com/sponsors/alexplusde)
 
-## RESTful API (dev)
-
-Die [Rest-API](https://github.com/yakamara/redaxo_yform/blob/master/docs/plugins.md#restful-api-einf%C3%BChrung) ist über das REST-Plugin von YForm umgesetzt.
-
-### Einrichtung
-
-Zunächst das REST-Plugin von YForm installieren und einen Token einrichten. Den Token auf die jeweiligen Endpunkte legen:
-
-```php
-    /v2.0/event/date
-    /v2.0/event/category
-    /v2.0/event/location
-```
-
-### Endpunkt `date`
-
-**Auslesen:** GET `example.org/rest/v2.0/event/date/?token=###TOKEN###`
-
-**Auslesen einzelner Termin**  GET `example.org/rest/v0.dev/event/date/7/?token=###TOKEN###` Termin  der `id=7`
-
-### Endpunkt `category`
-
-**Auslesen:** GET `example.org/rest/v2.0/event/category/?token=###TOKEN###`
-
-**Auslesen einzelne Kategorie**  GET `example.org/rest/v0.dev/event/category/7/?token=###TOKEN###` Termin  der `id=7`
-
-### Endpunkt `location`
-
-**Auslesen:** GET `example.org/rest/v2.0/event/location/?token=###TOKEN###`
-
-**Auslesen einzelner Standort**  GET `example.org/rest/v0.dev/event/location/7/?token=###TOKEN###` Termin  der `id=7`
-
-## Import
-
-### Import von ICS-Kalendern (dev)
-
-Events kommt mit einem eigenen Cronjob zum importieren von ics-Kalendern aus dem Internet. Das Cronjob-Addon aufrufen, einen neuen Cronjob anlegen und den Instruktionen folgen.
-
-## Export
-
-## Export eines einzelnen Termins als ics-Datei (dev)
-
-Events kommt mit einer eigenen rex_api-Schnittstelle für den Export von einzelnen Terminen. `?rex-api-call=events_ics_file&id=2` aufrufen, um eine ICS-Datei anhand des Termins mit der `id=2` zu erzeugen.
-
 ## Lizenz
 
 MIT Lizenz, siehe [LICENSE.md](https://github.com/alexplusde/events/blob/master/LICENSE.md)  
