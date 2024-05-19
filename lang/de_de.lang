@@ -159,6 +159,9 @@ event_location_lat = Breitengrad
 event_location_lng = Längengrad
 event_location_updateuser = Aktualisierert von...
 event_location_createuser = Erstellt von...
+event_location_createdate = Erstellt am...
+event_location_updatedate = Aktualisiert am...
+event_location_lat_lng = Karte
 
 event_date_registration_category_id = Kategorie
 event_date_registration_date_id = Termin
@@ -224,6 +227,7 @@ event_category_request_createdate = Anmeldung erfolgt am...
 event_category_request_deletedate = Wird gelöscht am...
 event_category_request_uuid = UUID
 
+event_date_offer_date_id = Termin
 event_date_offer_url = URL
 event_date_offer_price = Preis
 event_date_offer_availability = Verfügbarkeit
@@ -358,3 +362,7 @@ event_date_registration_person_status_canceled = abgesagt
 event_date_registration_person_status_unknown= unbekannt
 event_date_registration_person_status_registered = angemeldet
 event_date_registration_person_confirmed = bestätigt
+
+event_date_offer_availability_instock = Verfügbar
+event_date_offer_availability_preorder = Vorbestellen
+event_date_offer_availability_soldout = Ausverkauft
