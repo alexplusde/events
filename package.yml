@@ -1,5 +1,5 @@
 package: events
-version: '4.0.5'
+version: '5.0.0'
 author: 'Alexander Walther'
 supportpage: https://alexplusde.github.io/events/
 load: late
@@ -17,7 +17,7 @@ requires:
 page:
     title: translate:events
     prio: 100
-    icon: rex-icon fa-gear
+    icon: rex-icon fa-calendar-days
 
 pages:
     events:
@@ -25,25 +25,25 @@ pages:
         main: true
         block: system
         prio: 15
-        icon: rex-icon fa-calendar
+        icon: rex-icon fa-calendar-day
         perm: events[]
         subpages: 
             calendar:
-                title: Übersicht
-                icon: rex-icon fa-calendar
+                title: translate:event_calendar
+                icon: rex-icon fa-calendar-days
                 perm: events[calendar]
             date_lang:
-                title: translate:events_lang
+                title: translate:event_lang
                 perm: events[date_lang]
-                icon: rex-icon fa-flag
+                icon: rex-icon fa-language
                 subPath: pages/data_edit.php
                 yform:
                     table_name: rex_event_date_lang
                     wrapper_class: rex_event_date_lang
                     show_title: false
             date:
-                title: Termine
-                icon: rex-icon fa-calendar-o
+                title: translate:event_date
+                icon: rex-icon fa-calendar-day
                 subPath: pages/data_edit.php
                 yform:
                     table_name: rex_event_date
@@ -51,7 +51,7 @@ pages:
                     show_title: false
                 perm: events[date]
             category:
-                title: Kategorien
+                title: translate:event_category
                 icon: rex-icon fa-folder
                 subPath: pages/data_edit.php
                 yform:
@@ -60,7 +60,7 @@ pages:
                     show_title: false
                 perm: events[category]
             location:
-                title: Location
+                title: translate:event_location
                 icon: rex-icon fa-map-marker
                 subPath: pages/data_edit.php
                 yform:
@@ -69,8 +69,8 @@ pages:
                     show_title: false
                 perm: events[location]
             registration:
-                title: Anmeldungen
-                icon: rex-icon rex-icon-user
+                title: translate:event_date_registration
+                icon: rex-icon fa-users-between-lines
                 subPath: pages/data_edit.php
                 yform:
                     table_name: rex_event_date_registration
@@ -78,17 +78,17 @@ pages:
                     show_title: false
                 perm: events[register]
             registration_person:
-                title: Teilnehmende
-                icon: rex-icon rex-icon-user
+                title: translate:event_date_registration_person
+                icon: rex-icon fa-user-plus
                 subPath: pages/data_edit.php
                 yform:
                     table_name: rex_event_date_registration_person
                     wrapper_class: rex_event_date_registration_person
                     show_title: false
                 perm: events[registration_person]
-            request:
-                title: Anfragen
-                icon: rex-icon rex-icon-user
+            category_request:
+                title: translate:event_category_request
+                icon: rex-icon fa-person-circle-question
                 subPath: pages/data_edit.php
                 yform:
                     table_name: rex_event_category_request
@@ -96,12 +96,12 @@ pages:
                     show_title: false
                 perm: events[request]
             settings:
-                title: Settings
+                title: translate:event_settings
                 icon: rex-icon fa-gear
                 itemclass: pull-right
                 perm: admin
             docs:
-                title: Docs
+                title: translate:event_docs
                 icon: rex-icon fa-info-circle
                 itemclass: pull-right
                 perm: events[docs]
@@ -109,3 +109,10 @@ pages:
 
 default_config:
     currency: EUR
+    timezone_api_code: ''
+    default_organizer_name: ''
+    fallback_image: 'events_fallback_image.jpg'
+    editor: "form-control redactor-editor--default"
+    event_empty: "<p>Keine Veranstaltungen gefunden.</p>"
+    withdrawal: ''
+    article_id: ''
