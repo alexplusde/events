@@ -1,9 +1,9 @@
 <?php
 
-if (rex::isBackend() && rex_be_controller::getCurrentPage() == "events/date") {
+if (rex::isBackend()) {
     rex_extension::register('OUTPUT_FILTER', function (rex_extension_point $ep) {
-        $suchmuster = '###events-settings-editor###';
-        $ersetzen = rex_config::get("events", "editor");
+        $suchmuster = 'class="###events-settings-editor###"';
+        $ersetzen = rex_config::get("events", "editor") ?? 'class="form-control"';
         $ep->setSubject(str_replace($suchmuster, $ersetzen, $ep->getSubject()));
     });
 }
@@ -59,7 +59,7 @@ if (rex_plugin::get('yform', 'rest')->isAvailable() && !rex::isSafeMode()) {
     /* YForm Rest API */
     $rex_event_date_route = new \rex_yform_rest_route(
         [
-        'path' => '/v2.0/event/date/',
+        'path' => '/v5.0/event/date/',
         'auth' => '\rex_yform_rest_auth_token::checkToken',
         'type' => \event_date::class,
         'query' => \event_date::query(),
@@ -123,7 +123,7 @@ if (rex_plugin::get('yform', 'rest')->isAvailable() && !rex::isSafeMode()) {
     /* YForm Rest API */
     $rex_event_category_route = new \rex_yform_rest_route(
         [
-        'path' => '/v2.0/event/category/',
+        'path' => '/v5.0/event/category/',
         'auth' => '\rex_yform_rest_auth_token::checkToken',
         'type' => \event_category::class,
         'query' => \event_category::query(),
@@ -159,7 +159,7 @@ if (rex_plugin::get('yform', 'rest')->isAvailable() && !rex::isSafeMode()) {
     /* YForm Rest API */
     $rex_event_location_route = new \rex_yform_rest_route(
         [
-        'path' => '/v2.0/event/location/',
+        'path' => '/v5.0/event/location/',
         'auth' => '\rex_yform_rest_auth_token::checkToken',
         'type' => \event_location::class,
         'query' => \event_location::query(),
