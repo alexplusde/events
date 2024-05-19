@@ -116,3 +116,4 @@ default_config:
     event_empty: "<p>Keine Veranstaltungen gefunden.</p>"
     withdrawal: ''
     article_id: ''
+    url_profile: false # Merkt sich, ob URL-Profile bereits installiert wurden
