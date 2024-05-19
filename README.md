@@ -20,6 +20,17 @@ Mit diesem Addon können Termine anhand von YForm und YOrm im Backend verwaltet 
 
 > **Steuere eigene Verbesserungen** dem [GitHub-Repository von events](https://github.com/alexplusde/events) bei. Oder **unterstütze dieses Addon:** Mit einer [Spende oder Beauftragung unterstützt du die Weiterentwicklung dieses AddOns](https://github.com/sponsors/alexplusde)
 
+### Neu in `Events 5`
+
+* Grundlegende Überarbeitung der Datenbanktabellen-Struktur, darunter Performance-Optimimerung mit Unique- und Index-Einstellungen an der Tabelle
+* Vollständige Übersetzung des Backends
+* Neue Icons für REDAXO 5.17
+* Zusätzliche Einstellungsmöglichkeiten, z.B. Fallback-Bild
+* Datenschutz: Auto-Löschen von Anmeldungen und Teilnehmer*innen nach 24 Monaten (erfordert Addon `auto_delete` mit aktiviertem Cronjob)
+* Checkbox "ganztägig" setzt die Uhrzeit auf 00:00 Uhr zurück
+* Verschiedene Bugfixes und Verbesserungen, z.B. Editoreinstellungen
+* Zusätzliche Dokumentation und Beispiele
+
 ## Installation
 
 Im REDAXO-Installer das Addon `events` herunterladen und installieren. Anschließend erscheint ein neuer Menüpunkt `Veranstaltungen` sichtbar.

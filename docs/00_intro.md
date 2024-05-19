@@ -1,18 +1,6 @@
 # Veranstaltungskalender, Terminbuchung, Terminanfragen, Anmeldungen und Teilnehmerlisten für REDAXO 5 auf YForm-Basis
 
-![web_banner_redaxo_addon_events](https://user-images.githubusercontent.com/3855487/204768716-fa9f5a97-c1de-421a-aea0-2a0ce8658813.png)
-
 Mit diesem Addon können Termine anhand von YForm und YOrm im Backend verwaltet und im Frontend ausgegeben werden. Auf Wunsch auch mehrsprachig.
-
-**Beispiele**
-
-![event](https://user-images.githubusercontent.com/3855487/180771758-d4a2e4ba-3034-4e96-8e1d-4cc5333de615.png)
-
-![event_date](https://user-images.githubusercontent.com/3855487/180771781-0f2cc875-3561-47e2-a3bb-50752177afa3.png)
-
-![event_settings](https://user-images.githubusercontent.com/3855487/180771783-1973c380-79af-42d6-9b14-babcc4378b3c.png)
-
-![event_category](https://user-images.githubusercontent.com/3855487/180771784-2baad1bb-052e-4dbf-aa64-ef93e1892875.png)
 
 ## Features
 
@@ -39,14 +27,9 @@ MIT Lizenz, siehe [LICENSE.md](https://github.com/alexplusde/events/blob/master/
 <http://www.alexplus.de>  
 <https://github.com/alexplusde>  
 
-**Michael Schuler**
-<https://github.com/191977>
-
 **Projekt-Lead**  
 [Alexander Walther](https://github.com/alexplusde)
 
 ## Credits
 
 events basiert auf: [YForm](https://github.com/yakamara/redaxo_yform)  
-Danke an [Gregor Harlan](https://github.com/gharlan) für die Unterstützung
-Danke an den Kulturkeller e.V. für die Beauftragung für die Weiterentwicklung
