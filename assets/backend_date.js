@@ -8,9 +8,9 @@ $(document).on("rex:ready", function(event, container) {
     let beginn = document.querySelector('#yform-data_edit-rex_event_date-startTime input[type="time"]');
     let ende = document.querySelector('#yform-data_edit-rex_event_date-endTime input[type="time"]');
 
-    // Event-Listener hinzufügen
-    checkbox.addEventListener('change', function() {
-        if (this.checked) {
+    // Funktion zur Aktualisierung der Zeitfelder
+    function updateAllTime() {
+        if (checkbox.checked) {
             // Wenn die Checkbox aktiviert ist
             einlass.value = '00:00:00';
             beginn.value = '00:00:00';
@@ -25,5 +25,11 @@ $(document).on("rex:ready", function(event, container) {
             beginn.readOnly = false;
             ende.readOnly = false;
         }
-    });
+    }
+
+    // Event-Listener hinzufügen
+    checkbox.addEventListener('change', updateAllTime);
+
+    // Funktion initial aufrufen
+    updateAllTime();
 });
