@@ -285,41 +285,4 @@ class event_category extends \rex_yform_manager_dataset
      * $attributes = $eventCategory->getAttributes();
      * ```
      */
-    public function getAttributes(): array
-    {
-        return explode(",", $this->getValue('msg_form_presets'));
-    }
-    public function setAttributes(array $attributes): self
-    {
-        $this->setValue('msg_form_presets', implode(",", $attributes));
-        return $this;
-    }
-
-    /**
-     * Überprüft, ob ein bestimmtes Attribut vorhanden ist.
-     *
-     * @param string $needle Das zu suchende Attribut.
-     * @return bool Wahr, wenn das Attribut vorhanden ist, sonst falsch.
-     *
-     * Beispiel:
-     * ```php
-     * $hasAttribute = $eventCategory->hasAttribute('attributeName');
-     * ```
-     *
-     * ---
-     *
-     * Checks if a certain attribute is present.
-     *
-     * @param string $needle The attribute to search for.
-     * @return bool True if the attribute is present, false otherwise.
-     *
-     * Example:
-     * ```php
-     * $hasAttribute = $eventCategory->hasAttribute('attributeName');
-     * ```
-     */
-    public function hasAttribute(string $needle): bool
-    {
-        return in_array($needle, $this->getAttributes());
-    }
 }
