@@ -1,4 +1,7 @@
 <?php
+
+rex_sql::factory()->setQuery('update rex_event_date set uid = uuid() where uid =""');
+
 /* Tablesets aktualisieren */
 if (rex_addon::get('yform') && rex_addon::get('yform')->isAvailable()) {
     rex_yform_manager_table_api::importTablesets(rex_file::get(__DIR__ . '/install/rex_event.tableset.json'));
