@@ -18,8 +18,6 @@ if (!rex_media::get('events_fallback_image.jpg')) {
     rex_media_service::addMedia($data, false);
 }
 
-/* URL-Profile installieren */
-/*
 if (rex_addon::get('url') && rex_addon::get('url')->isAvailable()) {
     if (false === rex_config::get('events', 'url_profile', false)) {
         $rex_events_category = array_filter(rex_sql::factory()->getArray("SELECT * FROM rex_url_generator_profile WHERE `table_name` = '1_xxx_rex_events_category'"));
@@ -29,13 +27,13 @@ if (rex_addon::get('url') && rex_addon::get('url')->isAvailable()) {
         }
         $rex_events_entry = array_filter(rex_sql::factory()->getArray("SELECT * FROM rex_url_generator_profile WHERE `table_name` = '1_xxx_rex_events_entry'"));
         if (!$rex_events_entry) {
-            $query = rex_file::get(__DIR__ . 'install/rex_url_profile_events_date.sql');
+            $query = rex_file::get(__DIR__ . '/install/rex_url_profile_events_date.sql');
             rex_sql::factory()->setQuery($query);
         }
         /* URL-Profile wurden bereits einmal installiert, daher nicht nochmals installieren und Entwickler-Einstellungen respektieren */
-/*        rex_config::set('events', 'url_profile', true);
+        rex_config::set('events', 'url_profile', true);
     }
-}*/
+}
 
 
 $modules = scandir(rex_path::addon("events")."module");
