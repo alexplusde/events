@@ -67,8 +67,6 @@ if (rex_addon::get('yform')->isAvailable() && !rex::isSafeMode()) {
 	);
 
 }
-?>
-
 
 if (rex_addon::get('cronjob')->isAvailable() && !rex::isSafeMode()) {
     rex_cronjob_manager::registerType('rex_cronjob_events_ics_import');
