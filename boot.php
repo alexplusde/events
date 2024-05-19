@@ -22,7 +22,11 @@ if (rex::isBackend() && rex_be_controller::getCurrentPage() == 'events/calendar'
     rex_view::addJsFile($this->getAssetsUrl('fullcalendar/packages/list/main.js'));
     rex_view::addCssFile($this->getAssetsUrl('fullcalendar/packages/list/main.css'));
     rex_view::addJsFile($this->getAssetsUrl('fullcalendar/packages/core/locales/de.js'));
-    rex_view::addJsFile($this->getAssetsUrl('backend.js'));
+    rex_view::addJsFile($this->getAssetsUrl('backend_fullcalendar.js'));
+}
+
+if (rex::isBackend() && rex_be_controller::getCurrentPage() == 'events/date') {
+    rex_view::addJsFile($this->getAssetsUrl('backend_date.js'));
 }
 
 rex_yform_manager_dataset::setModelClass(

@@ -1,20 +1,7 @@
 $(document).on("rex:ready", function(event, container) {
-
-    var calendarEl = document.getElementById('fullcalendar');
-
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        plugins: ['dayGrid', 'list', 'bootstrap'],
-        locale: 'de',
-        header: { center: 'dayGridMonth,timeGridWeek,listWeek' }, // buttons for switching between views
-
-        events: '/?rex-api-call=fullcalendar'
-    });
-
-    calendar.render();
-});
-
-$(document).on("rex:ready", function(event, container) {
     // Zugriff auf die Elemente
+    console.log('rex:ready');
+
     let checkbox = document.querySelector('#yform-data_edit-rex_event_date-all_day input[type="checkbox"]');
     if (!checkbox) return;
     let einlass = document.querySelector('#yform-data_edit-rex_event_date-doorTime input[type="time"]');
