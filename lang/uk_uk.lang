@@ -1,57 +1,56 @@
-events = Events
-events_title = Events and Occasions
+events = Події
+events_title = Події та заходи
 
 # Table names
 
-event_tablename_date = 📅 Dates
-event_tablename_date_lang = 📅 Language
-event_tablename_category = 📅 Categories
-event_tablename_location = 📅 Venues
-event_tablename_category_request = 📅 Requests
-event_tablename_date_registration = 📅 Bookings
-event_tablename_date_offer = 📅 Offers
-event_tablename_date_registration_person = 📅 Participants
+event_tablename_date = 📅 Дати
+event_tablename_date_lang = 📅 Мова
+event_tablename_category = 📅 Категорії
+event_tablename_location = 📅 Місця
+event_tablename_category_request = 📅 Запити
+event_tablename_date_registration = 📅 Бронювання
+event_tablename_date_offer = 📅 Пропозиції
+event_tablename_date_registration_person = 📅 Учасники
 
 # Menu items
 
-event_calendar = Calendar
-event_lang = Languages
-event_date = Dates
-event_category = Categories
-event_location = Venues
-event_category_request = Requests
-event_date_registration = Bookings
-event_date_registration_person = Participants
-event_settings = Settings
-event_docs = Documentation
+event_calendar = Календар
+event_lang = Мови
+event_date = Дати
+event_category = Категорії
+event_location = Місця
+event_category_request = Запити
+event_date_registration = Бронювання
+event_date_registration_person = Учасники
+event_settings = Налаштування
+event_docs = Документація
 
 # Settings
 
-events_settings = Settings
+events_settings = Налаштування
 
-events_settings_fieldset_general = General
-events_settings_default_organizer_name = Default Organizer Name
-events_settings_default_organizer_name_notice = This will be used in the ICS file, for example.
-events_settings_currency = Currency
-events_settings_currency_notice = Currency used for prices, e.g. <code>EUR</code>.
+events_settings_fieldset_general = Загальні
+events_settings_default_organizer_name = Ім'я організатора за замовчуванням
+events_settings_default_organizer_name_notice = Це буде використовуватися в файлі ICS, наприклад.
+events_settings_currency = Валюта
+events_settings_currency_notice = Валюта, що використовується для цін, наприклад, <code>EUR</code>.
 events_settings_timezone = Google Timezone API
-events_settings_timezone_notice = API key for determining the timezone of a location.
-events_settings_editor = WYSIWYG Editor
+events_settings_timezone_notice = API-ключ для визначення часового поясу місця.
+events_settings_editor = WYSIWYG редактор
 
-events_settings_fieldset_details = Overview and Detail View
-events_settings_article_id = Event Overview
-events_settings_article_id_notice = REDAXO article in which the event overview is displayed.
-events_settings_empty = Message when no events are available
-events_settings_empty_notice = Message to be displayed when no events are available.
-events_settings_fallback_image = Default Poster
-events_settings_fallback_image_notice = Fallback image to be displayed when no image is available for an event.
+events_settings_fieldset_details = Огляд та детальний перегляд
+events_settings_article_id = Огляд подій
+events_settings_article_id_notice = REDAXO стаття, в якій відображається огляд подій.
+events_settings_empty = Повідомлення, коли подій немає
+events_settings_empty_notice = Повідомлення, яке відображається, коли подій немає.
+events_settings_fallback_image = Зображення за замовчуванням
+events_settings_fallback_image_notice = Зображення, яке відображається, коли для події немає зображення.
 
-events_settings_fieldset_registration = Registration
+events_settings_fieldset_registration = Реєстрація
 
-events_settings_withdrawal = Information on the right of withdrawal
-events_settings_privacy_policy_id = Privacy Policy Page
-events_settings_agb_id = Terms and Conditions Page
-
+events_settings_withdrawal = Інформація про право на відмову
+events_settings_privacy_policy_id = Сторінка політики конфіденційності
+events_settings_agb_id = Сторінка умов та положень
 # Docs
 
 events_docs_intro = Intro

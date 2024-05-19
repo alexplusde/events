@@ -1,29 +1,29 @@
-events = Events
-events_title = Events and Occasions
+events = Evenimente
+events_title = Evenimente și Ocazii
 
 # Table names
 
-event_tablename_date = 📅 Dates
-event_tablename_date_lang = 📅 Language
-event_tablename_category = 📅 Categories
-event_tablename_location = 📅 Venues
-event_tablename_category_request = 📅 Requests
-event_tablename_date_registration = 📅 Bookings
-event_tablename_date_offer = 📅 Offers
-event_tablename_date_registration_person = 📅 Participants
+event_tablename_date = 📅 Date
+event_tablename_date_lang = 📅 Limba
+event_tablename_category = 📅 Categorii
+event_tablename_location = 📅 Locații
+event_tablename_category_request = 📅 Cereri
+event_tablename_date_registration = 📅 Înregistrări
+event_tablename_date_offer = 📅 Oferte
+event_tablename_date_registration_person = 📅 Participanți
 
 # Menu items
 
 event_calendar = Calendar
-event_lang = Languages
-event_date = Dates
-event_category = Categories
-event_location = Venues
-event_category_request = Requests
-event_date_registration = Bookings
-event_date_registration_person = Participants
-event_settings = Settings
-event_docs = Documentation
+event_lang = Limbi
+event_date = Date
+event_category = Categorii
+event_location = Locații
+event_category_request = Cereri
+event_date_registration = Înregistrări
+event_date_registration_person = Participanți
+event_settings = Setări
+event_docs = Documentație
 
 # Settings
 
