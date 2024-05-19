@@ -45,16 +45,15 @@ class event_category extends \rex_yform_manager_dataset
      * $name = $eventCategory->getName();
      * ```
      */
-    public function getName(): string
-    {
-        return $this->name;
+
+    public function getName() : ?string {
+        return $this->getValue("name");
     }
-    public function setName(string $name): self
-    {
-        $this->setValue('name', $name);
+    /** @api */
+    public function setName(mixed $value) : self {
+        $this->setValue("name", $value);
         return $this;
     }
-
     /**
      * Gibt das Bild der Kategorie zurück.
      *
@@ -132,16 +131,15 @@ class event_category extends \rex_yform_manager_dataset
      * $icon = $eventCategory->getIcon();
      * ```
      */
-    public function getIcon(): string
-    {
-        return $this->getValue('icon');
+    /** @api */
+    public function getIcon() : ?string {
+        return $this->getValue("icon");
     }
-    public function setIcon(string $icon): self
-    {
-        $this->setValue('icon', $icon);
+    /** @api */
+    public function setIcon(mixed $value) : self {
+        $this->setValue("icon", $value);
         return $this;
     }
-
     /**
      * Gibt den Preis der Kategorie zurück.
      *
@@ -285,4 +283,88 @@ class event_category extends \rex_yform_manager_dataset
      * $attributes = $eventCategory->getAttributes();
      * ```
      */
-}
+
+    /* Teaser */
+    /** @api */
+    public function getTeaser(bool $asPlaintext = false) : ?string {
+        if($asPlaintext) {
+            return strip_tags($this->getValue("teaser"));
+        }
+        return $this->getValue("teaser");
+    }
+    /** @api */
+    public function setTeaser(mixed $value) : self {
+        $this->setValue("teaser", $value);
+        return $this;
+    }
+            
+    /* Beschreibung */
+    /** @api */
+    public function getDescription(bool $asPlaintext = false) : ?string {
+        if($asPlaintext) {
+            return strip_tags($this->getValue("description"));
+        }
+        return $this->getValue("description");
+    }
+    /** @api */
+    public function setDescription(mixed $value) : self {
+        $this->setValue("description", $value);
+        return $this;
+    }
+            
+    /* Bilder */
+    /** @api */
+    public function getImages() : array {
+
+        return explode(",", $this->getValue("images"));
+    }
+    /** @api */
+    public function setImages(array|string $filename) : self {
+        if(is_array($filename)) {
+            $this->getValue("images", implode(",",$filename));
+        } else {
+            $this->setValue("images", $filename);
+        }
+        return $this;
+    }
+            
+    /* Status */
+    /** @api */
+    public function getStatus() : mixed {
+        return $this->getValue("status");
+    }
+    /** @api */
+    public function setStatus(mixed $param) : mixed {
+        $this->setValue("status", $param);
+        return $this;
+    }
+
+    /* Termin(e) */
+    /** @api */
+    public function getDate() : ?rex_yform_manager_collection {
+        return $this->getRelatedCollection("date_id");
+    }
+
+    /* Erstellt von... */
+    /** @api */
+    public function getCreateUser() : ?rex_user {
+        return rex_user::get($this->getValue("createuser"));
+    }
+    /** @api */
+    public function setCreateUser(mixed $value) : self {
+        $this->setValue("createuser", $value);
+        return $this;
+    }
+
+    /* Zuletzt geändert von... */
+    /** @api */
+    public function getUpdateUser() : ?rex_user {
+        return rex_user::get($this->getValue("updateuser"));
+    }
+    /** @api */
+    public function setUpdateUser(mixed $value) : self {
+        $this->setValue("updateuser", $value);
+        return $this;
+    }
+
+}?>

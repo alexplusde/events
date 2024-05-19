@@ -29,31 +29,46 @@ if (rex::isBackend() && rex_be_controller::getCurrentPage() == 'events/date') {
     rex_view::addJsFile($this->getAssetsUrl('backend_date.js'));
 }
 
-rex_yform_manager_dataset::setModelClass(
-    'rex_event_date',
-    event_date::class
-);
-rex_yform_manager_dataset::setModelClass(
-    'rex_event_location',
-    event_location::class
-);
-rex_yform_manager_dataset::setModelClass(
-    'rex_event_category',
-    event_category::class
-);
-rex_yform_manager_dataset::setModelClass(
-    'rex_event_date_offer',
-    event_date_offer::class
-);
-rex_yform_manager_dataset::setModelClass(
-    'rex_event_date_registration',
-    event_registration::class
-);
+if (rex_addon::get('yform')->isAvailable() && !rex::isSafeMode()) {
 
-rex_yform_manager_dataset::setModelClass(
-    'rex_event_date_registration_person',
-    event_registration_person::class
-);
+    rex_yform_manager_dataset::setModelClass(
+        'rex_event_date',
+        event_date::class
+    );
+    rex_yform_manager_dataset::setModelClass(
+        'rex_event_location',
+        event_location::class
+    );
+    rex_yform_manager_dataset::setModelClass(
+        'rex_event_category',
+        event_category::class
+    );
+    rex_yform_manager_dataset::setModelClass(
+        'rex_event_date_offer',
+        event_date_offer::class
+    );
+    rex_yform_manager_dataset::setModelClass(
+        'rex_event_date_registration',
+        event_registration::class
+    );
+
+    rex_yform_manager_dataset::setModelClass(
+        'rex_event_date_registration_person',
+        event_registration_person::class
+    );
+    rex_yform_manager_dataset::setModelClass(
+        'rex_event_category_request',
+        event_category_request::class,
+    );
+    
+	rex_yform_manager_dataset::setModelClass(
+		'rex_event_date_lang',
+		event_date_lang::class,
+	);
+
+}
+?>
+
 
 if (rex_addon::get('cronjob')->isAvailable() && !rex::isSafeMode()) {
     rex_cronjob_manager::registerType('rex_cronjob_events_ics_import');
