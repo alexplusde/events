@@ -43,6 +43,6 @@ $fragment->setVar('toc', $Toc, false);
 $content = $fragment->parse('core/page/docs.php');
 
 $fragment = new rex_fragment();
-$fragment->setVar('title', rex_i18n::msg('package_help') . ' ', false);
+$fragment->setVar('title', rex_i18n::msg('package_help') . ' Events (Termine & Veranstaltungen) ', false);
 $fragment->setVar('body', $content, false);
 echo $fragment->parse('core/page/section.php');

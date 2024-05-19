@@ -1024,4 +1024,101 @@ class event_registration extends \rex_yform_manager_dataset
         }
         return self::query()->where('hash', $hash)->findOne();
     }
+
+    /* Veranstaltungsort */
+    /** @api */
+    public function getEventLocation() : ?rex_yform_manager_dataset {
+        return $this->getRelatedDataset("event_location_id");
+    }
+
+    /* Datum */
+    /** @api */
+    public function setDate(mixed $value) : self {
+        $this->setValue("date", $value);
+        return $this;
+    }
+
+    /* Kategorie */
+    /** @api */
+    public function setCategory(mixed $value) : self {
+        $this->setValue("category", $value);
+        return $this;
+    }
+
+
+    /* Anzahl der Teilnehmer*innen */
+    /** @api */
+    public function getPersonCount() : ?float {
+        return $this->getValue("person_count");
+    }
+    /** @api */
+    public function setPersonCount(float $value) : self {
+        $this->setValue("person_count", $value);
+        return $this;
+    }
+
+    /* Newsletter */
+    /** @api */
+    public function getNewsletter(bool $asBool = false) : mixed {
+        if($asBool) {
+            return (bool) $this->getValue("newsletter");
+        }
+        return $this->getValue("newsletter");
+    }
+    /** @api */
+    public function setNewsletter(int $value = 1) : self {
+        $this->setValue("newsletter", $value);
+        return $this;
+    }
+            
+    /* DSGVO Zustimmung */
+    /** @api */
+    public function getDsgvo(bool $asBool = false) : mixed {
+        if($asBool) {
+            return (bool) $this->getValue("dsgvo");
+        }
+        return $this->getValue("dsgvo");
+    }
+    /** @api */
+    public function setDsgvo(int $value = 1) : self {
+        $this->setValue("dsgvo", $value);
+        return $this;
+    }
+            
+    /* AGB Zustimmung */
+    /** @api */
+    public function getAgb(bool $asBool = false) : mixed {
+        if($asBool) {
+            return (bool) $this->getValue("agb");
+        }
+        return $this->getValue("agb");
+    }
+    /** @api */
+    public function setAgb(int $value = 1) : self {
+        $this->setValue("agb", $value);
+        return $this;
+    }
+
+    /* Wird gelöscht am... */
+    /** @api */
+    public function getDeletedate() : ?\DateTime {
+        return $this->getValue("deletedate");
+    }
+    /** @api */
+    public function setDeletedate(mixed $value) : self {
+        $this->setValue("deletedate", $value);
+        return $this;
+    }
+
+    /* Anmeldung erfolgt am... */
+    /** @api */
+    public function getCreateDate() : ?string {
+        return $this->getValue("createdate");
+    }
+    /** @api */
+    public function setCreateDate(string $value) : self {
+        $this->setValue("createdate", $value);
+        return $this;
+    }
+
 }

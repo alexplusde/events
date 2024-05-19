@@ -22,7 +22,7 @@ if (null !== $page) {
         $keyWithoutPrio = mb_substr($key, 3);
         $currenMDFileWithoudPrio = mb_substr($currenMDFile, 3);
         $page->addSubpage(
-            (new rex_be_page($key, rex_i18n::msg(''.$keyWithoutPrio)))
+            (new rex_be_page($key, rex_i18n::msg('events_docs_'.$keyWithoutPrio)))
             ->setSubPath($mdFile)
             ->setHref('index.php?page=events/docs&mdfile='.$key)
             ->setIsActive($key == $currenMDFile)

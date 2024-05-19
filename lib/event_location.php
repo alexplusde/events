@@ -367,4 +367,66 @@ class event_location extends \rex_yform_manager_dataset
         $this->setValue('lng', $lng);
         return $this;
     }
+
+    /* Google Places */
+    /** @api */
+    public function getGooglePlaces() : ?string {
+        return $this->getValue("google_places");
+    }
+    /** @api */
+    public function setGooglePlaces(mixed $value) : self {
+        $this->setValue("google_places", $value);
+        return $this;
+    }
+
+    /* Kategorie */
+    /** @api */
+    public function getLocationCategory() : ?rex_yform_manager_dataset {
+        return $this->getRelatedDataset("location_category_id");
+    }
+
+    /* Aktualisierert von... */
+    /** @api */
+    public function getUpdateuser() : ?rex_user {
+        return rex_user::get($this->getValue("updateuser"));
+    }
+    /** @api */
+    public function setUpdateuser(mixed $value) : self {
+        $this->setValue("updateuser", $value);
+        return $this;
+    }
+
+    /* Erstellt von... */
+    /** @api */
+    public function getCreateuser() : ?rex_user {
+        return rex_user::get($this->getValue("createuser"));
+    }
+    /** @api */
+    public function setCreateuser(mixed $value) : self {
+        $this->setValue("createuser", $value);
+        return $this;
+    }
+
+    /* Aktualisiert am... */
+    /** @api */
+    public function getUpdatedate() : ?string {
+        return $this->getValue("updatedate");
+    }
+    /** @api */
+    public function setUpdatedate(string $value) : self {
+        $this->setValue("updatedate", $value);
+        return $this;
+    }
+
+    /* Erstellt am... */
+    /** @api */
+    public function getCreatedate() : ?string {
+        return $this->getValue("createdate");
+    }
+    /** @api */
+    public function setCreatedate(string $value) : self {
+        $this->setValue("createdate", $value);
+        return $this;
+    }
+
 }

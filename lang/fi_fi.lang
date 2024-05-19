@@ -1,0 +1,277 @@
+events = Tapahtumat
+events_title = Tapahtumat ja tilaisuudet
+
+# Table names
+
+event_tablename_date = 📅 Päivämäärät
+event_tablename_date_lang = 📅 Kieli
+event_tablename_category = 📅 Kategoriat
+event_tablename_location = 📅 Paikat
+event_tablename_category_request = 📅 Pyyntöjä
+event_tablename_date_registration = 📅 Varaukset
+event_tablename_date_offer = 📅 Tarjoukset
+event_tablename_date_registration_person = 📅 Osallistujat
+
+# Menu items
+
+event_calendar = Kalenteri
+event_lang = Kielet
+event_date = Päivämäärät
+event_category = Kategoriat
+event_location = Paikat
+event_category_request = Pyyntöjä
+event_date_registration = Varaukset
+event_date_registration_person = Osallistujat
+event_settings = Asetukset
+event_docs = Dokumentaatio
+
+# Settings
+
+events_settings = Asetukset
+
+events_settings_fieldset_general = Yleiset
+events_settings_default_organizer_name = Oletusjärjestäjän nimi
+events_settings_default_organizer_name_notice = Tätä käytetään esimerkiksi ICS-tiedostossa.
+events_settings_currency = Valuutta
+events_settings_currency_notice = Valuutta, jota käytetään hintoihin, esim. <code>EUR</code>.
+events_settings_timezone = Google Timezone API
+events_settings_timezone_notice = API-avain paikan aikavyöhykkeen määrittämiseen.
+events_settings_editor = WYSIWYG-editori
+
+events_settings_fieldset_details = Yleiskatsaus ja yksityiskohtainen näkymä
+events_settings_article_id = Tapahtumakatsaus
+events_settings_article_id_notice = REDAXO-artikkeli, jossa tapahtumakatsaus näytetään.
+events_settings_empty = Viesti, kun tapahtumia ei ole saatavilla
+events_settings_empty_notice = Viesti, joka näytetään, kun tapahtumia ei ole saatavilla.
+events_settings_fallback_image = Oletusjuliste
+events_settings_fallback_image_notice = Varakuva, joka näytetään, kun tapahtumalle ei ole saatavilla kuvaa.
+
+events_settings_fieldset_registration = Rekisteröinti
+
+events_settings_withdrawal = Tietoa peruutusoikeudesta
+events_settings_privacy_policy_id = Tietosuojakäytäntö-sivu
+events_settings_agb_id = Käyttöehdot-sivu
+
+# Docs
+
+events_docs_intro = Intro
+events_docs_settings = Settings
+events_docs_event_date = Dates
+events_docs_event_category = Categories
+events_docs_event_location = Venues
+events_docs_event_category_request = Requests
+events_docs_event_date_registration = Bookings
+events_docs_event_date_registration_person = Participants
+events_docs_yform_action_event_date_registration_person_fill = Actions
+events_docs_event_date_offer = Offers
+events_docs_cronjobs = Cronjobs
+events_docs_ics = ICS Import
+events_docs_forcal_migration = Migration from forcal
+events_docs_yform_table_manager = Extend Events
+events_docs_restful_api = RESTful API
+
+# ICS-Cronjob
+
+event_ics_import_cronjob_name = Import .ics file into Events
+
+event_ics_import_cronjob_url_label = URL of the .ics file
+event_ics_import_cronjob_url_notice = in the format <code>https://www.redaxo.org/ical.ics</code>
+
+event_ics_import_cronjob_media_label = Media pool file
+event_ics_import_cronjob_media_notice = for a manual import. This function needs your support on Github!
+
+event_ics_import_cronjob_choose = Please choose...
+event_ics_import_cronjob_choose_none = No selection
+
+event_ics_import_cronjob_geocoding = Should the locations be geocoded immediately? [Not available]
+event_ics_import_cronjob_geocoding_notice = This function needs your support on Github!
+
+event_ics_import_cronjob_debug = Activate debug mode?
+event_ics_import_cronjob_debug_notice = If active, additional information will be displayed when running the cronjob in the backend.
+
+event_ics_import_cronjob_category_remove = Create unknown categories, delete all surplus categories in Events. Attention! May also delete manually created categories or categories of other cronjobs.
+event_ics_import_cronjob_category_default_id = Keep categories in Events, assign all dates to an existing category
+event_ics_import_cronjob_category_keep = Create unknown categories, keep surplus categories in Events
+event_ics_import_cronjob_category_sync = How are dates in Events assigned to categories?
+
+event_ics_import_cronjob_default_category_sync_id_notice = (optional) Category to which the dates in Events are assigned by default.
+event_ics_import_cronjob_default_location_sync_id_notice = (optional) Location to which the dates in Events are assigned by default if <code>LOCATION</code> is not specified in the <code>.ics</code> file.
+
+event_ics_import_cronjob_clang_id_notice = REDAXO language to which event details (e.g. title, description) are assigned
+
+event_info_donate = Unlike most addons from the REDAXO community, the creation and further development of this addon is not covered by own projects. With a commission you secure additional features, improved stability, functionality and further development, as well as better instructions.
+event_donate = Support further development
+
+# Labels der YForm-Tabellenfelder und Formulare
+event_date_lang_name = Name
+event_date_lang_code = Code
+event_date_lang_event_date = Dates
+
+event_category_prio = Order
+event_category_name = Name
+event_category_icon = Icon
+event_category_teaser = Teaser
+event_category_description = Description
+event_category_name_short = Short name
+event_category_images = Images
+event_category_status = Status
+event_category_date_id = Date(s)
+event_category_createuser = Created by...
+event_category_updateuser = Last modified by...
+
+event_date_name = Name
+event_date_teaser = Teaser
+event_date_description = Description
+event_date_lang_id = Language ID
+event_date_event_category_id = Category(ies)
+event_date_startdate = Start date
+event_date_all_day = all day?
+event_date_doortime = Admission time
+event_date_starttime = Start time
+event_date_endtime = End time
+event_date_enddate = End date
+event_date_location = Location
+event_date_space = Free spaces
+event_date_image_poster = Title image
+event_date_images = Gallery
+event_date_url = External URL
+event_date_video_url = Video URL
+event_date_eventstatus = Status
+event_date_uid = UID
+event_date_updateuser = Last modified by...
+event_date_createuser = Created by...
+event_date_updatedate = Last modified on...
+event_date_createdate = Created on...
+
+event_date_offer = Offers / Prices
+event_date_startdatetime = Start date and time
+
+event_location_google_places = Google Places
+event_location_location_category_id = Category
+event_location_name = Name
+event_location_street = Street
+event_location_zip = ZIP
+event_location_locality = Location
+event_location_countrycode = Country code
+event_location_lat = Latitude
+event_location_lng = Longitude
+event_location_updateuser = Updated by...
+event_location_createuser = Created by...
+event_location_createdate = Created on...
+event_location_updatedate = Updated on...
+event_location_lat_lng = Map
+
+event_date_registration_category_id = Category
+event_date_registration_date_id = Date
+event_date_registration_event_location_id = Venue
+event_date_registration_date = Date
+event_date_registration_category = Category
+event_date_registration_salutation = Salutation
+event_date_registration_firstname = First name
+event_date_registration_lastname = Last name
+event_date_registration_email = E-Mail
+event_date_registration_street = Street
+event_date_registration_zip = ZIP
+event_date_registration_city = City
+event_date_registration_phone = Phone
+event_date_registration_birthday = Birthday
+event_date_registration_person_count = Number of participants
+event_date_registration_message = Message
+event_date_registration_newsletter = Newsletter
+event_date_registration_dsgvo = GDPR consent
+event_date_registration_agb = T&C consent
+event_date_registration_channel = Recommendation via...
+event_date_registration_createdate = Registration made on...
+event_date_registration_deletedate = Will be deleted on...
+event_date_registration_price = Price
+event_date_registration_status = Status
+event_date_registration_uuid = UUID
+event_date_registration_hash = Hash
+
+event_date_registration_person_event_date_id = Date
+event_date_registration_person_registration_id = Registration
+event_date_registration_person_firstname = First name
+event_date_registration_person_lastname = Last name
+event_date_registration_person_birthday = Birthday
+event_date_registration_person_email = E-Mail
+event_date_registration_person_phone = Phone
+event_date_registration_person_status = Status
+event_date_registration_person_uuid = UUID
+event_date_registration_person_createdate = Registered on...
+event_date_registration_person_updatedate = Updated on...
+event_date_registration_person_deletedate = Will be deleted on...
+event_date_registration_person_hash = Hash
+
+event_category_request_status = Status 
+event_category_request_category_id = Category 
+event_category_request_date = Date
+event_category_request_category = Category name
+event_category_request_salutation = Salutation
+event_category_request_firstname = First name
+event_category_request_lastname = Last name
+event_category_request_email = E-Mail
+event_category_request_street = Street
+event_category_request_zip = ZIP
+event_category_request_city = City
+event_category_request_phone = Phone
+event_category_request_birthday = Birthday
+event_category_request_person_count = Number of participants
+event_category_request_message = Message
+event_category_request_newsletter = Newsletter consent
+event_category_request_dsgvo = GDPR consent
+event_category_request_agb = T&C consent
+event_category_request_channel = Recommendation via...
+event_category_request_createdate = Registration made on...
+event_category_request_deletedate = Will be deleted on...
+event_category_request_uuid = UUID
+
+event_date_offer_date_id = Date
+event_date_offer_url = URL
+event_date_offer_price = Price
+event_date_offer_availability = Availability
+event_date_offer_uid = UID
+
+# Notices of the YForm tables
+
+event_date_lang_name_notice = Language name
+event_date_lang_code_notice = Two-letter language code according to ISO standard, e.g.<code>en</code>
+event_date_lang_event_date_notice = Manage linked dates
+event_category_name_notice = Name of the category, keyword or name of the event series.
+event_category_icon_notice = e.g. <code><i class="bi bi-activity"></i></code>
+event_category_images_notice = Unless otherwise stated, in 16:9 format (Full HD / 4K)
+event_category_status_notice = Indicates whether this category should currently be visible in the frontend.
+event_category_date_id_notice = Dates assigned to this category
+event_date_name_notice = Title of the event
+event_date_teaser_notice = A short teaser text or a summary that can be output in the date overview.
+event_date_description_notice = Provide additional information about the event.
+event_date_startdate_notice = Enter the start of the event - if there is a separate admission time, you can enter it differently below.
+event_date_all_day_notice = If activated, then the specified times are ignored. 
+event_date_location_notice = Select the appropriate venue.
+event_date_enddate_notice = Enter the expected end of the event. (optional)
+event_date_image_poster_notice = Title image / Poster
+event_date_images_notice = Gallery
+event_date_url_notice = Link to more info
+event_date_video_url_notice = Link to a video
+event_date_uid_notice = Unique ID
+event_location_name_notice = Name of the venue, e.g. <code>Zahlemann and Söhne GmbH & Co. KG</code>
+event_location_street_notice = Please enter street name and house number, e.g. <code>Alexanderplatz 1</code>
+event_location_zip_notice = Please enter valid postal code, e.g. <code>10115</code>
+event_location_locality_notice = Please enter the name of the city, e.g: <code>Berlin</code>
+event_date_offer_url_notice = If there is a separate ticket shop, you can enter the address here. Please enter completely with <code>https://</code>.
+event_date_offer_price_notice = Ticket costs, admission, etc.
+
+# Choice values
+
+event_date_registration_person_status_canceled = canceled 
+event_date_registration_person_status_unknown = unknown
+event_date_registration_person_status_registered = registered
+event_date_registration_person_confirmed = confirmed
+
+event_date_offer_availability_instock = Available
+event_date_offer_availability_preorder = Preorder
+event_date_offer_availability_soldout = Sold out
+
+event_category_request_status_select = Please select...
+event_category_request_status_rejected = rejected
+event_category_request_status_todo = open
+event_category_request_status_answered = answered

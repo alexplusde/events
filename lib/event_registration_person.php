@@ -541,4 +541,62 @@ class event_registration_person extends \rex_yform_manager_dataset
 
         return true;
     }
+
+
+    /* E-Mail */
+    /** @api */
+    public function getEmail() : ?string {
+        return $this->getValue("email");
+    }
+    /** @api */
+    public function setEmail(mixed $value) : self {
+        $this->setValue("email", $value);
+        return $this;
+    }
+
+    
+    /* Angemeldet am... */
+    /** @api */
+    public function getCreatedate() : ?string {
+        return $this->getValue("createdate");
+    }
+    /** @api */
+    public function setCreatedate(string $value) : self {
+        $this->setValue("createdate", $value);
+        return $this;
+    }
+
+    /* Aktualisiert am... */
+    /** @api */
+    public function getUpdatedate() : ?string {
+        return $this->getValue("updatedate");
+    }
+    /** @api */
+    public function setUpdatedate(string $value) : self {
+        $this->setValue("updatedate", $value);
+        return $this;
+    }
+
+    /* Wird gelöscht am... */
+    /** @api */
+    public function getDeletedate() : ?\DateTime {
+        return $this->getValue("deletedate");
+    }
+    /** @api */
+    public function setDeletedate(mixed $value) : self {
+        $this->setValue("deletedate", $value);
+        return $this;
+    }
+
+    /* UUID */
+    /** @api */
+    public function getUuid() : mixed {
+        return $this->getValue("uuid");
+    }
+    /** @api */
+    public function setUuid(mixed $value) : self {
+        $this->setValue("uuid", $value);
+        return $this;
+    }
+
 }

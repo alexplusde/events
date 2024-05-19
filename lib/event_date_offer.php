@@ -211,4 +211,22 @@ class event_date_offer extends \rex_yform_manager_dataset
         $this->setValue('status', $availability);
         return $this;
     }
+
+    /* Termin */
+    /** @api */
+    public function getDate() : ?rex_yform_manager_dataset {
+        return $this->getRelatedDataset("date_id");
+    }
+
+    /* UID */
+    /** @api */
+    public function getUid() : mixed {
+        return $this->getValue("uid");
+    }
+    /** @api */
+    public function setUid(mixed $value) : self {
+        $this->setValue("uid", $value);
+        return $this;
+    }
+
 }

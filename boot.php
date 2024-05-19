@@ -1,9 +1,9 @@
 <?php
 
-if (rex::isBackend() && rex_be_controller::getCurrentPage() == "events/date") {
+if (rex::isBackend()) {
     rex_extension::register('OUTPUT_FILTER', function (rex_extension_point $ep) {
-        $suchmuster = '###events-settings-editor###';
-        $ersetzen = rex_config::get("events", "editor");
+        $suchmuster = 'class="###events-settings-editor###"';
+        $ersetzen = rex_config::get("events", "editor") ?? 'class="form-control"';
         $ep->setSubject(str_replace($suchmuster, $ersetzen, $ep->getSubject()));
     });
 }
@@ -22,34 +22,53 @@ if (rex::isBackend() && rex_be_controller::getCurrentPage() == 'events/calendar'
     rex_view::addJsFile($this->getAssetsUrl('fullcalendar/packages/list/main.js'));
     rex_view::addCssFile($this->getAssetsUrl('fullcalendar/packages/list/main.css'));
     rex_view::addJsFile($this->getAssetsUrl('fullcalendar/packages/core/locales/de.js'));
-    rex_view::addJsFile($this->getAssetsUrl('backend.js'));
+    rex_view::addJsFile($this->getAssetsUrl('backend_fullcalendar.js'));
 }
 
-rex_yform_manager_dataset::setModelClass(
-    'rex_event_date',
-    event_date::class
-);
-rex_yform_manager_dataset::setModelClass(
-    'rex_event_location',
-    event_location::class
-);
-rex_yform_manager_dataset::setModelClass(
-    'rex_event_category',
-    event_category::class
-);
-rex_yform_manager_dataset::setModelClass(
-    'rex_event_date_offer',
-    event_date_offer::class
-);
-rex_yform_manager_dataset::setModelClass(
-    'rex_event_date_registration',
-    event_registration::class
-);
+if (rex::isBackend() && rex_be_controller::getCurrentPage() == 'events/date') {
+    rex_view::addJsFile($this->getAssetsUrl('backend_date.js'));
+}
 
-rex_yform_manager_dataset::setModelClass(
-    'rex_event_date_registration_person',
-    event_registration_person::class
-);
+if (rex_addon::get('yform')->isAvailable() && !rex::isSafeMode()) {
+
+    rex_yform_manager_dataset::setModelClass(
+        'rex_event_date',
+        event_date::class
+    );
+    rex_yform_manager_dataset::setModelClass(
+        'rex_event_location',
+        event_location::class
+    );
+    rex_yform_manager_dataset::setModelClass(
+        'rex_event_category',
+        event_category::class
+    );
+    rex_yform_manager_dataset::setModelClass(
+        'rex_event_date_offer',
+        event_date_offer::class
+    );
+    rex_yform_manager_dataset::setModelClass(
+        'rex_event_date_registration',
+        event_registration::class
+    );
+
+    rex_yform_manager_dataset::setModelClass(
+        'rex_event_date_registration_person',
+        event_registration_person::class
+    );
+    rex_yform_manager_dataset::setModelClass(
+        'rex_event_category_request',
+        event_category_request::class,
+    );
+    
+	rex_yform_manager_dataset::setModelClass(
+		'rex_event_date_lang',
+		event_date_lang::class,
+	);
+
+}
+?>
+
 
 if (rex_addon::get('cronjob')->isAvailable() && !rex::isSafeMode()) {
     rex_cronjob_manager::registerType('rex_cronjob_events_ics_import');
@@ -59,7 +78,7 @@ if (rex_plugin::get('yform', 'rest')->isAvailable() && !rex::isSafeMode()) {
     /* YForm Rest API */
     $rex_event_date_route = new \rex_yform_rest_route(
         [
-        'path' => '/v2.0/event/date/',
+        'path' => '/v5.0/event/date/',
         'auth' => '\rex_yform_rest_auth_token::checkToken',
         'type' => \event_date::class,
         'query' => \event_date::query(),
@@ -123,7 +142,7 @@ if (rex_plugin::get('yform', 'rest')->isAvailable() && !rex::isSafeMode()) {
     /* YForm Rest API */
     $rex_event_category_route = new \rex_yform_rest_route(
         [
-        'path' => '/v2.0/event/category/',
+        'path' => '/v5.0/event/category/',
         'auth' => '\rex_yform_rest_auth_token::checkToken',
         'type' => \event_category::class,
         'query' => \event_category::query(),
@@ -159,7 +178,7 @@ if (rex_plugin::get('yform', 'rest')->isAvailable() && !rex::isSafeMode()) {
     /* YForm Rest API */
     $rex_event_location_route = new \rex_yform_rest_route(
         [
-        'path' => '/v2.0/event/location/',
+        'path' => '/v5.0/event/location/',
         'auth' => '\rex_yform_rest_auth_token::checkToken',
         'type' => \event_location::class,
         'query' => \event_location::query(),
