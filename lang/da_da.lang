@@ -1,277 +1,277 @@
-events = Events
-events_title = Events and Occasions
+events = Begivenheder
+events_title = Begivenheder og Anledninger
 
-# Table names
+# Tabelnavne
 
-event_tablename_date = 📅 Dates
-event_tablename_date_lang = 📅 Language
-event_tablename_category = 📅 Categories
-event_tablename_location = 📅 Venues
-event_tablename_category_request = 📅 Requests
-event_tablename_date_registration = 📅 Bookings
-event_tablename_date_offer = 📅 Offers
-event_tablename_date_registration_person = 📅 Participants
+event_tablename_date = 📅 Datoer
+event_tablename_date_lang = 📅 Sprog
+event_tablename_category = 📅 Kategorier
+event_tablename_location = 📅 Steder
+event_tablename_category_request = 📅 Anmodninger
+event_tablename_date_registration = 📅 Bookinger
+event_tablename_date_offer = 📅 Tilbud
+event_tablename_date_registration_person = 📅 Deltagere
 
-# Menu items
+# Menupunkter
 
-event_calendar = Calendar
-event_lang = Languages
-event_date = Dates
-event_category = Categories
-event_location = Venues
-event_category_request = Requests
-event_date_registration = Bookings
-event_date_registration_person = Participants
-event_settings = Settings
-event_docs = Documentation
+event_calendar = Kalender
+event_lang = Sprog
+event_date = Datoer
+event_category = Kategorier
+event_location = Steder
+event_category_request = Anmodninger
+event_date_registration = Bookinger
+event_date_registration_person = Deltagere
+event_settings = Indstillinger
+event_docs = Dokumentation
 
 # Settings
 
-events_settings = Settings
+events_settings = Indstillinger
 
-events_settings_fieldset_general = General
-events_settings_default_organizer_name = Default Organizer Name
-events_settings_default_organizer_name_notice = This will be used in the ICS file, for example.
-events_settings_currency = Currency
-events_settings_currency_notice = Currency used for prices, e.g. <code>EUR</code>.
-events_settings_timezone = Google Timezone API
-events_settings_timezone_notice = API key for determining the timezone of a location.
+events_settings_fieldset_general = Generelt
+events_settings_default_organizer_name = Standard arrangørnavn
+events_settings_default_organizer_name_notice = Dette vil blive brugt i ICS-filen, for eksempel.
+events_settings_currency = Valuta
+events_settings_currency_notice = Valuta brugt til priser, f.eks. <code>EUR</code>.
+events_settings_timezone = Google Tidszone API
+events_settings_timezone_notice = API-nøgle til at bestemme en placeringens tidszone.
 events_settings_editor = WYSIWYG Editor
 
-events_settings_fieldset_details = Overview and Detail View
-events_settings_article_id = Event Overview
-events_settings_article_id_notice = REDAXO article in which the event overview is displayed.
-events_settings_empty = Message when no events are available
-events_settings_empty_notice = Message to be displayed when no events are available.
-events_settings_fallback_image = Default Poster
-events_settings_fallback_image_notice = Fallback image to be displayed when no image is available for an event.
+events_settings_fieldset_details = Oversigt og detaljeret visning
+events_settings_article_id = Begivenhedsoversigt
+events_settings_article_id_notice = REDAXO-artikel, hvor begivenhedsoversigten vises.
+events_settings_empty = Besked, når der ikke er tilgængelige begivenheder
+events_settings_empty_notice = Besked, der skal vises, når der ikke er tilgængelige begivenheder.
+events_settings_fallback_image = Standardplakat
+events_settings_fallback_image_notice = Fallback-billede, der skal vises, når der ikke er et billede tilgængeligt for en begivenhed.
 
-events_settings_fieldset_registration = Registration
+events_settings_fieldset_registration = Registrering
 
-events_settings_withdrawal = Information on the right of withdrawal
-events_settings_privacy_policy_id = Privacy Policy Page
-events_settings_agb_id = Terms and Conditions Page
+events_settings_withdrawal = Information om fortrydelsesret
+events_settings_privacy_policy_id = Privatlivspolitik side
+events_settings_agb_id = Vilkår og betingelser side
 
 # Docs
 
 events_docs_intro = Intro
-events_docs_settings = Settings
-events_docs_event_date = Dates
-events_docs_event_category = Categories
-events_docs_event_location = Venues
-events_docs_event_category_request = Requests
-events_docs_event_date_registration = Bookings
-events_docs_event_date_registration_person = Participants
-events_docs_yform_action_event_date_registration_person_fill = Actions
-events_docs_event_date_offer = Offers
+events_docs_settings = Indstillinger
+events_docs_event_date = Datoer
+events_docs_event_category = Kategorier
+events_docs_event_location = Steder
+events_docs_event_category_request = Anmodninger
+events_docs_event_date_registration = Bookinger
+events_docs_event_date_registration_person = Deltagere
+events_docs_yform_action_event_date_registration_person_fill = Handlinger
+events_docs_event_date_offer = Tilbud
 events_docs_cronjobs = Cronjobs
 events_docs_ics = ICS Import
-events_docs_forcal_migration = Migration from forcal
-events_docs_yform_table_manager = Extend Events
+events_docs_forcal_migration = Migration fra forcal
+events_docs_yform_table_manager = Udvid begivenheder
 events_docs_restful_api = RESTful API
 
 # ICS-Cronjob
 
-event_ics_import_cronjob_name = Import .ics file into Events
+event_ics_import_cronjob_name = Importer .ics fil til Begivenheder
 
-event_ics_import_cronjob_url_label = URL of the .ics file
-event_ics_import_cronjob_url_notice = in the format <code>https://www.redaxo.org/ical.ics</code>
+event_ics_import_cronjob_url_label = URL til .ics filen
+event_ics_import_cronjob_url_notice = i formatet <code>https://www.redaxo.org/ical.ics</code>
 
-event_ics_import_cronjob_media_label = Media pool file
-event_ics_import_cronjob_media_notice = for a manual import. This function needs your support on Github!
+event_ics_import_cronjob_media_label = Mediepool fil
+event_ics_import_cronjob_media_notice = til manuel import. Denne funktion har brug for din støtte på Github!
 
-event_ics_import_cronjob_choose = Please choose...
-event_ics_import_cronjob_choose_none = No selection
+event_ics_import_cronjob_choose = Vælg venligst...
+event_ics_import_cronjob_choose_none = Ingen valg
 
-event_ics_import_cronjob_geocoding = Should the locations be geocoded immediately? [Not available]
-event_ics_import_cronjob_geocoding_notice = This function needs your support on Github!
+event_ics_import_cronjob_geocoding = Skal placeringerne geokodes med det samme? [Ikke tilgængelig]
+event_ics_import_cronjob_geocoding_notice = Denne funktion har brug for din støtte på Github!
 
-event_ics_import_cronjob_debug = Activate debug mode?
-event_ics_import_cronjob_debug_notice = If active, additional information will be displayed when running the cronjob in the backend.
+event_ics_import_cronjob_debug = Aktiver debug mode?
+event_ics_import_cronjob_debug_notice = Hvis aktiv, vil yderligere information blive vist, når cronjobben kører i backenden.
 
-event_ics_import_cronjob_category_remove = Create unknown categories, delete all surplus categories in Events. Attention! May also delete manually created categories or categories of other cronjobs.
-event_ics_import_cronjob_category_default_id = Keep categories in Events, assign all dates to an existing category
-event_ics_import_cronjob_category_keep = Create unknown categories, keep surplus categories in Events
-event_ics_import_cronjob_category_sync = How are dates in Events assigned to categories?
+event_ics_import_cronjob_category_remove = Opret ukendte kategorier, slet alle overflødige kategorier i Begivenheder. Pas på! Kan også slette manuelt oprettede kategorier eller kategorier fra andre cronjobs.
+event_ics_import_cronjob_category_default_id = Bevar kategorier i Begivenheder, tildel alle datoer til en eksisterende kategori
+event_ics_import_cronjob_category_keep = Opret ukendte kategorier, bevar overflødige kategorier i Begivenheder
+event_ics_import_cronjob_category_sync = Hvordan bliver datoer i Begivenheder tildelt kategorier?
 
-event_ics_import_cronjob_default_category_sync_id_notice = (optional) Category to which the dates in Events are assigned by default.
-event_ics_import_cronjob_default_location_sync_id_notice = (optional) Location to which the dates in Events are assigned by default if <code>LOCATION</code> is not specified in the <code>.ics</code> file.
+event_ics_import_cronjob_default_category_sync_id_notice = (valgfri) Kategori, som datoerne i Begivenheder som standard bliver tildelt.
+event_ics_import_cronjob_default_location_sync_id_notice = (valgfri) Placering, som datoerne i Begivenheder som standard bliver tildelt, hvis <code>LOCATION</code> ikke er angivet i <code>.ics</code> filen.
 
-event_ics_import_cronjob_clang_id_notice = REDAXO language to which event details (e.g. title, description) are assigned
+event_ics_import_cronjob_clang_id_notice = REDAXO sprog, som begivenhedsdetaljer (f.eks. titel, beskrivelse) bliver tildelt
 
-event_info_donate = Unlike most addons from the REDAXO community, the creation and further development of this addon is not covered by own projects. With a commission you secure additional features, improved stability, functionality and further development, as well as better instructions.
-event_donate = Support further development
+event_info_donate = I modsætning til de fleste addons fra REDAXO-fællesskabet, er oprettelsen og videreudviklingen af dette addon ikke dækket af egne projekter. Med en provision sikrer du yderligere funktioner, forbedret stabilitet, funktionalitet og videreudvikling, samt bedre instruktioner.
+event_donate = Støt videreudvikling
 
 # Labels der YForm-Tabellenfelder und Formulare
-event_date_lang_name = Name
-event_date_lang_code = Code
-event_date_lang_event_date = Dates
+event_date_lang_name = Navn
+event_date_lang_code = Kode
+event_date_lang_event_date = Datoer
 
-event_category_prio = Order
-event_category_name = Name
-event_category_icon = Icon
+event_category_prio = Rækkefølge
+event_category_name = Navn
+event_category_icon = Ikon
 event_category_teaser = Teaser
-event_category_description = Description
-event_category_name_short = Short name
-event_category_images = Images
+event_category_description = Beskrivelse
+event_category_name_short = Kort navn
+event_category_images = Billeder
 event_category_status = Status
-event_category_date_id = Date(s)
-event_category_createuser = Created by...
-event_category_updateuser = Last modified by...
+event_category_date_id = Dato(er)
+event_category_createuser = Oprettet af...
+event_category_updateuser = Sidst ændret af...
 
-event_date_name = Name
+event_date_name = Navn
 event_date_teaser = Teaser
-event_date_description = Description
-event_date_lang_id = Language ID
-event_date_event_category_id = Category(ies)
-event_date_startdate = Start date
-event_date_all_day = all day?
-event_date_doortime = Admission time
-event_date_starttime = Start time
-event_date_endtime = End time
-event_date_enddate = End date
-event_date_location = Location
-event_date_space = Free spaces
-event_date_image_poster = Title image
-event_date_images = Gallery
-event_date_url = External URL
+event_date_description = Beskrivelse
+event_date_lang_id = Sprog ID
+event_date_event_category_id = Kategori(er)
+event_date_startdate = Startdato
+event_date_all_day = hele dagen?
+event_date_doortime = Adgangstid
+event_date_starttime = Starttid
+event_date_endtime = Sluttid
+event_date_enddate = Slutdato
+event_date_location = Sted
+event_date_space = Ledige pladser
+event_date_image_poster = Titelbillede
+event_date_images = Galleri
+event_date_url = Ekstern URL
 event_date_video_url = Video URL
 event_date_eventstatus = Status
 event_date_uid = UID
-event_date_updateuser = Last modified by...
-event_date_createuser = Created by...
-event_date_updatedate = Last modified on...
-event_date_createdate = Created on...
+event_date_updateuser = Sidst ændret af...
+event_date_createuser = Oprettet af...
+event_date_updatedate = Sidst ændret den...
+event_date_createdate = Oprettet den...
 
-event_date_offer = Offers / Prices
-event_date_startdatetime = Start date and time
+event_date_offer = Tilbud / Priser
+event_date_startdatetime = Startdato og tid
 
 event_location_google_places = Google Places
-event_location_location_category_id = Category
-event_location_name = Name
-event_location_street = Street
-event_location_zip = ZIP
-event_location_locality = Location
-event_location_countrycode = Country code
-event_location_lat = Latitude
-event_location_lng = Longitude
-event_location_updateuser = Updated by...
-event_location_createuser = Created by...
-event_location_createdate = Created on...
-event_location_updatedate = Updated on...
-event_location_lat_lng = Map
+event_location_location_category_id = Kategori
+event_location_name = Navn
+event_location_street = Gade
+event_location_zip = Postnummer
+event_location_locality = Sted
+event_location_countrycode = Landekode
+event_location_lat = Breddegrad
+event_location_lng = Længdegrad
+event_location_updateuser = Opdateret af...
+event_location_createuser = Oprettet af...
+event_location_createdate = Oprettet den...
+event_location_updatedate = Opdateret den...
+event_location_lat_lng = Kort
 
-event_date_registration_category_id = Category
-event_date_registration_date_id = Date
-event_date_registration_event_location_id = Venue
-event_date_registration_date = Date
-event_date_registration_category = Category
-event_date_registration_salutation = Salutation
-event_date_registration_firstname = First name
-event_date_registration_lastname = Last name
-event_date_registration_email = E-Mail
-event_date_registration_street = Street
-event_date_registration_zip = ZIP
-event_date_registration_city = City
-event_date_registration_phone = Phone
-event_date_registration_birthday = Birthday
-event_date_registration_person_count = Number of participants
-event_date_registration_message = Message
-event_date_registration_newsletter = Newsletter
-event_date_registration_dsgvo = GDPR consent
-event_date_registration_agb = T&C consent
-event_date_registration_channel = Recommendation via...
-event_date_registration_createdate = Registration made on...
-event_date_registration_deletedate = Will be deleted on...
-event_date_registration_price = Price
+event_date_registration_category_id = Kategori
+event_date_registration_date_id = Dato
+event_date_registration_event_location_id = Sted
+event_date_registration_date = Dato
+event_date_registration_category = Kategori
+event_date_registration_salutation = Tiltale
+event_date_registration_firstname = Fornavn
+event_date_registration_lastname = Efternavn
+event_date_registration_email = E-mail
+event_date_registration_street = Gade
+event_date_registration_zip = Postnummer
+event_date_registration_city = By
+event_date_registration_phone = Telefon
+event_date_registration_birthday = Fødselsdag
+event_date_registration_person_count = Antal deltagere
+event_date_registration_message = Besked
+event_date_registration_newsletter = Nyhedsbrev
+event_date_registration_dsgvo = GDPR samtykke
+event_date_registration_agb = T&C samtykke
+event_date_registration_channel = Anbefaling via...
+event_date_registration_createdate = Registrering foretaget den...
+event_date_registration_deletedate = Vil blive slettet den...
+event_date_registration_price = Pris
 event_date_registration_status = Status
 event_date_registration_uuid = UUID
 event_date_registration_hash = Hash
 
-event_date_registration_person_event_date_id = Date
-event_date_registration_person_registration_id = Registration
-event_date_registration_person_firstname = First name
-event_date_registration_person_lastname = Last name
-event_date_registration_person_birthday = Birthday
-event_date_registration_person_email = E-Mail
-event_date_registration_person_phone = Phone
+event_date_registration_person_event_date_id = Dato
+event_date_registration_person_registration_id = Registrering
+event_date_registration_person_firstname = Fornavn
+event_date_registration_person_lastname = Efternavn
+event_date_registration_person_birthday = Fødselsdag
+event_date_registration_person_email = E-mail
+event_date_registration_person_phone = Telefon
 event_date_registration_person_status = Status
 event_date_registration_person_uuid = UUID
-event_date_registration_person_createdate = Registered on...
-event_date_registration_person_updatedate = Updated on...
-event_date_registration_person_deletedate = Will be deleted on...
+event_date_registration_person_createdate = Registreret den...
+event_date_registration_person_updatedate = Opdateret den...
+event_date_registration_person_deletedate = Vil blive slettet den...
 event_date_registration_person_hash = Hash
 
 event_category_request_status = Status 
-event_category_request_category_id = Category 
-event_category_request_date = Date
-event_category_request_category = Category name
-event_category_request_salutation = Salutation
-event_category_request_firstname = First name
-event_category_request_lastname = Last name
-event_category_request_email = E-Mail
-event_category_request_street = Street
-event_category_request_zip = ZIP
-event_category_request_city = City
-event_category_request_phone = Phone
-event_category_request_birthday = Birthday
-event_category_request_person_count = Number of participants
-event_category_request_message = Message
-event_category_request_newsletter = Newsletter consent
-event_category_request_dsgvo = GDPR consent
-event_category_request_agb = T&C consent
-event_category_request_channel = Recommendation via...
-event_category_request_createdate = Registration made on...
-event_category_request_deletedate = Will be deleted on...
+event_category_request_category_id = Kategori 
+event_category_request_date = Dato
+event_category_request_category = Kategori navn
+event_category_request_salutation = Tiltale
+event_category_request_firstname = Fornavn
+event_category_request_lastname = Efternavn
+event_category_request_email = E-mail
+event_category_request_street = Gade
+event_category_request_zip = Postnummer
+event_category_request_city = By
+event_category_request_phone = Telefon
+event_category_request_birthday = Fødselsdag
+event_category_request_person_count = Antal deltagere
+event_category_request_message = Besked
+event_category_request_newsletter = Nyhedsbrev samtykke
+event_category_request_dsgvo = GDPR samtykke
+event_category_request_agb = T&C samtykke
+event_category_request_channel = Anbefaling via...
+event_category_request_createdate = Registrering foretaget den...
+event_category_request_deletedate = Vil blive slettet den...
 event_category_request_uuid = UUID
 
-event_date_offer_date_id = Date
+event_date_offer_date_id = Dato
 event_date_offer_url = URL
-event_date_offer_price = Price
-event_date_offer_availability = Availability
+event_date_offer_price = Pris
+event_date_offer_availability = Tilgængelighed
 event_date_offer_uid = UID
 
 # Notices of the YForm tables
 
-event_date_lang_name_notice = Language name
-event_date_lang_code_notice = Two-letter language code according to ISO standard, e.g.<code>en</code>
-event_date_lang_event_date_notice = Manage linked dates
-event_category_name_notice = Name of the category, keyword or name of the event series.
-event_category_icon_notice = e.g. <code><i class="bi bi-activity"></i></code>
-event_category_images_notice = Unless otherwise stated, in 16:9 format (Full HD / 4K)
-event_category_status_notice = Indicates whether this category should currently be visible in the frontend.
-event_category_date_id_notice = Dates assigned to this category
-event_date_name_notice = Title of the event
-event_date_teaser_notice = A short teaser text or a summary that can be output in the date overview.
-event_date_description_notice = Provide additional information about the event.
-event_date_startdate_notice = Enter the start of the event - if there is a separate admission time, you can enter it differently below.
-event_date_all_day_notice = If activated, then the specified times are ignored. 
-event_date_location_notice = Select the appropriate venue.
-event_date_enddate_notice = Enter the expected end of the event. (optional)
-event_date_image_poster_notice = Title image / Poster
-event_date_images_notice = Gallery
-event_date_url_notice = Link to more info
-event_date_video_url_notice = Link to a video
-event_date_uid_notice = Unique ID
-event_location_name_notice = Name of the venue, e.g. <code>Zahlemann and Söhne GmbH & Co. KG</code>
-event_location_street_notice = Please enter street name and house number, e.g. <code>Alexanderplatz 1</code>
-event_location_zip_notice = Please enter valid postal code, e.g. <code>10115</code>
-event_location_locality_notice = Please enter the name of the city, e.g: <code>Berlin</code>
-event_date_offer_url_notice = If there is a separate ticket shop, you can enter the address here. Please enter completely with <code>https://</code>.
-event_date_offer_price_notice = Ticket costs, admission, etc.
+event_date_lang_name_notice = Sprognavn
+event_date_lang_code_notice = To-bogstavs sprogkode ifølge ISO-standard, f.eks.<code>da</code>
+event_date_lang_event_date_notice = Administrer linkede datoer
+event_category_name_notice = Navnet på kategorien, nøgleordet eller navnet på begivenhedsserien.
+event_category_icon_notice = f.eks. <code><i class="bi bi-activity"></i></code>
+event_category_images_notice = Medmindre andet er angivet, i 16:9 format (Full HD / 4K)
+event_category_status_notice = Angiver, om denne kategori skal være synlig i frontend lige nu.
+event_category_date_id_notice = Datoer tildelt denne kategori
+event_date_name_notice = Titel på begivenheden
+event_date_teaser_notice = En kort teaser-tekst eller et resumé, der kan vises i datovisningen.
+event_date_description_notice = Giv yderligere information om begivenheden.
+event_date_startdate_notice = Indtast begivenhedens start - hvis der er en separat adgangstid, kan du indtaste den anderledes nedenfor.
+event_date_all_day_notice = Hvis aktiveret, ignoreres de angivne tider.
+event_date_location_notice = Vælg det passende sted.
+event_date_enddate_notice = Indtast den forventede slutning af begivenheden. (valgfri)
+event_date_image_poster_notice = Titelbillede / Plakat
+event_date_images_notice = Galleri
+event_date_url_notice = Link til mere info
+event_date_video_url_notice = Link til en video
+event_date_uid_notice = Unik ID
+event_location_name_notice = Navn på stedet, f.eks. <code>Zahlemann og Sønner GmbH & Co. KG</code>
+event_location_street_notice = Indtast venligst gadenavn og husnummer, f.eks. <code>Alexanderplatz 1</code>
+event_location_zip_notice = Indtast venligst en gyldig postkode, f.eks. <code>10115</code>
+event_location_locality_notice = Indtast venligst byens navn, f.eks: <code>København</code>
+event_date_offer_url_notice = Hvis der er en separat billetbutik, kan du indtaste adressen her. Indtast venligst fuldstændigt med <code>https://</code>.
+event_date_offer_price_notice = Billetomkostninger, adgang, osv.
 
-# Choice values
+# Valgmuligheder
 
-event_date_registration_person_status_canceled = canceled 
-event_date_registration_person_status_unknown = unknown
-event_date_registration_person_status_registered = registered
-event_date_registration_person_confirmed = confirmed
+event_date_registration_person_status_canceled = annulleret
+event_date_registration_person_status_unknown = ukendt
+event_date_registration_person_status_registered = registreret
+event_date_registration_person_confirmed = bekræftet
 
-event_date_offer_availability_instock = Available
-event_date_offer_availability_preorder = Preorder
-event_date_offer_availability_soldout = Sold out
+event_date_offer_availability_instock = Tilgængelig
+event_date_offer_availability_preorder = Forudbestilling
+event_date_offer_availability_soldout = Udsolgt
 
-event_category_request_status_select = Please select...
-event_category_request_status_rejected = rejected
-event_category_request_status_todo = open
-event_category_request_status_answered = answered
+event_category_request_status_select = Vælg venligst...
+event_category_request_status_rejected = afvist
+event_category_request_status_todo = åben
+event_category_request_status_answered = besvaret
