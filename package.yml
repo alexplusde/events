@@ -2,16 +2,16 @@ package: events
 version: '5.0.0'
 author: 'Alexander Walther'
 supportpage: https://alexplusde.github.io/events/
-load: late
 
 requires:
     php:
-        version: '>7.3'
-    redaxo: '^5.12'
+        version: '>8.1'
+    redaxo: '^5.17'
     packages:
-        yform: ">=4"
+        auto_delete: ">=1"
+        yform: "^4"
         yform_geo_osm: ^1
-        yform_field: ">=2"
+        yform_field: "^2"
 
 
 page:
