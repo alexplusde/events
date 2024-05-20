@@ -1,0 +1,278 @@
+events = Dogodki
+events_title = Dogodki in priložnosti
+
+# Imena tabel
+
+event_tablename_date = 📅 Datumi
+event_tablename_date_lang = 📅 Jezik
+event_tablename_category = 📅 Kategorije
+event_tablename_location = 📅 Prizorišča
+event_tablename_category_request = 📅 Zahteve
+event_tablename_date_registration = 📅 Rezervacije
+event_tablename_date_offer = 📅 Ponudbe
+event_tablename_date_registration_person = 📅 Udeleženci
+
+# Elementi menija
+
+event_calendar = Koledar
+event_lang = Jeziki
+event_date = Datumi
+event_category = Kategorije
+event_location = Prizorišča
+event_category_request = Zahteve
+event_date_registration = Rezervacije
+event_date_registration_person = Udeleženci
+event_settings = Nastavitve
+event_docs = Dokumentacija
+
+# Settings
+
+events_settings = Nastavitve
+
+events_settings_fieldset_general = Splošno
+events_settings_default_organizer_name = Privzeto ime organizatorja
+events_settings_default_organizer_name_notice = To se bo uporabilo v datoteki ICS, na primer.
+events_settings_currency = Valuta
+events_settings_currency_notice = Valuta, ki se uporablja za cene, na primer <code>EUR</code>.
+events_settings_timezone = Google Timezone API
+events_settings_timezone_notice = API ključ za določanje časovnega pasu lokacije.
+events_settings_editor = WYSIWYG Urejevalnik
+
+events_settings_fieldset_details = Pregled in podrobnosti
+events_settings_article_id = Pregled dogodkov
+events_settings_article_id_notice = Članek REDAXO, v katerem je prikazan pregled dogodkov.
+events_settings_empty = Sporočilo, ko ni na voljo nobenih dogodkov
+events_settings_empty_notice = Sporočilo, ki se prikaže, ko ni na voljo nobenih dogodkov.
+events_settings_fallback_image = Privzeti plakat
+events_settings_fallback_image_notice = Nadomestna slika, ki se prikaže, ko za dogodek ni na voljo nobene slike.
+
+events_settings_fieldset_registration = Registracija
+
+events_settings_withdrawal = Informacije o pravici do odstopa
+events_settings_privacy_policy_id = Stran s pravilnikom o zasebnosti
+events_settings_agb_id = Stran s pogoji in določili
+
+# Dokumentacija
+
+events_docs_intro = Uvod
+events_docs_settings = Nastavitve
+events_docs_event_date = Datumi
+events_docs_event_category = Kategorije
+events_docs_event_location = Prizorišča
+events_docs_event_category_request = Zahteve
+events_docs_event_date_registration = Rezervacije
+events_docs_event_date_registration_person = Udeleženci
+events_docs_yform_action_event_date_registration_person_fill = Dejanja
+events_docs_event_date_offer = Ponudbe
+events_docs_cronjobs = Cronjobs
+events_docs_ics = ICS uvoz
+events_docs_forcal_migration = Migracija iz forcal
+events_docs_yform_table_manager = Razširi dogodke
+events_docs_restful_api = RESTful API
+
+# ICS-Cronjob
+
+event_ics_import_cronjob_name = Uvoz .ics datoteke v Dogodke
+
+event_ics_import_cronjob_url_label = URL .ics datoteke
+event_ics_import_cronjob_url_notice = v formatu <code>https://www.redaxo.org/ical.ics</code>
+
+event_ics_import_cronjob_media_label = Datoteka medijskega bazena
+event_ics_import_cronjob_media_notice = za ročni uvoz. Ta funkcija potrebuje vašo podporo na Githubu!
+
+event_ics_import_cronjob_choose = Prosimo, izberite...
+event_ics_import_cronjob_choose_none = Brez izbire
+
+event_ics_import_cronjob_geocoding = Ali naj bodo lokacije takoj geokodirane? [Ni na voljo]
+event_ics_import_cronjob_geocoding_notice = Ta funkcija potrebuje vašo podporo na Githubu!
+
+event_ics_import_cronjob_debug = Aktivirajte način za odpravljanje napak?
+event_ics_import_cronjob_debug_notice = Če je aktivno, bodo pri izvajanju cronjoba v ozadju prikazane dodatne informacije.
+
+event_ics_import_cronjob_category_remove = Ustvari neznane kategorije, izbriši vse odvečne kategorije v Dogodkih. Pozor! Lahko izbriše tudi ročno ustvarjene kategorije ali kategorije drugih cronjobov.
+event_ics_import_cronjob_category_default_id = Ohrani kategorije v Dogodkih, dodeli vse datume obstoječi kategoriji
+event_ics_import_cronjob_category_keep = Ustvari neznane kategorije, ohrani odvečne kategorije v Dogodkih
+event_ics_import_cronjob_category_sync = Kako so datumi v Dogodkih dodeljeni kategorijam?
+
+event_ics_import_cronjob_default_category_sync_id_notice = (opcijsko) Kategorija, ki ji so privzeto dodeljeni datumi v Dogodkih.
+event_ics_import_cronjob_default_location_sync_id_notice = (opcijsko) Lokacija, ki ji so privzeto dodeljeni datumi v Dogodkih, če <code>LOKACIJA</code> ni navedena v datoteki <code>.ics</code>.
+
+event_ics_import_cronjob_clang_id_notice = Jezik REDAXO, ki mu so dodeljeni podrobnosti dogodka (npr. naslov, opis)
+
+event_info_donate = Za razliko od večine dodatkov iz skupnosti REDAXO, ustvarjanje in nadaljnji razvoj tega dodatka ni pokrit z lastnimi projekti. Z naročilom zagotovite dodatne funkcije, izboljšano stabilnost, funkcionalnost in nadaljnji razvoj, pa tudi boljša navodila.
+event_donate = Podprti nadaljnji razvoj
+
+# Labels der YForm-Tabellenfelder und Formulare
+
+event_date_lang_name = Ime
+event_date_lang_code = Koda
+event_date_lang_event_date = Datumi
+
+event_category_prio = Vrstni red
+event_category_name = Ime
+event_category_icon = Ikona
+event_category_teaser = Uvodnik
+event_category_description = Opis
+event_category_name_short = Kratko ime
+event_category_images = Slike
+event_category_status = Status
+event_category_date_id = Datum(i)
+event_category_createuser = Ustvaril...
+event_category_updateuser = Nazadnje spremenil...
+
+event_date_name = Ime
+event_date_teaser = Uvodnik
+event_date_description = Opis
+event_date_lang_id = ID jezika
+event_date_event_category_id = Kategorija(e)
+event_date_startdate = Začetni datum
+event_date_all_day = ves dan?
+event_date_doortime = Čas vstopa
+event_date_starttime = Začetni čas
+event_date_endtime = Končni čas
+event_date_enddate = Končni datum
+event_date_location = Lokacija
+event_date_space = Prosti prostori
+event_date_image_poster = Naslovna slika
+event_date_images = Galerija
+event_date_url = Zunanji URL
+event_date_video_url = URL videa
+event_date_eventstatus = Status
+event_date_uid = UID
+event_date_updateuser = Nazadnje spremenil...
+event_date_createuser = Ustvaril...
+event_date_updatedate = Nazadnje spremenjeno...
+event_date_createdate = Ustvarjeno...
+
+event_date_offer = Ponudbe / Cene
+event_date_startdatetime = Začetni datum in čas
+
+event_location_google_places = Google Places
+event_location_location_category_id = Kategorija
+event_location_name = Ime
+event_location_street = Ulica
+event_location_zip = Poštna številka
+event_location_locality = Lokacija
+event_location_countrycode = Koda države
+event_location_lat = Zemljepisna širina
+event_location_lng = Zemljepisna dolžina
+event_location_updateuser = Posodobil...
+event_location_createuser = Ustvaril...
+event_location_createdate = Ustvarjeno...
+event_location_updatedate = Posodobljeno...
+event_location_lat_lng = Zemljevid
+
+event_date_registration_category_id = Kategorija
+event_date_registration_date_id = Datum
+event_date_registration_event_location_id = Prizorišče
+event_date_registration_date = Datum
+event_date_registration_category = Kategorija
+event_date_registration_salutation = Pozdrav
+event_date_registration_firstname = Ime
+event_date_registration_lastname = Priimek
+event_date_registration_email = E-pošta
+event_date_registration_street = Ulica
+event_date_registration_zip = Poštna številka
+event_date_registration_city = Mesto
+event_date_registration_phone = Telefon
+event_date_registration_birthday = Rojstni dan
+event_date_registration_person_count = Število udeležencev
+event_date_registration_message = Sporočilo
+event_date_registration_newsletter = Novice
+event_date_registration_dsgvo = Soglasje GDPR
+event_date_registration_agb = Soglasje s pogoji
+event_date_registration_channel = Priporočilo preko...
+event_date_registration_createdate = Registracija izvedena na...
+event_date_registration_deletedate = Bo izbrisano na...
+event_date_registration_price = Cena
+event_date_registration_status = Status
+event_date_registration_uuid = UUID
+event_date_registration_hash = Hash
+
+event_date_registration_person_event_date_id = Datum
+event_date_registration_person_registration_id = Registracija
+event_date_registration_person_firstname = Ime
+event_date_registration_person_lastname = Priimek
+event_date_registration_person_birthday = Rojstni dan
+event_date_registration_person_email = E-pošta
+event_date_registration_person_phone = Telefon
+event_date_registration_person_status = Status
+event_date_registration_person_uuid = UUID
+event_date_registration_person_createdate = Registrirano na...
+event_date_registration_person_updatedate = Posodobljeno na...
+event_date_registration_person_deletedate = Bo izbrisano na...
+event_date_registration_person_hash = Hash
+
+event_category_request_status = Status 
+event_category_request_category_id = Kategorija 
+event_category_request_date = Datum
+event_category_request_category = Ime kategorije
+event_category_request_salutation = Pozdrav
+event_category_request_firstname = Ime
+event_category_request_lastname = Priimek
+event_category_request_email = E-pošta
+event_category_request_street = Ulica
+event_category_request_zip = Poštna številka
+event_category_request_city = Mesto
+event_category_request_phone = Telefon
+event_category_request_birthday = Rojstni dan
+event_category_request_person_count = Število udeležencev
+event_category_request_message = Sporočilo
+event_category_request_newsletter = Soglasje za novice
+event_category_request_dsgvo = Soglasje GDPR
+event_category_request_agb = Soglasje s pogoji
+event_category_request_channel = Priporočilo preko...
+event_category_request_createdate = Registracija izvedena na...
+event_category_request_deletedate = Bo izbrisano na...
+event_category_request_uuid = UUID
+
+event_date_offer_date_id = Datum
+event_date_offer_url = URL
+event_date_offer_price = Cena
+event_date_offer_availability = Razpoložljivost
+event_date_offer_uid = UID
+
+# Obvestila YForm tabel
+
+event_date_lang_name_notice = Ime jezika
+event_date_lang_code_notice = Dvočrkovna koda jezika po standardu ISO, npr.<code>en</code>
+event_date_lang_event_date_notice = Upravljanje povezanih datumov
+event_category_name_notice = Ime kategorije, ključna beseda ali ime serije dogodkov.
+event_category_icon_notice = npr. <code><i class="bi bi-activity"></i></code>
+event_category_images_notice = Če ni drugače navedeno, v formatu 16:9 (Full HD / 4K)
+event_category_status_notice = Označuje, ali naj bo ta kategorija trenutno vidna v frontendu.
+event_category_date_id_notice = Datumi, dodeljeni tej kategoriji
+event_date_name_notice = Naslov dogodka
+event_date_teaser_notice = Kratek vabljiv tekst ali povzetek, ki se lahko izpiše v pregledu datumov.
+event_date_description_notice = Navedite dodatne informacije o dogodku.
+event_date_startdate_notice = Vnesite začetek dogodka - če je ločen čas vstopa, ga lahko spodaj vnesete drugače.
+event_date_all_day_notice = Če je aktivirano, potem so določeni časi prezrti.
+event_date_location_notice = Izberite ustrezno prizorišče.
+event_date_enddate_notice = Vnesite pričakovani konec dogodka. (neobvezno)
+event_date_image_poster_notice = Naslovna slika / Plakat
+event_date_images_notice = Galerija
+event_date_url_notice = Povezava do več informacij
+event_date_video_url_notice = Povezava do videa
+event_date_uid_notice = Edinstven ID
+event_location_name_notice = Ime prizorišča, npr. <code>Zahlemann in Söhne GmbH & Co. KG</code>
+event_location_street_notice = Vnesite ime ulice in hišno številko, npr. <code>Alexanderplatz 1</code>
+event_location_zip_notice = Vnesite veljavno poštno številko, npr. <code>10115</code>
+event_location_locality_notice = Vnesite ime mesta, npr: <code>Berlin</code>
+event_date_offer_url_notice = Če obstaja ločena trgovina z vstopnicami, lahko tukaj vnesete naslov. Vnesite popolnoma z <code>https://</code>.
+event_date_offer_price_notice = Stroški vstopnic, vstopnina, itd.
+
+# Izbor vrednosti
+
+event_date_registration_person_status_canceled = preklicano
+event_date_registration_person_status_unknown = neznano
+event_date_registration_person_status_registered = registrirano
+event_date_registration_person_confirmed = potrjeno
+
+event_date_offer_availability_instock = Na voljo
+event_date_offer_availability_preorder = Prednaročilo
+event_date_offer_availability_soldout = Razprodano
+
+event_category_request_status_select = Izberite...
+event_category_request_status_rejected = zavrnjeno
+event_category_request_status_todo = odprto
+event_category_request_status_answered = odgovorjeno

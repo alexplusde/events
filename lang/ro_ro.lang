@@ -27,251 +27,251 @@ event_docs = Documentație
 
 # Settings
 
-events_settings = Settings
+events_settings = Setări
 
 events_settings_fieldset_general = General
-events_settings_default_organizer_name = Default Organizer Name
-events_settings_default_organizer_name_notice = This will be used in the ICS file, for example.
-events_settings_currency = Currency
-events_settings_currency_notice = Currency used for prices, e.g. <code>EUR</code>.
+events_settings_default_organizer_name = Numele implicit al organizatorului
+events_settings_default_organizer_name_notice = De exemplu, acesta va fi folosit în fișierul ICS.
+events_settings_currency = Monedă
+events_settings_currency_notice = Moneda folosită pentru prețuri, de exemplu <code>EUR</code>.
 events_settings_timezone = Google Timezone API
-events_settings_timezone_notice = API key for determining the timezone of a location.
-events_settings_editor = WYSIWYG Editor
+events_settings_timezone_notice = Cheia API pentru determinarea fusului orar al unei locații.
+events_settings_editor = Editor WYSIWYG
 
-events_settings_fieldset_details = Overview and Detail View
-events_settings_article_id = Event Overview
-events_settings_article_id_notice = REDAXO article in which the event overview is displayed.
-events_settings_empty = Message when no events are available
-events_settings_empty_notice = Message to be displayed when no events are available.
-events_settings_fallback_image = Default Poster
-events_settings_fallback_image_notice = Fallback image to be displayed when no image is available for an event.
+events_settings_fieldset_details = Vizualizare generală și detaliată
+events_settings_article_id = Prezentare generală a evenimentelor
+events_settings_article_id_notice = Articolul REDAXO în care este afișată prezentarea generală a evenimentelor.
+events_settings_empty = Mesaj când nu sunt disponibile evenimente
+events_settings_empty_notice = Mesajul care va fi afișat când nu sunt disponibile evenimente.
+events_settings_fallback_image = Poster implicit
+events_settings_fallback_image_notice = Imaginea de rezervă care va fi afișată când nu este disponibilă o imagine pentru un eveniment.
 
-events_settings_fieldset_registration = Registration
+events_settings_fieldset_registration = Înregistrare
 
-events_settings_withdrawal = Information on the right of withdrawal
-events_settings_privacy_policy_id = Privacy Policy Page
-events_settings_agb_id = Terms and Conditions Page
+events_settings_withdrawal = Informații despre dreptul de retragere
+events_settings_privacy_policy_id = Pagina Politicii de Confidențialitate
+events_settings_agb_id = Pagina Termenilor și Condițiilor
 
 # Docs
 
-events_docs_intro = Intro
-events_docs_settings = Settings
-events_docs_event_date = Dates
-events_docs_event_category = Categories
-events_docs_event_location = Venues
-events_docs_event_category_request = Requests
-events_docs_event_date_registration = Bookings
-events_docs_event_date_registration_person = Participants
-events_docs_yform_action_event_date_registration_person_fill = Actions
-events_docs_event_date_offer = Offers
+events_docs_intro = Introducere
+events_docs_settings = Setări
+events_docs_event_date = Date
+events_docs_event_category = Categorii
+events_docs_event_location = Locații
+events_docs_event_category_request = Cereri
+events_docs_event_date_registration = Înregistrări
+events_docs_event_date_registration_person = Participanți
+events_docs_yform_action_event_date_registration_person_fill = Acțiuni
+events_docs_event_date_offer = Oferte
 events_docs_cronjobs = Cronjobs
-events_docs_ics = ICS Import
-events_docs_forcal_migration = Migration from forcal
-events_docs_yform_table_manager = Extend Events
-events_docs_restful_api = RESTful API
+events_docs_ics = Import ICS
+events_docs_forcal_migration = Migrație de la forcal
+events_docs_yform_table_manager = Extinde Evenimente
+events_docs_restful_api = API RESTful
 
 # ICS-Cronjob
 
-event_ics_import_cronjob_name = Import .ics file into Events
+event_ics_import_cronjob_name = Importă fișier .ics în Evenimente
 
-event_ics_import_cronjob_url_label = URL of the .ics file
-event_ics_import_cronjob_url_notice = in the format <code>https://www.redaxo.org/ical.ics</code>
+event_ics_import_cronjob_url_label = URL-ul fișierului .ics
+event_ics_import_cronjob_url_notice = în formatul <code>https://www.redaxo.org/ical.ics</code>
 
-event_ics_import_cronjob_media_label = Media pool file
-event_ics_import_cronjob_media_notice = for a manual import. This function needs your support on Github!
+event_ics_import_cronjob_media_label = Fișier din biblioteca media
+event_ics_import_cronjob_media_notice = pentru un import manual. Această funcție are nevoie de sprijinul tău pe Github!
 
-event_ics_import_cronjob_choose = Please choose...
-event_ics_import_cronjob_choose_none = No selection
+event_ics_import_cronjob_choose = Te rog alege...
+event_ics_import_cronjob_choose_none = Fără selecție
 
-event_ics_import_cronjob_geocoding = Should the locations be geocoded immediately? [Not available]
-event_ics_import_cronjob_geocoding_notice = This function needs your support on Github!
+event_ics_import_cronjob_geocoding = Ar trebui geocodate locațiile imediat? [Nu este disponibil]
+event_ics_import_cronjob_geocoding_notice = Această funcție are nevoie de sprijinul tău pe Github!
 
-event_ics_import_cronjob_debug = Activate debug mode?
-event_ics_import_cronjob_debug_notice = If active, additional information will be displayed when running the cronjob in the backend.
+event_ics_import_cronjob_debug = Activează modul de depanare?
+event_ics_import_cronjob_debug_notice = Dacă este activ, vor fi afișate informații suplimentare atunci când rulezi cronjob-ul în backend.
 
-event_ics_import_cronjob_category_remove = Create unknown categories, delete all surplus categories in Events. Attention! May also delete manually created categories or categories of other cronjobs.
-event_ics_import_cronjob_category_default_id = Keep categories in Events, assign all dates to an existing category
-event_ics_import_cronjob_category_keep = Create unknown categories, keep surplus categories in Events
-event_ics_import_cronjob_category_sync = How are dates in Events assigned to categories?
+event_ics_import_cronjob_category_remove = Creează categorii necunoscute, șterge toate categoriile în plus în Evenimente. Atenție! Poate șterge și categorii create manual sau categorii ale altor cronjob-uri.
+event_ics_import_cronjob_category_default_id = Păstrează categoriile în Evenimente, atribuie toate datele unei categorii existente
+event_ics_import_cronjob_category_keep = Creează categorii necunoscute, păstrează categoriile în plus în Evenimente
+event_ics_import_cronjob_category_sync = Cum sunt atribuite datele în Evenimente categoriilor?
 
-event_ics_import_cronjob_default_category_sync_id_notice = (optional) Category to which the dates in Events are assigned by default.
-event_ics_import_cronjob_default_location_sync_id_notice = (optional) Location to which the dates in Events are assigned by default if <code>LOCATION</code> is not specified in the <code>.ics</code> file.
+event_ics_import_cronjob_default_category_sync_id_notice = (opțional) Categoria la care sunt atribuite implicit datele în Evenimente.
+event_ics_import_cronjob_default_location_sync_id_notice = (opțional) Locația la care sunt atribuite implicit datele în Evenimente dacă <code>LOCATION</code> nu este specificat în fișierul <code>.ics</code>.
 
-event_ics_import_cronjob_clang_id_notice = REDAXO language to which event details (e.g. title, description) are assigned
+event_ics_import_cronjob_clang_id_notice = Limba REDAXO la care sunt atribuite detaliile evenimentului (de exemplu, titlu, descriere)
 
-event_info_donate = Unlike most addons from the REDAXO community, the creation and further development of this addon is not covered by own projects. With a commission you secure additional features, improved stability, functionality and further development, as well as better instructions.
-event_donate = Support further development
+event_info_donate = Spre deosebire de majoritatea addon-urilor din comunitatea REDAXO, crearea și dezvoltarea ulterioară a acestui addon nu sunt acoperite de proiectele proprii. Cu o comisionare asiguri caracteristici suplimentare, stabilitate îmbunătățită, funcționalitate și dezvoltare ulterioară, precum și instrucțiuni mai bune.
+event_donate = Sprijină dezvoltarea ulterioară
 
-# Labels der YForm-Tabellenfelder und Formulare
-event_date_lang_name = Name
-event_date_lang_code = Code
-event_date_lang_event_date = Dates
+# Etichetele câmpurilor tabelului YForm și formulare
+event_date_lang_name = Nume
+event_date_lang_code = Cod
+event_date_lang_event_date = Date
 
-event_category_prio = Order
-event_category_name = Name
-event_category_icon = Icon
+event_category_prio = Ordine
+event_category_name = Nume
+event_category_icon = Iconiță
 event_category_teaser = Teaser
-event_category_description = Description
-event_category_name_short = Short name
-event_category_images = Images
-event_category_status = Status
-event_category_date_id = Date(s)
-event_category_createuser = Created by...
-event_category_updateuser = Last modified by...
+event_category_description = Descriere
+event_category_name_short = Nume scurt
+event_category_images = Imagini
+event_category_status = Stare
+event_category_date_id = Dată(e)
+event_category_createuser = Creat de...
+event_category_updateuser = Ultima modificare de...
 
-event_date_name = Name
+event_date_name = Nume
 event_date_teaser = Teaser
-event_date_description = Description
-event_date_lang_id = Language ID
-event_date_event_category_id = Category(ies)
-event_date_startdate = Start date
-event_date_all_day = all day?
-event_date_doortime = Admission time
-event_date_starttime = Start time
-event_date_endtime = End time
-event_date_enddate = End date
-event_date_location = Location
-event_date_space = Free spaces
-event_date_image_poster = Title image
-event_date_images = Gallery
-event_date_url = External URL
-event_date_video_url = Video URL
-event_date_eventstatus = Status
+event_date_description = Descriere
+event_date_lang_id = ID limbă
+event_date_event_category_id = Categorie(i)
+event_date_startdate = Data de început
+event_date_all_day = toată ziua?
+event_date_doortime = Ora deschiderii porților
+event_date_starttime = Ora de începere
+event_date_endtime = Ora de încheiere
+event_date_enddate = Data de încheiere
+event_date_location = Locație
+event_date_space = Spații libere
+event_date_image_poster = Imagine de titlu
+event_date_images = Galerie
+event_date_url = URL extern
+event_date_video_url = URL video
+event_date_eventstatus = Stare
 event_date_uid = UID
-event_date_updateuser = Last modified by...
-event_date_createuser = Created by...
-event_date_updatedate = Last modified on...
-event_date_createdate = Created on...
+event_date_updateuser = Ultima modificare de...
+event_date_createuser = Creat de...
+event_date_updatedate = Ultima modificare la...
+event_date_createdate = Creat la...
 
-event_date_offer = Offers / Prices
-event_date_startdatetime = Start date and time
+event_date_offer = Oferte / Prețuri
+event_date_startdatetime = Data și ora de început
 
 event_location_google_places = Google Places
-event_location_location_category_id = Category
-event_location_name = Name
-event_location_street = Street
-event_location_zip = ZIP
-event_location_locality = Location
-event_location_countrycode = Country code
-event_location_lat = Latitude
-event_location_lng = Longitude
-event_location_updateuser = Updated by...
-event_location_createuser = Created by...
-event_location_createdate = Created on...
-event_location_updatedate = Updated on...
-event_location_lat_lng = Map
+event_location_location_category_id = Categorie
+event_location_name = Nume
+event_location_street = Stradă
+event_location_zip = Cod poștal
+event_location_locality = Locație
+event_location_countrycode = Codul țării
+event_location_lat = Latitudine
+event_location_lng = Longitudine
+event_location_updateuser = Actualizat de...
+event_location_createuser = Creat de...
+event_location_createdate = Creat la...
+event_location_updatedate = Actualizat la...
+event_location_lat_lng = Hartă
 
-event_date_registration_category_id = Category
-event_date_registration_date_id = Date
-event_date_registration_event_location_id = Venue
-event_date_registration_date = Date
-event_date_registration_category = Category
-event_date_registration_salutation = Salutation
-event_date_registration_firstname = First name
-event_date_registration_lastname = Last name
+event_date_registration_category_id = Categorie
+event_date_registration_date_id = Dată
+event_date_registration_event_location_id = Locație
+event_date_registration_date = Dată
+event_date_registration_category = Categorie
+event_date_registration_salutation = Salut
+event_date_registration_firstname = Prenume
+event_date_registration_lastname = Nume de familie
 event_date_registration_email = E-Mail
-event_date_registration_street = Street
-event_date_registration_zip = ZIP
-event_date_registration_city = City
-event_date_registration_phone = Phone
-event_date_registration_birthday = Birthday
-event_date_registration_person_count = Number of participants
-event_date_registration_message = Message
+event_date_registration_street = Stradă
+event_date_registration_zip = Cod poștal
+event_date_registration_city = Oraș
+event_date_registration_phone = Telefon
+event_date_registration_birthday = Data nașterii
+event_date_registration_person_count = Număr de participanți
+event_date_registration_message = Mesaj
 event_date_registration_newsletter = Newsletter
-event_date_registration_dsgvo = GDPR consent
-event_date_registration_agb = T&C consent
-event_date_registration_channel = Recommendation via...
-event_date_registration_createdate = Registration made on...
-event_date_registration_deletedate = Will be deleted on...
-event_date_registration_price = Price
-event_date_registration_status = Status
+event_date_registration_dsgvo = Consimțământ GDPR
+event_date_registration_agb = Consimțământ T&C
+event_date_registration_channel = Recomandare prin...
+event_date_registration_createdate = Înregistrare efectuată la...
+event_date_registration_deletedate = Va fi șters la...
+event_date_registration_price = Preț
+event_date_registration_status = Stare
 event_date_registration_uuid = UUID
 event_date_registration_hash = Hash
 
-event_date_registration_person_event_date_id = Date
-event_date_registration_person_registration_id = Registration
-event_date_registration_person_firstname = First name
-event_date_registration_person_lastname = Last name
-event_date_registration_person_birthday = Birthday
+event_date_registration_person_event_date_id = Dată
+event_date_registration_person_registration_id = Înregistrare
+event_date_registration_person_firstname = Prenume
+event_date_registration_person_lastname = Nume de familie
+event_date_registration_person_birthday = Data nașterii
 event_date_registration_person_email = E-Mail
-event_date_registration_person_phone = Phone
-event_date_registration_person_status = Status
+event_date_registration_person_phone = Telefon
+event_date_registration_person_status = Stare
 event_date_registration_person_uuid = UUID
-event_date_registration_person_createdate = Registered on...
-event_date_registration_person_updatedate = Updated on...
-event_date_registration_person_deletedate = Will be deleted on...
+event_date_registration_person_createdate = Înregistrat la...
+event_date_registration_person_updatedate = Actualizat la...
+event_date_registration_person_deletedate = Va fi șters la...
 event_date_registration_person_hash = Hash
 
-event_category_request_status = Status 
-event_category_request_category_id = Category 
-event_category_request_date = Date
-event_category_request_category = Category name
-event_category_request_salutation = Salutation
-event_category_request_firstname = First name
-event_category_request_lastname = Last name
+event_category_request_status = Stare 
+event_category_request_category_id = Categorie 
+event_category_request_date = Dată
+event_category_request_category = Nume categorie
+event_category_request_salutation = Salut
+event_category_request_firstname = Prenume
+event_category_request_lastname = Nume de familie
 event_category_request_email = E-Mail
-event_category_request_street = Street
-event_category_request_zip = ZIP
-event_category_request_city = City
-event_category_request_phone = Phone
-event_category_request_birthday = Birthday
-event_category_request_person_count = Number of participants
-event_category_request_message = Message
-event_category_request_newsletter = Newsletter consent
-event_category_request_dsgvo = GDPR consent
-event_category_request_agb = T&C consent
-event_category_request_channel = Recommendation via...
-event_category_request_createdate = Registration made on...
-event_category_request_deletedate = Will be deleted on...
+event_category_request_street = Stradă
+event_category_request_zip = Cod poștal
+event_category_request_city = Oraș
+event_category_request_phone = Telefon
+event_category_request_birthday = Data nașterii
+event_category_request_person_count = Număr de participanți
+event_category_request_message = Mesaj
+event_category_request_newsletter = Consimțământ newsletter
+event_category_request_dsgvo = Consimțământ GDPR
+event_category_request_agb = Consimțământ T&C
+event_category_request_channel = Recomandare prin...
+event_category_request_createdate = Înregistrare efectuată la...
+event_category_request_deletedate = Va fi șters la...
 event_category_request_uuid = UUID
 
-event_date_offer_date_id = Date
+event_date_offer_date_id = Dată
 event_date_offer_url = URL
-event_date_offer_price = Price
-event_date_offer_availability = Availability
+event_date_offer_price = Preț
+event_date_offer_availability = Disponibilitate
 event_date_offer_uid = UID
 
 # Notices of the YForm tables
 
-event_date_lang_name_notice = Language name
-event_date_lang_code_notice = Two-letter language code according to ISO standard, e.g.<code>en</code>
-event_date_lang_event_date_notice = Manage linked dates
-event_category_name_notice = Name of the category, keyword or name of the event series.
-event_category_icon_notice = e.g. <code><i class="bi bi-activity"></i></code>
-event_category_images_notice = Unless otherwise stated, in 16:9 format (Full HD / 4K)
-event_category_status_notice = Indicates whether this category should currently be visible in the frontend.
-event_category_date_id_notice = Dates assigned to this category
-event_date_name_notice = Title of the event
-event_date_teaser_notice = A short teaser text or a summary that can be output in the date overview.
-event_date_description_notice = Provide additional information about the event.
-event_date_startdate_notice = Enter the start of the event - if there is a separate admission time, you can enter it differently below.
-event_date_all_day_notice = If activated, then the specified times are ignored. 
-event_date_location_notice = Select the appropriate venue.
-event_date_enddate_notice = Enter the expected end of the event. (optional)
-event_date_image_poster_notice = Title image / Poster
-event_date_images_notice = Gallery
-event_date_url_notice = Link to more info
-event_date_video_url_notice = Link to a video
-event_date_uid_notice = Unique ID
-event_location_name_notice = Name of the venue, e.g. <code>Zahlemann and Söhne GmbH & Co. KG</code>
-event_location_street_notice = Please enter street name and house number, e.g. <code>Alexanderplatz 1</code>
-event_location_zip_notice = Please enter valid postal code, e.g. <code>10115</code>
-event_location_locality_notice = Please enter the name of the city, e.g: <code>Berlin</code>
-event_date_offer_url_notice = If there is a separate ticket shop, you can enter the address here. Please enter completely with <code>https://</code>.
-event_date_offer_price_notice = Ticket costs, admission, etc.
+event_date_lang_name_notice = Numele limbii
+event_date_lang_code_notice = Codul de două litere conform standardului ISO, de exemplu <code>en</code>
+event_date_lang_event_date_notice = Gestionați datele asociate
+event_category_name_notice = Numele categoriei, cuvânt cheie sau numele seriei de evenimente.
+event_category_icon_notice = de exemplu <code><i class="bi bi-activity"></i></code>
+event_category_images_notice = Dacă nu se specifică altfel, în format 16:9 (Full HD / 4K)
+event_category_status_notice = Indică dacă această categorie ar trebui să fie vizibilă în prezent în frontend.
+event_category_date_id_notice = Datele atribuite acestei categorii
+event_date_name_notice = Titlul evenimentului
+event_date_teaser_notice = Un text teaser scurt sau un rezumat care poate fi afișat în prezentarea datei.
+event_date_description_notice = Oferiți informații suplimentare despre eveniment.
+event_date_startdate_notice = Introduceți începutul evenimentului - dacă există un timp de admitere separat, îl puteți introduce diferit mai jos.
+event_date_all_day_notice = Dacă este activat, atunci timpurile specificate sunt ignorate.
+event_date_location_notice = Selectați locația potrivită.
+event_date_enddate_notice = Introduceți sfârșitul așteptat al evenimentului. (opțional)
+event_date_image_poster_notice = Imaginea de titlu / Poster
+event_date_images_notice = Galerie
+event_date_url_notice = Link către mai multe informații
+event_date_video_url_notice = Link către un videoclip
+event_date_uid_notice = ID unic
+event_location_name_notice = Numele locației, de exemplu <code>Zahlemann și Söhne GmbH & Co. KG</code>
+event_location_street_notice = Vă rugăm să introduceți numele străzii și numărul casei, de exemplu <code>Alexanderplatz 1</code>
+event_location_zip_notice = Vă rugăm să introduceți un cod poștal valid, de exemplu <code>10115</code>
+event_location_locality_notice = Vă rugăm să introduceți numele orașului, de exemplu: <code>Berlin</code>
+event_date_offer_url_notice = Dacă există un magazin de bilete separat, puteți introduce adresa aici. Vă rugăm să introduceți complet cu <code>https://</code>.
+event_date_offer_price_notice = Costul biletelor, admitere, etc.
 
-# Choice values
+# Valori de alegere
 
-event_date_registration_person_status_canceled = canceled 
-event_date_registration_person_status_unknown = unknown
-event_date_registration_person_status_registered = registered
-event_date_registration_person_confirmed = confirmed
+event_date_registration_person_status_canceled = anulat
+event_date_registration_person_status_unknown = necunoscut
+event_date_registration_person_status_registered = înregistrat
+event_date_registration_person_confirmed = confirmat
 
-event_date_offer_availability_instock = Available
-event_date_offer_availability_preorder = Preorder
-event_date_offer_availability_soldout = Sold out
+event_date_offer_availability_instock = Disponibil
+event_date_offer_availability_preorder = Precomandă
+event_date_offer_availability_soldout = Vândut
 
-event_category_request_status_select = Please select...
-event_category_request_status_rejected = rejected
-event_category_request_status_todo = open
-event_category_request_status_answered = answered
+event_category_request_status_select = Vă rugăm să selectați...
+event_category_request_status_rejected = respins
+event_category_request_status_todo = deschis
+event_category_request_status_answered = răspuns

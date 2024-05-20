@@ -1,0 +1,278 @@
+events = Події
+events_title = Події та заходи
+
+# Table names
+
+event_tablename_date = 📅 Дати
+event_tablename_date_lang = 📅 Мова
+event_tablename_category = 📅 Категорії
+event_tablename_location = 📅 Місця
+event_tablename_category_request = 📅 Запити
+event_tablename_date_registration = 📅 Бронювання
+event_tablename_date_offer = 📅 Пропозиції
+event_tablename_date_registration_person = 📅 Учасники
+
+# Menu items
+
+event_calendar = Календар
+event_lang = Мови
+event_date = Дати
+event_category = Категорії
+event_location = Місця
+event_category_request = Запити
+event_date_registration = Бронювання
+event_date_registration_person = Учасники
+event_settings = Налаштування
+event_docs = Документація
+
+# Einstellungen
+
+events_settings = Налаштування
+
+events_settings_fieldset_general = Загальні
+events_settings_default_organizer_name = Ім'я організатора за замовчуванням
+events_settings_default_organizer_name_notice = Це буде використовуватися в файлі ICS, наприклад.
+events_settings_currency = Валюта
+events_settings_currency_notice = Валюта, що використовується для цін, наприклад, <code>EUR</code>.
+events_settings_timezone = Google Timezone API
+events_settings_timezone_notice = API-ключ для визначення часового поясу місця.
+events_settings_editor = WYSIWYG редактор
+
+events_settings_fieldset_details = Огляд та детальний перегляд
+events_settings_article_id = Огляд подій
+events_settings_article_id_notice = REDAXO стаття, в якій відображається огляд подій.
+events_settings_empty = Повідомлення, коли подій немає
+events_settings_empty_notice = Повідомлення, яке відображається, коли подій немає.
+events_settings_fallback_image = Зображення за замовчуванням
+events_settings_fallback_image_notice = Зображення, яке відображається, коли для події немає зображення.
+
+events_settings_fieldset_registration = Реєстрація
+
+events_settings_withdrawal = Інформація про право на відмову
+events_settings_privacy_policy_id = Сторінка політики конфіденційності
+events_settings_agb_id = Сторінка умов та положень
+
+# Dokumente
+
+events_docs_intro = Вступ
+events_docs_settings = Налаштування
+events_docs_event_date = Дати
+events_docs_event_category = Категорії
+events_docs_event_location = Місця
+events_docs_event_category_request = Запити
+events_docs_event_date_registration = Бронювання
+events_docs_event_date_registration_person = Учасники
+events_docs_yform_action_event_date_registration_person_fill = Дії
+events_docs_event_date_offer = Пропозиції
+events_docs_cronjobs = Cronjobs
+events_docs_ics = Імпорт ICS
+events_docs_forcal_migration = Міграція з forcal
+events_docs_yform_table_manager = Розширити події
+events_docs_restful_api = RESTful API
+
+# ICS-Cronjob
+
+event_ics_import_cronjob_name = Імпорт .ics файлу в Події
+
+event_ics_import_cronjob_url_label = URL .ics файлу
+event_ics_import_cronjob_url_notice = у форматі <code>https://www.redaxo.org/ical.ics</code>
+
+event_ics_import_cronjob_media_label = Файл медіа-пула
+event_ics_import_cronjob_media_notice = для ручного імпорту. Ця функція потребує вашої підтримки на Github!
+
+event_ics_import_cronjob_choose = Будь ласка, виберіть...
+event_ics_import_cronjob_choose_none = Без вибору
+
+event_ics_import_cronjob_geocoding = Чи слід відразу геокодувати місця? [Недоступно]
+event_ics_import_cronjob_geocoding_notice = Ця функція потребує вашої підтримки на Github!
+
+event_ics_import_cronjob_debug = Активувати режим налагодження?
+event_ics_import_cronjob_debug_notice = Якщо активовано, додаткова інформація буде відображатися при запуску cronjob в бекенді.
+
+event_ics_import_cronjob_category_remove = Створити невідомі категорії, видалити всі зайві категорії в Подіях. Увага! Може також видалити вручну створені категорії або категорії інших cronjobs.
+event_ics_import_cronjob_category_default_id = Зберегти категорії в Подіях, призначити всі дати до існуючої категорії
+event_ics_import_cronjob_category_keep = Створити невідомі категорії, зберегти зайві категорії в Подіях
+event_ics_import_cronjob_category_sync = Як дати в Подіях призначаються категоріям?
+
+event_ics_import_cronjob_default_category_sync_id_notice = (необов'язково) Категорія, до якої за замовчуванням призначаються дати в Подіях.
+event_ics_import_cronjob_default_location_sync_id_notice = (необов'язково) Місце, до якого за замовчуванням призначаються дати в Подіях, якщо <code>LOCATION</code> не вказано в файлі <code>.ics</code>.
+
+event_ics_import_cronjob_clang_id_notice = Мова REDAXO, до якої призначаються деталі події (наприклад, заголовок, опис)
+
+event_info_donate = На відміну від більшості додатків від спільноти REDAXO, створення та подальший розвиток цього додатка не покривається власними проектами. Замовленням ви забезпечуєте додаткові функції, покращену стабільність, функціональність та подальший розвиток, а також кращі інструкції.
+event_donate = Підтримати подальший розвиток
+
+# Labels der YForm-Tabellenfelder und Formulare
+
+event_date_lang_name = Ім'я
+event_date_lang_code = Код
+event_date_lang_event_date = Дати
+
+event_category_prio = Порядок
+event_category_name = Ім'я
+event_category_icon = Іконка
+event_category_teaser = Тизер
+event_category_description = Опис
+event_category_name_short = Коротке ім'я
+event_category_images = Зображення
+event_category_status = Статус
+event_category_date_id = Дата(и)
+event_category_createuser = Створено...
+event_category_updateuser = Останнє змінено...
+
+event_date_name = Ім'я
+event_date_teaser = Тизер
+event_date_description = Опис
+event_date_lang_id = ID мови
+event_date_event_category_id = Категорія(ї)
+event_date_startdate = Дата початку
+event_date_all_day = весь день?
+event_date_doortime = Час входу
+event_date_starttime = Час початку
+event_date_endtime = Час закінчення
+event_date_enddate = Дата закінчення
+event_date_location = Місце
+event_date_space = Вільні місця
+event_date_image_poster = Зображення заголовку
+event_date_images = Галерея
+event_date_url = Зовнішній URL
+event_date_video_url = URL відео
+event_date_eventstatus = Статус
+event_date_uid = UID
+event_date_updateuser = Останнє змінено...
+event_date_createuser = Створено...
+event_date_updatedate = Останнє змінено...
+event_date_createdate = Створено...
+
+event_date_offer = Пропозиції / Ціни
+event_date_startdatetime = Дата та час початку
+
+event_location_google_places = Google Places
+event_location_location_category_id = Категорія
+event_location_name = Ім'я
+event_location_street = Вулиця
+event_location_zip = Поштовий індекс
+event_location_locality = Місце
+event_location_countrycode = Код країни
+event_location_lat = Широта
+event_location_lng = Довгота
+event_location_updateuser = Оновлено...
+event_location_createuser = Створено...
+event_location_createdate = Створено...
+event_location_updatedate = Оновлено...
+event_location_lat_lng = Карта
+
+event_date_registration_category_id = Категорія
+event_date_registration_date_id = Дата
+event_date_registration_event_location_id = Місце проведення
+event_date_registration_date = Дата
+event_date_registration_category = Категорія
+event_date_registration_salutation = Привітання
+event_date_registration_firstname = Ім'я
+event_date_registration_lastname = Прізвище
+event_date_registration_email = Електронна пошта
+event_date_registration_street = Вулиця
+event_date_registration_zip = Поштовий індекс
+event_date_registration_city = Місто
+event_date_registration_phone = Телефон
+event_date_registration_birthday = День народження
+event_date_registration_person_count = Кількість учасників
+event_date_registration_message = Повідомлення
+event_date_registration_newsletter = Новини
+event_date_registration_dsgvo = Згода на GDPR
+event_date_registration_agb = Згода на умови та положення
+event_date_registration_channel = Рекомендація через...
+event_date_registration_createdate = Реєстрація зроблена...
+event_date_registration_deletedate = Буде видалено...
+event_date_registration_price = Ціна
+event_date_registration_status = Статус
+event_date_registration_uuid = UUID
+event_date_registration_hash = Хеш
+
+event_date_registration_person_event_date_id = Дата
+event_date_registration_person_registration_id = Реєстрація
+event_date_registration_person_firstname = Ім'я
+event_date_registration_person_lastname = Прізвище
+event_date_registration_person_birthday = День народження
+event_date_registration_person_email = Електронна пошта
+event_date_registration_person_phone = Телефон
+event_date_registration_person_status = Статус
+event_date_registration_person_uuid = UUID
+event_date_registration_person_createdate = Зареєстровано...
+event_date_registration_person_updatedate = Оновлено...
+event_date_registration_person_deletedate = Буде видалено...
+event_date_registration_person_hash = Хеш
+
+event_category_request_status = Статус 
+event_category_request_category_id = Категорія 
+event_category_request_date = Дата
+event_category_request_category = Назва категорії
+event_category_request_salutation = Привітання
+event_category_request_firstname = Ім'я
+event_category_request_lastname = Прізвище
+event_category_request_email = Електронна пошта
+event_category_request_street = Вулиця
+event_category_request_zip = Поштовий індекс
+event_category_request_city = Місто
+event_category_request_phone = Телефон
+event_category_request_birthday = День народження
+event_category_request_person_count = Кількість учасників
+event_category_request_message = Повідомлення
+event_category_request_newsletter = Згода на новини
+event_category_request_dsgvo = Згода на GDPR
+event_category_request_agb = Згода на умови та положення
+event_category_request_channel = Рекомендація через...
+event_category_request_createdate = Реєстрація зроблена...
+event_category_request_deletedate = Буде видалено...
+event_category_request_uuid = UUID
+
+event_date_offer_date_id = Дата
+event_date_offer_url = URL
+event_date_offer_price = Ціна
+event_date_offer_availability = Доступність
+event_date_offer_uid = UID
+
+# Notices of the YForm tables
+
+event_date_lang_name_notice = Назва мови
+event_date_lang_code_notice = Дволітерний код мови відповідно до стандарту ISO, наприклад, <code>en</code>
+event_date_lang_event_date_notice = Керування пов'язаними датами
+event_category_name_notice = Назва категорії, ключове слово або назва серії подій.
+event_category_icon_notice = наприклад, <code><i class="bi bi-activity"></i></code>
+event_category_images_notice = Якщо не вказано інше, у форматі 16:9 (Full HD / 4K)
+event_category_status_notice = Вказує, чи повинна ця категорія зараз бути видимою в інтерфейсі.
+event_category_date_id_notice = Дати, призначені для цієї категорії
+event_date_name_notice = Назва події
+event_date_teaser_notice = Короткий текст-анонс або резюме, яке можна вивести в огляді дат.
+event_date_description_notice = Надайте додаткову інформацію про подію.
+event_date_startdate_notice = Введіть початок події - якщо є окремий час входу, ви можете ввести його нижче.
+event_date_all_day_notice = Якщо активовано, то вказані часи ігноруються.
+event_date_location_notice = Виберіть відповідне місце проведення.
+event_date_enddate_notice = Введіть очікуваний кінець події. (необов'язково)
+event_date_image_poster_notice = Зображення заголовку / Плакат
+event_date_images_notice = Галерея
+event_date_url_notice = Посилання на додаткову інформацію
+event_date_video_url_notice = Посилання на відео
+event_date_uid_notice = Унікальний ID
+event_location_name_notice = Назва місця проведення, наприклад, <code>Zahlemann and Söhne GmbH & Co. KG</code>
+event_location_street_notice = Будь ласка, введіть назву вулиці та номер будинку, наприклад, <code>Alexanderplatz 1</code>
+event_location_zip_notice = Будь ласка, введіть дійсний поштовий індекс, наприклад, <code>10115</code>
+event_location_locality_notice = Будь ласка, введіть назву міста, наприклад: <code>Berlin</code>
+event_date_offer_url_notice = Якщо є окремий квитковий магазин, ви можете ввести адресу тут. Будь ласка, введіть повністю з <code>https://</code>.
+event_date_offer_price_notice = Вартість квитків, вхід, тощо.
+
+# Choice values
+
+event_date_registration_person_status_canceled = скасовано
+event_date_registration_person_status_unknown = невідомо
+event_date_registration_person_status_registered = зареєстровано
+event_date_registration_person_confirmed = підтверджено
+
+event_date_offer_availability_instock = в наявності
+event_date_offer_availability_preorder = передзамовлення
+event_date_offer_availability_soldout = розпродано
+
+event_category_request_status_select = будь ласка, виберіть...
+event_category_request_status_rejected = відхилено
+event_category_request_status_todo = відкрито
+event_category_request_status_answered = відповідь дана
