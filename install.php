@@ -1,6 +1,8 @@
 <?php
 
-rex_sql::factory()->setQuery('update rex_event_date set uid = uuid() where uid =""');
+if (rex_sql_table::get(rex::getTable('event_date'))->exists()) {
+    rex_sql::factory()->setQuery('update rex_event_date set uid = uuid() where uid =""');
+}
 
 /* Tablesets aktualisieren */
 if (rex_addon::get('yform') && rex_addon::get('yform')->isAvailable()) {
