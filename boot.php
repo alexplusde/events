@@ -301,7 +301,7 @@ if (rex::isBackend() && \rex_addon::get('events') && \rex_addon::get('events')->
     $addon = rex_addon::get('events');
     $pages = $addon->getProperty('pages');
 
-    if(!rex::getConsole()) {
+    if (rex::isBackend() && !empty($_REQUEST)) {
         $_csrf_key = rex_yform_manager_table::get('rex_event_date')->getCSRFKey();
         
         $token = rex_csrf_token::factory($_csrf_key)->getUrlParams();
