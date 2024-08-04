@@ -1192,7 +1192,7 @@ aria-valuemax="'. $this->getTotalCount() .'">
     /** @api */
     public function setImagePoster(string $filename) : self {
         if(rex_media::get($filename)) {
-            $this->getValue("image_poster", $filename);
+            $this->setValue("image_poster", $filename);
         }
         return $this;
     }
@@ -1208,7 +1208,7 @@ aria-valuemax="'. $this->getTotalCount() .'">
     /** @api */
     public function setImages(string $filename) : self {
         if(rex_media::get($filename)) {
-            $this->getValue("images", $filename);
+            $this->setValue("images", $filename);
         }
         return $this;
     }
