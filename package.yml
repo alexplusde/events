@@ -98,12 +98,12 @@ pages:
             settings:
                 title: translate:event_settings
                 icon: rex-icon fa-gear
-                itemclass: pull-right
+                itemClass: pull-right
                 perm: admin
             docs:
                 title: translate:event_docs
                 icon: rex-icon fa-info-circle
-                itemclass: pull-right
+                itemClass: pull-right
                 perm: events[docs]
                 pjax: false
 
