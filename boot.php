@@ -95,8 +95,8 @@ if (rex_plugin::get('yform', 'rest')->isAvailable() && !rex::isSafeMode()) {
         [
         'path' => '/v5.0/event/date/',
         'auth' => '\rex_yform_rest_auth_token::checkToken',
-        'type' => \event_date::class,
-        'query' => \event_date::query(),
+        'type' => Date::class,
+        'query' => Date::query(),
         'get' => [
             'fields' => [
                 'rex_event_date' => [
