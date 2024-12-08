@@ -38,6 +38,7 @@ Mit diesem Addon können Termine anhand von YForm und YOrm im Backend verwaltet 
 * * `rex_event_date.event_category_id` heißt jetzt `rex_event_date.category_id`. Diese vor dem Update anpassen.
 * * Die meisten Tabellen haben jetzt ein Feld `uuid`. Felder, die bisher `uid` hießen, wurden in `uuid` umbenannt.
 * * Das Status-Feld für `rex_event_date` ist jetzt an das Schema für <https://schema.org/EventStatusType> angepasst.
+* Felder vom Typ `event_media` wurde durch den Typ `be_media_preview` (🧩 YForm Field) ersetzt.
 
 ## Installation
 
