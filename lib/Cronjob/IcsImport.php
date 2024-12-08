@@ -1,7 +1,17 @@
 <?php
-use ICal\ICal;
 
-class rex_cronjob_events_ics_import extends rex_cronjob
+namespace Alexplusde\Events\Cronjob;
+
+use Alexplusde\Events\Date;
+use Alexplusde\Events\Category;
+use ICal\ICal;
+use rex_cronjob;
+use rex_sql; 
+use rex_clang;
+use rex_i18n;
+use rex_sql_exception;
+
+class IcsImport extends rex_cronjob
 {
     public function execute(): bool
     {
@@ -104,7 +114,7 @@ class rex_cronjob_events_ics_import extends rex_cronjob
 
                 $category_ids = array_unique($category_ids);
 
-                $event_date = event_date::create();
+                $event_date = Date::create();
 
                 $event_date->setValue('start_date', date("Y-m-d", strtotime($vEvent['DTSTART'])));
                 $event_date->setValue('end_date', date("Y-m-d", strtotime($vEvent['DTEND'])));
@@ -142,12 +152,12 @@ class rex_cronjob_events_ics_import extends rex_cronjob
                         list($cKey, $cValue) = explode('=', $rrule_parm, 2);
                         $rrules[$cKey] = $cValue;
                     }
-                    $dataset->setValue('type', 'repeat');
-                    $dataset->setValue('repeat', strtolower($rrules['FREQ']));
-                    $dataset->setValue('repeat_year', 1);
-                    $dataset->setValue('repeat_week', 1);
-                    $dataset->setValue('repeat_month', 1);
-                    $dataset->setValue('end_repeat_date', date("Y-m-d", strtotime($rrules['UNTIL'])));
+                    $event_date->setValue('type', 'repeat');
+                    $event_date->setValue('repeat', strtolower($rrules['FREQ']));
+                    $event_date->setValue('repeat_year', 1);
+                    $event_date->setValue('repeat_week', 1);
+                    $event_date->setValue('repeat_month', 1);
+                    $event_date->setValue('end_repeat_date', date("Y-m-d", strtotime($rrules['UNTIL'])));
                 }
 
                 $error_counter = 0;
