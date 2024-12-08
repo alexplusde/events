@@ -20,16 +20,24 @@ Mit diesem Addon können Termine anhand von YForm und YOrm im Backend verwaltet 
 
 > **Steuere eigene Verbesserungen** dem [GitHub-Repository von events](https://github.com/alexplusde/events) bei. Oder **unterstütze dieses Addon:** Mit einer [Spende oder Beauftragung unterstützt du die Weiterentwicklung dieses AddOns](https://github.com/sponsors/alexplusde)
 
-### Neu in `Events 5`
+### Neu in `Events 6`
 
-* Grundlegende Überarbeitung der Datenbanktabellen-Struktur, darunter Performance-Optimimerung mit Unique- und Index-Einstellungen an der Tabelle
-* Vollständige Übersetzung des Backends
-* Neue Icons für REDAXO 5.17
-* Zusätzliche Einstellungsmöglichkeiten, z.B. Fallback-Bild
-* Datenschutz: Auto-Löschen von Anmeldungen und Teilnehmer*innen nach 24 Monaten (erfordert Addon `auto_delete` mit aktiviertem Cronjob)
-* Checkbox "ganztägig" setzt die Uhrzeit auf 00:00 Uhr zurück
-* Verschiedene Bugfixes und Verbesserungen, z.B. Editoreinstellungen
+* Nutzung des Namespace `ALexplusde\Events\` und damit Anpassung aller Klassen
+* Neue Methoden an den jeweiligen Objekten für die Ausgabe von Events
+* Vorgefertigtes Modul mit anpassbaren Fragmenten für die Ausgabe von Veranstaltungen, Kategorien, Terminen usw.
+* Datensätze im Table Manager zeigen jetzt auf eine URL, falls online
+* Verschiedene Bugfixes und Verbesserungen
 * Zusätzliche Dokumentation und Beispiele
+
+> Hinweis: Die Version 6 ist nicht abwärtskompatibel zu Version 5. Bitte prüfe vor dem Update die Änderungen und passe ggf. deine Anpassungen an.
+
+### Vom Entwickler notwendige Anpassungen für Version ^5 -> ^6
+
+* Die Klassen `Event`, `Category`, `Date`, `Registration`, `RegistrationPerson` und `RegistrationPersonFill` benötigen einen Namespace zur Verwendung. Die Klassen `event_date`, `event_category`, ... sind nicht mehr vorhanden.
+* Die Tabellen `rex_event_category`, `rex_event_date`, ... haben Änderungen erfahren:
+* * `rex_event_date.event_category_id` heißt jetzt `rex_event_date.category_id`. Diese vor dem Update anpassen.
+* * Die meisten Tabellen haben jetzt ein Feld `uuid`. Felder, die bisher `uid` hießen, wurden in `uuid` umbenannt.
+* * Das Status-Feld für `rex_event_date` ist jetzt an das Schema für <https://schema.org/EventStatusType> angepasst.
 
 ## Installation
 
@@ -37,7 +45,21 @@ Im REDAXO-Installer das Addon `events` herunterladen und installieren. Anschlie�
 
 ## Nutzung im Frontend
 
-Siehe Dokumentation im Addon
+> **Neu in Version 6:** Erstelle ein Modul mit folgendem Inhalt.
+
+```php
+<?php
+use FriendsOfRedaxo\Neues\Neues;
+
+$fragment = new rex_fragment();
+$fragment->setVar('slice_id', 'REX_SLICE_ID');
+
+echo $fragment->parse('bs5/events/index.php')
+
+?>
+```
+
+Die Fragmente sind für eine Nutzung mit Bootstrap 5 ausgelegt und können bei Bedarf angepasst werden, zum Beispiel über das Project-Addon.
 
 ## Formulare
 
