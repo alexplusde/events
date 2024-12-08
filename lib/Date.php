@@ -15,6 +15,7 @@ use rex_fragment;
 use IntlDateFormatter;
 use DateTime;
 use rex_config;
+use rex_i18n;
 
 /**
 * Die `event_date` Klasse repräsentiert ein Event-Datum.
@@ -22,7 +23,7 @@ use rex_config;
 *
 * Beispiel:
 * ```php
-* $eventDate = new event_date();
+* $eventDate = new Date();
 * $eventDate->setValue('startDate', '2022-12-31');
 * $eventDate->setValue('endDate', '2023-01-01');
 * $eventDate->save();
@@ -35,7 +36,7 @@ use rex_config;
 *
 * Example:
 * ```php
-* $eventDate = new event_date();
+* $eventDate = new Date();
 * $eventDate->setValue('startDate', '2022-12-31');
 * $eventDate->setValue('endDate', '2023-01-01');
 * $eventDate->save();
@@ -46,6 +47,13 @@ class Date extends \rex_yform_manager_dataset
     private ?Location $location = null;
     private ?Category $category = null;
     private ?Offer $offer = null;
+
+    const STATUS_EVENT_CANCELLED = "EventCancelled";
+    const STATUS_EVENT_MOVED_ONLINE = "EventMovedOnline";
+    const STATUS_EVENT_POSTPONED = "EventPostponed";
+    const STATUS_EVENT_RESCHEDULED = "EventRescheduled";
+    const STATUS_EVENT_SCHEDULED = "EventScheduled";
+
     /**
     * Generiert eine UUID basierend auf der gegebenen ID.
     *
@@ -1319,6 +1327,16 @@ aria-valuemax="'. $this->getTotalCount() .'">
     public function setStartDateTime(mixed $value) : self {
         $this->setValue("startDateTime", $value);
         return $this;
+    }
+
+    public static function getStatusOptions() : array {
+        return [
+            '' => rex_i18n::msg('event_date_status_draft'),
+            self::STATUS_EVENT_CANCELLED => rex_i18n::msg('event_date_status_cancelled'),
+            self::STATUS_EVENT_POSTPONED => rex_i18n::msg('event_date_status_postponed'),
+            self::STATUS_EVENT_RESCHEDULED => rex_i18n::msg('event_date_status_rescheduled'),
+            self::STATUS_EVENT_SCHEDULED => rex_i18n::msg('event_date_status_scheduled'),
+        ];
     }
 
 }

@@ -277,3 +277,14 @@ event_category_request_status_select = Bitte wählen...
 event_category_request_status_rejected = abgelehnt
 event_category_request_status_todo = offen
 event_category_request_status_answered = beantwortet
+
+event_date_status_draft = 🟨 Entwurf
+event_date_status_cancelled = ❌ Abgesagt
+event_date_status_moved_online = 🟢 Online
+event_date_status_postponed = ▶️ Verschoben
+event_date_status_rescheduled = ▶️ Neu geplant
+event_date_status_scheduled = 🟢 Geplant
+
+
+events_category_status_offline = Entwurf
+events_category_status_online = Veröffentlicht

@@ -15,7 +15,7 @@ use rex_user;
  *
  * Beispiel:
  * ```php
- * $eventCategory = new event_category();
+ * $eventCategory = new Category();
  * ```
  *
  * ---
@@ -27,11 +27,15 @@ use rex_user;
  *
  * Example:
  * ```php
- * $eventCategory = new event_category();
+ * $eventCategory = new Category();
  * ```
  */
 class Category extends \rex_yform_manager_dataset
 {
+
+    const STATUS_ONLINE = 1;
+    const STATUS_OFFLINE = 0;
+
     /**
      * Gibt den Namen der Kategorie zurück.
      *
@@ -373,6 +377,13 @@ class Category extends \rex_yform_manager_dataset
     public function setUpdateUser(mixed $value) : self {
         $this->setValue("updateuser", $value);
         return $this;
+    }
+
+    public static function getStatusOptions() : array {
+        return [
+            self::STATUS_ONLINE => \rex_i18n::msg('events_category_status_online'),
+            self::STATUS_OFFLINE => \rex_i18n::msg('events_category_status_offline')
+        ];
     }
 
 }?>
