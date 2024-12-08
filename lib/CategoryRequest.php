@@ -1,5 +1,10 @@
 <?php 
-class event_category_request extends \rex_yform_manager_dataset {
+
+namespace Alexplusde\Events;
+
+use rex_yform_manager_dataset;
+
+class CategoryRequest extends \rex_yform_manager_dataset {
 	
     /* Status */
     /** @api */

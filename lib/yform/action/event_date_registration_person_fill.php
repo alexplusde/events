@@ -42,7 +42,7 @@ class rex_yform_action_event_date_registration_person_fill extends rex_yform_act
         $date_id = $this->params['value_pool']['sql']['date_id'];
 
         for ($i = 1; $i <= $person_count; $i++) {
-            $person = event_registration_person::create();
+            $person = RegistrationPerson::create();
             if ($i == 1) {
                 $person->setValue('firstname', $firstname);
                 $person->setValue('lastname', $lastname);

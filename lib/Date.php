@@ -1,6 +1,20 @@
 <?php
 
+namespace Alexplusde\Events;
+
 use Ramsey\uuid\uuid;
+use rex;
+use rex_media;
+use rex_yform_manager_collection;
+use rex_yform_manager_dataset;
+use rex_yform_manager_table;
+use rex_clang;
+use rex_sql;
+use rex_user;
+use rex_fragment;
+use IntlDateFormatter;
+use DateTime;
+use rex_config;
 
 /**
 * Die `event_date` Klasse repräsentiert ein Event-Datum.
@@ -27,11 +41,11 @@ use Ramsey\uuid\uuid;
 * $eventDate->save();
 * ```
 */
-class event_date extends \rex_yform_manager_dataset
+class Date extends \rex_yform_manager_dataset
 {
-    private ?event_location $location = null;
-    private ?event_category $category = null;
-    private ?event_date_offer $offer = null;
+    private ?Location $location = null;
+    private ?Category $category = null;
+    private ?Offer $offer = null;
     /**
     * Generiert eine UUID basierend auf der gegebenen ID.
     *
@@ -63,7 +77,7 @@ class event_date extends \rex_yform_manager_dataset
     /**
     * Gibt die Kategorie des Events zurück.
     *
-    * @return event_category|null Die Kategorie des Events oder null.
+    * @return Category|null Die Kategorie des Events oder null.
     *
     * Beispiel:
     * ```php
@@ -74,16 +88,16 @@ class event_date extends \rex_yform_manager_dataset
     *
     * Returns the category of the event.
     *
-    * @return event_category|null The category of the event or null.
+    * @return Category|null The category of the event or null.
     *
     * Example:
     * ```php
     * $category = $eventDate->getCategory();
     * ```
     */
-    public function getCategory(): ?event_category
+    public function getCategory(): ?Category
     {
-        $this->category = event_category::get((int)$this->getValue('event_category_id'));
+        $this->category = Category::get((int)$this->getValue('event_category_id'));
         return $this->category;
     }
 
@@ -161,7 +175,7 @@ class event_date extends \rex_yform_manager_dataset
         ->setDescription($this->getDescriptionAsPlaintext());
 
         // add location
-        /* @var $locationICS event_location */
+        /* @var $locationICS Location */
         $location = $this->getLocation();
         if (isset($location)) {
             $ics_lat = $location->getValue('lat');
@@ -181,7 +195,7 @@ class event_date extends \rex_yform_manager_dataset
     /**
     * Gibt den Standort des Events zurück.
     *
-    * @return event_location|null Der Standort des Events oder null.
+    * @return Location|null Der Standort des Events oder null.
     *
     * Beispiel:
     * ```php
@@ -192,21 +206,21 @@ class event_date extends \rex_yform_manager_dataset
     *
     * Returns the location of the event.
     *
-    * @return event_location|null The location of the event or null.
+    * @return Location|null The location of the event or null.
     *
     * Example:
     * ```php
     * $location = $eventDate->getLocation();
     * ```
     */
-    public function getLocation(): ?event_location
+    public function getLocation(): ?Location
     {
         if ($this->location === null) {
             $this->location = $this->getRelatedDataset('location');
         }
         return $this->location;
     }
-    public function setLocation(event_location $location): self
+    public function setLocation(Location $location): self
     {
         $this->location = $location;
         $this->setValue('location', $location->getId());
@@ -275,8 +289,8 @@ class event_date extends \rex_yform_manager_dataset
     public function getTimezone(float $lat, float $lng): string
     {
         $event_timezone = "https://maps.googleapis.com/maps/api/timezone/json?location=" . $lat . "," . $lng . "&timestamp=" . time() . "&sensor=false";
-        $event_location_time_json = file_get_contents($event_timezone);
-        return $event_location_time_json;
+        $Location_time_json = file_get_contents($event_timezone);
+        return $Location_time_json;
     }
     public function setTimezone(string $timezone): self
     {
@@ -856,7 +870,7 @@ class event_date extends \rex_yform_manager_dataset
             return $offer->getPrice();
         }
         $category = $this->getCategories()->first();
-        /** @var event_category $category */
+        /** @var Category $category */
         return $category->getPrice();
     }
 
@@ -977,10 +991,10 @@ class event_date extends \rex_yform_manager_dataset
     */
     public function getRegisterCount() :int
     {
-        $registrations = event_registration::getTotalRegistrationsByDate($this->getId());
+        $registrations = Registration::getTotalRegistrationsByDate($this->getId());
         $count = 0;
         if ($registrations) {
-            $count += array_sum(event_registration::getTotalRegistrationsByDate($this->getId())->getValues('person_count'));
+            $count += array_sum(Registration::getTotalRegistrationsByDate($this->getId())->getValues('person_count'));
         }
         return (int) $count;
     }
@@ -1103,7 +1117,7 @@ aria-valuemax="'. $this->getTotalCount() .'">
 
     public function getRegistrationPerson($status = 0, $operator = ">="): ?rex_yform_manager_collection
     {
-        return event_registration_person::query()->where('status', $status, $operator)->where('event_date_id', self::getId())->find();
+        return RegistrationPerson::query()->where('status', $status, $operator)->where('event_date_id', self::getId())->find();
     }
     public function countRegistrationPerson($status = 0, $operator = ">="): int
     {

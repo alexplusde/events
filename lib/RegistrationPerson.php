@@ -1,5 +1,11 @@
 <?php
 
+namespace Alexplusde\Events;
+
+use rex_yform_manager_dataset;
+use rex_extension_point;
+
+
 /**
  * Die `event_registration_person` Klasse repräsentiert eine Person, die sich für ein Event registriert hat.
  *
@@ -25,7 +31,7 @@
  * $person->save();
  * ```
  */
-class event_registration_person extends \rex_yform_manager_dataset
+class RegistrationPerson extends \rex_yform_manager_dataset
 {
     /**
      * Gibt den Namen der registrierten Person zurück.
@@ -302,17 +308,17 @@ class event_registration_person extends \rex_yform_manager_dataset
      */
     public function getEventDateId(): int
     {
-        return $this->getValue('event_date_id');
+        return $this->getValue('Date_id');
     }
     public function setEventDateId(int $eventDateId): self
     {
-        $this->setValue('event_date_id', $eventDateId);
+        $this->setValue('Date_id', $eventDateId);
         return $this;
     }
     /**
      * Gibt das Event-Datum zurück, für das sich die Person registriert hat.
      *
-     * @return event_date|null Das Event-Datum oder null, wenn kein Event-Datum gesetzt ist.
+     * @return Date|null Das Event-Datum oder null, wenn kein Event-Datum gesetzt ist.
      *
      * Beispiel:
      * ```php
@@ -323,16 +329,16 @@ class event_registration_person extends \rex_yform_manager_dataset
      *
      * Returns the event date for which the person has registered.
      *
-     * @return event_date|null The event date or null if no event date is set.
+     * @return Date|null The event date or null if no event date is set.
      *
      * Example:
      * ```php
      * $eventDate = $eventRegistrationPerson->getEventDate();
      * ```
      */
-    public function getEventDate(): ?event_date
+    public function getEventDate(): ?Date
     {
-        return $this->getRelatedDataset('event_date_id');
+        return $this->getRelatedDataset('Date_id');
     }
     /**
      * Gibt die ID der Registrierung zurück.
@@ -413,9 +419,9 @@ class event_registration_person extends \rex_yform_manager_dataset
      */
     public function getCategoryId(): int
     {
-        /** @var event_registration $registration */
+        /** @var Registration $registration */
         $registration = $this->getRegistration();
-        /** @var event_category $category */
+        /** @var Category $category */
         $category = $registration->getCategory();
         return $category->getId();
     }
@@ -454,7 +460,7 @@ class event_registration_person extends \rex_yform_manager_dataset
      * Gibt die registrierte Person zurück, die der angegebenen UUID entspricht.
      *
      * @param string|null $uuid Die UUID der gesuchten Person. Wenn null, wird null zurückgegeben.
-     * @return event_registration_person|null Die registrierte Person oder null, wenn keine Person gefunden wurde.
+     * @return RegistrationPerson|null Die registrierte Person oder null, wenn keine Person gefunden wurde.
      *
      * Beispiel:
      * ```php
@@ -466,14 +472,14 @@ class event_registration_person extends \rex_yform_manager_dataset
      * Returns the registered person that corresponds to the specified UUID.
      *
      * @param string|null $uuid The UUID of the person being sought. If null, null is returned.
-     * @return event_registration_person|null The registered person or null if no person was found.
+     * @return RegistrationPerson|null The registered person or null if no person was found.
      *
      * Example:
      * ```php
      * $person = event_registration_person::getByUuid("123e4567-e89b-12d3-a456-426614174000");
      * ```
      */
-    public static function getByUuid(string $uuid = null): ?event_registration_person
+    public static function getByUuid(string $uuid = null): ?RegistrationPerson
     {
         if (!$uuid) {
             return null;
@@ -484,7 +490,7 @@ class event_registration_person extends \rex_yform_manager_dataset
      * Gibt die registrierte Person zurück, die dem angegebenen Hash entspricht.
      *
      * @param string|null $hash Der Hash der gesuchten Person. Wenn null, wird null zurückgegeben.
-     * @return event_registration_person|null Die registrierte Person oder null, wenn keine Person gefunden wurde.
+     * @return RegistrationPerson|null Die registrierte Person oder null, wenn keine Person gefunden wurde.
      *
      * Beispiel:
      * ```php
@@ -496,14 +502,14 @@ class event_registration_person extends \rex_yform_manager_dataset
      * Returns the registered person that corresponds to the specified hash.
      *
      * @param string|null $hash The hash of the person being sought. If null, null is returned.
-     * @return event_registration_person|null The registered person or null if no person was found.
+     * @return RegistrationPerson|null The registered person or null if no person was found.
      *
      * Example:
      * ```php
      * $person = event_registration_person::getByHash("123abc456def");
      * ```
      */
-    public static function getByHash(string $hash = null): ?event_registration_person
+    public static function getByHash(string $hash = null): ?RegistrationPerson
     {
         if (!$hash) {
             return null;

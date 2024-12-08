@@ -1,5 +1,10 @@
 <?php 
-class event_date_lang extends \rex_yform_manager_dataset {
+
+namespace Alexplusde\Events;
+
+use rex_yform_manager_dataset;
+
+class DateLang extends \rex_yform_manager_dataset {
 	
     /* Name */
     /** @api */

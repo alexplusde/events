@@ -49,7 +49,7 @@ class rex_cronjob_events_ics_import extends rex_cronjob
     
             // Neue Kategorien hinzufügen
             foreach ($add_categories as $category_name) {
-                $category = event_category::create('rex_event_category');
+                $category = Category::create('rex_event_category');
 
                 $category->setValue('name', $category_name);
                 $category->setValue('createdate', date("Y-m-d H:i:s", strtotime($vEvent['DTSTAMP'])));

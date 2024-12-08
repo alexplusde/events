@@ -1,4 +1,12 @@
 <?php
+
+namespace Alexplusde\Events;
+
+use rex_media;
+use rex_yform_manager_collection;
+use rex_user;
+
+
 /**
  * Die Klasse event_category repräsentiert eine Kategorie eines Events.
  *
@@ -22,7 +30,7 @@
  * $eventCategory = new event_category();
  * ```
  */
-class event_category extends \rex_yform_manager_dataset
+class Category extends \rex_yform_manager_dataset
 {
     /**
      * Gibt den Namen der Kategorie zurück.
@@ -227,7 +235,7 @@ class event_category extends \rex_yform_manager_dataset
      */
     public function getDateWhere($whereRaw = ''): ?rex_yform_manager_collection
     {
-        return event_date::query()->joinRelation('event_category_id', 'c')->where('c.id', $this->getId())->whereRaw($whereRaw)->orderBy('startDate', 'ASC')->orderBy('startTime', "ASC")->find();
+        return Date::query()->joinRelation('event_category_id', 'c')->where('c.id', $this->getId())->whereRaw($whereRaw)->orderBy('startDate', 'ASC')->orderBy('startTime', "ASC")->find();
     }
 
     /**
