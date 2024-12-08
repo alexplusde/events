@@ -16,7 +16,7 @@ In der Termin-Tabelle werden einzelne Daten festgehalten. Nach der Installation 
 | value    | text                | name                | Name              |
 | validate | empty               | name                |                   |
 | value    | textarea            | description         | Beschreibung      |
-| value    | be_manager_relation | event_category_id   | Kategorie         |
+| value    | be_manager_relation | category_id   | Kategorie         |
 | value    | be_manager_relation | location            | Veranstaltungsort |
 | value    | be_media            | image               | Bild              |
 | value    | text                | url                 | URL               |

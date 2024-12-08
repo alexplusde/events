@@ -258,7 +258,7 @@ rex_extension::register('YFORM_DATA_LIST', function ($ep) {
             }
         );
         $list->setColumnFormat(
-            'event_category_id',
+            'category_id',
             'custom',
             function ($a) {
                 $_csrf_key = rex_yform_manager_table::get('rex_event_category')->getCSRFKey();

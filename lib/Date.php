@@ -105,7 +105,7 @@ class Date extends \rex_yform_manager_dataset
     */
     public function getCategory(): ?Category
     {
-        $this->category = Category::get((int)$this->getValue('event_category_id'));
+        $this->category = Category::get((int)$this->getValue('category_id'));
         return $this->category;
     }
 
@@ -132,7 +132,7 @@ class Date extends \rex_yform_manager_dataset
     */
     public function getCategories(): rex_yform_manager_collection
     {
-        $this->categories = $this->getRelatedCollection('event_category_id');
+        $this->categories = $this->getRelatedCollection('category_id');
         return $this->categories;
     }
     /**
@@ -1142,7 +1142,7 @@ aria-valuemax="'. $this->getTotalCount() .'">
     /* Kategorie(n) */
     /** @api */
     public function getEventCategory() : ?rex_yform_manager_collection {
-        return $this->getRelatedCollection("event_category_id");
+        return $this->getRelatedCollection("category_id");
     }
 
     /* Beginn Datum */
