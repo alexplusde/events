@@ -125,7 +125,7 @@ event_date_name = Name
 event_date_teaser = Teaser
 event_date_description = Beschreibung
 event_date_lang_id = Sprach ID
-event_date_event_category_id = Kategorie(n)
+event_date_category_id = Kategorie(n)
 event_date_startdate = Beginn Datum 
 event_date_all_day = ganztägig?
 event_date_doortime = Einlass-Uhrzeit
@@ -277,3 +277,14 @@ event_category_request_status_select = Bitte wählen...
 event_category_request_status_rejected = abgelehnt
 event_category_request_status_todo = offen
 event_category_request_status_answered = beantwortet
+
+event_date_status_draft = 🟨 Entwurf
+event_date_status_cancelled = ❌ Abgesagt
+event_date_status_moved_online = 🟢 Online
+event_date_status_postponed = ▶️ Verschoben
+event_date_status_rescheduled = ▶️ Neu geplant
+event_date_status_scheduled = 🟢 Geplant
+
+
+events_category_status_offline = Entwurf
+events_category_status_online = Veröffentlicht

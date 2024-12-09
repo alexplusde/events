@@ -1,5 +1,8 @@
 <?php
-class event_country_codes
+
+namespace Alexplusde\Events;
+
+class CountryCodes
 {
     public static function get(): array
     {

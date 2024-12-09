@@ -1,4 +1,10 @@
-<?php
+<?php 
+
+namespace Alexplusde\Events;
+
+use rex_yform_manager_dataset;
+use rex_config;
+
 /**
  * Die `event_date_offer` Klasse repräsentiert ein Angebot für ein bestimmtes Event-Datum.
  *
@@ -30,7 +36,7 @@
  * $offer->save();
  * ```
  */
-class event_date_offer extends \rex_yform_manager_dataset
+class Offer extends \rex_yform_manager_dataset
 {
     /**
      * Gibt die URL des Angebots zurück.

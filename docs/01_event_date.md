@@ -1,5 +1,5 @@
 
-# Die Klasse `event_date`
+# Die Klasse `Date`
 
 Typ `rex_yform_manager_dataset`. Greift auf die Tabelle `rex_event_date` zu.
 
@@ -16,7 +16,7 @@ dump(event_date::get(3)); // Termin mit der id=3
 | `getName()`                   | Titel der Veranstaltung                                                                                                              |
 | `getDescription()`            | Beschreibungstext                                                                                                                    |
 | `getTeaser()`                 | Unformatierter Teaser-Text                                                                                                           |
-| `getCategory()`               | holt die passende Kategorie als `event_category`-Dataset.                                                                            |
+| `getCategory()`               | holt die passende Kategorie als `Category` -Dataset.                                                                            |
 | `getLocation()`               | holt den passenden Veranstaltungsort als `event_location`-Dataset.                                                                   |
 | `getOfferAll()`               | holt die passenden Angebote / Preise als `event_offer`-Dataset                                                                       |
 | `getImage()`                  | gibt den Bild-Dateinamen aus dem Medienpool zurück                                                                                   |

@@ -1,17 +1,17 @@
 package: events
-version: '5.0.3'
+version: '6.0.0-dev-2024-12-08'
 author: 'Alexander Walther'
 supportpage: https://alexplusde.github.io/events/
 
 requires:
     php:
-        version: '>8.1'
-    redaxo: '^5.17'
+        version: '>=8.3,<9'
+    redaxo: '^5.18'
     packages:
         auto_delete: ">=1"
-        yform: "^4"
+        yform: "^4.1"
         yform_geo_osm: ^1
-        yform_field: "^2"
+        yform_field: "^2.7"
 
 
 page:

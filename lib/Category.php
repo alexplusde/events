@@ -1,4 +1,12 @@
 <?php
+
+namespace Alexplusde\Events;
+
+use rex_media;
+use rex_yform_manager_collection;
+use rex_user;
+
+
 /**
  * Die Klasse event_category repräsentiert eine Kategorie eines Events.
  *
@@ -7,7 +15,7 @@
  *
  * Beispiel:
  * ```php
- * $eventCategory = new event_category();
+ * $eventCategory = new Category();
  * ```
  *
  * ---
@@ -19,11 +27,15 @@
  *
  * Example:
  * ```php
- * $eventCategory = new event_category();
+ * $eventCategory = new Category();
  * ```
  */
-class event_category extends \rex_yform_manager_dataset
+class Category extends \rex_yform_manager_dataset
 {
+
+    const STATUS_ONLINE = 1;
+    const STATUS_OFFLINE = 0;
+
     /**
      * Gibt den Namen der Kategorie zurück.
      *
@@ -227,7 +239,7 @@ class event_category extends \rex_yform_manager_dataset
      */
     public function getDateWhere($whereRaw = ''): ?rex_yform_manager_collection
     {
-        return event_date::query()->joinRelation('event_category_id', 'c')->where('c.id', $this->getId())->whereRaw($whereRaw)->orderBy('startDate', 'ASC')->orderBy('startTime', "ASC")->find();
+        return Date::query()->joinRelation('category_id', 'c')->where('c.id', $this->getId())->whereRaw($whereRaw)->orderBy('startDate', 'ASC')->orderBy('startTime', "ASC")->find();
     }
 
     /**
@@ -365,6 +377,13 @@ class event_category extends \rex_yform_manager_dataset
     public function setUpdateUser(mixed $value) : self {
         $this->setValue("updateuser", $value);
         return $this;
+    }
+
+    public static function getStatusOptions() : array {
+        return [
+            self::STATUS_ONLINE => \rex_i18n::msg('events_category_status_online'),
+            self::STATUS_OFFLINE => \rex_i18n::msg('events_category_status_offline')
+        ];
     }
 
 }?>

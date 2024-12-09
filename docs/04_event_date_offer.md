@@ -1,6 +1,6 @@
-# Dokumentation der `event_date_offer` Klasse
+# Dokumentation der `Offer`  Klasse
 
-Die `event_date_offer` Klasse repräsentiert ein Angebot für ein bestimmtes Event-Datum. Sie erbt von der `rex_yform_manager_dataset` Klasse und bietet zusätzliche Methoden zur Interaktion mit den Angeboten eines Event-Datums.
+Die `Offer`  Klasse repräsentiert ein Angebot für ein bestimmtes Event-Datum. Sie erbt von der `rex_yform_manager_dataset` Klasse und bietet zusätzliche Methoden zur Interaktion mit den Angeboten eines Event-Datums.
 
 ```php
 // Erstellt ein neues Angebot für ein Event-Datum

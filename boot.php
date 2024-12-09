@@ -1,5 +1,22 @@
 <?php
 
+namespace Alexplusde\Events;
+
+use rex_addon;
+use rex;
+use rex_extension;
+use rex_yform_manager_dataset;
+use rex_yform_manager_table;
+use rex_config;
+use rex_extension_point;
+use rex_be_controller;
+use rex_view;
+use rex_cronjob_manager;
+use rex_plugin;
+use rex_csrf_token;
+use rex_url;
+
+
 if (rex::isBackend()) {
     rex_extension::register('OUTPUT_FILTER', function (rex_extension_point $ep) {
         $suchmuster = 'class="###events-settings-editor###"';
@@ -33,37 +50,37 @@ if (rex_addon::get('yform')->isAvailable() && !rex::isSafeMode()) {
 
     rex_yform_manager_dataset::setModelClass(
         'rex_event_date',
-        event_date::class
+        Date::class
     );
     rex_yform_manager_dataset::setModelClass(
         'rex_event_location',
-        event_location::class
+        Location::class
     );
     rex_yform_manager_dataset::setModelClass(
         'rex_event_category',
-        event_category::class
+        Category::class
     );
     rex_yform_manager_dataset::setModelClass(
         'rex_event_date_offer',
-        event_date_offer::class
+        Offer::class
     );
     rex_yform_manager_dataset::setModelClass(
         'rex_event_date_registration',
-        event_registration::class
+        Registration::class
     );
 
     rex_yform_manager_dataset::setModelClass(
         'rex_event_date_registration_person',
-        event_registration_person::class
+        RegistrationPerson::class
     );
     rex_yform_manager_dataset::setModelClass(
         'rex_event_category_request',
-        event_category_request::class,
+        CategoryRequest::class,
     );
     
 	rex_yform_manager_dataset::setModelClass(
 		'rex_event_date_lang',
-		event_date_lang::class,
+		DateLang::class,
 	);
 
 }
@@ -78,8 +95,8 @@ if (rex_plugin::get('yform', 'rest')->isAvailable() && !rex::isSafeMode()) {
         [
         'path' => '/v5.0/event/date/',
         'auth' => '\rex_yform_rest_auth_token::checkToken',
-        'type' => \event_date::class,
-        'query' => \event_date::query(),
+        'type' => Date::class,
+        'query' => Date::query(),
         'get' => [
             'fields' => [
                 'rex_event_date' => [
@@ -142,8 +159,8 @@ if (rex_plugin::get('yform', 'rest')->isAvailable() && !rex::isSafeMode()) {
         [
         'path' => '/v5.0/event/category/',
         'auth' => '\rex_yform_rest_auth_token::checkToken',
-        'type' => \event_category::class,
-        'query' => \event_category::query(),
+        'type' => Category::class,
+        'query' => Category::query(),
         'get' => [
             'fields' => [
                  'rex_event_category' => [
@@ -178,8 +195,8 @@ if (rex_plugin::get('yform', 'rest')->isAvailable() && !rex::isSafeMode()) {
         [
         'path' => '/v5.0/event/location/',
         'auth' => '\rex_yform_rest_auth_token::checkToken',
-        'type' => \event_location::class,
-        'query' => \event_location::query(),
+        'type' => Location::class,
+        'query' => Location::query(),
         'get' => [
             'fields' => [
                  'rex_event_location' => [
@@ -241,7 +258,7 @@ rex_extension::register('YFORM_DATA_LIST', function ($ep) {
             }
         );
         $list->setColumnFormat(
-            'event_category_id',
+            'category_id',
             'custom',
             function ($a) {
                 $_csrf_key = rex_yform_manager_table::get('rex_event_category')->getCSRFKey();
@@ -259,7 +276,7 @@ rex_extension::register('YFORM_DATA_LIST', function ($ep) {
                 $category_ids = array_filter(explode(",", $a['value']));
 
                 foreach ($category_ids as $category_id) {
-                    $event = event_category::get($category_id);
+                    $event = Category::get($category_id);
                     if ($event) {
                         $return[] = '<a href="'.rex_url::backendPage('events/category', $params) .'">'. $event->getName().'</a>';
                     }
@@ -286,7 +303,7 @@ rex_extension::register('YFORM_DATA_LIST', function ($ep) {
                 $return = [];
                 
                 foreach ($location_ids as $location_id) {
-                    $location = event_location::get($location_id);
+                    $location = Location::get($location_id);
                     if ($location) {
                         $return[] = '<a href="'.rex_url::backendPage('events/location', $params) .'">'. $location->getValue('name').'</a>';
                     }

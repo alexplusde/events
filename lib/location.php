@@ -1,4 +1,11 @@
-<?php
+<?php 
+
+namespace Alexplusde\Events;
+
+use rex_yform_manager_dataset;
+use rex_yform_manager_collection;
+use rex_user;
+
 /**
  * Die `event_location` Klasse repräsentiert einen Veranstaltungsort.
  *
@@ -28,7 +35,7 @@
  * $location->save();
  * ```
  */
-class event_location extends \rex_yform_manager_dataset
+class Location extends \rex_yform_manager_dataset
 {
     /**
      * Gibt die Adresse als String zurück.

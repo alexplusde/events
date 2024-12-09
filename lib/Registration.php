@@ -1,6 +1,12 @@
-<?php
+<?php 
 
-class event_registration extends \rex_yform_manager_dataset
+namespace Alexplusde\Events;
+
+use rex_yform_manager_dataset;
+use rex_yform_manager_collection;
+use rex_extension_point;
+
+class Registration extends \rex_yform_manager_dataset
 {
     /**
      * Gibt die Gesamtzahl der Registrierungen für ein bestimmtes Datum zurück.
@@ -10,7 +16,7 @@ class event_registration extends \rex_yform_manager_dataset
      *
      * Beispiel:
      * ```php
-     * $totalRegistrations = event_registration::getTotalRegistrationsByDate($date_id);
+     * $totalRegistrations = Registration::getTotalRegistrationsByDate($date_id);
      * ```
      *
      * ---
@@ -22,7 +28,7 @@ class event_registration extends \rex_yform_manager_dataset
      *
      * Example:
      * ```php
-     * $totalRegistrations = event_registration::getTotalRegistrationsByDate($date_id);
+     * $totalRegistrations = Registration::getTotalRegistrationsByDate($date_id);
      * ```
      */
     public static function getTotalRegistrationsByDate(int $date_id): ?rex_yform_manager_collection
@@ -57,7 +63,7 @@ class event_registration extends \rex_yform_manager_dataset
      */
     public function getRegistrationPerson(int $status = 0, string $operator = ">="): ?rex_yform_manager_collection
     {
-        return event_registration_person::query()->where('status', $status, $operator)->where('event_date_id', self::getDateId())->find();
+        return RegistrationPerson::query()->where('status', $status, $operator)->where('event_date_id', self::getDateId())->find();
     }
 
     /**
@@ -128,7 +134,7 @@ class event_registration extends \rex_yform_manager_dataset
      *
      * Beispiel:
      * ```php
-     * $result = event_registration::ep_saved($ep);
+     * $result = Registration::ep_saved($ep);
      * ```
      *
      * ---
@@ -140,7 +146,7 @@ class event_registration extends \rex_yform_manager_dataset
      *
      * Example:
      * ```php
-     * $result = event_registration::ep_saved($ep);
+     * $result = Registration::ep_saved($ep);
      * ```
      */
     public static function ep_saved(rex_extension_point $ep): bool
@@ -941,11 +947,11 @@ class event_registration extends \rex_yform_manager_dataset
      * Gibt die Registrierung mit der gegebenen UUID zurück.
      *
      * @param string $uuid Die UUID der Registrierung.
-     * @return event_registration|null Die Registrierung oder null, wenn keine gefunden wurde.
+     * @return Registration|null Die Registrierung oder null, wenn keine gefunden wurde.
      *
      * Beispiel:
      * ```php
-     * $registration = event_registration::getByUuid($uuid);
+     * $registration = Registration::getByUuid($uuid);
      * ```
      *
      * ---
@@ -953,14 +959,14 @@ class event_registration extends \rex_yform_manager_dataset
      * Returns the registration with the given UUID.
      *
      * @param string $uuid The UUID of the registration.
-     * @return event_registration|null The registration or null if none was found.
+     * @return Registration|null The registration or null if none was found.
      *
      * Example:
      * ```php
-     * $registration = event_registration::getByUuid($uuid);
+     * $registration = Registration::getByUuid($uuid);
      * ```
      */
-    public static function getByUuid(string $uuid = null): ?event_registration
+    public static function getByUuid(string $uuid = null): ?Registration
     {
         if (!$uuid) {
             return null;
@@ -998,11 +1004,11 @@ class event_registration extends \rex_yform_manager_dataset
      * Gibt die Registrierung mit dem gegebenen Hash zurück.
      *
      * @param string $hash Der Hash der Registrierung.
-     * @return event_registration|null Die Registrierung oder null, wenn keine gefunden wurde.
+     * @return Registration|null Die Registrierung oder null, wenn keine gefunden wurde.
      *
      * Beispiel:
      * ```php
-     * $registration = event_registration::getByHash($hash);
+     * $registration = Registration::getByHash($hash);
      * ```
      *
      * ---
@@ -1010,14 +1016,14 @@ class event_registration extends \rex_yform_manager_dataset
      * Returns the registration with the given hash.
      *
      * @param string $hash The hash of the registration.
-     * @return event_registration|null The registration or null if none was found.
+     * @return Registration|null The registration or null if none was found.
      *
      * Example:
      * ```php
-     * $registration = event_registration::getByHash($hash);
+     * $registration = Registration::getByHash($hash);
      * ```
      */
-    public static function getByHash(string $hash = null): ?event_registration
+    public static function getByHash(string $hash = null): ?Registration
     {
         if (!$hash) {
             return null;

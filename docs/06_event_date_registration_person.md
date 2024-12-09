@@ -1,6 +1,6 @@
 # event_registration_person
 
-Die `event_registration_person` Klasse repräsentiert eine Person, die sich für ein Event registriert hat.
+Die `RegistrationPerson`  Klasse repräsentiert eine Person, die sich für ein Event registriert hat.
 
 Sie erbt von der `rex_yform_manager_dataset` Klasse.
 

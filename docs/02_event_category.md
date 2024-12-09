@@ -1,11 +1,11 @@
 # Klasse event_category
 
-Die `event_category` Klasse repräsentiert eine Kategorie eines Events. Diese Klasse erweitert die
+Die `Category`  Klasse repräsentiert eine Kategorie eines Events. Diese Klasse erweitert die
 `rex_yform_manager_dataset` Klasse und bietet spezifische Funktionen und Eigenschaften, die für die Verwaltung von
 Event-Kategorien notwendig sind.
 
 ```php
-$eventCategory = new event_category();
+$eventCategory = new Category();
 ```
 
 ## Methoden
