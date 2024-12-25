@@ -1,7 +1,7 @@
 <?php
 $addon = rex_addon::get('events');
 
-include_once(__DIR__.'/install/rex_sq_table.php');
+include_once(__DIR__.'/install/rex_sql_table.php');
 
 /* Tablesets aktualisieren */
 if (rex_addon::get('yform') && rex_addon::get('yform')->isAvailable()) {
