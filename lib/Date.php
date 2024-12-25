@@ -105,6 +105,9 @@ class Date extends \rex_yform_manager_dataset
     */
     public function getCategory(): ?Category
     {
+        if ($this->getValue('category_id') <= 0 || $this->getValue('category_id') === null) {
+            return null;
+        }
         $this->category = Category::get((int)$this->getValue('category_id'));
         return $this->category;
     }
@@ -1135,85 +1138,99 @@ aria-valuemax="'. $this->getTotalCount() .'">
             
     /* Sprach ID */
     /** @api */
-    public function getLang() : ?rex_yform_manager_dataset {
+    public function getLang() : ?rex_yform_manager_dataset
+    {
         return $this->getRelatedDataset("lang_id");
     }
 
     /* Kategorie(n) */
     /** @api */
-    public function getEventCategory() : ?rex_yform_manager_collection {
+    public function getEventCategory() : ?rex_yform_manager_collection
+    {
         return $this->getRelatedCollection("category_id");
     }
 
     /* Beginn Datum */
     /** @api */
-    public function getStartDate() : ?string {
+    public function getStartDate() : ?string
+    {
         return $this->getValue("startDate");
     }
     /** @api */
-    public function setStartDate(mixed $value) : self {
+    public function setStartDate(mixed $value) : self
+    {
         $this->setValue("startDate", $value);
         return $this;
     }
 
     /* ganztägig? */
     /** @api */
-    public function getAllDay(bool $asBool = false) : mixed {
-        if($asBool) {
+    public function getAllDay(bool $asBool = false) : mixed
+    {
+        if ($asBool) {
             return (bool) $this->getValue("all_day");
         }
         return $this->getValue("all_day");
     }
     /** @api */
-    public function setAllDay(int $value = 1) : self {
+    public function setAllDay(int $value = 1) : self
+    {
         $this->setValue("all_day", $value);
         return $this;
     }
             
     /* Einlass-Uhrzeit */
     /** @api */
-    public function getDoorTime() : string {
+    public function getDoorTime() : string
+    {
         return $this->getValue("doorTime");
     }
     /** @api */
-    public function setDoorTime(string $value = "00:00") : self {
+    public function setDoorTime(string $value = "00:00") : self
+    {
         $this->setValue("doorTime", $value);
         return $this;
     }
             
     /* End-Datum */
     /** @api */
-    public function getEndDate() : ?string {
+    public function getEndDate() : ?string
+    {
         return $this->getValue("endDate");
     }
     /** @api */
-    public function setEndDate(mixed $value) : self {
+    public function setEndDate(mixed $value) : self
+    {
         $this->setValue("endDate", $value);
         return $this;
     }
 
     /* Freie Plätze */
     /** @api */
-    public function getSpace() : ?float {
+    public function getSpace() : ?float
+    {
         return $this->getValue("space");
     }
     /** @api */
-    public function setSpace(float $value) : self {
+    public function setSpace(float $value) : self
+    {
         $this->setValue("space", $value);
         return $this;
     }
             
     /* Titelbild */
     /** @api */
-    public function getImagePoster(bool $asMedia = false) : mixed {
-        if($asMedia) {
+    public function getImagePoster(bool $asMedia = false) : mixed
+    {
+        if ($asMedia) {
             return rex_media::get($this->getValue("image_poster"));
         }
         return $this->getValue("image_poster");
     }
     /** @api */
-    public function setImagePoster(string $filename) : self {
-        if(rex_media::get($filename)) {
+    public function setImagePoster(string $filename) : self
+    {
+        if (rex_media::get($filename)) {
             $this->setValue("image_poster", $filename);
         }
         return $this;
@@ -1221,15 +1238,17 @@ aria-valuemax="'. $this->getTotalCount() .'">
             
     /* Galerie */
     /** @api */
-    public function getImages(bool $asMedia = false) : mixed {
-        if($asMedia) {
+    public function getImages(bool $asMedia = false) : mixed
+    {
+        if ($asMedia) {
             return rex_media::get($this->getValue("images"));
         }
         return $this->getValue("images");
     }
     /** @api */
-    public function setImages(string $filename) : self {
-        if(rex_media::get($filename)) {
+    public function setImages(string $filename) : self
+    {
+        if (rex_media::get($filename)) {
             $this->setValue("images", $filename);
         }
         return $this;
@@ -1237,99 +1256,117 @@ aria-valuemax="'. $this->getTotalCount() .'">
             
     /* Externe URL */
     /** @api */
-    public function getUrl() : ?string {
+    public function getUrl() : ?string
+    {
         return $this->getValue("url");
     }
     /** @api */
-    public function setUrl(mixed $value) : self {
+    public function setUrl(mixed $value) : self
+    {
         $this->setValue("url", $value);
         return $this;
     }
 
     /* Video-URL */
     /** @api */
-    public function getVideoUrl() : ?string {
+    public function getVideoUrl() : ?string
+    {
         return $this->getValue("video_url");
     }
     /** @api */
-    public function setVideoUrl(mixed $value) : self {
+    public function setVideoUrl(mixed $value) : self
+    {
         $this->setValue("video_url", $value);
         return $this;
     }
 
     /* Status */
     /** @api */
-    public function getEventStatus() : mixed {
+    public function getEventStatus() : mixed
+    {
         return $this->getValue("eventStatus");
     }
     /** @api */
-    public function setEventStatus(mixed $param) : mixed {
+    public function setEventStatus(mixed $param) : mixed
+    {
         $this->setValue("eventStatus", $param);
         return $this;
     }
 
     /* Erstellt von... */
     /** @api */
-    public function getCreateuser() : ?rex_user {
+    public function getCreateuser() : ?rex_user
+    {
         return rex_user::get($this->getValue("createuser"));
     }
     /** @api */
-    public function setCreateuser(mixed $value) : self {
+    public function setCreateuser(mixed $value) : self
+    {
         $this->setValue("createuser", $value);
         return $this;
     }
 
     /* Erstellt am... */
     /** @api */
-    public function getCreatedate() : ?string {
+    public function getCreatedate() : ?string
+    {
         return $this->getValue("createdate");
     }
     /** @api */
-    public function setCreatedate(string $value) : self {
+    public function setCreatedate(string $value) : self
+    {
         $this->setValue("createdate", $value);
         return $this;
     }
 
     /* Zuletzt geändert von... */
     /** @api */
-    public function getUpdateuser() : ?rex_user {
+    public function getUpdateuser() : ?rex_user
+    {
         return rex_user::get($this->getValue("updateuser"));
     }
     /** @api */
-    public function setUpdateuser(mixed $value) : self {
+    public function setUpdateuser(mixed $value) : self
+    {
         $this->setValue("updateuser", $value);
         return $this;
     }
 
     /* Zuletzt geändert am... */
     /** @api */
-    public function getUpdatedate() : ?string {
+    public function getUpdatedate() : ?string
+    {
         return $this->getValue("updatedate");
     }
     /** @api */
-    public function setUpdatedate(string $value) : self {
+    public function setUpdatedate(string $value) : self
+    {
         $this->setValue("updatedate", $value);
         return $this;
     }
 
     /* Angebote / Preise */
     /** @api */
-    public function getOffer() : ?rex_yform_manager_dataset {
+    public function getOffer() : ?rex_yform_manager_dataset
+    {
         return $this->getRelatedDataset("offer");
     }
 
     /* Startdatum und -zeit */
     /** @api */
-    public function getStartDateTime() : ?string {
+    public function getStartDateTime() : ?string
+    {
         return $this->getValue("startDateTime");
     }
     /** @api */
-    public function setStartDateTime(mixed $value) : self {
+    public function setStartDateTime(mixed $value) : self
+    {
         $this->setValue("startDateTime", $value);
         return $this;
     }
 
-    public static function getStatusOptions() : array {
+    public static function getStatusOptions() : array
+    {
         return [
             '' => rex_i18n::msg('event_date_status_draft'),
             self::STATUS_EVENT_CANCELLED => rex_i18n::msg('event_date_status_cancelled'),
