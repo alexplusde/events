@@ -186,3 +186,6 @@ rex_sql_table::get(rex::getTable('event_category_request'))
     ->ensureIndex(new rex_sql_index('uuid', ['uuid'], rex_sql_index::UNIQUE))
     ->ensureIndex(new rex_sql_index('email', ['email']))
     ->ensure();
+
+@rex_sql::factory()->setQuery('update rex_event_date set uuid = uid() where uid != "" and uuid = ""');
+@rex_sql::factory()->setQuery('update rex_event_date set uuid = uuid() where uuid =""');
