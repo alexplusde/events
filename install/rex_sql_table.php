@@ -29,14 +29,10 @@ rex_sql_table::get(rex::getTable('event_date'))
     ->ensureColumn(new rex_sql_column('uuid', 'varchar(36)'))
     ->ensureColumn(new rex_sql_column('frontend_url', 'varchar(191)'))
     ->ensureColumn(new rex_sql_column('team_id', 'text'))
-    ->ensureIndex(new rex_sql_index('uuid', ['uuid'], rex_sql_index::UNIQUE))
     ->ensureIndex(new rex_sql_index('startDateTime', ['startDateTime']))
     ->ensureIndex(new rex_sql_index('name', ['name']))
     ->ensureIndex(new rex_sql_index('eventStatus', ['eventStatus']))
     ->ensure();
-
-rex_sql_table::get(rex::getTable('event_date'))
-    ->removeIndex('uid');
 
 rex_sql_table::get(rex::getTable('event_date_lang'))
     ->ensurePrimaryIdColumn()
@@ -187,5 +183,22 @@ rex_sql_table::get(rex::getTable('event_category_request'))
     ->ensureIndex(new rex_sql_index('email', ['email']))
     ->ensure();
 
-@rex_sql::factory()->setQuery('update rex_event_date set uuid = uid() where uid != "" and uuid = ""');
 @rex_sql::factory()->setQuery('update rex_event_date set uuid = uuid() where uuid =""');
+
+// Prüfe, ob Feld uid existierte
+if (rex_sql_table::get(rex::getTable('event_date'))->hasColumn('uid')) {
+
+    @rex_sql::factory()->setQuery('update rex_event_date set uuid = uid() where uid != "" and uuid = ""');
+
+    rex_sql_table::get(rex::getTable('event_date'))
+    ->removeIndex('uid');
+
+    rex_sql_table::get(rex::getTable('event_date'))
+        ->removeColumn('uid')
+        ->ensure();
+}
+
+rex_sql_table::get(rex::getTable('event_date'))
+->ensurePrimaryIdColumn()
+->ensureIndex(new rex_sql_index('uuid', ['uuid'], rex_sql_index::UNIQUE))
+->ensure();
