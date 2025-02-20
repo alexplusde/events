@@ -239,7 +239,7 @@ class Category extends \rex_yform_manager_dataset
      */
     public function getDateWhere($whereRaw = ''): ?rex_yform_manager_collection
     {
-        return Date::query()->joinRelation('category_id', 'c')->where('c.id', $this->getId())->whereRaw($whereRaw)->orderBy('startDate', 'ASC')->orderBy('startTime', "ASC")->find();
+        return Date::query()->joinRelation('event_category_id', 'c')->where('c.id', $this->getId())->whereRaw($whereRaw)->orderBy('startDate', 'ASC')->orderBy('startTime', "ASC")->find();
     }
 
     /**
