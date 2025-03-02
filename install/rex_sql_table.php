@@ -192,7 +192,7 @@ if (rex_sql_table::get(rex::getTable('event_date'))->hasColumn('uid')) {
 
     try {
         @rex_sql::factory()->setQuery('update rex_event_date set uuid = uid() where uid != "" and uuid = ""');
-        @rex_sql::factory()->setQuery('update rex_event_date set category_id = event_category_id');
+        @rex_sql::factory()->setQuery('update rex_event_date set category_id = event_category_id WHERE event_category_id != ""');
     
         rex_sql_table::get(rex::getTable('event_date'))
         ->removeIndex('uid');
