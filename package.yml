@@ -1,5 +1,5 @@
 package: events
-version: '6.0.0-dev-2025-03-02'
+version: '6.0.0'
 author: 'Alexander Walther'
 supportpage: https://alexplusde.github.io/events/
 
