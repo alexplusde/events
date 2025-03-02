@@ -50,7 +50,7 @@ Im REDAXO-Installer das Addon `events` herunterladen und installieren. Anschlie√
 
 ```php
 <?php
-use FriendsOfRedaxo\Neues\Neues;
+use Alexplusde\Events\Date;
 
 $fragment = new rex_fragment();
 $fragment->setVar('slice_id', 'REX_SLICE_ID');
