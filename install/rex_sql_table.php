@@ -190,16 +190,20 @@ rex_sql_table::get(rex::getTable('event_category_request'))
 // Prüfe, ob Feld uid existierte
 if (rex_sql_table::get(rex::getTable('event_date'))->hasColumn('uid')) {
 
-    @rex_sql::factory()->setQuery('update rex_event_date set uuid = uid() where uid != "" and uuid = ""');
-    @rex_sql::factory()->setQuery('update rex_event_date set category_id = event_category_id');
-
-    rex_sql_table::get(rex::getTable('event_date'))
-    ->removeIndex('uid');
-
-    rex_sql_table::get(rex::getTable('event_date'))
-        ->removeColumn('uid')
-        ->removeColumn('event_category_id')
-        ->ensure();
+    try {
+        @rex_sql::factory()->setQuery('update rex_event_date set uuid = uid() where uid != "" and uuid = ""');
+        @rex_sql::factory()->setQuery('update rex_event_date set category_id = event_category_id');
+    
+        rex_sql_table::get(rex::getTable('event_date'))
+        ->removeIndex('uid');
+    
+        rex_sql_table::get(rex::getTable('event_date'))
+            ->removeColumn('uid')
+            ->removeColumn('event_category_id')
+            ->ensure();
+    } catch (rex_sql_exception $e) {
+        // $e->getMessage();
+    }
 }
 
 rex_sql_table::get(rex::getTable('event_date'))
