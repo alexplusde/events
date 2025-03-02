@@ -6,6 +6,7 @@ rex_sql_table::get(rex::getTable('event_date'))
     ->ensureColumn(new rex_sql_column('teaser', 'text'))
     ->ensureColumn(new rex_sql_column('description', 'text'))
     ->ensureColumn(new rex_sql_column('lang_id', 'int(11)'))
+    ->ensureColumn(new rex_sql_column('event_category_id', 'varchar(191)'))
     ->ensureColumn(new rex_sql_column('category_id', 'varchar(191)'))
     ->ensureColumn(new rex_sql_column('startDate', 'date'))
     ->ensureColumn(new rex_sql_column('all_day', 'tinyint(1)', false, '0'))
@@ -26,6 +27,7 @@ rex_sql_table::get(rex::getTable('event_date'))
     ->ensureColumn(new rex_sql_column('updateuser', 'varchar(191)'))
     ->ensureColumn(new rex_sql_column('updatedate', 'datetime'))
     ->ensureColumn(new rex_sql_column('startDateTime', 'varchar(191)'))
+    ->ensureColumn(new rex_sql_column('uid', 'varchar(36)'))
     ->ensureColumn(new rex_sql_column('uuid', 'varchar(36)'))
     ->ensureColumn(new rex_sql_column('frontend_url', 'varchar(191)'))
     ->ensureColumn(new rex_sql_column('team_id', 'text'))
@@ -189,12 +191,14 @@ rex_sql_table::get(rex::getTable('event_category_request'))
 if (rex_sql_table::get(rex::getTable('event_date'))->hasColumn('uid')) {
 
     @rex_sql::factory()->setQuery('update rex_event_date set uuid = uid() where uid != "" and uuid = ""');
+    @rex_sql::factory()->setQuery('update rex_event_date set category_id = event_category_id');
 
     rex_sql_table::get(rex::getTable('event_date'))
     ->removeIndex('uid');
 
     rex_sql_table::get(rex::getTable('event_date'))
         ->removeColumn('uid')
+        ->removeColumn('event_category_id')
         ->ensure();
 }
 
