@@ -115,7 +115,7 @@ rex_sql_table::get(rex::getTable('event_date_registration_person'))
 
 rex_sql_table::get(rex::getTable('event_location'))
     ->ensurePrimaryIdColumn()
-    ->ensureColumn(new rex_sql_column('google_places', 'text', false, '\'\''))
+    ->ensureColumn(new rex_sql_column('google_places', 'text', false, ''))
     ->ensureColumn(new rex_sql_column('location_category_id', 'int(10) unsigned'))
     ->ensureColumn(new rex_sql_column('name', 'varchar(191)', false, ''))
     ->ensureColumn(new rex_sql_column('street', 'varchar(191)', false, ''))
