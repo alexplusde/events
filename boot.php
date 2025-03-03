@@ -338,5 +338,5 @@ if (rex::isBackend() && \rex_addon::get('events') && \rex_addon::get('events')->
 
 
 
-rex_api_function::register('ics_file', Api\IcsFile::class);
-rex_api_function::register('fullcalendar', Api\Fullcalendar::class);
+\rex_api_function::register('ics_file', Api\IcsFile::class);
+\rex_api_function::register('fullcalendar', Api\Fullcalendar::class);
